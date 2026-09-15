@@ -1,0 +1,296 @@
+<!--ShiftMate FAQ | en | 2026-09-15-->
+<!--Paste this entire fragment into the Blogger page HTML view.-->
+<style>
+  /* Hide Blogger's administrator-facing page title on the public page. */
+  .post-title,
+  .post-title.entry-title,
+  h1.post-title.entry-title,
+  h2.post-title.entry-title,
+  h3.post-title.entry-title {
+    display: none !important;
+  }    
+  
+.shiftmate-faq {
+  --sm-ink: #14152d;
+  --sm-text: #292d39;
+  --sm-muted: #626775;
+  --sm-line: #e1e3e9;
+  --sm-surface: #f6f7fa;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0;
+  color: var(--sm-text);
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.shiftmate-faq:lang(ko) { word-break: keep-all; }
+.shiftmate-faq *, .shiftmate-faq *::before, .shiftmate-faq *::after {
+  box-sizing: border-box;
+}
+.shiftmate-faq h1 {
+  margin: 0 0 16px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  font-size: 1.75em;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.shiftmate-faq h2 {
+  margin: 34px 0 14px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 1.55;
+  scroll-margin-top: 80px;
+}
+.shiftmate-faq p { margin: 0 0 14px; }
+.shiftmate-faq a {
+  color: var(--sm-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.shiftmate-faq a:focus-visible, .shiftmate-faq summary:focus-visible {
+  outline: 3px solid var(--sm-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.shiftmate-faq .sm-faq-toc {
+  margin: 22px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-toc h2 { margin: 0 0 10px; }
+.shiftmate-faq .sm-faq-toc ol { margin: 0; padding-left: 1.5em; }
+.shiftmate-faq .sm-faq-toc li { margin: 0; padding: 0; }
+.shiftmate-faq .sm-faq-toc a { display: block; padding: 5px 0; }
+.shiftmate-faq details {
+  display: block;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 1px solid var(--sm-line);
+  border-radius: 10px;
+  background: #ffffff;
+  scroll-margin-top: 80px;
+}
+.shiftmate-faq summary {
+  display: list-item;
+  min-height: 48px;
+  margin: 0;
+  padding: 14px 16px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  line-height: 1.65;
+  list-style-position: inside;
+  cursor: pointer;
+}
+.shiftmate-faq summary::marker { color: var(--sm-ink); }
+.shiftmate-faq summary strong { font-weight: 600; }
+.shiftmate-faq details[open] summary {
+  border-bottom: 1px solid var(--sm-line);
+}
+.shiftmate-faq .sm-faq-answer { padding: 16px; }
+.shiftmate-faq .sm-faq-answer p:last-child { margin-bottom: 0; }
+.shiftmate-faq .sm-faq-path {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--sm-surface);
+  color: var(--sm-ink);
+  font-weight: 600;
+  white-space: normal;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
+.shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
+.shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-footer {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--sm-line);
+}
+@media (max-width: 480px) {
+  .shiftmate-faq h1 { font-size: 1.5em; }
+  .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq summary { padding: 13px 14px; }
+  .shiftmate-faq .sm-faq-answer { padding: 14px; }
+}
+</style>
+
+<div class="shiftmate-faq" lang="en">
+  <!-- If Blogger already displays this title above the body, remove only the following h1 element. -->
+  <h1>ShiftMate Help & FAQ - Shifts, Alarms, Sharing & Backup</h1>
+  <p>Find answers to common questions about shift settings, alarms, backup, and sharing schedules. Select a question to view the answer.</p>
+  <p class="sm-faq-meta">Menu names may vary slightly depending on the app version and device.</p>
+
+  <nav aria-labelledby="toc" class="sm-faq-toc">
+    <h2 id="toc">Contents</h2>
+    <ol>
+      <li><a href="#work">Shift settings · Sharing · Display</a></li>
+      <li><a href="#alarm">Alarms · Notifications</a></li>
+      <li><a href="#data">Data storage · Backup & restore</a></li>
+      <li><a href="#calendar">Events · Calendar management</a></li>
+      <li><a href="#link">Share link troubleshooting</a></li>
+      <li><a href="#platform">Device compatibility · Multiple devices</a></li>
+      <li><a href="#etc">Coworker management</a></li>
+      <li><a href="#help">Help · Contact</a></li>
+    </ol>
+  </nav>
+
+  <section aria-labelledby="work">
+    <h2 id="work">1) Shift settings · Sharing · Display</h2>
+
+    <details id="faq-shift-types">
+      <summary><strong>Q. The shift I want is not in the list.</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>You can add a new shift in Shift Settings, or edit a shift type you do not use.</strong></p>
+      </div>
+    </details>
+
+    <details id="faq-long-shift-name">
+      <summary><strong>Q. Only the first letter of my shift name is displayed.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>If a long shift name is only partially displayed, go to <span class="sm-faq-path">Settings → Display Settings → Shift Size → Long shift names</span>.</p>
+        <p>Select <strong>“Show more” or “Maximum”</strong> to display more of the shift name.</p>
+      </div>
+    </details>
+
+    <details id="faq-refresh-shared-shifts" open="">
+      <summary><strong>Q. If a coworker edits a shift, will it appear on my screen right away?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>A coworker’s updated shift is saved to the server, and you can <strong>check the latest shifts on the Team screen.</strong></p>
+      </div>
+    </details>
+
+    <details id="faq-display-shared-shifts">
+      <summary><strong>Q. I want to see a family member’s or coworker’s schedule on the Shifts screen.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>First, ask that person to <strong>share their shifts with you.</strong></p>
+        <p>Then go to <span class="sm-faq-path">Settings → Shifts & Time Off</span> and choose the person under <strong>“Schedules to display”</strong> in the <strong>Shifts screen</strong> settings.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <section aria-labelledby="alarm">
+    <h2 id="alarm">2) Alarms · Notifications</h2>
+
+    <details id="faq-mp3-alarm">
+      <summary><strong>Q. Can I use an MP3 file saved on my phone as the alarm sound?</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>This is supported on Android only.</strong> Go to <span class="sm-faq-path">Settings → Alarm → Alarm Sound</span>, tap the <strong>MP3 button</strong>, and select the file you want.</p>
+      </div>
+    </details>
+
+    <details id="faq-iphone-alarm-volume">
+      <summary><strong>Q. The alarm volume is too low on iPhone.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>On your iPhone, go to <span class="sm-faq-path">Settings → Sounds & Haptics</span> and increase the <strong>Ringtone and Alerts</strong> volume. Then check the alarm sound again.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <section aria-labelledby="data">
+    <h2 id="data">3) Data storage · Backup & restore</h2>
+
+    <details id="faq-data-storage">
+      <summary><strong>Q. Where is my data stored?</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>Shifts, notes, time-off/attendance records, and shift-sharing information</strong> are <strong>automatically backed up</strong> to Google Cloud.</p>
+        <p><strong>Events use your phone’s calendar and are not backed up separately by ShiftMate.</strong> Depending on your connected calendar service, events may sync with that calendar account.</p>
+      </div>
+    </details>
+
+    <details id="faq-restore-new-phone">
+      <summary><strong>Q. How do I restore my data after changing phones?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Sign in with the <strong>same account you used before</strong>. Supported <strong>shift, note, time-off/attendance, and shift-sharing data will be restored automatically.</strong></p>
+        <p>For events, check the <strong>connection and sync status of the calendar account</strong> you used before. Events stored only on the old phone may need to be moved separately.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <section aria-labelledby="calendar">
+    <h2 id="calendar">4) Events · Calendar management</h2>
+
+    <details id="faq-hide-calendars">
+      <summary><strong>Q. I want to hide unnecessary events or duplicate holidays, anniversaries, or seasonal dates.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Open the event and check <strong>which calendar it is saved in</strong>. Then go to <span class="sm-faq-path">App Settings → Calendar</span> and deselect that calendar.</p>
+        <p><strong>This does not delete the event.</strong> Events from the deselected calendar will no longer appear in ShiftMate, and other events in that calendar will also be hidden.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <section aria-labelledby="link">
+    <h2 id="link">5) Share link troubleshooting</h2>
+
+    <details id="faq-open-sharing-link">
+      <summary><strong>Q. “Open in app” does not work from a shared link.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>If the link opens <strong>inside another app</strong>, the app connection may not work correctly.</p>
+        <p>Use the page’s <strong>More menu and choose “Open in browser” or a similar option.</strong></p>
+        <p>If that option is unavailable, <strong>copy the link and open it in an external browser such as Chrome or Safari.</strong></p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <section aria-labelledby="platform">
+    <h2 id="platform">6) Device compatibility · Multiple devices</h2>
+
+    <details id="faq-cross-platform-sharing" open="">
+      <summary><strong>Q. Can I share shifts between iPhone and Android phones?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Yes. You can use <strong>shift sharing</strong> regardless of which type of phone you or the other person uses.</p>
+        <p>Shared shifts are available on the <strong>Team screen</strong>. Use <strong>Refresh</strong> to check updated information.</p>
+      </div>
+    </details>
+
+    <details id="faq-multiple-devices">
+      <summary><strong>Q. Can I use ShiftMate on multiple devices, such as a phone and tablet?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>We are preparing <strong>multi-device support</strong> so that data can stay synchronized across devices. Availability and details will be announced later.</p>
+        <p>Backup/restore and multi-device synchronization are separate features.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <section aria-labelledby="etc">
+    <h2 id="etc">7) Coworker management</h2>
+
+    <details id="faq-coworker-groups">
+      <summary><strong>Q. Can I organize coworkers into groups?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Separate coworker groups are not currently supported. Instead, <strong>use colors to distinguish coworkers or family members.</strong></p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <section aria-labelledby="help">
+    <h2 id="help">8) Help · Contact</h2>
+
+    <p>For more detailed instructions, search for <strong>“ShiftMate User Guide”</strong>.</p>
+    <p>If you still need help, contact us at <a href="mailto:ibs.appdev@gmail.com">ibs.appdev@gmail.com</a>.</p>
+    <p>When contacting us, include your <strong>device model, OS version, app version, and a description of the issue</strong>. If you attach screenshots, hide any personal information.</p>
+    <p class="sm-faq-back"><a href="#toc">↑ Back to contents</a></p>
+  </section>
+
+  <footer class="sm-faq-footer">
+    <p class="sm-faq-meta">Last updated: <time datetime="2026-09-15">September 15, 2026</time></p>
+  </footer>
+</div>
