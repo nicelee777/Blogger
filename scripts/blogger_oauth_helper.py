@@ -9,11 +9,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import secrets
+import ssl
+import urllib.error
 import urllib.parse
 import urllib.request
 import webbrowser
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from pathlib import Path
 from typing import Any
 
 AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
@@ -50,11 +54,61 @@ class OAuthCallbackHandler(BaseHTTPRequestHandler):
         return
 
 
+def ssl_context(explicit_ca_file: str | None = None) -> tuple[ssl.SSLContext, str]:
+    """Build a verified TLS context using the best available CA bundle.
+
+    python.org macOS installers can have a Python trust store that is not yet
+    connected to the macOS certificates. Prefer an explicit CA file, certifi,
+    then common system/OpenSSL CA bundles before falling back to Python's
+    default verification paths.
+    """
+    candidates: list[Path] = []
+
+    if explicit_ca_file:
+        candidates.append(Path(explicit_ca_file).expanduser())
+
+    env_ca = os.environ.get("SSL_CERT_FILE", "").strip()
+    if env_ca:
+        candidates.append(Path(env_ca).expanduser())
+
+    try:
+        import certifi  # type: ignore
+
+        candidates.append(Path(certifi.where()))
+    except ImportError:
+        pass
+
+    candidates.extend(
+        [
+            Path("/etc/ssl/cert.pem"),
+            Path("/etc/ssl/certs/ca-certificates.crt"),
+            Path("/opt/homebrew/etc/openssl@3/cert.pem"),
+            Path("/opt/homebrew/etc/openssl/cert.pem"),
+            Path("/usr/local/etc/openssl@3/cert.pem"),
+            Path("/usr/local/etc/openssl/cert.pem"),
+        ]
+    )
+
+    seen: set[str] = set()
+    for candidate in candidates:
+        value = str(candidate)
+        if value in seen or not candidate.is_file():
+            continue
+        seen.add(value)
+        try:
+            return ssl.create_default_context(cafile=value), value
+        except (OSError, ssl.SSLError):
+            continue
+
+    return ssl.create_default_context(), "Python default trust store"
+
+
 def exchange_code(
     client_id: str,
     client_secret: str,
     code: str,
     redirect_uri: str,
+    context: ssl.SSLContext,
 ) -> dict[str, Any]:
     body = urllib.parse.urlencode(
         {
@@ -71,15 +125,34 @@ def exchange_code(
         headers={"Content-Type": "application/x-www-form-urlencoded"},
         method="POST",
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.load(resp)
+    try:
+        with urllib.request.urlopen(req, timeout=30, context=context) as resp:
+            return json.load(resp)
+    except urllib.error.URLError as exc:
+        if isinstance(exc.reason, ssl.SSLCertVerificationError):
+            raise SystemExit(
+                "TLS certificate verification failed while contacting Google.\n"
+                "On python.org macOS Python, run the matching "
+                "'Install Certificates.command' once, or install certifi with:\n\n"
+                "  python3 -m pip install --upgrade certifi\n\n"
+                "Then run this helper again. You can also pass "
+                "--ca-file /path/to/cert.pem."
+            ) from exc
+        raise
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--client-id", required=True)
     parser.add_argument("--client-secret", required=True)
+    parser.add_argument(
+        "--ca-file",
+        help="Optional PEM CA bundle to use for Google's HTTPS token endpoint.",
+    )
     args = parser.parse_args()
+
+    context, ca_source = ssl_context(args.ca_file)
+    print(f"TLS CA source: {ca_source}")
 
     state = secrets.token_urlsafe(24)
 
@@ -126,7 +199,13 @@ def main() -> int:
     if not code:
         raise SystemExit("No authorization code was returned. Please run the helper again.")
 
-    token = exchange_code(args.client_id, args.client_secret, code, redirect_uri)
+    token = exchange_code(
+        args.client_id,
+        args.client_secret,
+        code,
+        redirect_uri,
+        context,
+    )
     refresh = token.get("refresh_token")
     if not refresh:
         raise SystemExit(
