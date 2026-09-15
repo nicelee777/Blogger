@@ -1,0 +1,44 @@
+{
+  "en": {
+    "ShiftMate": "ShiftMate",
+    "근무 크기": "Shift Size",
+    "긴 근무명 표시": "Long shift names",
+    "더 보기": "Show more",
+    "최대한 보기": "Maximum"
+  },
+  "ja": {
+    "ShiftMate": "ShiftMate",
+    "근무 크기": "勤務サイズ",
+    "긴 근무명 표시": "長い勤務名の表示",
+    "더 보기": "もっと表示",
+    "최대한 보기": "できるだけ表示"
+  },
+  "zh-cn": {
+    "ShiftMate": "ShiftMate",
+    "근무 크기": "班次大小",
+    "긴 근무명 표시": "长班次名称显示",
+    "더 보기": "显示更多",
+    "최대한 보기": "尽量显示"
+  },
+  "zh-tw": {
+    "ShiftMate": "ShiftMate",
+    "근무 크기": "班次大小",
+    "긴 근무명 표시": "長班次名稱顯示",
+    "더 보기": "顯示更多",
+    "최대한 보기": "盡量顯示"
+  },
+  "es": {
+    "ShiftMate": "ShiftMate",
+    "근무 크기": "Tamaño del turno",
+    "긴 근무명 표시": "Nombres de turno largos",
+    "더 보기": "Mostrar más",
+    "최대한 보기": "Máximo"
+  },
+  "vi": {
+    "ShiftMate": "ShiftMate",
+    "근무 크기": "Kích thước ca",
+    "긴 근무명 표시": "Tên ca dài",
+    "더 보기": "Hiển thị thêm",
+    "최대한 보기": "Tối đa"
+  }
+}
