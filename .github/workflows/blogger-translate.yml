@@ -1,0 +1,60 @@
+name: Blogger - Translate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [develop]
+    paths:
+      - 'blogger/faq/ko.html'
+      - 'blogger/posts/**/ko.html'
+      - 'blogger/posts/**/meta.json'
+      - 'blogger/config.json'
+      - 'blogger/glossary.json'
+      - 'scripts/blogger_translate.py'
+      - 'scripts/blogger_translate_posts.py'
+      - 'scripts/blogger_validate.py'
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_TRANSLATION_MODEL: gpt-5.6-luna
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate Korean FAQ source
+        run: python scripts/blogger_validate.py blogger/faq/ko.html
+
+      - name: Translate FAQ and managed posts
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${OPENAI_API_KEY}" ]]; then
+            echo "::notice::OPENAI_API_KEY is not configured. Translation skipped."
+            exit 0
+          fi
+          python scripts/blogger_translate.py
+          python scripts/blogger_translate_posts.py
+          python scripts/blogger_validate.py blogger/faq/*.html
+
+          if git diff --quiet -- blogger; then
+            echo "No translation changes."
+            exit 0
+          fi
+
+          git config user.name "shiftmate-blogger-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blogger/faq blogger/posts
+          git commit -m "chore(blogger): update localized content"
+          git push origin HEAD:develop
