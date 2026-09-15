@@ -30,25 +30,26 @@ The automation requests only this Blogger scope:
 
 `https://www.googleapis.com/auth/blogger`
 
-On your own computer, clone this repository and run:
+On your own computer, update/clone this repository and run:
 
 ```bash
 git clone https://github.com/nicelee777/Blogger.git
 cd Blogger
+git pull
 python3 scripts/blogger_oauth_helper.py \
   --client-id 'YOUR_CLIENT_ID' \
   --client-secret 'YOUR_CLIENT_SECRET'
 ```
 
-Approve the Google consent screen, then paste the full redirected localhost URL back into the terminal when prompted.
+The helper starts a temporary local server on `127.0.0.1:<random-port>` and opens Google authorization in your browser. After approval, Google returns the code directly to the helper. You do **not** need to copy a localhost URL back to the terminal.
 
-The helper prints these values:
+A successful browser page says **Authorization complete**. Return to the terminal, where the helper prints these values:
 
 - `BLOGGER_CLIENT_ID`
 - `BLOGGER_CLIENT_SECRET`
 - `BLOGGER_REFRESH_TOKEN`
 
-Add all three to repository Actions secrets. Never commit them.
+Add all three to repository Actions secrets. Never commit or share them.
 
 ## 3. Repository Actions secrets
 
