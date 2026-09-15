@@ -1,0 +1,296 @@
+<!--ShiftMate FAQ | ja | 2026-09-15-->
+<!--Paste this entire fragment into the Blogger page HTML view.-->
+<style>
+  /* Hide Blogger's administrator-facing page title on the public page. */
+  .post-title,
+  .post-title.entry-title,
+  h1.post-title.entry-title,
+  h2.post-title.entry-title,
+  h3.post-title.entry-title {
+    display: none !important;
+  }    
+  
+.shiftmate-faq {
+  --sm-ink: #14152d;
+  --sm-text: #292d39;
+  --sm-muted: #626775;
+  --sm-line: #e1e3e9;
+  --sm-surface: #f6f7fa;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0;
+  color: var(--sm-text);
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.shiftmate-faq:lang(ko) { word-break: keep-all; }
+.shiftmate-faq *, .shiftmate-faq *::before, .shiftmate-faq *::after {
+  box-sizing: border-box;
+}
+.shiftmate-faq h1 {
+  margin: 0 0 16px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  font-size: 1.75em;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.shiftmate-faq h2 {
+  margin: 34px 0 14px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 1.55;
+  scroll-margin-top: 80px;
+}
+.shiftmate-faq p { margin: 0 0 14px; }
+.shiftmate-faq a {
+  color: var(--sm-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.shiftmate-faq a:focus-visible, .shiftmate-faq summary:focus-visible {
+  outline: 3px solid var(--sm-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.shiftmate-faq .sm-faq-toc {
+  margin: 22px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-toc h2 { margin: 0 0 10px; }
+.shiftmate-faq .sm-faq-toc ol { margin: 0; padding-left: 1.5em; }
+.shiftmate-faq .sm-faq-toc li { margin: 0; padding: 0; }
+.shiftmate-faq .sm-faq-toc a { display: block; padding: 5px 0; }
+.shiftmate-faq details {
+  display: block;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 1px solid var(--sm-line);
+  border-radius: 10px;
+  background: #ffffff;
+  scroll-margin-top: 80px;
+}
+.shiftmate-faq summary {
+  display: list-item;
+  min-height: 48px;
+  margin: 0;
+  padding: 14px 16px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  line-height: 1.65;
+  list-style-position: inside;
+  cursor: pointer;
+}
+.shiftmate-faq summary::marker { color: var(--sm-ink); }
+.shiftmate-faq summary strong { font-weight: 600; }
+.shiftmate-faq details[open] summary {
+  border-bottom: 1px solid var(--sm-line);
+}
+.shiftmate-faq .sm-faq-answer { padding: 16px; }
+.shiftmate-faq .sm-faq-answer p:last-child { margin-bottom: 0; }
+.shiftmate-faq .sm-faq-path {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--sm-surface);
+  color: var(--sm-ink);
+  font-weight: 600;
+  white-space: normal;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
+.shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
+.shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-footer {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--sm-line);
+}
+@media (max-width: 480px) {
+  .shiftmate-faq h1 { font-size: 1.5em; }
+  .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq summary { padding: 13px 14px; }
+  .shiftmate-faq .sm-faq-answer { padding: 14px; }
+}
+</style>
+
+<div class="shiftmate-faq" lang="ja">
+  <!-- If Blogger already displays this title above the body, remove only the following h1 element. -->
+  <h1>ShiftMate 使い方・よくある質問 - 勤務表・アラーム・共有・バックアップ</h1>
+  <p>勤務設定、アラーム、バックアップ、勤務共有について、よくある質問をまとめました。質問をタップすると回答を確認できます。</p>
+  <p class="sm-faq-meta">アプリのバージョンや端末環境により、メニュー名が多少異なる場合があります。</p>
+
+  <nav aria-labelledby="toc" class="sm-faq-toc">
+    <h2 id="toc">目次</h2>
+    <ol>
+      <li><a href="#work">勤務設定 · 共有 · 表示</a></li>
+      <li><a href="#alarm">アラーム · 通知</a></li>
+      <li><a href="#data">データ保存 · バックアップと復元</a></li>
+      <li><a href="#calendar">予定 · カレンダー管理</a></li>
+      <li><a href="#link">共有リンクのトラブルシューティング</a></li>
+      <li><a href="#platform">端末互換性 · 複数端末での利用</a></li>
+      <li><a href="#etc">同僚管理</a></li>
+      <li><a href="#help">ヘルプ · お問い合わせ</a></li>
+    </ol>
+  </nav>
+
+  <section aria-labelledby="work">
+    <h2 id="work">1) 勤務設定 · 共有 · 表示</h2>
+
+    <details id="faq-shift-types">
+      <summary><strong>Q. 必要な勤務が一覧にありません。</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>勤務設定で新しい勤務を追加するか、使用していない勤務を編集して利用できます。</strong></p>
+      </div>
+    </details>
+
+    <details id="faq-long-shift-name">
+      <summary><strong>Q. 勤務名が最初の1文字しか表示されません。</strong></summary>
+      <div class="sm-faq-answer">
+        <p>長い勤務名が一部しか表示されない場合は、<span class="sm-faq-path">設定 → 画面設定 → 勤務サイズ → 長い勤務名の表示</span>に移動してください。</p>
+        <p><strong>「もっと表示」または「できるだけ表示」</strong>を選択すると、勤務名をより多く表示できます。</p>
+      </div>
+    </details>
+
+    <details id="faq-refresh-shared-shifts" open="">
+      <summary><strong>Q. 同僚が勤務を変更すると、自分の画面にもすぐ反映されますか？</strong></summary>
+      <div class="sm-faq-answer">
+        <p>同僚が変更した勤務はサーバーに保存され、<strong>同僚画面で最新の勤務を確認できます。</strong></p>
+      </div>
+    </details>
+
+    <details id="faq-display-shared-shifts">
+      <summary><strong>Q. 勤務画面で家族や同僚の勤務表を表示したいです。</strong></summary>
+      <div class="sm-faq-answer">
+        <p>まず、その人から<strong>勤務を共有してもらってください。</strong></p>
+        <p>その後、<span class="sm-faq-path">設定 → 勤務・服務</span>へ移動し、<strong>「勤務画面」の「表示する勤務表」</strong>で対象を選択してください。</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <section aria-labelledby="alarm">
+    <h2 id="alarm">2) アラーム · 通知</h2>
+
+    <details id="faq-mp3-alarm">
+      <summary><strong>Q. スマートフォンに保存したMP3ファイルをアラーム音に使えますか？</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>Androidのみ対応しています。</strong><span class="sm-faq-path">設定 → アラーム → アラーム音</span>で<strong>MP3ボタン</strong>をタップし、使用するファイルを選択してください。</p>
+      </div>
+    </details>
+
+    <details id="faq-iphone-alarm-volume">
+      <summary><strong>Q. iPhoneでアラーム音が小さいです。</strong></summary>
+      <div class="sm-faq-answer">
+        <p>iPhoneの<span class="sm-faq-path">設定 → サウンドと触覚</span>で<strong>着信音と通知音</strong>の音量を上げてください。調整後、もう一度アラーム音を確認してください。</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <section aria-labelledby="data">
+    <h2 id="data">3) データ保存 · バックアップと復元</h2>
+
+    <details id="faq-data-storage">
+      <summary><strong>Q. データはどこに保存されますか？</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>勤務・メモ・服務・勤務共有情報</strong>はGoogle Cloudに<strong>自動バックアップ</strong>されます。</p>
+        <p><strong>予定はスマートフォンのカレンダーを使用し、ShiftMateでは別途バックアップしません。</strong>接続しているカレンダーサービスの設定によっては、そのアカウントに予定が同期される場合があります。</p>
+      </div>
+    </details>
+
+    <details id="faq-restore-new-phone">
+      <summary><strong>Q. 新しいスマートフォンに変えた場合、データはどう復元しますか？</strong></summary>
+      <div class="sm-faq-answer">
+        <p>以前と<strong>同じアカウントでログイン</strong>すると、そのアカウントにバックアップされた<strong>勤務・メモ・服務・勤務共有情報が自動的に復元されます。</strong></p>
+        <p>予定については、以前使用していた<strong>カレンダーアカウントの接続・同期状態</strong>を確認してください。端末内だけに保存された予定は別途移行が必要な場合があります。</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <section aria-labelledby="calendar">
+    <h2 id="calendar">4) 予定 · カレンダー管理</h2>
+
+    <details id="faq-hide-calendars">
+      <summary><strong>Q. 不要な予定や重複した祝日・記念日・節気を非表示にしたいです。</strong></summary>
+      <div class="sm-faq-answer">
+        <p>該当する予定を開き、<strong>どのカレンダーに保存されているか</strong>を確認してください。その後、<span class="sm-faq-path">アプリ設定 → カレンダー</span>でそのカレンダーの選択を解除します。</p>
+        <p><strong>予定自体は削除されません。</strong>選択を解除したカレンダーの予定はアプリに表示されなくなり、そのカレンダー内の他の予定も一緒に非表示になります。</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <section aria-labelledby="link">
+    <h2 id="link">5) 共有リンクのトラブルシューティング</h2>
+
+    <details id="faq-open-sharing-link">
+      <summary><strong>Q. 共有リンクの「アプリで開く」が動作しません。</strong></summary>
+      <div class="sm-faq-answer">
+        <p>リンクが<strong>別のアプリ内で開かれている場合</strong>、アプリとの連携が正常に動作しないことがあります。</p>
+        <p>画面の<strong>その他メニューから「ブラウザで開く」または同様の項目</strong>を選択してください。</p>
+        <p>その項目がない場合は、<strong>リンクをコピーしてChromeやSafariなどの外部ブラウザで開いてください。</strong></p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <section aria-labelledby="platform">
+    <h2 id="platform">6) 端末互換性 · 複数端末での利用</h2>
+
+    <details id="faq-cross-platform-sharing" open="">
+      <summary><strong>Q. iPhoneとAndroidスマートフォンの間で勤務を共有できますか？</strong></summary>
+      <div class="sm-faq-answer">
+        <p>はい。使用しているスマートフォンの種類に関係なく、<strong>勤務共有機能</strong>を利用できます。</p>
+        <p>共有された勤務は<strong>同僚勤務画面</strong>で確認できます。変更内容は<strong>更新</strong>して確認してください。</p>
+      </div>
+    </details>
+
+    <details id="faq-multiple-devices">
+      <summary><strong>Q. スマートフォンとタブレットなど、複数の端末で利用できますか？</strong></summary>
+      <div class="sm-faq-answer">
+        <p>複数端末でデータを同期して利用できるよう、<strong>マルチデバイス対応を準備しています。</strong>対応時期や詳細は今後のお知らせでご案内します。</p>
+        <p>データのバックアップ・復元と複数端末の同期は別の機能です。</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <section aria-labelledby="etc">
+    <h2 id="etc">7) 同僚管理</h2>
+
+    <details id="faq-coworker-groups">
+      <summary><strong>Q. 同僚をグループ分けして管理できますか？</strong></summary>
+      <div class="sm-faq-answer">
+        <p>現在、独立したグループ機能には対応していません。代わりに、<strong>色分けを使って同僚や家族の勤務を区別できます。</strong></p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <section aria-labelledby="help">
+    <h2 id="help">8) ヘルプ · お問い合わせ</h2>
+
+    <p>詳しい使い方は<strong>「ShiftMate 使い方」</strong>で検索してください。</p>
+    <p>解決しない場合は、<a href="mailto:ibs.appdev@gmail.com">ibs.appdev@gmail.com</a>までお問い合わせください。</p>
+    <p>お問い合わせの際は、<strong>端末モデル、OSバージョン、アプリバージョン、問題の状況</strong>をお知らせください。スクリーンショットを添付する場合は、個人情報を隠してください。</p>
+    <p class="sm-faq-back"><a href="#toc">↑ 目次へ</a></p>
+  </section>
+
+  <footer class="sm-faq-footer">
+    <p class="sm-faq-meta">最終更新日：<time datetime="2026-09-15">2026年9月15日</time></p>
+  </footer>
+</div>
