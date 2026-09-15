@@ -1,0 +1,79 @@
+name: Blogger - Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Resolve targets without changing Blogger'
+        required: false
+        default: true
+        type: boolean
+  pull_request:
+    branches: [develop, main]
+    paths:
+      - 'blogger/**'
+      - 'scripts/blogger_*.py'
+      - '.github/workflows/blogger-publish.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'blogger/**'
+      - 'scripts/blogger_sync.py'
+      - 'scripts/blogger_validate.py'
+      - '.github/workflows/blogger-publish.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+      BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+      BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Require all FAQ locales
+        shell: bash
+        run: |
+          set -euo pipefail
+          for locale in ko en ja zh-cn zh-tw es vi; do
+            test -f "blogger/faq/${locale}.html" || { echo "Missing blogger/faq/${locale}.html"; exit 1; }
+          done
+
+      - name: Validate FAQ HTML
+        run: python scripts/blogger_validate.py blogger/faq/*.html
+
+      - name: Check Blogger credentials
+        if: github.event_name != 'pull_request'
+        id: creds
+        shell: bash
+        run: |
+          if [[ -z "${BLOGGER_CLIENT_ID}" || -z "${BLOGGER_CLIENT_SECRET}" || -z "${BLOGGER_REFRESH_TOKEN}" ]]; then
+            echo "::notice::Blogger OAuth secrets are not configured. Publish skipped."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Blogger dry run
+        if: >-
+          github.event_name == 'workflow_dispatch' &&
+          steps.creds.outputs.ready == 'true' &&
+          inputs.dry_run
+        run: python scripts/blogger_sync.py all --dry-run
+
+      - name: Publish to Blogger
+        if: >-
+          steps.creds.outputs.ready == 'true' &&
+          (
+            github.event_name == 'push' ||
+            (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
+          )
+        run: python scripts/blogger_sync.py all
