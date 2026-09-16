@@ -2,32 +2,45 @@
 
 GitHub is the source of truth for ShiftMate Blogger content. Blogger is the publishing target.
 
+## Content model
+
+ShiftMate Blogger uses two content models:
+
+```text
+FAQ     -> Blogger Page (same page is updated repeatedly)
+Guide   -> Blogger Page (same page is updated repeatedly)
+Notice  -> Blogger Post (new item per notice)
+Story   -> Blogger Post (new item per story)
+```
+
+This keeps long-lived help content stable while allowing news/editorial content to accumulate as individual posts.
+
 ## Branch policy
 
-- `develop`: edit, validate, translate, review
+- `develop`: edit, validate, translate, and verify Blogger mappings
 - `main`: publish reviewed content to Blogger
-- pull requests touching Blogger content/scripts run validation only and never publish
+- `Blogger - Verify` on `develop` is read-only and never writes to Blogger
+- pull-request validation never publishes
 
-## FAQ
+## Managed Pages: FAQ and Guide
 
-Korean is the source of truth:
+Korean is the source of truth.
+
+FAQ:
 
 ```text
 blogger/faq/ko.html
 ```
 
-Generated locales:
+Guide:
 
 ```text
-blogger/faq/en.html
-blogger/faq/ja.html
-blogger/faq/zh-cn.html
-blogger/faq/zh-tw.html
-blogger/faq/es.html
-blogger/faq/vi.html
+blogger/guide/ko.html
 ```
 
-Existing Blogger FAQ pages are resolved by URL path, not by hard-coded page IDs:
+Other locale files are generated from the Korean source.
+
+### FAQ Page paths
 
 - EN `/p/faq.html`
 - KO `/p/faq-ko.html`
@@ -37,22 +50,98 @@ Existing Blogger FAQ pages are resolved by URL path, not by hard-coded page IDs:
 - ES `/p/faq-es.html`
 - VI `/p/faq-vi.html`
 
-`blogger/glossary.json` stores app UI terms that must remain consistent with the localized ShiftMate UI. When this glossary changes on `develop`, the translation workflow runs again.
+### Guide Page paths
 
-The FAQ validator checks each localized file independently and also compares stable IDs, ID order, and CSS against the Korean source.
+- EN `/p/guide.html`
+- KO `/p/guide-ko.html`
+- JA `/p/guide-ja.html`
+- ZH-CN `/p/guide-cn.html`
+- ZH-TW `/p/guide-tw.html`
+- ES `/p/guide-es.html`
+- VI `/p/guide-vi.html`
 
-## Notice / Story / Guide
+Page targets are resolved by URL path instead of hard-coded Blogger Page IDs.
 
-Managed post content lives under `blogger/posts/<category>/<slug>/`.
-See `blogger/posts/README.md` for the format.
+Guide publishing is intentionally disabled until `blogger/guide/ko.html` exists. This prevents the existing live Guide Pages from being overwritten before their GitHub source has been prepared.
 
-The automation adds a hidden stable marker to each managed Blogger post. This makes publishing idempotent: re-running updates the same localized post instead of creating duplicates.
+`blogger/glossary.json` stores app UI terminology that must remain consistent across localized content.
 
-Managed posts are discovered across Blogger `live`, `draft`, and `scheduled` states. Changing `publish` in `meta.json` reconciles an existing post to the desired live/draft state instead of creating another copy.
+## Managed Posts: Notice and Story
+
+Managed Posts live under:
+
+```text
+blogger/posts/notice/<slug>/
+blogger/posts/story/<slug>/
+```
+
+Each item contains `meta.json`, Korean `ko.html`, generated locale HTML files, and generated `titles.json`.
+
+The automation adds a hidden stable marker to each managed Post so re-running updates the same localized Post instead of creating duplicates. Existing managed Posts are discovered across live, draft, and scheduled states.
+
+See `blogger/posts/README.md` for the item format.
+
+## Translation behavior
+
+`Blogger - Translate` runs on `develop` when Korean source content changes.
+
+- FAQ -> translated as an FAQ Page
+- Guide -> translated as a long-form Guide Page
+- Notice/Story -> translated as Posts
+- IDs, CSS, URLs, media source URLs, element order, and protected attributes remain unchanged
+- visible text, image alt text, iframe/video titles, and accessibility labels are localized
+
+## Validation
+
+FAQ validation checks stable IDs, internal links, CSS, language markers, and FAQ structure.
+
+Guide validation checks duplicate IDs, internal links, aria references, CSS consistency, media URL/order consistency, and locale root language markers.
+
+Run locally:
+
+```bash
+python scripts/blogger_validate.py blogger/faq/*.html
+
+# after Guide source/locales exist
+python scripts/blogger_validate_guide.py blogger/guide/*.html
+```
+
+## Read-only Blogger verification
+
+`Blogger - Verify` runs on `develop` and performs:
+
+```text
+repository validation
+-> Blogger target discovery
+-> managed Page dry-run
+-> managed Post dry-run
+```
+
+It never writes to Blogger.
+
+Local equivalent:
+
+```bash
+python scripts/blogger_sync.py discover
+python scripts/blogger_sync.py pages --dry-run
+python scripts/blogger_sync.py posts --dry-run
+```
+
+## Publishing
+
+`Blogger - Publish` on `main` updates managed Pages and creates/updates managed Posts.
+
+Before a manual production publish, use:
+
+```text
+dry_run = true
+```
+
+Then use `dry_run = false` only after mappings are correct.
 
 ## Required GitHub Actions secrets
 
-Repository → **Settings → Secrets and variables → Actions**
+Repository -> **Settings -> Secrets and variables -> Actions**
 
 - `OPENAI_API_KEY`
 - `BLOGGER_CLIENT_ID`
@@ -61,78 +150,24 @@ Repository → **Settings → Secrets and variables → Actions**
 
 Never commit these values.
 
-The translation model defaults to `gpt-5.6-luna`. It can be overridden locally using `OPENAI_TRANSLATION_MODEL`.
+## Normal workflow
 
-## One-time Blogger OAuth setup
+FAQ or Guide:
 
-1. In Google Cloud Console, enable **Blogger API v3**.
-2. Create an OAuth 2.0 **Desktop app** client.
-3. Run on your own computer:
-
-```bash
-python scripts/blogger_oauth_helper.py \
-  --client-id 'YOUR_CLIENT_ID' \
-  --client-secret 'YOUR_CLIENT_SECRET'
-```
-
-4. Approve access to Blogger.
-5. Paste the full redirected localhost URL into the terminal.
-6. Save the printed values as the three Blogger GitHub Actions secrets above.
-
-OAuth scope:
-
-```text
-https://www.googleapis.com/auth/blogger
-```
-
-## First safe test
-
-After the secrets are configured, run the GitHub Actions workflow **Blogger - Publish** manually with `dry_run=true`.
-
-This resolves the target blog/pages and reports what would be changed, but does not update Blogger.
-
-After checking the output, run with `dry_run=false` or merge reviewed Blogger changes to `main`.
-
-## Local validation
-
-```bash
-python scripts/blogger_validate.py blogger/faq/*.html
-```
-
-## Local FAQ translation
-
-```bash
-export OPENAI_API_KEY='...'
-python scripts/blogger_translate.py
-python scripts/blogger_validate.py blogger/faq/*.html
-```
-
-## Local Blogger checks
-
-After exporting the Blogger OAuth variables:
-
-```bash
-python scripts/blogger_sync.py discover
-python scripts/blogger_sync.py faq --dry-run
-python scripts/blogger_sync.py posts --dry-run
-```
-
-## Normal future workflow
-
-FAQ:
-
-1. Edit only `blogger/faq/ko.html` on `develop`.
+1. Edit the Korean source on `develop`.
 2. Push to `develop`.
-3. GitHub Actions translates the other six languages and validates structure.
-4. Review generated files.
-5. Merge to `main`.
-6. GitHub Actions updates all seven Blogger FAQ pages.
+3. GitHub Actions translates the other six locales.
+4. Validation and read-only Blogger verification run.
+5. Review generated files.
+6. Merge to `main`.
+7. The existing seven Blogger Pages are updated.
 
-Notice / Story / Guide:
+Notice or Story:
 
-1. Add `meta.json` + `ko.html` under the appropriate item folder.
+1. Create a new item folder with `meta.json` + `ko.html`.
 2. Push to `develop`.
-3. GitHub Actions translates title/body to all supported locales.
-4. Review generated files.
-5. Merge to `main`.
-6. GitHub Actions creates or updates the localized Blogger posts with the correct category/language labels and desired publish state.
+3. GitHub Actions translates title/body to the six other locales.
+4. Review generated content.
+5. Set the desired `publish` state in `meta.json`.
+6. Merge to `main`.
+7. Blogger creates or updates the seven localized Posts with category/language labels.

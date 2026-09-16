@@ -1,16 +1,31 @@
 {
-  "automation_version": 1,
+  "automation_version": 2,
   "blog_url": "https://shiftmate.interrobangsoft.com/",
   "source_locale": "ko",
   "translation_model": "gpt-5.6-luna",
-  "locales": {
-    "ko": {"html_lang":"ko","name":"한국어","language_label":"lang-ko","faq_path":"/p/faq-ko.html"},
-    "en": {"html_lang":"en","name":"English","language_label":"lang","faq_path":"/p/faq.html"},
-    "ja": {"html_lang":"ja","name":"日本語","language_label":"lang-ja","faq_path":"/p/faq-ja.html"},
-    "zh-cn": {"html_lang":"zh-CN","name":"简体中文","language_label":"lang-zh-cn","faq_path":"/p/faq-cn.html"},
-    "zh-tw": {"html_lang":"zh-TW","name":"繁體中文","language_label":"lang-zh-tw","faq_path":"/p/faq-tw.html"},
-    "es": {"html_lang":"es","name":"Español","language_label":"lang-es","faq_path":"/p/faq-es.html"},
-    "vi": {"html_lang":"vi","name":"Tiếng Việt","language_label":"lang-vi","faq_path":"/p/faq-vi.html"}
+  "page_types": {
+    "faq": {
+      "directory": "blogger/faq",
+      "path_key": "faq_path",
+      "required": true
+    },
+    "guide": {
+      "directory": "blogger/guide",
+      "path_key": "guide_path",
+      "required": false
+    }
   },
-  "post_categories": {"notice":"notice","story":"story","guide":"guide"}
+  "locales": {
+    "ko": {"html_lang":"ko","name":"한국어","language_label":"lang-ko","faq_path":"/p/faq-ko.html","guide_path":"/p/guide-ko.html"},
+    "en": {"html_lang":"en","name":"English","language_label":"lang","faq_path":"/p/faq.html","guide_path":"/p/guide.html"},
+    "ja": {"html_lang":"ja","name":"日本語","language_label":"lang-ja","faq_path":"/p/faq-ja.html","guide_path":"/p/guide-ja.html"},
+    "zh-cn": {"html_lang":"zh-CN","name":"简体中文","language_label":"lang-zh-cn","faq_path":"/p/faq-cn.html","guide_path":"/p/guide-cn.html"},
+    "zh-tw": {"html_lang":"zh-TW","name":"繁體中文","language_label":"lang-zh-tw","faq_path":"/p/faq-tw.html","guide_path":"/p/guide-tw.html"},
+    "es": {"html_lang":"es","name":"Español","language_label":"lang-es","faq_path":"/p/faq-es.html","guide_path":"/p/guide-es.html"},
+    "vi": {"html_lang":"vi","name":"Tiếng Việt","language_label":"lang-vi","faq_path":"/p/faq-vi.html","guide_path":"/p/guide-vi.html"}
+  },
+  "post_categories": {
+    "notice": "notice",
+    "story": "story"
+  }
 }
