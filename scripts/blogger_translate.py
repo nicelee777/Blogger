@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Translate ShiftMate Blogger HTML with the OpenAI Responses API."""
+"""Translate ShiftMate Blogger Page HTML with the OpenAI Responses API."""
 from __future__ import annotations
 
 import argparse
@@ -24,7 +24,9 @@ class SignatureParser(HTMLParser):
         self.signature: list[tuple[str, str, tuple[tuple[str, str], ...]]] = []
 
     @staticmethod
-    def protected_attrs(attrs: list[tuple[str, str | None]]) -> tuple[tuple[str, str], ...]:
+    def protected_attrs(
+        attrs: list[tuple[str, str | None]],
+    ) -> tuple[tuple[str, str], ...]:
         return tuple(
             sorted(
                 (key, value or "")
@@ -36,7 +38,9 @@ class SignatureParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         self.signature.append(("start", tag, self.protected_attrs(attrs)))
 
-    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+    def handle_startendtag(
+        self, tag: str, attrs: list[tuple[str, str | None]]
+    ) -> None:
         self.signature.append(("empty", tag, self.protected_attrs(attrs)))
 
     def handle_endtag(self, tag: str) -> None:
@@ -83,22 +87,47 @@ def call_openai(
     locale: str,
     language_name: str,
     html_lang: str,
+    content_type: str = "faq",
+    extra_instruction: str = "",
 ) -> str:
     glossary = load_glossary(locale)
     glossary_text = (
-        json.dumps(glossary, ensure_ascii=False, indent=2)
-        if glossary
-        else "{}"
+        json.dumps(glossary, ensure_ascii=False, indent=2) if glossary else "{}"
     )
+
+    type_rules = {
+        "faq": (
+            "This content is an FAQ Page. Do not add, remove, reorder, merge, or split "
+            "FAQ items, sections, links, tags, comments, or attributes."
+        ),
+        "guide": (
+            "This content is a long-form User Guide Page. Do not add, remove, reorder, "
+            "merge, or split sections, media embeds, links, tags, comments, or attributes."
+        ),
+        "post": (
+            "This content is a Blogger Post. Do not add, remove, reorder, merge, or split "
+            "sections, media embeds, links, tags, comments, or attributes."
+        ),
+    }
+    if content_type not in type_rules:
+        raise ValueError(f"unsupported translation content type: {content_type}")
+
+    root_rule = (
+        f'If the document root has a lang attribute, set it to "{html_lang}". '
+        "Do not change other protected attributes."
+    )
+    retry_rule = f"\n9. {extra_instruction}" if extra_instruction else ""
+
     instructions = f'''You are the localization engine for ShiftMate, a shift-calendar app. Translate the supplied Blogger HTML from Korean into {language_name} ({locale}). Return ONLY the complete translated HTML, without Markdown fences or commentary.
 STRICT RULES:
-1. Translate only user-visible prose and localizable accessibility text. Preserve HTML tag order and nesting.
-2. Never change URLs, email addresses, CSS, id, class, href, datetime, src, data-* attributes, aria-labelledby, or element order.
-3. Do not add or remove FAQ items, sections, links, tags, comments, or attributes.
-4. Keep product name ShiftMate and technical names such as Android, iPhone, Google Cloud, Chrome, Safari, MP3.
+1. Translate only user-visible prose and localizable accessibility text. Preserve HTML tag order and nesting exactly.
+2. Never change URLs, email addresses, CSS, id, class, href, datetime, src, data-* attributes, aria-labelledby, iframe/video source URLs, or element order.
+3. {type_rules[content_type]}
+4. Keep product name ShiftMate and technical names such as Android, iPhone, Google Cloud, Chrome, Safari, YouTube, MP3.
 5. Use the glossary below EXACTLY when the Korean source term applies. Do not paraphrase glossary UI labels.
-6. On the root element with class shiftmate-faq, set lang="{html_lang}". Do not change other protected attributes.
-7. Preserve the meaning and emphasis (<strong>) of the source exactly.
+6. {root_rule}
+7. Preserve every existing formatting tag such as <strong>, <em>, <span>, <br>, <details>, and <summary> in exactly the same position. Never add formatting tags.
+8. Translate image alt text, iframe/video titles, title attributes, and aria-label text naturally for accessibility.{retry_rule}
 
 GLOSSARY (Korean -> {language_name}):
 {glossary_text}'''
@@ -142,11 +171,62 @@ def assert_structure(source: str, translated: str) -> None:
         raise ValueError("translated HTML changed CSS/style content")
 
 
+def translate_preserving_structure(
+    api_key: str,
+    model: str,
+    source: str,
+    locale: str,
+    language_name: str,
+    html_lang: str,
+    *,
+    content_type: str,
+    attempts: int = 3,
+) -> str:
+    """Translate and automatically retry when the model changes HTML structure."""
+    last_error: Exception | None = None
+    for attempt in range(1, attempts + 1):
+        extra = ""
+        if attempt > 1:
+            extra = (
+                "RETRY AFTER STRUCTURE VALIDATION FAILURE: reproduce the source HTML skeleton "
+                "character-for-character in tag sequence and protected attributes. Change only "
+                "text nodes and the permitted localizable attributes (lang, alt, title, aria-label). "
+                "Do not add, remove, move, or wrap any element."
+            )
+        translated = call_openai(
+            api_key,
+            model,
+            source,
+            locale,
+            language_name,
+            html_lang,
+            content_type=content_type,
+            extra_instruction=extra,
+        )
+        try:
+            assert_structure(source, translated)
+            if attempt > 1:
+                print(f"  structure-safe translation succeeded on attempt {attempt}")
+            return translated
+        except ValueError as exc:
+            last_error = exc
+            print(
+                f"  structure validation failed for {locale} "
+                f"(attempt {attempt}/{attempts}); retrying...",
+                file=sys.stderr,
+            )
+    raise ValueError(
+        f"translation for {locale} failed structure validation after {attempts} attempts: "
+        f"{last_error}"
+    )
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", type=Path, default=Path("blogger/config.json"))
-    ap.add_argument("--source", type=Path, default=Path("blogger/faq/ko.html"))
-    ap.add_argument("--out-dir", type=Path, default=Path("blogger/faq"))
+    ap.add_argument("--content-type", choices=["faq", "guide"], default="faq")
+    ap.add_argument("--source", type=Path)
+    ap.add_argument("--out-dir", type=Path)
     ap.add_argument("--targets", nargs="*")
     args = ap.parse_args()
 
@@ -162,28 +242,38 @@ def main() -> int:
         "OPENAI_TRANSLATION_MODEL",
         config.get("translation_model", "gpt-5.6-luna"),
     )
+
+    page_cfg = config.get("page_types", {}).get(args.content_type, {})
+    default_dir = Path(page_cfg.get("directory", f"blogger/{args.content_type}"))
+    source_path = args.source or (default_dir / f"{source_locale}.html")
+    out_dir = args.out_dir or default_dir
+
+    if not source_path.exists():
+        print(f"Source page not found; skipping translation: {source_path}")
+        return 0
+
     targets = args.targets or [key for key in locales if key != source_locale]
-    source = args.source.read_text(encoding="utf-8")
-    args.out_dir.mkdir(parents=True, exist_ok=True)
+    source = source_path.read_text(encoding="utf-8")
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     for locale in targets:
         if locale not in locales:
             raise SystemExit(f"Unknown locale: {locale}")
         info = locales[locale]
         print(
-            f"Translating {source_locale} -> {locale} "
+            f"Translating {args.content_type}: {source_locale} -> {locale} "
             f"({info['name']}) with {model}..."
         )
-        translated = call_openai(
+        translated = translate_preserving_structure(
             api_key,
             model,
             source,
             locale,
             info["name"],
             info["html_lang"],
+            content_type=args.content_type,
         )
-        assert_structure(source, translated)
-        out = args.out_dir / f"{locale}.html"
+        out = out_dir / f"{locale}.html"
         out.write_text(translated, encoding="utf-8")
         print(f"Wrote {out}")
     return 0

@@ -1,0 +1,57 @@
+name: Blogger - Verify
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [develop]
+    paths:
+      - 'blogger/**'
+      - 'scripts/blogger_sync.py'
+      - 'scripts/blogger_validate.py'
+      - 'scripts/blogger_validate_guide.py'
+      - '.github/workflows/blogger-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+      BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+      BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate repository content
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/blogger_validate.py blogger/faq/*.html
+          if [[ -f blogger/guide/ko.html ]]; then
+            python scripts/blogger_validate_guide.py blogger/guide/*.html
+          fi
+
+      - name: Require Blogger credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${BLOGGER_CLIENT_ID}" || { echo "Missing BLOGGER_CLIENT_ID"; exit 1; }
+          test -n "${BLOGGER_CLIENT_SECRET}" || { echo "Missing BLOGGER_CLIENT_SECRET"; exit 1; }
+          test -n "${BLOGGER_REFRESH_TOKEN}" || { echo "Missing BLOGGER_REFRESH_TOKEN"; exit 1; }
+
+      - name: Discover Blogger targets
+        run: python scripts/blogger_sync.py discover
+
+      - name: Verify Pages without writing
+        run: python scripts/blogger_sync.py pages --dry-run
+
+      - name: Verify Posts without writing
+        run: python scripts/blogger_sync.py posts --dry-run

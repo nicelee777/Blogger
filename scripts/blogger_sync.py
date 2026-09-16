@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish ShiftMate GitHub-managed content to Blogger API v3."""
+"""Publish ShiftMate GitHub-managed Pages and Posts to Blogger API v3."""
 from __future__ import annotations
 
 import argparse
@@ -17,7 +17,12 @@ BLOGGER_API = "https://www.googleapis.com/blogger/v3"
 POST_STATUSES = ("live", "draft", "scheduled")
 
 
-def http_json(url: str, method: str = "GET", token: str | None = None, body: dict[str, Any] | None = None) -> dict[str, Any]:
+def http_json(
+    url: str,
+    method: str = "GET",
+    token: str | None = None,
+    body: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     headers = {"Accept": "application/json"}
     data = None
     if token:
@@ -32,7 +37,9 @@ def http_json(url: str, method: str = "GET", token: str | None = None, body: dic
             return json.loads(payload) if payload else {}
     except urllib.error.HTTPError as exc:
         detail = exc.read().decode(errors="replace")
-        raise RuntimeError(f"Blogger API error {exc.code} {method} {url}: {detail}") from exc
+        raise RuntimeError(
+            f"Blogger API error {exc.code} {method} {url}: {detail}"
+        ) from exc
 
 
 def access_token() -> str:
@@ -60,7 +67,8 @@ def access_token() -> str:
             result = json.load(resp)
     except urllib.error.HTTPError as exc:
         raise RuntimeError(
-            f"OAuth token refresh failed ({exc.code}): {exc.read().decode(errors='replace')}"
+            f"OAuth token refresh failed ({exc.code}): "
+            f"{exc.read().decode(errors='replace')}"
         ) from exc
     if not result.get("access_token"):
         raise RuntimeError("OAuth response has no access_token")
@@ -102,8 +110,12 @@ def list_collection(
             return items
 
 
-def list_all_posts(token: str, blog_id: str, *, fetch_bodies: bool) -> list[dict[str, Any]]:
-    """Fetch live, draft, and scheduled posts so managed drafts are idempotent."""
+def list_all_posts(
+    token: str,
+    blog_id: str,
+    *,
+    fetch_bodies: bool,
+) -> list[dict[str, Any]]:
     by_id: dict[str, dict[str, Any]] = {}
     for status in POST_STATUSES:
         for post in list_collection(
@@ -120,7 +132,9 @@ def url_path(url: str) -> str:
     return path.rstrip("/") or "/"
 
 
-def find_page_by_path(pages: list[dict[str, Any]], target_path: str) -> dict[str, Any]:
+def find_page_by_path(
+    pages: list[dict[str, Any]], target_path: str
+) -> dict[str, Any]:
     wanted = target_path.rstrip("/") or "/"
     matches = [page for page in pages if url_path(page.get("url", "")) == wanted]
     if len(matches) != 1:
@@ -130,20 +144,57 @@ def find_page_by_path(pages: list[dict[str, Any]], target_path: str) -> dict[str
     return matches[0]
 
 
-def sync_faq(config: dict[str, Any], token: str, dry_run: bool = False) -> None:
+def page_type_config(config: dict[str, Any], page_type: str) -> dict[str, Any]:
+    page_types = config.get("page_types", {})
+    if page_type not in page_types:
+        raise RuntimeError(f"unsupported managed page type: {page_type}")
+    return page_types[page_type]
+
+
+def sync_page_type(
+    config: dict[str, Any],
+    token: str,
+    page_type: str,
+    dry_run: bool = False,
+) -> None:
+    page_cfg = page_type_config(config, page_type)
+    source_dir = Path(page_cfg["directory"])
+    path_key = str(page_cfg["path_key"])
+    required = bool(page_cfg.get("required", False))
+    source_locale = str(config.get("source_locale", "ko"))
+    source_entry = source_dir / f"{source_locale}.html"
+
+    if not source_entry.exists():
+        if required:
+            raise RuntimeError(
+                f"missing required {page_type} source file: {source_entry}"
+            )
+        print(f"[{page_type}] {source_entry} not present; managed page skipped")
+        return
+
     blog = get_blog(token, config["blog_url"])
     blog_id = str(blog["id"])
     pages = list_collection(token, blog_id, "pages", status="live")
-    print(f"Blog: {blog.get('name')} ({blog_id}), pages={len(pages)}")
+    print(
+        f"Blog: {blog.get('name')} ({blog_id}), pages={len(pages)}, "
+        f"managed page={page_type}"
+    )
 
     for locale, info in config["locales"].items():
-        source = Path("blogger/faq") / f"{locale}.html"
+        source = source_dir / f"{locale}.html"
         if not source.exists():
-            raise RuntimeError(f"missing FAQ source file: {source}")
-        page = find_page_by_path(pages, info["faq_path"])
+            raise RuntimeError(
+                f"missing localized {page_type} source file: {source}"
+            )
+        target_path = info.get(path_key)
+        if not target_path:
+            raise RuntimeError(
+                f"missing {path_key} for locale {locale} in blogger/config.json"
+            )
+        page = find_page_by_path(pages, str(target_path))
         html = source.read_text(encoding="utf-8")
         print(
-            f"[{locale}] {info['faq_path']} -> page {page['id']} "
+            f"[{page_type}/{locale}] {target_path} -> page {page['id']} "
             f"({page.get('title', '')})"
         )
         if not dry_run:
@@ -154,6 +205,13 @@ def sync_faq(config: dict[str, Any], token: str, dry_run: bool = False) -> None:
                 body={"content": html},
             )
             print("  updated")
+
+
+def sync_pages(
+    config: dict[str, Any], token: str, dry_run: bool = False
+) -> None:
+    for page_type in config.get("page_types", {}):
+        sync_page_type(config, token, page_type, dry_run)
 
 
 def content_marker(category: str, slug: str, locale: str) -> str:
@@ -221,7 +279,10 @@ def sync_posts(
         category = meta.get("category") or item.parent.name
         slug = meta.get("slug") or item.name
         if category not in config.get("post_categories", {}):
-            raise RuntimeError(f"unsupported category {category}: {meta_path}")
+            raise RuntimeError(
+                f"unsupported post category {category}: {meta_path}. "
+                "Only notice/story are managed as Blogger posts."
+            )
 
         titles_path = item / "titles.json"
         if not titles_path.exists():
@@ -236,7 +297,9 @@ def sync_posts(
             if not body_path.exists():
                 raise RuntimeError(f"missing localized body: {body_path}")
             if locale not in titles:
-                raise RuntimeError(f"missing localized title {locale}: {titles_path}")
+                raise RuntimeError(
+                    f"missing localized title {locale}: {titles_path}"
+                )
 
             marker = content_marker(category, slug, locale)
             content = marker + "\n" + body_path.read_text(encoding="utf-8")
@@ -246,7 +309,9 @@ def sync_posts(
                 if marker in (post.get("content") or "")
             ]
             if len(matches) > 1:
-                raise RuntimeError(f"duplicate remote Blogger posts for {marker}")
+                raise RuntimeError(
+                    f"duplicate remote Blogger posts for {marker}"
+                )
 
             labels: list[str] = []
             for label in [category_label, info["language_label"], *base_labels]:
@@ -265,9 +330,10 @@ def sync_posts(
                     f"status={post.get('status', '?')} -> {titles[locale]}"
                 )
 
-                # If this managed item should be a draft, take a currently live/scheduled
-                # post offline before updating its content to avoid a transient public edit.
-                if not should_publish and str(post.get("status", "")) in {"live", "scheduled"}:
+                if (
+                    not should_publish
+                    and str(post.get("status", "")) in {"live", "scheduled"}
+                ):
                     post = reconcile_post_state(
                         token,
                         blog_id,
@@ -322,6 +388,15 @@ def discover(config: dict[str, Any], token: str) -> None:
         status = str(post.get("status", ""))
         if status in counts:
             counts[status] += 1
+
+    configured_pages: dict[str, dict[str, str]] = {}
+    for page_type, page_cfg in config.get("page_types", {}).items():
+        path_key = str(page_cfg["path_key"])
+        configured_pages[page_type] = {
+            locale: str(info.get(path_key, ""))
+            for locale, info in config.get("locales", {}).items()
+        }
+
     print(
         json.dumps(
             {
@@ -340,6 +415,7 @@ def discover(config: dict[str, Any], token: str) -> None:
                     }
                     for page in pages
                 ],
+                "configured_pages": configured_pages,
                 "post_counts": counts,
             },
             ensure_ascii=False,
@@ -350,7 +426,10 @@ def discover(config: dict[str, Any], token: str) -> None:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("command", choices=["discover", "faq", "posts", "all"])
+    ap.add_argument(
+        "command",
+        choices=["discover", "faq", "guide", "pages", "posts", "all"],
+    )
     ap.add_argument("--config", type=Path, default=Path("blogger/config.json"))
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--posts-root", type=Path, default=Path("blogger/posts"))
@@ -361,10 +440,13 @@ def main() -> int:
         token = access_token()
         if args.command == "discover":
             discover(config, token)
-        if args.command in {"faq", "all"}:
-            sync_faq(config, token, args.dry_run)
-        if args.command in {"posts", "all"}:
-            sync_posts(config, token, args.dry_run, args.posts_root)
+        elif args.command in {"faq", "guide"}:
+            sync_page_type(config, token, args.command, args.dry_run)
+        else:
+            if args.command in {"pages", "all"}:
+                sync_pages(config, token, args.dry_run)
+            if args.command in {"posts", "all"}:
+                sync_posts(config, token, args.dry_run, args.posts_root)
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

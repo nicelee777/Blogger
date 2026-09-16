@@ -6,6 +6,7 @@ on:
     branches: [develop]
     paths:
       - 'blogger/faq/ko.html'
+      - 'blogger/guide/ko.html'
       - 'blogger/posts/**/ko.html'
       - 'blogger/posts/**/meta.json'
       - 'blogger/config.json'
@@ -13,6 +14,8 @@ on:
       - 'scripts/blogger_translate.py'
       - 'scripts/blogger_translate_posts.py'
       - 'scripts/blogger_validate.py'
+      - 'scripts/blogger_validate_guide.py'
+      - '.github/workflows/blogger-translate.yml'
 
 permissions:
   contents: write
@@ -33,20 +36,112 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Validate Korean FAQ source
-        run: python scripts/blogger_validate.py blogger/faq/ko.html
-
-      - name: Translate FAQ and managed posts
+      - name: Determine translation targets
+        id: targets
         shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "faq=true" >> "$GITHUB_OUTPUT"
+            echo "guide=true" >> "$GITHUB_OUTPUT"
+            echo "posts_all=true" >> "$GITHUB_OUTPUT"
+            echo "posts_changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          before="${{ github.event.before }}"
+          if [[ -z "$before" || "$before" =~ ^0+$ ]]; then
+            before="$(git rev-parse HEAD^)"
+          fi
+          current="${{ github.sha }}"
+          changed="$(git diff --name-only "$before" "$current")"
+
+          echo "Changed files:"
+          printf '%s\n' "$changed"
+
+          faq=false
+          guide=false
+          posts_all=false
+          posts_changed=false
+
+          # Glossary/config/shared translation-engine changes can affect every locale.
+          if printf '%s\n' "$changed" | grep -Eq '^(blogger/config\.json|blogger/glossary\.json|scripts/blogger_translate\.py)$'; then
+            faq=true
+            guide=true
+            posts_all=true
+          else
+            if printf '%s\n' "$changed" | grep -Eq '^blogger/faq/ko\.html$'; then
+              faq=true
+            fi
+            if printf '%s\n' "$changed" | grep -Eq '^blogger/guide/ko\.html$'; then
+              guide=true
+            fi
+            if printf '%s\n' "$changed" | grep -Eq '^scripts/blogger_translate_posts\.py$'; then
+              posts_all=true
+            elif printf '%s\n' "$changed" | grep -Eq '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$'; then
+              posts_changed=true
+            fi
+          fi
+
+          echo "faq=$faq" >> "$GITHUB_OUTPUT"
+          echo "guide=$guide" >> "$GITHUB_OUTPUT"
+          echo "posts_all=$posts_all" >> "$GITHUB_OUTPUT"
+          echo "posts_changed=$posts_changed" >> "$GITHUB_OUTPUT"
+          echo "before=$before" >> "$GITHUB_OUTPUT"
+
+      - name: Translate only changed content
+        shell: bash
+        env:
+          TRANSLATE_FAQ: ${{ steps.targets.outputs.faq }}
+          TRANSLATE_GUIDE: ${{ steps.targets.outputs.guide }}
+          TRANSLATE_POSTS_ALL: ${{ steps.targets.outputs.posts_all }}
+          TRANSLATE_POSTS_CHANGED: ${{ steps.targets.outputs.posts_changed }}
+          BEFORE_SHA: ${{ steps.targets.outputs.before }}
         run: |
           set -euo pipefail
           if [[ -z "${OPENAI_API_KEY}" ]]; then
             echo "::notice::OPENAI_API_KEY is not configured. Translation skipped."
             exit 0
           fi
-          python scripts/blogger_translate.py
-          python scripts/blogger_translate_posts.py
+
+          if [[ "$TRANSLATE_FAQ" == "true" ]]; then
+            python scripts/blogger_validate.py blogger/faq/ko.html
+            python scripts/blogger_translate.py --content-type faq
+          else
+            echo "FAQ source unchanged; translation skipped."
+          fi
+
+          if [[ "$TRANSLATE_GUIDE" == "true" ]]; then
+            if [[ -f blogger/guide/ko.html ]]; then
+              python scripts/blogger_translate.py --content-type guide
+            else
+              echo "Guide source not present; Guide translation skipped."
+            fi
+          else
+            echo "Guide source unchanged; translation skipped."
+          fi
+
+          if [[ "$TRANSLATE_POSTS_ALL" == "true" ]]; then
+            python scripts/blogger_translate_posts.py
+          elif [[ "$TRANSLATE_POSTS_CHANGED" == "true" ]]; then
+            current="${{ github.sha }}"
+            git diff --name-only "$BEFORE_SHA" "$current" \
+              | grep -E '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$' \
+              | xargs -r -n1 dirname \
+              | sort -u \
+              | while IFS= read -r item; do
+                  echo "Translating changed Post item: $item"
+                  python scripts/blogger_translate_posts.py --item "$item"
+                done
+          else
+            echo "Notice/Story sources unchanged; Post translation skipped."
+          fi
+
           python scripts/blogger_validate.py blogger/faq/*.html
+          if [[ -f blogger/guide/ko.html ]]; then
+            python scripts/blogger_validate_guide.py blogger/guide/*.html
+          fi
 
           if git diff --quiet -- blogger; then
             echo "No translation changes."
@@ -55,6 +150,6 @@ jobs:
 
           git config user.name "shiftmate-blogger-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add blogger/faq blogger/posts
+          git add blogger/faq blogger/guide blogger/posts
           git commit -m "chore(blogger): update localized content"
           git push origin HEAD:develop
