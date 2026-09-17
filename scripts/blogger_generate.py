@@ -20,6 +20,29 @@ POLICY_FILES = [
 ]
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{1,79}$")
 
+CONTENT_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "title_ko": {"type": "string", "minLength": 1},
+        "seo_description_ko": {"type": "string"},
+        "primary_keyword": {"type": "string"},
+        "secondary_keywords": {
+            "type": "array",
+            "items": {"type": "string"},
+            "maxItems": 4,
+        },
+        "html": {"type": "string", "minLength": 1},
+    },
+    "required": [
+        "title_ko",
+        "seo_description_ko",
+        "primary_keyword",
+        "secondary_keywords",
+        "html",
+    ],
+}
+
 
 def read_text(path: Path) -> str:
     if not path.exists():
@@ -40,26 +63,20 @@ def extract_output_text(response: dict[str, Any]) -> str:
     return "\n".join(chunks).strip()
 
 
-def parse_json_output(text: str) -> dict[str, Any]:
-    cleaned = text.strip()
-    if cleaned.startswith("```"):
-        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned, flags=re.I)
-        cleaned = re.sub(r"\s*```$", "", cleaned)
-    try:
-        value = json.loads(cleaned)
-    except json.JSONDecodeError as exc:
-        raise RuntimeError(f"content model returned invalid JSON: {exc}") from exc
-    if not isinstance(value, dict):
-        raise RuntimeError("content model output must be a JSON object")
-    return value
-
-
 def call_openai(api_key: str, model: str, instructions: str, brief: str) -> dict[str, Any]:
     payload = {
         "model": model,
         "instructions": instructions,
         "input": brief,
         "reasoning": {"effort": "low"},
+        "text": {
+            "format": {
+                "type": "json_schema",
+                "name": "shiftmate_blog_draft",
+                "strict": True,
+                "schema": CONTENT_SCHEMA,
+            }
+        },
         "store": False,
     }
     req = urllib.request.Request(
@@ -78,16 +95,32 @@ def call_openai(api_key: str, model: str, instructions: str, brief: str) -> dict
         raise RuntimeError(
             f"OpenAI API error {exc.code}: {exc.read().decode(errors='replace')}"
         ) from exc
-    return parse_json_output(extract_output_text(data))
+
+    if str(data.get("status", "")) == "incomplete":
+        raise RuntimeError(f"OpenAI response incomplete: {data.get('incomplete_details')}")
+
+    try:
+        result = json.loads(extract_output_text(data))
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"structured content output was not valid JSON: {exc}") from exc
+    if not isinstance(result, dict):
+        raise RuntimeError("structured content output must be a JSON object")
+    return result
 
 
-def validate_generated(result: dict[str, Any], category: str) -> tuple[str, str, str, list[str]]:
+def validate_generated(
+    result: dict[str, Any], category: str
+) -> tuple[str, str, str, list[str]]:
     title = str(result.get("title_ko", "")).strip()
     description = str(result.get("seo_description_ko", "")).strip()
     primary = str(result.get("primary_keyword", "")).strip()
     html = str(result.get("html", "")).strip()
     secondary_raw = result.get("secondary_keywords", [])
-    secondary = [str(x).strip() for x in secondary_raw] if isinstance(secondary_raw, list) else []
+    secondary = (
+        [str(x).strip() for x in secondary_raw]
+        if isinstance(secondary_raw, list)
+        else []
+    )
 
     if not title:
         raise RuntimeError("generated content has no title_ko")
@@ -95,10 +128,12 @@ def validate_generated(result: dict[str, Any], category: str) -> tuple[str, str,
         raise RuntimeError("generated content has no html")
     if "<h1" in html.lower():
         raise RuntimeError("generated Post body must not contain an h1")
-    if not re.search(r'<article\b[^>]*class=["\'][^"\']*\bsm-post\b', html, flags=re.I):
-        raise RuntimeError("generated HTML must use <article class=\"sm-post\" ...>")
+    if not re.search(
+        r'<article\b[^>]*class=["\'][^"\']*\bsm-post\b', html, flags=re.I
+    ):
+        raise RuntimeError('generated HTML must use <article class="sm-post" ...>')
     if not re.search(r'<article\b[^>]*lang=["\']ko["\']', html, flags=re.I):
-        raise RuntimeError("generated Korean HTML root article must use lang=\"ko\"")
+        raise RuntimeError('generated Korean HTML root article must use lang="ko"')
     if re.search(r"<(script|style|form|object|embed)\b", html, flags=re.I):
         raise RuntimeError("generated HTML contains a forbidden executable/style tag")
     if category == "story" and len(title) < 4:
@@ -121,7 +156,10 @@ def main() -> int:
     args = ap.parse_args()
 
     if not SLUG_RE.fullmatch(args.slug):
-        print("slug must contain only lowercase a-z, 0-9, and hyphens (2-80 chars)", file=sys.stderr)
+        print(
+            "slug must contain only lowercase a-z, 0-9, and hyphens (2-80 chars)",
+            file=sys.stderr,
+        )
         return 2
 
     api_key = os.environ.get("OPENAI_API_KEY", "").strip()
@@ -140,7 +178,10 @@ def main() -> int:
     meta_path = item / "meta.json"
     ko_path = item / "ko.html"
     if (meta_path.exists() or ko_path.exists()) and not args.overwrite_source:
-        print(f"source item already exists: {item}; use --overwrite-source to replace it", file=sys.stderr)
+        print(
+            f"source item already exists: {item}; use --overwrite-source to replace it",
+            file=sys.stderr,
+        )
         return 2
 
     policies = "\n\n".join(
@@ -159,14 +200,7 @@ The repository policies below are mandatory and override stylistic impulses.
 {type_policy}
 
 OUTPUT CONTRACT:
-Return ONLY one valid JSON object, no Markdown fences and no commentary, with exactly these keys:
-{{
-  "title_ko": "Korean Blogger post title",
-  "seo_description_ko": "one concise Korean search/snippet description",
-  "primary_keyword": "one natural Korean search theme or empty string",
-  "secondary_keywords": ["0 to 4 closely related terms"],
-  "html": "complete Korean Blogger body HTML"
-}}
+Return the fields required by the supplied JSON schema.
 
 HTML RULES:
 - Body root must be <article class="sm-post" lang="ko"> ... </article>.
@@ -179,9 +213,15 @@ HTML RULES:
 - Do not output placeholders such as TODO, EXAMPLE_URL, or VIDEO_ID unless the user explicitly asked for a placeholder.
 """
 
-    brief = f"CATEGORY: {args.category}\nSLUG: {args.slug}\n\nUSER BRIEF:\n{args.brief.strip()}"
+    brief = (
+        f"CATEGORY: {args.category}\nSLUG: {args.slug}\n\n"
+        f"USER BRIEF:\n{args.brief.strip()}"
+    )
     if args.references.strip():
-        brief += f"\n\nREFERENCE NOTES / URLS PROVIDED BY USER:\n{args.references.strip()}"
+        brief += (
+            "\n\nREFERENCE NOTES / URLS PROVIDED BY USER:\n"
+            + args.references.strip()
+        )
 
     result = call_openai(api_key, model, instructions, brief)
     title, description, primary, secondary = validate_generated(result, args.category)
@@ -204,7 +244,9 @@ HTML RULES:
     }
 
     item.mkdir(parents=True, exist_ok=True)
-    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    meta_path.write_text(
+        json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
     ko_path.write_text(html, encoding="utf-8")
     print(f"Generated draft source: {item}")
     print(f"Title: {title}")
