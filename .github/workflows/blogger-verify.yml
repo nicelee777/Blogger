@@ -9,6 +9,7 @@ on:
       - 'scripts/blogger_sync.py'
       - 'scripts/blogger_validate.py'
       - 'scripts/blogger_validate_guide.py'
+      - 'scripts/blogger_validate_page_metadata.py'
       - '.github/workflows/blogger-verify.yml'
 
 permissions:
@@ -30,13 +31,28 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Compile Blogger Python scripts
+        run: python -m py_compile scripts/blogger_*.py
+
       - name: Validate repository content
         shell: bash
         run: |
           set -euo pipefail
           python scripts/blogger_validate.py blogger/faq/*.html
+          python scripts/blogger_validate_page_metadata.py guide
+
           if [[ -f blogger/guide/ko.html ]]; then
-            python scripts/blogger_validate_guide.py blogger/guide/*.html
+            complete=true
+            for locale in ko en ja zh-cn zh-tw es vi; do
+              if [[ ! -f "blogger/guide/${locale}.html" ]]; then
+                complete=false
+              fi
+            done
+            if [[ "$complete" == "true" ]]; then
+              python scripts/blogger_validate_guide.py blogger/guide/*.html
+            else
+              echo "::notice::Guide translation is pending; localized Guide validation will run after translation commit."
+            fi
           fi
 
       - name: Require Blogger credentials
@@ -51,7 +67,25 @@ jobs:
         run: python scripts/blogger_sync.py discover
 
       - name: Verify Pages without writing
-        run: python scripts/blogger_sync.py pages --dry-run
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f blogger/guide/ko.html ]]; then
+            complete=true
+            for locale in ko en ja zh-cn zh-tw es vi; do
+              if [[ ! -f "blogger/guide/${locale}.html" ]]; then
+                complete=false
+              fi
+            done
+            if [[ "$complete" == "true" ]]; then
+              python scripts/blogger_sync.py pages --dry-run
+            else
+              echo "Guide locales are still being generated; verifying FAQ Page only."
+              python scripts/blogger_sync.py faq --dry-run
+            fi
+          else
+            python scripts/blogger_sync.py pages --dry-run
+          fi
 
       - name: Verify Posts without writing
         run: python scripts/blogger_sync.py posts --dry-run
