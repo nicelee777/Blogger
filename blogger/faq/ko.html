@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-15-->
+<!--ShiftMate FAQ | ko | 2026-09-17-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -129,7 +129,7 @@
 <div class="shiftmate-faq" lang="ko">
   <!-- If Blogger already displays this title above the body, remove only the following h1 element. -->
   <h1>ShiftMate 사용법 및 자주 묻는 질문 - 근무표·알람·공유·백업</h1>
-  <p>근무 설정부터 알람, 백업, 근무 공유까지 자주 묻는 질문을 모았습니다. 궁금한 질문을 누르면 답변을 확인할 수 있습니다.</p>
+  <p>근무 설정부터 일정·메모, 알람, 백업, 근무 공유까지 자주 묻는 질문을 모았습니다. 궁금한 질문을 누르면 답변을 확인할 수 있습니다.</p>
   <p class="sm-faq-meta">앱 버전 및 기기 환경에 따라 메뉴 이름이 조금 다를 수 있습니다.</p>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
@@ -138,7 +138,7 @@
       <li><a href="#work">근무 설정 · 공유 · 표시</a></li>
       <li><a href="#alarm">알람 · 알림</a></li>
       <li><a href="#data">데이터 보관 · 백업 및 복원</a></li>
-      <li><a href="#calendar">일정 · 캘린더 관리</a></li>
+      <li><a href="#calendar">일정 · 캘린더 · 메모 관리</a></li>
       <li><a href="#link">공유 링크 문제 해결</a></li>
       <li><a href="#platform">기기 호환 · 다중기기 이용</a></li>
       <li><a href="#etc">동료 관리</a></li>
@@ -215,14 +215,33 @@
       <summary><strong>Q. 새 스마트폰으로 바꾸면 데이터를 어떻게 복원하나요?</strong></summary>
       <div class="sm-faq-answer">
         <p>기존과 <strong>동일한 계정으로 로그인하면</strong>, 해당 계정에 백업된 <strong>근무·메모·복무·근무 공유 정보가 자동으로 복원됩니다.</strong></p>
-        <p>일정은 기존에 사용하던 <strong>캘린더 계정의 연결 및 동기화 상태</strong>를 확인해 주세요. 스마트폰에만 저장된 일정은 별도로 이전해야 할 수 있습니다.</p>
+        <p><strong>일정은 ShiftMate가 별도로 백업하지 않습니다.</strong> Google Calendar, iCloud 등 기존에 사용하던 캘린더 계정을 새 기기에 연결하고 동기화를 켜면, 해당 계정에 동기화되어 있던 일정이 다시 표시될 수 있습니다.</p>
+        <p>반대로 <strong>기기에만 저장된 로컬 캘린더 일정</strong>은 계정 동기화 대상이 아니므로 별도로 이전해야 할 수 있습니다.</p>
       </div>
     </details>
     <p class="sm-faq-back"><a href="#toc">↑ 목차로</a></p>
   </section>
 
   <section aria-labelledby="calendar">
-    <h2 id="calendar">4) 일정 · 캘린더 관리</h2>
+    <h2 id="calendar">4) 일정 · 캘린더 · 메모 관리</h2>
+
+    <details id="faq-calendar-storage-model">
+      <summary><strong>Q. ShiftMate에 추가한 일정은 어디에 저장되나요?</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>ShiftMate는 일정을 앱 안에 별도로 저장하지 않고, 휴대폰의 캘린더를 함께 사용합니다.</strong></p>
+        <p>일정을 추가할 때 휴대폰에 등록된 여러 캘린더 중 <strong>저장할 캘린더를 선택</strong>할 수 있으며, 작성한 일정은 선택한 캘린더에 저장됩니다. 예를 들어 Google Calendar, iCloud 캘린더, 기기 캘린더 등이 연결되어 있다면 그중 하나를 선택해 저장하는 방식입니다.</p>
+        <p>따라서 ShiftMate에서 보이는 일정은 휴대폰 캘린더의 일정이며, 같은 캘린더를 사용하는 다른 캘린더 앱에서도 동일한 일정이 표시될 수 있습니다. ShiftMate에서 일정을 수정하거나 삭제하면 <strong>선택한 캘린더의 실제 일정에도 동일하게 반영됩니다.</strong></p>
+        <p>Google Calendar나 iCloud처럼 계정과 동기화되는 캘린더에 저장했다면, 새 기기에서도 같은 캘린더 계정을 연결하고 동기화했을 때 일정이 다시 표시될 수 있습니다.</p>
+      </div>
+    </details>
+
+    <details id="faq-delete-schedule-memo">
+      <summary><strong>Q. 일정이나 메모를 삭제하려면 어떻게 하나요?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>일정 또는 메모 목록에서 <strong>삭제할 항목을 좌우로 스와이프</strong>하면 삭제 기능을 이용할 수 있습니다.</p>
+        <p><strong>일정은 휴대폰 캘린더의 실제 일정</strong>을 사용하는 구조이므로, ShiftMate에서 일정을 삭제하면 해당 일정이 저장된 캘린더에서도 삭제됩니다.</p>
+      </div>
+    </details>
 
     <details id="faq-hide-calendars">
       <summary><strong>Q. 불필요한 일정이나 중복된 공휴일·기념일·절기를 숨기고 싶어요.</strong></summary>
@@ -291,6 +310,6 @@
   </section>
 
   <footer class="sm-faq-footer">
-    <p class="sm-faq-meta">최종 수정일: <time datetime="2026-09-15">2026년 9월 15일</time></p>
+    <p class="sm-faq-meta">최종 수정일: <time datetime="2026-09-17">2026년 9월 17일</time></p>
   </footer>
 </div>
