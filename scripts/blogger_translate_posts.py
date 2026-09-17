@@ -9,7 +9,7 @@ import re
 import sys
 from pathlib import Path
 
-from blogger_translate import call_openai, translate_preserving_structure
+from blogger_translate import translate_preserving_structure
 
 
 def strip_single_paragraph(html: str) -> str:
@@ -77,15 +77,15 @@ def main() -> int:
             )
             (item / f"{locale}.html").write_text(translated, encoding="utf-8")
 
-            # Titles have a tiny, fixed HTML skeleton, so a normal call is sufficient.
-            title_html = call_openai(
+            # Translate titles through the same structure-preserving segment engine.
+            title_html = translate_preserving_structure(
                 api_key,
                 model,
                 f"<p>{meta['title_ko']}</p>",
                 locale,
                 info["name"],
                 info["html_lang"],
-                content_type="post",
+                content_type="post-title",
             )
             titles[locale] = strip_single_paragraph(title_html)
 
