@@ -2,26 +2,17 @@ name: Blogger - Translate
 
 on:
   workflow_dispatch:
-  push:
-    branches: [develop]
-    paths:
-      - 'blogger/faq/ko.html'
-      - 'blogger/guide/ko.html'
-      - 'blogger/posts/**/ko.html'
-      - 'blogger/posts/**/meta.json'
-      - 'blogger/config.json'
-      - 'blogger/glossary.json'
-      - 'blogger/editorial-policy.md'
-      - 'blogger/seo-policy.md'
-      - 'blogger/product-facts.md'
-      - 'blogger/content-prompts/**'
-      - 'scripts/blogger_translate.py'
-      - 'scripts/blogger_translate_posts.py'
-      - 'scripts/blogger_validate.py'
-      - 'scripts/blogger_validate_guide.py'
-      - 'scripts/blogger_validate_post.py'
-      - 'scripts/blogger_sync_draft.py'
-      - '.github/workflows/blogger-translate.yml'
+    inputs:
+      scope:
+        description: 'Content to translate'
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          - faq
+          - guide
+          - posts
 
 permissions:
   contents: write
@@ -32,9 +23,7 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_TRANSLATION_MODEL: gpt-5.6-luna
-      BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
-      BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
-      BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+      TRANSLATION_SCOPE: ${{ inputs.scope }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,106 +34,65 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Determine translation targets
-        id: targets
+      - name: Require OpenAI credential
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${OPENAI_API_KEY}" || { echo "Missing OPENAI_API_KEY"; exit 1; }
+
+      - name: Translate requested content
         shell: bash
         run: |
           set -euo pipefail
 
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            echo "faq=true" >> "$GITHUB_OUTPUT"
-            echo "guide=true" >> "$GITHUB_OUTPUT"
-            echo "posts_all=true" >> "$GITHUB_OUTPUT"
-            echo "posts_changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
+          case "$TRANSLATION_SCOPE" in
+            all)
+              translate_faq=true
+              translate_guide=true
+              translate_posts=true
+              ;;
+            faq)
+              translate_faq=true
+              translate_guide=false
+              translate_posts=false
+              ;;
+            guide)
+              translate_faq=false
+              translate_guide=true
+              translate_posts=false
+              ;;
+            posts)
+              translate_faq=false
+              translate_guide=false
+              translate_posts=true
+              ;;
+            *)
+              echo "Unknown scope: $TRANSLATION_SCOPE" >&2
+              exit 2
+              ;;
+          esac
 
-          before="${{ github.event.before }}"
-          if [[ -z "$before" || "$before" =~ ^0+$ ]]; then
-            before="$(git rev-parse HEAD^)"
-          fi
-          current="${{ github.sha }}"
-          changed="$(git diff --name-only "$before" "$current")"
-
-          echo "Changed files:"
-          printf '%s\n' "$changed"
-
-          faq=false
-          guide=false
-          posts_all=false
-          posts_changed=false
-
-          if printf '%s\n' "$changed" | grep -Eq '^(blogger/config\.json|blogger/glossary\.json|scripts/blogger_translate\.py)$'; then
-            faq=true
-            guide=true
-            posts_all=true
-          else
-            if printf '%s\n' "$changed" | grep -Eq '^blogger/faq/ko\.html$'; then
-              faq=true
-            fi
-            if printf '%s\n' "$changed" | grep -Eq '^(blogger/guide/ko\.html|scripts/blogger_validate_guide\.py|\.github/workflows/blogger-translate\.yml)$'; then
-              guide=true
-            fi
-            if printf '%s\n' "$changed" | grep -Eq '^scripts/blogger_translate_posts\.py$'; then
-              posts_all=true
-            elif printf '%s\n' "$changed" | grep -Eq '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$'; then
-              posts_changed=true
-            fi
-          fi
-
-          echo "faq=$faq" >> "$GITHUB_OUTPUT"
-          echo "guide=$guide" >> "$GITHUB_OUTPUT"
-          echo "posts_all=$posts_all" >> "$GITHUB_OUTPUT"
-          echo "posts_changed=$posts_changed" >> "$GITHUB_OUTPUT"
-          echo "before=$before" >> "$GITHUB_OUTPUT"
-
-      - name: Translate only changed content
-        shell: bash
-        env:
-          TRANSLATE_FAQ: ${{ steps.targets.outputs.faq }}
-          TRANSLATE_GUIDE: ${{ steps.targets.outputs.guide }}
-          TRANSLATE_POSTS_ALL: ${{ steps.targets.outputs.posts_all }}
-          TRANSLATE_POSTS_CHANGED: ${{ steps.targets.outputs.posts_changed }}
-          BEFORE_SHA: ${{ steps.targets.outputs.before }}
-        run: |
-          set -euo pipefail
-          if [[ -z "${OPENAI_API_KEY}" ]]; then
-            echo "::notice::OPENAI_API_KEY is not configured. Translation skipped."
-            exit 0
-          fi
-
-          if [[ "$TRANSLATE_FAQ" == "true" ]]; then
+          if [[ "$translate_faq" == "true" ]]; then
             python scripts/blogger_validate.py blogger/faq/ko.html
             python scripts/blogger_translate.py --content-type faq
           else
-            echo "FAQ source unchanged; translation skipped."
+            echo "FAQ translation skipped by scope."
           fi
 
-          if [[ "$TRANSLATE_GUIDE" == "true" ]]; then
+          if [[ "$translate_guide" == "true" ]]; then
             if [[ -f blogger/guide/ko.html ]]; then
               python scripts/blogger_translate.py --content-type guide
             else
               echo "Guide source not present; Guide translation skipped."
             fi
           else
-            echo "Guide source unchanged; translation skipped."
+            echo "Guide translation skipped by scope."
           fi
 
-          if [[ "$TRANSLATE_POSTS_ALL" == "true" ]]; then
+          if [[ "$translate_posts" == "true" ]]; then
             python scripts/blogger_translate_posts.py
-          elif [[ "$TRANSLATE_POSTS_CHANGED" == "true" ]]; then
-            current="${{ github.sha }}"
-            git diff --name-only "$BEFORE_SHA" "$current" \
-              | grep -E '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$' \
-              | xargs -r -n1 dirname \
-              | sort -u \
-              | while IFS= read -r item; do
-                  echo "Translating changed Post item: $item"
-                  python scripts/blogger_translate_posts.py --item "$item"
-                  python scripts/blogger_validate_post.py "$item" --all-locales
-                done
           else
-            echo "Notice/Story sources unchanged; Post translation skipped."
+            echo "Notice/Story translation skipped by scope."
           fi
 
           python scripts/blogger_validate.py blogger/faq/*.html
@@ -152,7 +100,11 @@ jobs:
             python scripts/blogger_validate_guide.py blogger/guide/*.html
           fi
 
-          # git diff ignores new untracked locale files, so use git status here.
+          while IFS= read -r -d '' meta; do
+            item="$(dirname "$meta")"
+            python scripts/blogger_validate_post.py "$item" --all-locales
+          done < <(find blogger/posts -mindepth 3 -maxdepth 3 -name meta.json -print0 2>/dev/null || true)
+
           if [[ -z "$(git status --porcelain -- blogger)" ]]; then
             echo "No translation changes."
           else
@@ -162,22 +114,4 @@ jobs:
             git commit -m "chore(blogger): update localized content"
             git pull --rebase origin develop
             git push origin HEAD:develop
-          fi
-
-          # For a newly created/edited Post source, create/update Blogger drafts only.
-          # Public/scheduled canonical posts are never changed by this develop-side preview.
-          if [[ "$TRANSLATE_POSTS_CHANGED" == "true" ]]; then
-            if [[ -z "${BLOGGER_CLIENT_ID}" || -z "${BLOGGER_CLIENT_SECRET}" || -z "${BLOGGER_REFRESH_TOKEN}" ]]; then
-              echo "::notice::Blogger OAuth secrets missing; draft sync skipped."
-            else
-              current="${{ github.sha }}"
-              git diff --name-only "$BEFORE_SHA" "$current" \
-                | grep -E '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$' \
-                | xargs -r -n1 dirname \
-                | sort -u \
-                | while IFS= read -r item; do
-                    echo "Syncing Blogger draft preview: $item"
-                    python scripts/blogger_sync_draft.py --item "$item"
-                  done
-            fi
           fi
