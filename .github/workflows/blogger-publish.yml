@@ -8,26 +8,6 @@ on:
         required: false
         default: true
         type: boolean
-  pull_request:
-    branches: [develop, main]
-    paths:
-      - 'blogger/**'
-      - 'scripts/blogger_*.py'
-      - '.github/workflows/blogger-publish.yml'
-      - '.github/workflows/blogger-generate-draft.yml'
-      - '.github/workflows/blogger-translate.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'blogger/**'
-      - 'scripts/blogger_sync.py'
-      - 'scripts/blogger_sync_draft.py'
-      - 'scripts/blogger_generate.py'
-      - 'scripts/blogger_validate.py'
-      - 'scripts/blogger_validate_guide.py'
-      - 'scripts/blogger_validate_page_metadata.py'
-      - 'scripts/blogger_validate_post.py'
-      - '.github/workflows/blogger-publish.yml'
 
 permissions:
   contents: read
@@ -86,7 +66,6 @@ jobs:
           done < <(find blogger/posts -mindepth 3 -maxdepth 3 -name meta.json -print0 2>/dev/null || true)
 
       - name: Check Blogger credentials
-        if: github.event_name != 'pull_request'
         id: creds
         shell: bash
         run: |
@@ -98,17 +77,9 @@ jobs:
           fi
 
       - name: Blogger dry run
-        if: >-
-          github.event_name == 'workflow_dispatch' &&
-          steps.creds.outputs.ready == 'true' &&
-          inputs.dry_run
+        if: steps.creds.outputs.ready == 'true' && inputs.dry_run
         run: python scripts/blogger_sync.py all --dry-run
 
       - name: Publish to Blogger
-        if: >-
-          steps.creds.outputs.ready == 'true' &&
-          (
-            github.event_name == 'push' ||
-            (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
-          )
+        if: steps.creds.outputs.ready == 'true' && !inputs.dry_run
         run: python scripts/blogger_sync.py all
