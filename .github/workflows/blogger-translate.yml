@@ -82,7 +82,7 @@ jobs:
             if printf '%s\n' "$changed" | grep -Eq '^blogger/faq/ko\.html$'; then
               faq=true
             fi
-            if printf '%s\n' "$changed" | grep -Eq '^blogger/guide/ko\.html$'; then
+            if printf '%s\n' "$changed" | grep -Eq '^(blogger/guide/ko\.html|scripts/blogger_validate_guide\.py|\.github/workflows/blogger-translate\.yml)$'; then
               guide=true
             fi
             if printf '%s\n' "$changed" | grep -Eq '^scripts/blogger_translate_posts\.py$'; then
@@ -152,7 +152,8 @@ jobs:
             python scripts/blogger_validate_guide.py blogger/guide/*.html
           fi
 
-          if git diff --quiet -- blogger; then
+          # git diff ignores new untracked locale files, so use git status here.
+          if [[ -z "$(git status --porcelain -- blogger)" ]]; then
             echo "No translation changes."
           else
             git config user.name "shiftmate-blogger-bot"

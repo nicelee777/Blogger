@@ -20,9 +20,21 @@ class Inspector(HTMLParser):
         self.search_attrs: list[str] = []
         self.data_titles: list[str] = []
         self.placeholders: list[str] = []
+        self.guide_root_found = False
+        self.guide_root_lang = ""
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attr = dict(attrs)
+        classes = (attr.get("class") or "").split()
+        if (
+            not self.guide_root_found
+            and tag.lower() == "article"
+            and "sm-guide" in classes
+            and (attr.get("data-shiftmate-guide") or "").lower() == "true"
+        ):
+            self.guide_root_found = True
+            self.guide_root_lang = attr.get("lang") or ""
+
         if attr.get("id"):
             self.ids.append(attr["id"] or "")
         if attr.get("href"):
@@ -78,16 +90,15 @@ def validate(
                     f"localized FAQ link must target {expected_faq_path}: {href}"
                 )
 
-    if "shiftmate-guide" not in text:
-        errors.append(".shiftmate-guide root marker is missing")
-
-    if expected_lang:
-        patterns = [
-            rf'class=["\'][^"\']*shiftmate-guide[^"\']*["\'][^>]*\blang=["\']{re.escape(expected_lang)}["\']',
-            rf'\blang=["\']{re.escape(expected_lang)}["\'][^>]*class=["\'][^"\']*shiftmate-guide',
-        ]
-        if not any(re.search(pattern, text, re.I) for pattern in patterns):
-            errors.append(f'root .shiftmate-guide lang must be "{expected_lang}"')
+    if not parser.guide_root_found:
+        errors.append(
+            'Guide root must be <article class="sm-guide" data-shiftmate-guide="true" ...>'
+        )
+    elif expected_lang and parser.guide_root_lang != expected_lang:
+        errors.append(
+            f'root .sm-guide lang must be "{expected_lang}" '
+            f'(found "{parser.guide_root_lang}")'
+        )
 
     for name, values in (
         ("data-search", parser.search_attrs),
