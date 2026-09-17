@@ -152,7 +152,8 @@ jobs:
             python scripts/blogger_validate_guide.py blogger/guide/*.html
           fi
 
-          if git diff --quiet -- blogger; then
+          # git diff ignores new untracked locale files, so use git status here.
+          if [[ -z "$(git status --porcelain -- blogger)" ]]; then
             echo "No translation changes."
           else
             git config user.name "shiftmate-blogger-bot"
