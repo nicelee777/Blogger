@@ -7,6 +7,7 @@ on:
     paths:
       - 'blogger/**'
       - 'scripts/blogger_sync.py'
+      - 'scripts/blogger_ensure_pages.py'
       - 'scripts/blogger_validate.py'
       - 'scripts/blogger_validate_guide.py'
       - 'scripts/blogger_validate_page_metadata.py'
@@ -71,7 +72,7 @@ jobs:
         run: python scripts/blogger_sync.py discover
 
       - name: Verify Pages without writing
-        run: python scripts/blogger_sync.py pages --dry-run
+        run: python scripts/blogger_ensure_pages.py --dry-run
 
       - name: Verify Posts without writing
         run: python scripts/blogger_sync.py posts --dry-run
