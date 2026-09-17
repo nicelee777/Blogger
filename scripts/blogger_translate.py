@@ -15,7 +15,16 @@ from typing import Any
 
 API_URL = "https://api.openai.com/v1/responses"
 GLOSSARY_PATH = Path("blogger/glossary.json")
-LOCALIZABLE_ATTRS = {"lang", "alt", "title", "aria-label"}
+# Values may be localized, but the attributes themselves must remain present.
+LOCALIZABLE_ATTRS = {
+    "lang",
+    "alt",
+    "title",
+    "aria-label",
+    "placeholder",
+    "data-search",
+    "data-title",
+}
 
 
 class SignatureParser(HTMLParser):
@@ -27,11 +36,15 @@ class SignatureParser(HTMLParser):
     def protected_attrs(
         attrs: list[tuple[str, str | None]],
     ) -> tuple[tuple[str, str], ...]:
+        # Localizable attributes keep a sentinel value so the model may change the
+        # value but may not remove/add the attribute itself.
         return tuple(
             sorted(
-                (key, value or "")
+                (
+                    key,
+                    "<LOCALIZED>" if key in LOCALIZABLE_ATTRS else (value or ""),
+                )
                 for key, value in attrs
-                if key not in LOCALIZABLE_ATTRS
             )
         )
 
@@ -120,14 +133,14 @@ def call_openai(
 
     instructions = f'''You are the localization engine for ShiftMate, a shift-calendar app. Translate the supplied Blogger HTML from Korean into {language_name} ({locale}). Return ONLY the complete translated HTML, without Markdown fences or commentary.
 STRICT RULES:
-1. Translate only user-visible prose and localizable accessibility text. Preserve HTML tag order and nesting exactly.
-2. Never change URLs, email addresses, CSS, id, class, href, datetime, src, data-* attributes, aria-labelledby, iframe/video source URLs, or element order.
+1. Translate only user-visible prose and permitted localizable attribute values. Preserve HTML tag order and nesting exactly.
+2. Never change URLs, email addresses, CSS, id, class, href, datetime, src, data-video-id, data-guide-search, aria-labelledby, iframe/video source URLs, or element order. Other data-* attributes must also stay unchanged EXCEPT data-search and data-title, whose values must be translated.
 3. {type_rules[content_type]}
 4. Keep product name ShiftMate and technical names such as Android, iPhone, Google Cloud, Chrome, Safari, YouTube, MP3.
 5. Use the glossary below EXACTLY when the Korean source term applies. Do not paraphrase glossary UI labels.
 6. {root_rule}
 7. Preserve every existing formatting tag such as <strong>, <em>, <span>, <br>, <details>, and <summary> in exactly the same position. Never add formatting tags.
-8. Translate image alt text, iframe/video titles, title attributes, and aria-label text naturally for accessibility.{retry_rule}
+8. Translate alt, title, aria-label, placeholder, data-search, and data-title values naturally. For data-search, use useful search synonyms in the target language while preserving the attribute itself.{retry_rule}
 
 GLOSSARY (Korean -> {language_name}):
 {glossary_text}'''
@@ -190,8 +203,9 @@ def translate_preserving_structure(
             extra = (
                 "RETRY AFTER STRUCTURE VALIDATION FAILURE: reproduce the source HTML skeleton "
                 "character-for-character in tag sequence and protected attributes. Change only "
-                "text nodes and the permitted localizable attributes (lang, alt, title, aria-label). "
-                "Do not add, remove, move, or wrap any element."
+                "text nodes and the permitted localizable attribute values (lang, alt, title, "
+                "aria-label, placeholder, data-search, data-title). Do not add, remove, move, "
+                "or wrap any element or attribute."
             )
         translated = call_openai(
             api_key,
@@ -219,6 +233,24 @@ def translate_preserving_structure(
         f"translation for {locale} failed structure validation after {attempts} attempts: "
         f"{last_error}"
     )
+
+
+def rewrite_guide_locale_links(
+    html: str,
+    config: dict[str, Any],
+    locale: str,
+) -> str:
+    """Point Guide FAQ links to the matching localized FAQ Page deterministically."""
+    target = str(config["locales"][locale]["faq_path"])
+    pattern = re.compile(
+        r"(?P<prefix>href=[\"'])/p/faq-ko\.html(?:\?sm-lang=ko)?(?P<quote>[\"'])",
+        flags=re.I,
+    )
+
+    def repl(match: re.Match[str]) -> str:
+        return f"{match.group('prefix')}{target}{match.group('quote')}"
+
+    return pattern.sub(repl, html)
 
 
 def main() -> int:
@@ -273,6 +305,8 @@ def main() -> int:
             info["html_lang"],
             content_type=args.content_type,
         )
+        if args.content_type == "guide":
+            translated = rewrite_guide_locale_links(translated, config, locale)
         out = out_dir / f"{locale}.html"
         out.write_text(translated, encoding="utf-8")
         print(f"Wrote {out}")
