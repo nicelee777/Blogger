@@ -37,6 +37,10 @@ on:
       - 'scripts/blogger_sync_draft.py'
       - '.github/workflows/blogger-translate.yml'
 
+concurrency:
+  group: blogger-translate-develop
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -191,11 +195,17 @@ jobs:
           if [[ -z "$(git status --porcelain -- blogger/faq blogger/guide blogger/posts)" ]]; then
             echo "No translation changes."
           else
+            git fetch origin develop
+            remote_head="$(git rev-parse origin/develop)"
+            if [[ "$remote_head" != "${{ github.sha }}" ]]; then
+              echo "::notice::develop advanced to $remote_head while this translation was running; stale localized output skipped."
+              exit 0
+            fi
+
             git config user.name "shiftmate-blogger-bot"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add blogger/faq blogger/guide blogger/posts
             git commit -m "chore(blogger): update localized content"
-            git pull --rebase origin develop
             git push origin HEAD:develop
           fi
 
