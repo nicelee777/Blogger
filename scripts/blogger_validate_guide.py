@@ -7,6 +7,7 @@ import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 class Inspector(HTMLParser):
@@ -16,6 +17,9 @@ class Inspector(HTMLParser):
         self.hrefs: list[str] = []
         self.aria_refs: list[str] = []
         self.media_sources: list[tuple[str, str]] = []
+        self.search_attrs: list[str] = []
+        self.data_titles: list[str] = []
+        self.placeholders: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attr = dict(attrs)
@@ -27,6 +31,12 @@ class Inspector(HTMLParser):
             self.aria_refs.extend((attr["aria-labelledby"] or "").split())
         if tag in {"img", "iframe", "video", "source"} and attr.get("src"):
             self.media_sources.append((tag, attr["src"] or ""))
+        if "data-search" in attr:
+            self.search_attrs.append(attr.get("data-search") or "")
+        if "data-title" in attr:
+            self.data_titles.append(attr.get("data-title") or "")
+        if "placeholder" in attr:
+            self.placeholders.append(attr.get("placeholder") or "")
 
 
 def style_blocks(text: str) -> list[str]:
@@ -40,7 +50,11 @@ def inspect(path: Path) -> tuple[str, Inspector]:
     return text, parser
 
 
-def validate(path: Path, expected_lang: str | None = None) -> dict:
+def validate(
+    path: Path,
+    expected_lang: str | None = None,
+    expected_faq_path: str | None = None,
+) -> dict:
     text, parser = inspect(path)
     errors: list[str] = []
 
@@ -56,6 +70,14 @@ def validate(path: Path, expected_lang: str | None = None) -> dict:
         if ref not in ids:
             errors.append(f"broken aria-labelledby reference: {ref}")
 
+    if expected_faq_path:
+        for href in parser.hrefs:
+            parsed = urlparse(href)
+            if parsed.path.startswith("/p/faq") and parsed.path != expected_faq_path:
+                errors.append(
+                    f"localized FAQ link must target {expected_faq_path}: {href}"
+                )
+
     if "shiftmate-guide" not in text:
         errors.append(".shiftmate-guide root marker is missing")
 
@@ -67,6 +89,14 @@ def validate(path: Path, expected_lang: str | None = None) -> dict:
         if not any(re.search(pattern, text, re.I) for pattern in patterns):
             errors.append(f'root .shiftmate-guide lang must be "{expected_lang}"')
 
+    for name, values in (
+        ("data-search", parser.search_attrs),
+        ("data-title", parser.data_titles),
+        ("placeholder", parser.placeholders),
+    ):
+        if any(not value.strip() for value in values):
+            errors.append(f"empty localized {name} value")
+
     return {
         "file": str(path),
         "ok": not errors,
@@ -74,6 +104,9 @@ def validate(path: Path, expected_lang: str | None = None) -> dict:
         "_ids": parser.ids,
         "_styles": style_blocks(text),
         "_media": parser.media_sources,
+        "_search_count": len(parser.search_attrs),
+        "_title_count": len(parser.data_titles),
+        "_placeholder_count": len(parser.placeholders),
     }
 
 
@@ -91,6 +124,12 @@ def cross_validate(reports: list[dict]) -> None:
             report["errors"].append("CSS/style blocks differ from ko source")
         if report["_media"] != source["_media"]:
             report["errors"].append("media source URLs/order differ from ko source")
+        if report["_search_count"] != source["_search_count"]:
+            report["errors"].append("data-search attribute count differs from ko source")
+        if report["_title_count"] != source["_title_count"]:
+            report["errors"].append("data-title attribute count differs from ko source")
+        if report["_placeholder_count"] != source["_placeholder_count"]:
+            report["errors"].append("placeholder attribute count differs from ko source")
         report["ok"] = not report["errors"]
 
 
@@ -106,14 +145,26 @@ def main() -> int:
     args = ap.parse_args()
 
     locale_by_name: dict[str, str] = {}
+    faq_path_by_name: dict[str, str] = {}
     if args.config.exists():
         config = json.loads(args.config.read_text(encoding="utf-8"))
         locale_by_name = {
             key: value.get("html_lang", key)
             for key, value in config.get("locales", {}).items()
         }
+        faq_path_by_name = {
+            key: value.get("faq_path", "")
+            for key, value in config.get("locales", {}).items()
+        }
 
-    reports = [validate(path, locale_by_name.get(path.stem)) for path in args.paths]
+    reports = [
+        validate(
+            path,
+            locale_by_name.get(path.stem),
+            faq_path_by_name.get(path.stem),
+        )
+        for path in args.paths
+    ]
     cross_validate(reports)
 
     if args.json:
