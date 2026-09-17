@@ -1,0 +1,29 @@
+{
+  "de": {
+    "일정": "Termin",
+    "일정 추가": "Termin hinzufügen",
+    "일정 목록": "Terminliste",
+    "개인 일정": "Persönlicher Termin",
+    "캘린더": "Kalender",
+    "복무현황": "Anwesenheit & Abwesenheit",
+    "복무 기록": "Anwesenheitsaufzeichnungen"
+  },
+  "pt-br": {
+    "일정": "Evento",
+    "일정 추가": "Adicionar evento",
+    "일정 목록": "Lista de eventos",
+    "개인 일정": "Evento pessoal",
+    "캘린더": "Calendário",
+    "복무현황": "Frequência e ausências",
+    "복무 기록": "Registros de frequência"
+  },
+  "fr": {
+    "일정": "Événement",
+    "일정 추가": "Ajouter un événement",
+    "일정 목록": "Liste des événements",
+    "개인 일정": "Événement personnel",
+    "캘린더": "Calendrier",
+    "복무현황": "Présence et absences",
+    "복무 기록": "Historique de présence"
+  }
+}
