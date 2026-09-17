@@ -14,13 +14,18 @@ on:
       - 'blogger/**'
       - 'scripts/blogger_*.py'
       - '.github/workflows/blogger-publish.yml'
+      - '.github/workflows/blogger-generate-draft.yml'
+      - '.github/workflows/blogger-translate.yml'
   push:
     branches: [main]
     paths:
       - 'blogger/**'
       - 'scripts/blogger_sync.py'
+      - 'scripts/blogger_sync_draft.py'
+      - 'scripts/blogger_generate.py'
       - 'scripts/blogger_validate.py'
       - 'scripts/blogger_validate_guide.py'
+      - 'scripts/blogger_validate_post.py'
       - '.github/workflows/blogger-publish.yml'
 
 permissions:
@@ -39,6 +44,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Compile Blogger Python scripts
+        run: python -m py_compile scripts/blogger_*.py
 
       - name: Require all FAQ locales
         shell: bash
@@ -63,6 +71,15 @@ jobs:
           else
             echo "Guide source not present; Guide Page publish is disabled."
           fi
+
+      - name: Validate managed Posts
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' meta; do
+            item="$(dirname "$meta")"
+            python scripts/blogger_validate_post.py "$item" --all-locales
+          done < <(find blogger/posts -mindepth 3 -maxdepth 3 -name meta.json -print0 2>/dev/null || true)
 
       - name: Check Blogger credentials
         if: github.event_name != 'pull_request'

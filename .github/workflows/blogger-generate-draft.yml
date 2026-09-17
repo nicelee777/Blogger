@@ -1,0 +1,136 @@
+name: Blogger - Generate Draft
+
+on:
+  workflow_dispatch:
+    inputs:
+      category:
+        description: 'Content type'
+        required: true
+        default: story
+        type: choice
+        options:
+          - story
+          - notice
+      slug:
+        description: 'Lowercase slug, e.g. night-shift-schedule-tips'
+        required: true
+        type: string
+      brief:
+        description: 'Korean content brief / requirements'
+        required: true
+        type: string
+      references:
+        description: 'Optional verified reference notes or exact URLs'
+        required: false
+        default: ''
+        type: string
+      labels:
+        description: 'Optional comma-separated Blogger labels'
+        required: false
+        default: ''
+        type: string
+      overwrite_source:
+        description: 'Replace an existing Korean source item'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  generate-draft:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_CONTENT_MODEL: gpt-5.6-terra
+      OPENAI_TRANSLATION_MODEL: gpt-5.6-luna
+      BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+      BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+      BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+      INPUT_CATEGORY: ${{ inputs.category }}
+      INPUT_SLUG: ${{ inputs.slug }}
+      INPUT_BRIEF: ${{ inputs.brief }}
+      INPUT_REFERENCES: ${{ inputs.references }}
+      INPUT_LABELS: ${{ inputs.labels }}
+      INPUT_OVERWRITE: ${{ inputs.overwrite_source }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Require credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$OPENAI_API_KEY" || { echo "Missing OPENAI_API_KEY"; exit 1; }
+          test -n "$BLOGGER_CLIENT_ID" || { echo "Missing BLOGGER_CLIENT_ID"; exit 1; }
+          test -n "$BLOGGER_CLIENT_SECRET" || { echo "Missing BLOGGER_CLIENT_SECRET"; exit 1; }
+          test -n "$BLOGGER_REFRESH_TOKEN" || { echo "Missing BLOGGER_REFRESH_TOKEN"; exit 1; }
+
+      - name: Generate Korean source from editorial policy
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(
+            --category "$INPUT_CATEGORY"
+            --slug "$INPUT_SLUG"
+            --brief "$INPUT_BRIEF"
+            --references "$INPUT_REFERENCES"
+            --labels "$INPUT_LABELS"
+          )
+          if [[ "$INPUT_OVERWRITE" == "true" ]]; then
+            args+=(--overwrite-source)
+          fi
+          python scripts/blogger_generate.py "${args[@]}"
+
+      - name: Validate Korean source
+        shell: bash
+        run: |
+          set -euo pipefail
+          item="blogger/posts/$INPUT_CATEGORY/$INPUT_SLUG"
+          python scripts/blogger_validate_post.py "$item" --require-draft
+
+      - name: Translate all managed locales
+        shell: bash
+        run: |
+          set -euo pipefail
+          item="blogger/posts/$INPUT_CATEGORY/$INPUT_SLUG"
+          python scripts/blogger_translate_posts.py --item "$item"
+          python scripts/blogger_validate_post.py "$item" --all-locales --require-draft
+
+      - name: Commit generated draft to develop
+        shell: bash
+        run: |
+          set -euo pipefail
+          item="blogger/posts/$INPUT_CATEGORY/$INPUT_SLUG"
+          git config user.name "shiftmate-blogger-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$item"
+          if git diff --cached --quiet; then
+            echo "No generated content changes."
+          else
+            git commit -m "content($INPUT_CATEGORY): generate draft $INPUT_SLUG"
+            git pull --rebase origin develop
+            git push origin HEAD:develop
+          fi
+
+      - name: Create or update Blogger draft
+        shell: bash
+        run: |
+          set -euo pipefail
+          item="blogger/posts/$INPUT_CATEGORY/$INPUT_SLUG"
+          python scripts/blogger_sync_draft.py --item "$item"
+
+      - name: Summary
+        shell: bash
+        run: |
+          echo "Generated: blogger/posts/$INPUT_CATEGORY/$INPUT_SLUG"
+          echo "State: develop + Blogger draft only"
+          echo "Production publication still requires review and main."

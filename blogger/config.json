@@ -1,8 +1,10 @@
 {
-  "automation_version": 2,
+  "automation_version": 3,
   "blog_url": "https://shiftmate.interrobangsoft.com/",
   "source_locale": "ko",
+  "content_model": "gpt-5.6-terra",
   "translation_model": "gpt-5.6-luna",
+  "editorial_policy_version": 1,
   "page_types": {
     "faq": {
       "directory": "blogger/faq",
