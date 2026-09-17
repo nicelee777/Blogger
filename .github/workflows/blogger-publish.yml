@@ -25,6 +25,7 @@ on:
       - 'scripts/blogger_generate.py'
       - 'scripts/blogger_validate.py'
       - 'scripts/blogger_validate_guide.py'
+      - 'scripts/blogger_validate_page_metadata.py'
       - 'scripts/blogger_validate_post.py'
       - '.github/workflows/blogger-publish.yml'
 
@@ -58,6 +59,9 @@ jobs:
 
       - name: Validate FAQ HTML
         run: python scripts/blogger_validate.py blogger/faq/*.html
+
+      - name: Validate Guide search descriptions
+        run: python scripts/blogger_validate_page_metadata.py guide --show
 
       - name: Validate Guide HTML when enabled
         shell: bash
