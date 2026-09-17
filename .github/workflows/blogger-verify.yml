@@ -43,7 +43,8 @@ jobs:
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             python scripts/blogger_validate.py blogger/faq/*.html
             if [[ -f blogger/guide/ko.html ]]; then
-              for locale in ko en ja zh-cn zh-tw es vi; do
+              locales="$(python -c 'import json; print(" ".join(json.load(open("blogger/config.json", encoding="utf-8"))["locales"].keys()))')"
+              for locale in $locales; do
                 test -f "blogger/guide/${locale}.html" || { echo "Missing blogger/guide/${locale}.html"; exit 1; }
               done
               python scripts/blogger_validate_guide.py blogger/guide/*.html
