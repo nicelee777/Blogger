@@ -20,6 +20,7 @@ class Inspector(HTMLParser):
         self.search_attrs: list[str] = []
         self.data_titles: list[str] = []
         self.placeholders: list[str] = []
+        self.video_buttons: list[tuple[str, bool]] = []
         self.guide_root_found = False
         self.guide_root_lang = ""
 
@@ -49,6 +50,10 @@ class Inspector(HTMLParser):
             self.data_titles.append(attr.get("data-title") or "")
         if "placeholder" in attr:
             self.placeholders.append(attr.get("placeholder") or "")
+        if tag.lower() == "button" and "sm-guide-video" in classes:
+            self.video_buttons.append(
+                (attr.get("data-video-id") or "", "hidden" in attr)
+            )
 
 
 def style_blocks(text: str) -> list[str]:
@@ -108,6 +113,16 @@ def validate(
         if any(not value.strip() for value in values):
             errors.append(f"empty localized {name} value")
 
+    for index, (video_id, hidden) in enumerate(parser.video_buttons, start=1):
+        if not video_id.strip() and not hidden:
+            errors.append(
+                f"Guide video button #{index} has no data-video-id and must be hidden"
+            )
+        if video_id.strip() and hidden:
+            errors.append(
+                f"Guide video button #{index} has a data-video-id and must not be hidden"
+            )
+
     return {
         "file": str(path),
         "ok": not errors,
@@ -118,6 +133,7 @@ def validate(
         "_search_count": len(parser.search_attrs),
         "_title_count": len(parser.data_titles),
         "_placeholder_count": len(parser.placeholders),
+        "_video_buttons": parser.video_buttons,
     }
 
 
@@ -141,6 +157,8 @@ def cross_validate(reports: list[dict]) -> None:
             report["errors"].append("data-title attribute count differs from ko source")
         if report["_placeholder_count"] != source["_placeholder_count"]:
             report["errors"].append("placeholder attribute count differs from ko source")
+        if report["_video_buttons"] != source["_video_buttons"]:
+            report["errors"].append("Guide video button IDs/visibility differ from ko source")
         report["ok"] = not report["errors"]
 
 

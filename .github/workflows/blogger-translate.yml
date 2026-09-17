@@ -27,6 +27,7 @@ on:
       - 'blogger/product-facts.md'
       - 'blogger/content-prompts/**'
       - 'scripts/blogger_translate.py'
+      - 'scripts/blogger_normalize_spacing.py'
       - 'scripts/blogger_translate_posts.py'
       - 'scripts/blogger_validate.py'
       - 'scripts/blogger_validate_guide.py'
@@ -113,7 +114,7 @@ jobs:
           posts_all=false
           posts_changed=false
 
-          if printf '%s\n' "$changed" | grep -Eq '^(blogger/config\.json|blogger/glossary\.json|scripts/blogger_translate\.py)$'; then
+          if printf '%s\n' "$changed" | grep -Eq '^(blogger/config\.json|blogger/glossary\.json|scripts/blogger_translate\.py|scripts/blogger_normalize_spacing\.py)$'; then
             faq=true
             guide=true
             posts_all=true
@@ -185,6 +186,10 @@ jobs:
           else
             echo "Notice/Story sources unchanged; Post translation skipped."
           fi
+
+          # Korean suffixes can attach directly to inline tags; Latin translations
+          # need a word boundary there. Normalize only localized Latin-script files.
+          python scripts/blogger_normalize_spacing.py blogger/faq blogger/guide blogger/posts
 
           python scripts/blogger_validate.py blogger/faq/*.html
           if [[ -f blogger/guide/ko.html ]]; then

@@ -1,9 +1,9 @@
 {
-  "ko": "ShiftMate 사용 가이드에서 근무표 입력, 일정, 동료 근무 공유, 출근 알람, 홈 위젯, 메모, 복무·분석, 계정·데이터 설정 방법을 한 페이지에서 확인하세요.",
-  "en": "Learn how to use ShiftMate for shift schedules, calendar events, coworker shift sharing, work alarms, home-screen widgets, memos, duty records, analysis, and account and data settings.",
-  "ja": "ShiftMateの使い方をまとめたガイドです。シフト表の入力、予定、同僚との勤務共有、出勤アラーム、ホームウィジェット、メモ、服務・分析、アカウントとデータ設定を確認できます。",
-  "zh-cn": "ShiftMate 使用指南：了解班次表录入、日程、同事班次共享、上班提醒、主屏幕小组件、备忘录、考勤与分析，以及账户和数据设置方法。",
-  "zh-tw": "ShiftMate 使用指南：了解班表輸入、行程、同事班次分享、上班提醒、主畫面小工具、備忘錄、出勤與分析，以及帳號和資料設定方法。",
-  "es": "Guía de uso de ShiftMate para gestionar turnos, calendario, turnos compartidos con compañeros, alarmas de trabajo, widgets, notas, registros, análisis y ajustes de cuenta y datos.",
-  "vi": "Hướng dẫn sử dụng ShiftMate để nhập lịch ca, quản lý lịch cá nhân, chia sẻ ca với đồng nghiệp, cài báo thức đi làm, tiện ích màn hình chính, ghi chú, phân tích và cài đặt dữ liệu."
+  "ko": "ShiftMate 간호사·교대근무 사용 가이드. 근무표 입력, 일정, 동료 근무 공유, 출근 알람, 홈 위젯, 메모, 복무·분석, 데이터 설정 방법을 확인하세요.",
+  "en": "ShiftMate nurse and shift-work guide for shift schedules, calendar events, coworker sharing, work alarms, home-screen widgets, memos, Time Off & Attendance, analysis, and data settings.",
+  "ja": "ShiftMateの看護師・交代勤務向けガイドです。勤務表入力、予定、同僚との勤務共有、出勤アラーム、ホームウィジェット、メモ、勤怠・休暇、分析、データ設定を確認できます。",
+  "zh-cn": "ShiftMate 护士与轮班工作使用指南：了解班表录入、日程、同事班次共享、上班提醒、主屏幕小组件、备忘录、考勤与请假、分析及数据设置。",
+  "zh-tw": "ShiftMate 護理師與輪班工作使用指南：了解班表輸入、行程、同事班次分享、上班提醒、主畫面小工具、備忘錄、考勤與請假、分析及資料設定。",
+  "es": "Guía de ShiftMate para enfermería y trabajo por turnos: horarios, calendario, turnos compartidos, alarmas, widgets, notas, ausencias y asistencia, análisis y datos.",
+  "vi": "Hướng dẫn ShiftMate cho điều dưỡng và người làm ca: lịch ca, lịch cá nhân, chia sẻ ca, báo thức đi làm, tiện ích, ghi chú, nghỉ phép & chấm công, phân tích và dữ liệu."
 }
