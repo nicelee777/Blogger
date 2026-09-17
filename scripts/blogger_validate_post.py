@@ -27,7 +27,7 @@ class PostParser(HTMLParser):
         self.article_lang = ""
         self.forbidden: list[str] = []
 
-    def handle_starttag(self, tag: str, attrs):
+    def _consume(self, tag: str, attrs) -> None:
         tag = tag.lower()
         self.tags.append(tag)
         values = {k.lower(): (v or "") for k, v in attrs}
@@ -44,6 +44,12 @@ class PostParser(HTMLParser):
             self.images.append(values.get("src", ""))
         if tag == "iframe":
             self.iframes.append(values.get("src", ""))
+
+    def handle_starttag(self, tag: str, attrs):
+        self._consume(tag, attrs)
+
+    def handle_startendtag(self, tag: str, attrs):
+        self._consume(tag, attrs)
 
 
 def validate_media(parser: PostParser, path: Path) -> list[str]:
