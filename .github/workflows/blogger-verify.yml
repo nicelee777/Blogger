@@ -2,15 +2,6 @@ name: Blogger - Verify
 
 on:
   workflow_dispatch:
-  push:
-    branches: [develop]
-    paths:
-      - 'blogger/**'
-      - 'scripts/blogger_sync.py'
-      - 'scripts/blogger_validate.py'
-      - 'scripts/blogger_validate_guide.py'
-      - 'scripts/blogger_validate_page_metadata.py'
-      - '.github/workflows/blogger-verify.yml'
 
 permissions:
   contents: read
@@ -42,18 +33,16 @@ jobs:
           python scripts/blogger_validate_page_metadata.py guide
 
           if [[ -f blogger/guide/ko.html ]]; then
-            complete=true
             for locale in ko en ja zh-cn zh-tw es vi; do
-              if [[ ! -f "blogger/guide/${locale}.html" ]]; then
-                complete=false
-              fi
+              test -f "blogger/guide/${locale}.html" || { echo "Missing blogger/guide/${locale}.html"; exit 1; }
             done
-            if [[ "$complete" == "true" ]]; then
-              python scripts/blogger_validate_guide.py blogger/guide/*.html
-            else
-              echo "::notice::Guide translation is pending; localized Guide validation will run after translation commit."
-            fi
+            python scripts/blogger_validate_guide.py blogger/guide/*.html
           fi
+
+          while IFS= read -r -d '' meta; do
+            item="$(dirname "$meta")"
+            python scripts/blogger_validate_post.py "$item" --all-locales
+          done < <(find blogger/posts -mindepth 3 -maxdepth 3 -name meta.json -print0 2>/dev/null || true)
 
       - name: Require Blogger credentials
         shell: bash
@@ -67,25 +56,7 @@ jobs:
         run: python scripts/blogger_sync.py discover
 
       - name: Verify Pages without writing
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [[ -f blogger/guide/ko.html ]]; then
-            complete=true
-            for locale in ko en ja zh-cn zh-tw es vi; do
-              if [[ ! -f "blogger/guide/${locale}.html" ]]; then
-                complete=false
-              fi
-            done
-            if [[ "$complete" == "true" ]]; then
-              python scripts/blogger_sync.py pages --dry-run
-            else
-              echo "Guide locales are still being generated; verifying FAQ Page only."
-              python scripts/blogger_sync.py faq --dry-run
-            fi
-          else
-            python scripts/blogger_sync.py pages --dry-run
-          fi
+        run: python scripts/blogger_sync.py pages --dry-run
 
       - name: Verify Posts without writing
         run: python scripts/blogger_sync.py posts --dry-run
