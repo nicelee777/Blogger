@@ -133,4 +133,5 @@ jobs:
         run: |
           echo "Generated: blogger/posts/$INPUT_CATEGORY/$INPUT_SLUG"
           echo "State: develop + Blogger draft only"
-          echo "Production publication still requires review and main."
+          echo "This workflow runs only when manually requested."
+          echo "Production publication still requires a separate manual Blogger - Publish run."
