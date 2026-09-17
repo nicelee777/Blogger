@@ -3,9 +3,9 @@
 
 Korean source text can attach grammatical particles directly after inline tags,
 for example ``<strong>...</strong>는``. When translated segment-by-segment into
-English, Spanish, or Vietnamese, the following word can remain attached to the
-closing tag (``</strong>is``). This post-process fixes only that boundary while
-leaving markup, URLs, CSS, IDs, and non-Latin locales untouched.
+Latin-script locales, the following word can remain attached to the closing tag
+(``</strong>is``). This post-process fixes only that boundary while leaving
+markup, URLs, CSS, IDs, and non-Latin locales untouched.
 """
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ import argparse
 import re
 from pathlib import Path
 
-LATIN_LOCALES = {"en", "es", "vi"}
+LATIN_LOCALES = {"en", "es", "vi", "de", "pt-br", "fr"}
 INLINE_TAGS = "strong|em|span|a"
 # Latin letters, extended Latin (incl. Vietnamese), and digits.
 LATIN_WORD_START = r"A-Za-zÀ-ÖØ-öø-ÿĀ-žẠ-ỹ0-9"
