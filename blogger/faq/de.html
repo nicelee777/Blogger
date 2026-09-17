@@ -1,0 +1,315 @@
+<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--Paste this entire fragment into the Blogger page HTML view.-->
+<style>
+  /* Hide Blogger's administrator-facing page title on the public page. */
+  .post-title,
+  .post-title.entry-title,
+  h1.post-title.entry-title,
+  h2.post-title.entry-title,
+  h3.post-title.entry-title {
+    display: none !important;
+  }    
+  
+.shiftmate-faq {
+  --sm-ink: #14152d;
+  --sm-text: #292d39;
+  --sm-muted: #626775;
+  --sm-line: #e1e3e9;
+  --sm-surface: #f6f7fa;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0;
+  color: var(--sm-text);
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.shiftmate-faq:lang(ko) { word-break: keep-all; }
+.shiftmate-faq *, .shiftmate-faq *::before, .shiftmate-faq *::after {
+  box-sizing: border-box;
+}
+.shiftmate-faq h1 {
+  margin: 0 0 16px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  font-size: 1.75em;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.shiftmate-faq h2 {
+  margin: 34px 0 14px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 1.55;
+  scroll-margin-top: 80px;
+}
+.shiftmate-faq p { margin: 0 0 14px; }
+.shiftmate-faq a {
+  color: var(--sm-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.shiftmate-faq a:focus-visible, .shiftmate-faq summary:focus-visible {
+  outline: 3px solid var(--sm-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.shiftmate-faq .sm-faq-toc {
+  margin: 22px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-toc h2 { margin: 0 0 10px; }
+.shiftmate-faq .sm-faq-toc ol { margin: 0; padding-left: 1.5em; }
+.shiftmate-faq .sm-faq-toc li { margin: 0; padding: 0; }
+.shiftmate-faq .sm-faq-toc a { display: block; padding: 5px 0; }
+.shiftmate-faq details {
+  display: block;
+  margin: 0 0 10px;
+  padding: 0;
+  border: 1px solid var(--sm-line);
+  border-radius: 10px;
+  background: #ffffff;
+  scroll-margin-top: 80px;
+}
+.shiftmate-faq summary {
+  display: list-item;
+  min-height: 48px;
+  margin: 0;
+  padding: 14px 16px;
+  color: var(--sm-ink);
+  font-family: inherit;
+  line-height: 1.65;
+  list-style-position: inside;
+  cursor: pointer;
+}
+.shiftmate-faq summary::marker { color: var(--sm-ink); }
+.shiftmate-faq summary strong { font-weight: 600; }
+.shiftmate-faq details[open] summary {
+  border-bottom: 1px solid var(--sm-line);
+}
+.shiftmate-faq .sm-faq-answer { padding: 16px; }
+.shiftmate-faq .sm-faq-answer p:last-child { margin-bottom: 0; }
+.shiftmate-faq .sm-faq-path {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--sm-surface);
+  color: var(--sm-ink);
+  font-weight: 600;
+  white-space: normal;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
+.shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
+.shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-footer {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--sm-line);
+}
+@media (max-width: 480px) {
+  .shiftmate-faq h1 { font-size: 1.5em; }
+  .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq summary { padding: 13px 14px; }
+  .shiftmate-faq .sm-faq-answer { padding: 14px; }
+}
+</style>
+
+<div class="shiftmate-faq" lang="de">
+  <!-- If Blogger already displays this title above the body, remove only the following h1 element. -->
+  <h1>ShiftMate: Anleitung und FAQ – Dienstplan, Alarme, Teilen und Backup</h1>
+  <p>Wir haben häufig gestellte Fragen zu Schichteinstellungen, Terminen und Notizen, Alarmen, Backups und dem Teilen von Schichten zusammengestellt. Tippen Sie auf eine Frage, um die Antwort anzuzeigen.</p>
+  <p class="sm-faq-meta">Je nach App-Version und Geräteumgebung können die Menünamen leicht abweichen.</p>
+
+  <nav aria-labelledby="toc" class="sm-faq-toc">
+    <h2 id="toc">Inhaltsverzeichnis</h2>
+    <ol>
+      <li><a href="#work">Schichteinstellungen · Teilen · Anzeige</a></li>
+      <li><a href="#alarm">Alarme · Benachrichtigungen</a></li>
+      <li><a href="#data">Datenspeicherung · Backup und Wiederherstellung</a></li>
+      <li><a href="#calendar">Termine · Kalender · Notizen verwalten</a></li>
+      <li><a href="#link">Probleme mit Freigabelinks beheben</a></li>
+      <li><a href="#platform">Gerätekompatibilität · Nutzung auf mehreren Geräten</a></li>
+      <li><a href="#etc">Kollegen verwalten</a></li>
+      <li><a href="#help">Hilfe · Kontakt</a></li>
+    </ol>
+  </nav>
+
+  <section aria-labelledby="work">
+    <h2 id="work">1) Schichteinstellungen · Teilen · Anzeige</h2>
+
+    <details id="faq-shift-types">
+      <summary><strong>F. Die gewünschte Schicht ist nicht in der Liste vorhanden.</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>Unter Schichteinstellungen können Sie eine neue Schicht hinzufügen oder nicht verwendete Schichten bearbeiten.</strong></p>
+      </div>
+    </details>
+
+    <details id="faq-long-shift-name">
+      <summary><strong>F. Es wird nur der erste Buchstabe des Schichtnamens angezeigt.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Wenn wegen eines langen Schichtnamens nur ein Teil angezeigt wird, <span class="sm-faq-path">Einstellungen → Anzeigeeinstellungen → Schichtgröße → Lange Schichtnamen</span> gehen Sie zu.</p>
+        <p><strong>„Mehr anzeigen“ oder „Maximal“</strong> Wenn Sie dies auswählen, können lange Schichtnamen ausführlicher angezeigt werden.</p>
+      </div>
+    </details>
+
+    <details id="faq-refresh-shared-shifts" open="">
+      <summary><strong>F. Wird eine Änderung der Schicht durch einen Kollegen sofort auch auf meinem Bildschirm angezeigt?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Eine von einem Kollegen geänderte Schicht wird auf dem Server aktualisiert, <strong>und Sie können die aktuelle Schicht unter „Schichten von Kollegen“ überprüfen.</strong></p>
+      </div>
+    </details>
+
+    <details id="faq-display-shared-shifts">
+      <summary><strong>F. Ich möchte den Dienstplan meiner Familie oder meiner Kollegen auf dem Schichtbildschirm sehen.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Bitten Sie die betreffende Person zunächst darum, ihre Schichten <strong>mit Ihnen zu teilen.</strong></p>
+        <p>Gehen Sie anschließend <span class="sm-faq-path">zu Einstellungen → Schichten, Abwesenheit &amp; Anwesenheit</span> und <strong>wählen Sie unter „Schichtbildschirm“ bei „Anzuzeigender Dienstplan“</strong> die gewünschte Person aus.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <section aria-labelledby="alarm">
+    <h2 id="alarm">2) Alarme · Benachrichtigungen</h2>
+
+    <details id="faq-mp3-alarm">
+      <summary><strong>F. Kann ich eine auf meinem Smartphone gespeicherte MP3-Datei als Alarmton verwenden?</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>Dies wird nur unter Android unterstützt.</strong> <span class="sm-faq-path">Einstellungen → Alarm → Alarmton</span> unter <strong>MP3-Taste</strong> Tippen Sie darauf und wählen Sie anschließend die gewünschte Datei aus.</p>
+      </div>
+    </details>
+
+    <details id="faq-iphone-alarm-volume">
+      <summary><strong>F. Der Alarmton auf dem iPhone ist zu leise.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Öffnen Sie auf dem iPhone <span class="sm-faq-path">Einstellungen → Töne &amp; Haptik</span> und erhöhen Sie unter <strong>Klingelton und Hinweistöne</strong> die Lautstärke. Überprüfen Sie den Alarmton anschließend erneut.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <section aria-labelledby="data">
+    <h2 id="data">3) Datenspeicherung · Backup und Wiederherstellung</h2>
+
+    <details id="faq-data-storage">
+      <summary><strong>F. Wo werden die Daten gespeichert?</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>Informationen zu Schichten, Notizen, Anwesenheit und geteilten Schichten</strong> werden in Google Cloud <strong>automatisch gesichert</strong>.</p>
+        <p><strong>Termine verwenden den Kalender des Smartphones und werden nicht separat von ShiftMate gesichert.</strong> Je nach Einstellungen des verbundenen Kalenders können Termine mit dem entsprechenden Konto synchronisiert werden.</p>
+      </div>
+    </details>
+
+    <details id="faq-restore-new-phone">
+      <summary><strong>F. Wie kann ich meine Daten wiederherstellen, wenn ich zu einem neuen Smartphone wechsle?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Wenn Sie sich mit <strong>demselben Konto wie zuvor anmelden</strong>, werden die in diesem Konto gesicherten <strong>Informationen zu Schichten, Notizen, Anwesenheit und geteilten Schichten automatisch wiederhergestellt.</strong></p>
+        <p><strong>Termine werden von ShiftMate nicht separat gesichert.</strong> Wenn Sie ein zuvor verwendetes Kalenderkonto wie Google Calendar oder iCloud mit dem neuen Gerät verbinden und die Synchronisierung aktivieren, können die mit diesem Konto synchronisierten Termine wieder angezeigt werden.</p>
+        <p>Dagegen <strong>werden lokale Kalendertermine, die nur auf dem Gerät gespeichert sind,</strong> nicht mit dem Konto synchronisiert und müssen möglicherweise separat übertragen werden.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <section aria-labelledby="calendar">
+    <h2 id="calendar">4) Termine · Kalender · Notizen verwalten</h2>
+
+    <details id="faq-calendar-storage-model">
+      <summary><strong>F. Wo werden in ShiftMate hinzugefügte Termine gespeichert?</strong></summary>
+      <div class="sm-faq-answer">
+        <p><strong>ShiftMate speichert Termine nicht separat in der App, sondern verwendet den Kalender des Smartphones.</strong></p>
+        <p>Beim Hinzufügen eines Termins können Sie unter den auf dem Smartphone registrierten Kalendern <strong>den Kalender zum Speichern auswählen</strong>; der erstellte Termin wird im ausgewählten Kalender gespeichert. Wenn beispielsweise Google Calendar, iCloud-Kalender oder der Gerätekalender verbunden sind, können Sie einen davon auswählen.</p>
+        <p>Die in ShiftMate angezeigten Termine stammen daher aus dem Kalender des Smartphones und können auch in anderen Kalender-Apps angezeigt werden, die denselben Kalender verwenden. Wenn Sie einen Termin in ShiftMate bearbeiten oder löschen, <strong>wird dies auch im tatsächlichen Termin des ausgewählten Kalenders entsprechend übernommen.</strong></p>
+        <p>Wenn Sie den Termin in einem mit einem Konto synchronisierten Kalender wie Google Calendar oder iCloud gespeichert haben, kann er auf einem neuen Gerät wieder angezeigt werden, sobald Sie dasselbe Kalenderkonto verbinden und die Synchronisierung aktivieren.</p>
+      </div>
+    </details>
+
+    <details id="faq-delete-schedule-memo">
+      <summary><strong>F. Wie kann ich einen Termin oder eine Notiz löschen?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Wischen Sie in der Termin- oder Notizenliste <strong>das zu löschende Element nach links oder rechts</strong>; anschließend können Sie die Löschfunktion verwenden.</p>
+        <p><strong>Da Termine die tatsächlichen Termine im Kalender des Smartphones</strong> verwenden, wird der entsprechende Termin auch aus dem Kalender gelöscht, in dem er gespeichert ist, wenn Sie ihn in ShiftMate löschen.</p>
+      </div>
+    </details>
+
+    <details id="faq-hide-calendars">
+      <summary><strong>F. Ich möchte unnötige oder doppelte Feiertage, Gedenktage und saisonale Feiertage ausblenden.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Tippen Sie auf den betreffenden Termin und <strong>prüfen Sie, in welchem Kalender er gespeichert ist.</strong> Gehen Sie anschließend zu <span class="sm-faq-path">App-Einstellungen → Kalender</span> und deaktivieren Sie die Auswahl dieses Kalenders.</p>
+        <p><strong>Der Termin wird nicht gelöscht.</strong> Termine aus dem abgewählten Kalender werden nicht in der App angezeigt; auch andere Termine in diesem Kalender werden ausgeblendet.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <section aria-labelledby="link">
+    <h2 id="link">5) Probleme mit Freigabelinks beheben</h2>
+
+    <details id="faq-open-sharing-link">
+      <summary><strong>F. „In App öffnen“ funktioniert bei einem Freigabelink nicht.</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Wenn der Link <strong>in einer anderen App geöffnet wird,</strong> funktioniert die App-Verknüpfung möglicherweise nicht ordnungsgemäß.</p>
+        <p>Wählen Sie im <strong>Menü „Mehr“ auf dem Bildschirm „Im Browser öffnen“ oder einen ähnlichen Eintrag</strong> aus.</p>
+        <p>Falls dieses Menü nicht vorhanden ist, <strong>kopieren Sie die Linkadresse und öffnen Sie sie in einem externen Browser wie Chrome oder Safari.</strong></p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <section aria-labelledby="platform">
+    <h2 id="platform">6) Gerätekompatibilität · Nutzung auf mehreren Geräten</h2>
+
+    <details id="faq-cross-platform-sharing" open="">
+      <summary><strong>F. Kann ich Schichten zwischen iPhone und Android-Smartphones teilen?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Ja. Unabhängig vom verwendeten Smartphone <strong>können Sie die Funktion zum Teilen von Schichten</strong> nutzen.</p>
+        <p>Geteilte Schichten <strong>können Sie im Bildschirm „Schichten von Kollegen“</strong> überprüfen. Aktualisierte Inhalte können Sie durch <strong>Aktualisieren</strong> anzeigen.</p>
+      </div>
+    </details>
+
+    <details id="faq-multiple-devices">
+      <summary><strong>F. Kann ich die App gemeinsam auf mehreren Geräten wie Smartphone und Tablet verwenden?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Damit Sie Daten auf mehreren Geräten synchronisieren und verwenden können, <strong>bereiten wir die Unterstützung für mehrere Geräte vor.</strong> Über den Zeitplan und weitere Einzelheiten informieren wir später in einer Ankündigung.</p>
+        <p>Datensicherung und -wiederherstellung sowie die Synchronisierung mehrerer Geräte sind unterschiedliche Funktionen.</p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <section aria-labelledby="etc">
+    <h2 id="etc">7) Kollegen verwalten</h2>
+
+    <details id="faq-coworker-groups">
+      <summary><strong>F. Kann ich Kollegen in Gruppen einteilen und verwalten?</strong></summary>
+      <div class="sm-faq-answer">
+        <p>Derzeit wird keine separate Gruppenfunktion unterstützt. Stattdessen <strong>können Sie die Schichten von Kollegen oder Familienmitgliedern anhand der Farben unterscheiden.</strong></p>
+      </div>
+    </details>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <section aria-labelledby="help">
+    <h2 id="help">8) Hilfe · Kontakt</h2>
+
+    <p>Ausführliche Anleitungen finden Sie, indem Sie nach <strong>„ShiftMate Anleitung“ oder „Ich bin Krankenschwester Anleitung“</strong> suchen.</p>
+    <p>Wenn ein Problem weiterhin besteht, <a href="mailto:ibs.appdev@gmail.com">ibs.appdev@gmail.com</a> kontaktieren Sie uns bitte.</p>
+    <p>Fügen Sie Ihrer Anfrage <strong>das Gerätemodell, die Betriebssystemversion, die App-Version und eine Beschreibung des Problems</strong> bei. Wenn Sie einen Screenshot anhängen, machen Sie bitte persönliche Daten unkenntlich.</p>
+    <p class="sm-faq-back"><a href="#toc">↑ Zum Inhaltsverzeichnis</a></p>
+  </section>
+
+  <footer class="sm-faq-footer">
+    <p class="sm-faq-meta">Letzte Aktualisierung: <time datetime="2026-09-17">17. September 2026</time></p>
+  </footer>
+</div>
