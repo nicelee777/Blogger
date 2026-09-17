@@ -99,10 +99,12 @@ def validate_generated(result: dict[str, Any], category: str) -> tuple[str, str,
         raise RuntimeError("generated HTML must use <article class=\"sm-post\" ...>")
     if not re.search(r'<article\b[^>]*lang=["\']ko["\']', html, flags=re.I):
         raise RuntimeError("generated Korean HTML root article must use lang=\"ko\"")
-    if re.search(r"<(script|form|object|embed)\b", html, flags=re.I):
-        raise RuntimeError("generated HTML contains a forbidden executable/interactive tag")
+    if re.search(r"<(script|style|form|object|embed)\b", html, flags=re.I):
+        raise RuntimeError("generated HTML contains a forbidden executable/style tag")
     if category == "story" and len(title) < 4:
         raise RuntimeError("generated Story title is unexpectedly short")
+    if len(secondary) > 4:
+        raise RuntimeError("secondary_keywords must contain at most four terms")
     return title, description, primary, secondary
 
 
@@ -113,6 +115,7 @@ def main() -> int:
     ap.add_argument("--brief", required=True)
     ap.add_argument("--labels", default="")
     ap.add_argument("--references", default="")
+    ap.add_argument("--config", type=Path, default=Path("blogger/config.json"))
     ap.add_argument("--root", type=Path, default=Path("blogger/posts"))
     ap.add_argument("--overwrite-source", action="store_true")
     args = ap.parse_args()
@@ -125,7 +128,13 @@ def main() -> int:
     if not api_key:
         print("OPENAI_API_KEY is required", file=sys.stderr)
         return 2
-    model = os.environ.get("OPENAI_CONTENT_MODEL", "gpt-5.6-terra").strip()
+
+    config = json.loads(args.config.read_text(encoding="utf-8"))
+    model = os.environ.get(
+        "OPENAI_CONTENT_MODEL",
+        str(config.get("content_model", "gpt-5.6-terra")),
+    ).strip()
+    policy_version = int(config.get("editorial_policy_version", 1))
 
     item = args.root / args.category / args.slug
     meta_path = item / "meta.json"
@@ -190,7 +199,7 @@ HTML RULES:
         "secondary_keywords": secondary,
         "generation": {
             "model": model,
-            "policy_version": 1,
+            "policy_version": policy_version,
         },
     }
 
