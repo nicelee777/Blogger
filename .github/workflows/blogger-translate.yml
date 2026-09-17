@@ -22,10 +22,12 @@ on:
       - 'blogger/posts/**/meta.json'
       - 'blogger/config.json'
       - 'blogger/glossary.json'
+      - 'blogger/glossary-overrides.json'
       - 'blogger/editorial-policy.md'
       - 'blogger/seo-policy.md'
       - 'blogger/product-facts.md'
       - 'blogger/content-prompts/**'
+      - 'scripts/blogger_apply_glossary_overrides.py'
       - 'scripts/blogger_translate.py'
       - 'scripts/blogger_normalize_spacing.py'
       - 'scripts/blogger_translate_posts.py'
@@ -34,6 +36,10 @@ on:
       - 'scripts/blogger_validate_post.py'
       - 'scripts/blogger_sync_draft.py'
       - '.github/workflows/blogger-translate.yml'
+
+concurrency:
+  group: blogger-translate-develop
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -66,30 +72,11 @@ jobs:
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             scope="${{ inputs.scope }}"
             case "$scope" in
-              all)
-                faq=true
-                guide=true
-                posts_all=true
-                ;;
-              faq)
-                faq=true
-                guide=false
-                posts_all=false
-                ;;
-              guide)
-                faq=false
-                guide=true
-                posts_all=false
-                ;;
-              posts)
-                faq=false
-                guide=false
-                posts_all=true
-                ;;
-              *)
-                echo "Unknown scope: $scope" >&2
-                exit 2
-                ;;
+              all) faq=true; guide=true; posts_all=true ;;
+              faq) faq=true; guide=false; posts_all=false ;;
+              guide) faq=false; guide=true; posts_all=false ;;
+              posts) faq=false; guide=false; posts_all=true ;;
+              *) echo "Unknown scope: $scope" >&2; exit 2 ;;
             esac
             echo "faq=$faq" >> "$GITHUB_OUTPUT"
             echo "guide=$guide" >> "$GITHUB_OUTPUT"
@@ -114,7 +101,7 @@ jobs:
           posts_all=false
           posts_changed=false
 
-          if printf '%s\n' "$changed" | grep -Eq '^(blogger/config\.json|blogger/glossary\.json|scripts/blogger_translate\.py|scripts/blogger_normalize_spacing\.py)$'; then
+          if printf '%s\n' "$changed" | grep -Eq '^(blogger/config\.json|blogger/glossary\.json|blogger/glossary-overrides\.json|scripts/blogger_apply_glossary_overrides\.py|scripts/blogger_translate\.py|scripts/blogger_normalize_spacing\.py)$'; then
             faq=true
             guide=true
             posts_all=true
@@ -153,6 +140,10 @@ jobs:
             exit 0
           fi
 
+          cp blogger/glossary.json /tmp/shiftmate-glossary.json
+          trap 'cp /tmp/shiftmate-glossary.json blogger/glossary.json' EXIT
+          python scripts/blogger_apply_glossary_overrides.py
+
           if [[ "$TRANSLATE_FAQ" == "true" ]]; then
             python scripts/blogger_validate.py blogger/faq/ko.html
             python scripts/blogger_translate.py --content-type faq
@@ -187,10 +178,10 @@ jobs:
             echo "Notice/Story sources unchanged; Post translation skipped."
           fi
 
-          # Korean suffixes can attach directly to inline tags; Latin translations
-          # need a word boundary there. Normalize only localized Latin-script files.
-          python scripts/blogger_normalize_spacing.py blogger/faq blogger/guide blogger/posts
+          cp /tmp/shiftmate-glossary.json blogger/glossary.json
+          trap - EXIT
 
+          python scripts/blogger_normalize_spacing.py blogger/faq blogger/guide blogger/posts
           python scripts/blogger_validate.py blogger/faq/*.html
           if [[ -f blogger/guide/ko.html ]]; then
             python scripts/blogger_validate_guide.py blogger/guide/*.html
@@ -201,14 +192,20 @@ jobs:
             python scripts/blogger_validate_post.py "$item" --all-locales
           done < <(find blogger/posts -mindepth 3 -maxdepth 3 -name meta.json -print0 2>/dev/null || true)
 
-          if [[ -z "$(git status --porcelain -- blogger)" ]]; then
+          if [[ -z "$(git status --porcelain -- blogger/faq blogger/guide blogger/posts)" ]]; then
             echo "No translation changes."
           else
+            git fetch origin develop
+            remote_head="$(git rev-parse origin/develop)"
+            if [[ "$remote_head" != "${{ github.sha }}" ]]; then
+              echo "::notice::develop advanced to $remote_head while this translation was running; stale localized output skipped."
+              exit 0
+            fi
+
             git config user.name "shiftmate-blogger-bot"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add blogger/faq blogger/guide blogger/posts
             git commit -m "chore(blogger): update localized content"
-            git pull --rebase origin develop
             git push origin HEAD:develop
           fi
 
