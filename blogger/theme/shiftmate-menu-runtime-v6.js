@@ -55,9 +55,8 @@
   }
 
   function detect() {
-    var fromParam = norm(qs('sm-lang'));
-    if (fromParam && LOCALES[fromParam]) return fromParam;
     var href = decodeURIComponent(location.href).toLowerCase();
+    /* FAQ/Guide Page paths are authoritative. Legacy sm-lang must not override the Page locale. */
     if (href.indexOf('faq-ko.html') > -1 || href.indexOf('guide-ko.html') > -1 || href.indexOf('lang-ko') > -1 || href.indexOf('한국어') > -1) return 'ko';
     if (href.indexOf('faq-ja.html') > -1 || href.indexOf('guide-ja.html') > -1 || href.indexOf('lang-ja') > -1) return 'ja';
     if (href.indexOf('faq-es.html') > -1 || href.indexOf('guide-es.html') > -1 || href.indexOf('lang-es') > -1) return 'es';
@@ -68,6 +67,8 @@
     if (href.indexOf('faq-tw.html') > -1 || href.indexOf('guide-tw.html') > -1 || href.indexOf('lang-zh-tw') > -1) return 'zh-TW';
     if (href.indexOf('faq-cn.html') > -1 || href.indexOf('guide-cn.html') > -1 || href.indexOf('lang-zh-cn') > -1) return 'zh-CN';
     if (href.indexOf('/p/faq.html') > -1 || href.indexOf('/p/guide.html') > -1 || href.indexOf('/search/label/lang') > -1 || href.indexOf('lang-en') > -1) return 'en';
+    var fromParam = norm(qs('sm-lang'));
+    if (fromParam && LOCALES[fromParam]) return fromParam;
     var saved = norm(safeGet('shiftmate.blog.locale.v2'));
     if (saved && LOCALES[saved]) return saved;
     return 'en';
@@ -76,7 +77,7 @@
   function url(id, kind) {
     var v = LOCALES[id] && LOCALES[id][kind];
     if (!v) return '';
-    if (v.indexOf('/p/') === 0) return v + '?sm-lang=' + encodeURIComponent(id);
+    /* Keep Blogger Page URLs canonical. Locale state is stored locally, not in the URL. */
     return v;
   }
 
@@ -87,6 +88,74 @@
     if (href.indexOf('+notice') > -1) return 'notice';
     if (href.indexOf('+story') > -1) return 'story';
     return 'blog';
+  }
+
+  function pagePath(id, kind) {
+    var value = LOCALES[id] && LOCALES[id][kind];
+    return value && value.indexOf('/p/') === 0 ? value : '';
+  }
+
+  function absolutePageUrl(path) {
+    return location.protocol + '//' + location.host + path;
+  }
+
+  function cleanLegacyPageUrl() {
+    var kind = sectionKind();
+    var search = location.search || '';
+    if ((kind !== 'faq' && kind !== 'guide') || search.toLowerCase().indexOf('sm-lang=') === -1) return;
+    if (!window.history || !window.history.replaceState) return;
+
+    var parts = search.replace(/^\?/, '').split('&');
+    var kept = [];
+    for (var i=0; i<parts.length; i++) {
+      if (parts[i] && !/^sm-lang=/i.test(parts[i])) kept.push(parts[i]);
+    }
+    var next = location.pathname + (kept.length ? '?' + kept.join('&') : '') + (location.hash || '');
+    window.history.replaceState(null, document.title, next);
+  }
+
+  function syncPageSeo(id) {
+    var kind = sectionKind();
+    if (kind !== 'faq' && kind !== 'guide') return;
+
+    var path = pagePath(id, kind);
+    if (!path) return;
+
+    var canonical = document.querySelector ? document.querySelector('link[rel="canonical"]') : null;
+    if (!canonical && document.head) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    if (canonical) canonical.setAttribute('href', absolutePageUrl(path));
+
+    if (!document.querySelectorAll || !document.head) return;
+    var old = document.querySelectorAll('link[data-shiftmate-seo="alternate"]');
+    for (var oi=old.length-1; oi>=0; oi--) {
+      if (old[oi].parentNode) old[oi].parentNode.removeChild(old[oi]);
+    }
+
+    for (var j=0; j<ORDER.length; j++) {
+      var locale = ORDER[j];
+      var alternatePath = pagePath(locale, kind);
+      if (!alternatePath) continue;
+      var alternate = document.createElement('link');
+      alternate.setAttribute('rel', 'alternate');
+      alternate.setAttribute('hreflang', LOCALES[locale].tag);
+      alternate.setAttribute('href', absolutePageUrl(alternatePath));
+      alternate.setAttribute('data-shiftmate-seo', 'alternate');
+      document.head.appendChild(alternate);
+    }
+
+    var defaultPath = pagePath('en', kind);
+    if (defaultPath) {
+      var xDefault = document.createElement('link');
+      xDefault.setAttribute('rel', 'alternate');
+      xDefault.setAttribute('hreflang', 'x-default');
+      xDefault.setAttribute('href', absolutePageUrl(defaultPath));
+      xDefault.setAttribute('data-shiftmate-seo', 'alternate');
+      document.head.appendChild(xDefault);
+    }
   }
 
   function menuHtml(id, compact) {
@@ -134,6 +203,7 @@
     current=id; safeSet('shiftmate.blog.locale.v2',id);
     document.documentElement.setAttribute('data-sm-locale',id);
     document.documentElement.setAttribute('lang',LOCALES[id].tag);
+    syncPageSeo(id);
     var t=TEXT[id]||TEXT.en;
     setTextByClass('sm-header-description',t.desc);
     setTextByClass('sm-sidebar-tagline',t.tag);
@@ -155,7 +225,7 @@
     if (id && LOCALES[id]) { safeSet('shiftmate.blog.locale.v2',id); render(id); }
   }
 
-  function boot() { render(detect()); }
+  function boot() { cleanLegacyPageUrl(); render(detect()); }
   if (document.addEventListener) document.addEventListener('click',clickHandler,true);
   else if (document.attachEvent) document.attachEvent('onclick',clickHandler);
   boot(); setTimeout(boot,50); setTimeout(boot,250); setTimeout(boot,1000); setTimeout(boot,2500);
