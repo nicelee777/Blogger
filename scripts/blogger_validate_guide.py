@@ -7,7 +7,7 @@ import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 
 class Inspector(HTMLParser):
@@ -86,6 +86,13 @@ def validate(
     for ref in parser.aria_refs:
         if ref not in ids:
             errors.append(f"broken aria-labelledby reference: {ref}")
+
+    for href in parser.hrefs:
+        parsed = urlparse(href)
+        if parsed.path.startswith(("/p/faq", "/p/guide")) and "sm-lang" in parse_qs(parsed.query):
+            errors.append(
+                f"internal Blogger Page link must not use sm-lang query parameter: {href}"
+            )
 
     if expected_faq_path:
         for href in parser.hrefs:
