@@ -75,7 +75,7 @@ Every managed Notice and Story must have a search description.
 - Search descriptions should be one concise line, normally 20–220 characters, written for humans rather than keyword stuffing.
 - Localization must create `descriptions.json` with one search description for every managed locale.
 - Missing Korean or localized search descriptions are validation failures.
-- Blogger API does not currently expose a supported field for the Blogger editor's Search Description input. Production sync therefore embeds the managed description with the Post, and the ShiftMate theme runtime applies it to the rendered post page's `meta[name="description"]`, Open Graph description, and Twitter description.
+- Blogger API does not currently expose a supported field for the Blogger editor's Search Description input. Production sync therefore embeds the managed description with the Post, and the ShiftMate theme runtime applies it to the rendered post page's description, canonical, Open Graph, Twitter, and article publication metadata.
 - Do not claim that the Blogger editor's Search Description field itself was populated by the API.
 
 ## Metadata stored with managed Posts

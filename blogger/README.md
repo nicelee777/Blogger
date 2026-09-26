@@ -250,3 +250,11 @@ Repository -> **Settings -> Secrets and variables -> Actions**
 - `BLOGGER_REFRESH_TOKEN`
 
 Never commit these values.
+
+## Complete Blogger theme
+
+The complete upload-ready Blogger theme is committed at:
+
+`blogger/theme/shiftmate-theme.xml`
+
+The standalone runtime remains at `blogger/theme/shiftmate-menu-runtime-v6.js`. CI validates both the XML and exact runtime embedding before production changes are merged.

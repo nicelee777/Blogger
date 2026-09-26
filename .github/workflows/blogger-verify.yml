@@ -13,6 +13,7 @@ on:
       - 'scripts/blogger_validate_page_metadata.py'
       - 'scripts/blogger_build_theme.py'
       - 'scripts/blogger_validate_theme_runtime.py'
+      - 'scripts/blogger_validate_theme_xml.py'
       - '.github/workflows/blogger-verify.yml'
 
 permissions:
@@ -43,6 +44,7 @@ jobs:
           set -euo pipefail
           python scripts/blogger_validate_page_metadata.py guide
           python scripts/blogger_validate_theme_runtime.py
+          python scripts/blogger_validate_theme_xml.py
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             python scripts/blogger_validate.py blogger/faq/*.html

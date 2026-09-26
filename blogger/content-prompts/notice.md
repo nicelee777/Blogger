@@ -46,7 +46,7 @@ Omit sections that are unnecessary rather than filling them with generic text.
 
 Notice items may store operational metadata in `meta.json`:
 
-- `notice_type`: one of `general`, `update`, `maintenance`, `incident`, `feature`, `service`, `policy`
+- `notice_type`: one of `general`, `update`, `maintenance`, `incident`, `feature`, `service`, `policy`; production/draft sync automatically adds this value as a Blogger label for localized badge rendering.
 - `release_version`: optional semantic version such as `10.0.0`
 
 These fields describe the item for automation and future presentation. They do not change publication state.

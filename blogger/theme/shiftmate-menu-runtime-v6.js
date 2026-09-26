@@ -30,6 +30,27 @@
     vi: {desc:'Tin tức, hướng dẫn và câu chuyện về cuộc sống làm ca với ShiftMate.', help:'Khám phá ShiftMate', tag:'Ca trực của bạn. Nhịp sống của bạn.', notice:'Thông báo', noticeDesc:'Xem cập nhật và thông báo quan trọng.', guide:'Hướng dẫn sử dụng', guideDesc:'Tìm hiểu cách dùng ShiftMate.', faq:'Câu hỏi thường gặp', faqDesc:'Tìm câu trả lời và cách khắc phục.', story:'Câu chuyện', storyDesc:'Đọc bài viết bằng ngôn ngữ này.', soon:'Sắp ra mắt', all:'Tất cả bài viết', filter:'Bài viết bằng tiếng Việt', search:'Tìm kiếm', searchHint:'Tìm kiếm trong blog', read:'Đọc thêm', updateBadge:'Cập nhật'}
   };
 
+
+  var NOTICE_BADGE_TEXT = {
+    en: {general:'Notice',update:'Update',maintenance:'Maintenance',incident:'Incident',feature:'Feature',service:'Service',policy:'Policy'},
+    es: {general:'Aviso',update:'Actualización',maintenance:'Mantenimiento',incident:'Incidencia',feature:'Función',service:'Servicio',policy:'Política'},
+    de: {general:'Mitteilung',update:'Update',maintenance:'Wartung',incident:'Störung',feature:'Funktion',service:'Service',policy:'Richtlinie'},
+    fr: {general:'Annonce',update:'Mise à jour',maintenance:'Maintenance',incident:'Incident',feature:'Fonctionnalité',service:'Service',policy:'Politique'},
+    'pt-BR': {general:'Aviso',update:'Atualização',maintenance:'Manutenção',incident:'Incidente',feature:'Recurso',service:'Serviço',policy:'Política'},
+    'zh-CN': {general:'公告',update:'更新',maintenance:'维护',incident:'故障',feature:'新功能',service:'服务',policy:'政策'},
+    'zh-TW': {general:'公告',update:'更新',maintenance:'維護',incident:'異常',feature:'新功能',service:'服務',policy:'政策'},
+    ko: {general:'공지',update:'업데이트',maintenance:'점검',incident:'장애',feature:'기능 안내',service:'서비스 안내',policy:'정책 안내'},
+    ja: {general:'お知らせ',update:'アップデート',maintenance:'メンテナンス',incident:'障害',feature:'機能案内',service:'サービス案内',policy:'ポリシー'},
+    vi: {general:'Thông báo',update:'Cập nhật',maintenance:'Bảo trì',incident:'Sự cố',feature:'Tính năng',service:'Dịch vụ',policy:'Chính sách'}
+  };
+
+  var NOTICE_TYPE_ORDER = ['incident','maintenance','update','feature','service','policy','general'];
+
+  function noticeBadgeText(id, type) {
+    var table = NOTICE_BADGE_TEXT[id] || NOTICE_BADGE_TEXT.en;
+    return table[type] || (NOTICE_BADGE_TEXT.en[type] || type);
+  }
+
   var current = 'ko';
   function byClass(name) { return document.getElementsByClassName ? document.getElementsByClassName(name) : []; }
   function hasClass(el, c) { return (' ' + (el.className || '') + ' ').indexOf(' ' + c + ' ') > -1; }
@@ -174,7 +195,14 @@
       '.sm-notice-page .blog-posts .jump-link{margin-top:14px!important;}' +
       '.sm-notice-page .blog-posts .jump-link>a{display:inline-flex!important;align-items:center;min-height:38px;padding:7px 13px;border:1px solid #d8dbe4;border-radius:999px;background:#f7f8fa;color:#14152d!important;text-decoration:none!important;font-weight:600;font-size:.9rem;}' +
       '.sm-notice-badges{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 10px;}' +
-      '.sm-notice-badge{display:inline-flex;align-items:center;min-height:26px;padding:3px 9px;border-radius:999px;background:#f1f2f6;color:#3e4351;font-size:.76rem;font-weight:700;line-height:1.2;}' +
+      '.sm-notice-badge{display:inline-flex;align-items:center;min-height:26px;padding:3px 9px;border-radius:999px;background:#f1f2f6;color:#3e4351;font-size:.76rem;font-weight:700;line-height:1.2;border:1px solid transparent;}' +
+      '.sm-notice-badge-type-general{background:#f1f2f6;color:#3e4351;}' +
+      '.sm-notice-badge-type-update{background:#eef0f8;color:#14152d;border-color:#d9dcea;}' +
+      '.sm-notice-badge-type-maintenance{background:#fff7e8;color:#77510a;border-color:#f0dfbd;}' +
+      '.sm-notice-badge-type-incident{background:#fff0ef;color:#9d211d;border-color:#f2cfcc;}' +
+      '.sm-notice-badge-type-feature{background:#edf7f2;color:#245f49;border-color:#d0e8dc;}' +
+      '.sm-notice-badge-type-service{background:#f5f0fa;color:#5e3d7b;border-color:#e3d6ef;}' +
+      '.sm-notice-badge-type-policy{background:#f3f4f6;color:#414651;border-color:#dfe2e7;}' +
       '.sm-notice-badge-version{background:#14152d;color:#fff;}' +
       '@media(max-width:600px){.sm-notice-page .blog-posts .post{padding:17px!important;border-radius:14px;}.sm-notice-page .blog-posts .post-title,.sm-notice-page .blog-posts .entry-title{font-size:1.12rem!important;}}';
     document.head.appendChild(style);
@@ -186,12 +214,57 @@
     if (!meta) {
       meta=document.createElement('meta');
       meta.setAttribute(attr,value);
-      meta.setAttribute('data-shiftmate-seo','post-description');
+      meta.setAttribute('data-shiftmate-seo','post');
       document.head.appendChild(meta);
     }
     meta.setAttribute('content',content);
   }
 
+  function ensureCanonical(href) {
+    if (!document.head || !document.querySelector) return href;
+    var canonical=document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical=document.createElement('link');
+      canonical.setAttribute('rel','canonical');
+      canonical.setAttribute('data-shiftmate-seo','post');
+      document.head.appendChild(canonical);
+    }
+    var current=canonical.getAttribute('href') || href;
+    canonical.setAttribute('href',current);
+    return current;
+  }
+
+  function syncPostSeo() {
+    if (!document.querySelectorAll || !document.head) return;
+    var posts=document.querySelectorAll('article.sm-post');
+    var marker=document.querySelector('.sm-post-seo[data-sm-description]');
+    if (posts.length !== 1 || !marker) return;
+
+    var description=(marker.getAttribute('data-sm-description') || '').replace(/\s+/g,' ').trim();
+    if (!description) return;
+
+    var titleNode=document.querySelector('.Blog .post-title,.Blog .entry-title');
+    var title=titleNode ? (titleNode.textContent || '').replace(/\s+/g,' ').trim() : document.title;
+    var cleanUrl=location.protocol + '//' + location.host + location.pathname;
+    var canonical=ensureCanonical(cleanUrl);
+    var published=document.querySelector('time.published[datetime],.post-timestamp time[datetime]');
+    var publishedTime=published ? (published.getAttribute('datetime') || '') : '';
+
+    setMeta('meta[name="description"]','name','description',description);
+    setMeta('meta[property="og:description"]','property','og:description',description);
+    setMeta('meta[name="twitter:description"]','name','twitter:description',description);
+    if (title) {
+      setMeta('meta[property="og:title"]','property','og:title',title);
+      setMeta('meta[name="twitter:title"]','name','twitter:title',title);
+    }
+    setMeta('meta[property="og:type"]','property','og:type','article');
+    setMeta('meta[property="og:url"]','property','og:url',canonical);
+    setMeta('meta[property="og:site_name"]','property','og:site_name','ShiftMate');
+    setMeta('meta[name="twitter:card"]','name','twitter:card','summary');
+    if (publishedTime) {
+      setMeta('meta[property="article:published_time"]','property','article:published_time',publishedTime);
+    }
+  }
   function syncPostSeo() {
     if (!document.querySelectorAll) return;
     var posts=document.querySelectorAll('article.sm-post');
@@ -222,25 +295,32 @@
     if (!isNotice || !document.querySelectorAll) return;
 
     var posts=document.querySelectorAll('.blog-posts .post');
-    var t=TEXT[id] || TEXT.en;
     for (var i=0;i<posts.length;i++) {
       var post=posts[i];
       if (post.getAttribute('data-sm-notice-enhanced')==='1') continue;
       var labels=post.querySelectorAll('a[href*="/search/label/"]');
-      var version='', hasUpdate=false;
+      var version='', type='';
+      var found={};
       for (var j=0;j<labels.length;j++) {
         var name=labelFromHref(labels[j].getAttribute('href'));
+        var lower=name.toLowerCase();
         if (/^\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?$/.test(name)) version=name;
-        if (name.toLowerCase()==='update') hasUpdate=true;
+        found[lower]=true;
       }
-      if (version || hasUpdate) {
+      for (var ti=0;ti<NOTICE_TYPE_ORDER.length;ti++) {
+        if (found[NOTICE_TYPE_ORDER[ti]]) {
+          type=NOTICE_TYPE_ORDER[ti];
+          break;
+        }
+      }
+      if (version || type) {
         var badges=document.createElement('div');
         badges.className='sm-notice-badges';
-        if (hasUpdate) {
-          var update=document.createElement('span');
-          update.className='sm-notice-badge';
-          update.textContent=t.updateBadge || 'Update';
-          badges.appendChild(update);
+        if (type) {
+          var typeBadge=document.createElement('span');
+          typeBadge.className='sm-notice-badge sm-notice-badge-type-' + type;
+          typeBadge.textContent=noticeBadgeText(id,type);
+          badges.appendChild(typeBadge);
         }
         if (version) {
           var v=document.createElement('span');
@@ -255,7 +335,6 @@
       post.setAttribute('data-sm-notice-enhanced','1');
     }
   }
-
   function menuHtml(id, compact) {
     var t = TEXT[id] || TEXT.en;
     var rows = [['notice',t.notice,t.noticeDesc],['guide',t.guide,t.guideDesc],['faq',t.faq,t.faqDesc],['story',t.story,t.storyDesc]];

@@ -30,6 +30,7 @@ on:
       - 'scripts/blogger_validate_post.py'
       - 'scripts/blogger_build_theme.py'
       - 'scripts/blogger_validate_theme_runtime.py'
+      - 'scripts/blogger_validate_theme_xml.py'
 
 permissions:
   contents: read
@@ -52,7 +53,9 @@ jobs:
         run: python -m py_compile scripts/blogger_*.py
 
       - name: Validate Blogger theme runtime
-        run: python scripts/blogger_validate_theme_runtime.py
+        run: |
+          python scripts/blogger_validate_theme_runtime.py
+          python scripts/blogger_validate_theme_xml.py
 
       - name: Require all FAQ locales
         shell: bash

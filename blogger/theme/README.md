@@ -2,9 +2,11 @@
 
 GitHub is the source of truth for ShiftMate Blogger theme code.
 
-## Canonical runtime
+## Canonical theme and runtime
 
-`shiftmate-menu-runtime-v6.js` is the canonical 10-locale language/menu runtime.
+`shiftmate-theme.xml` is the committed complete Blogger theme and the file to upload in Blogger Theme UI.
+
+`shiftmate-menu-runtime-v6.js` is the canonical 10-locale language/menu runtime embedded into that XML. CI verifies that the embedded runtime matches the standalone source exactly.
 
 Managed locales:
 
@@ -38,8 +40,8 @@ Export/download the current Blogger theme XML, then build the complete paste-rea
 python scripts/blogger_build_theme.py \
   --input /path/to/blogger-export.xml \
   --output /tmp/shiftmate-blogger-theme.xml \
-  --theme-version 1.1.2 \
-  --theme-date 2026-09-22
+  --theme-version 1.2.0 \
+  --theme-date 2026-09-27
 ```
 
 The builder:
@@ -76,7 +78,19 @@ The runtime applies a dedicated card presentation only on localized Notice label
 - `/search/label/lang-ko+notice`
 - `/search/label/lang+notice`
 
-Notice cards use the existing Blogger Post markup and labels. The `update` label is shown as a localized update badge, and a semantic-version label such as `10.0.0` is shown as a version badge.
+Notice cards use the existing Blogger Post markup and labels. `notice_type` is automatically added as a Blogger label for managed notices.
+
+Supported type badges:
+
+- `general` — general notice
+- `update` — update
+- `maintenance` — maintenance
+- `incident` — incident/outage
+- `feature` — feature announcement
+- `service` — service information
+- `policy` — policy information
+
+The badge text is localized for all 10 managed locales. A semantic-version label such as `10.0.0` is shown separately as a version badge.
 
 ## Managed Post search descriptions
 
@@ -85,6 +99,28 @@ Blogger API does not currently provide a supported way to populate the editor's 
 1. Korean `seo_description_ko` is required in `meta.json`.
 2. Localization generates `descriptions.json` for every managed locale.
 3. Blogger sync embeds the localized value in the Post as a hidden `.sm-post-seo[data-sm-description]` marker.
-4. On a single managed Post page, the runtime applies that value to `meta[name="description"]`, `og:description`, and `twitter:description`.
+4. On a single managed Post page, the runtime applies the managed metadata to:
+   - `meta[name="description"]`
+   - `og:title`
+   - `og:description`
+   - `og:url`
+   - `og:type=article`
+   - `og:site_name`
+   - `twitter:title`
+   - `twitter:description`
+   - `twitter:card`
+   - canonical URL
+   - `article:published_time` when the rendered Blogger timestamp is available.
 
 This provides automatic rendered-page metadata while keeping the repository as the source of truth. Do not describe this as populating Blogger's editor-side Search Description input.
+
+## Updating the committed theme
+
+When the runtime changes, rebuild `blogger/theme/shiftmate-theme.xml` from the latest exported Blogger theme and canonical runtime, then run:
+
+```bash
+python scripts/blogger_validate_theme_runtime.py
+python scripts/blogger_validate_theme_xml.py
+```
+
+Do not merge a runtime change while the committed XML contains an older embedded runtime.
