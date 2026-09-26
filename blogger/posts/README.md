@@ -17,6 +17,9 @@ blogger/posts/story/<slug>/
   zh-tw.html         # generated
   es.html            # generated
   vi.html            # generated
+  de.html            # generated
+  pt-br.html         # generated
+  fr.html            # generated
 ```
 
 `notice` uses the same structure under `blogger/posts/notice/<slug>/`.
