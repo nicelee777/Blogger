@@ -24,6 +24,9 @@ def main() -> int:
     for required in (
         "cleanLegacyPageUrl",
         "syncPageSeo",
+        "syncPostSeo",
+        "enhanceNoticeListing",
+        "shiftmate-runtime-styles",
         "history.replaceState",
         "hreflang",
         "x-default",
@@ -47,7 +50,7 @@ def main() -> int:
             print(f"  - {error}")
         return 1
 
-    print(f"[OK] {args.runtime}: clean Page URLs + canonical/hreflang safeguards")
+    print(f"[OK] {args.runtime}: Page SEO + Post descriptions + Notice cards")
     return 0
 
 
