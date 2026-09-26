@@ -50,6 +50,10 @@ def main() -> int:
     remote_posts = list_all_posts(token, blog_id, fetch_bodies=True)
     category_label = config["post_categories"][category]
     base_labels = list(meta.get("labels", []))
+    if category == "notice":
+        notice_type = str(meta.get("notice_type", "")).strip()
+        if notice_type and notice_type not in base_labels:
+            base_labels.insert(0, notice_type)
 
     print(f"Draft sync: {category}/{slug} -> {blog.get('name')} ({blog_id})")
     if meta.get("publish") is True:
