@@ -18,6 +18,7 @@ Answer a real question, explain a shift-work problem, or offer a practical persp
 - If health/sleep/patient-safety claims depend on evidence, use only references supplied in the brief; otherwise keep the discussion general and non-clinical.
 - Prefer practical examples relevant to rotating shifts.
 - New Story items must start as Blogger drafts (`publish: false`).
+- Always write a concise `seo_description_ko` for the story. It is required for publication automation and localization.
 
 ## Recommended structure
 
