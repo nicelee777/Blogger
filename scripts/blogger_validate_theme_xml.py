@@ -36,6 +36,12 @@ def main() -> int:
         errors.append(f"missing committed theme: {args.theme}")
     if not args.runtime.exists():
         errors.append(f"missing canonical runtime: {args.runtime}")
+    if (
+        "data:view.isSingleItem and data:widget.type == &quot;Blog&quot;" in theme
+        and "sm-post-language-data" in theme
+    ):
+        errors.append("post label data must not be restricted to single-item pages")
+
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
@@ -72,6 +78,8 @@ def main() -> int:
         "sm-notice-badge-type-feature",
         "sm-notice-badge-type-service",
         "sm-notice-badge-type-policy",
+        "data:widget.type == &quot;Blog&quot;",
+        "sm-post-language-data",
     ):
         if required not in theme:
             errors.append(f"committed theme is missing required marker: {required}")
