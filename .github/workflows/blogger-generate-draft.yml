@@ -29,6 +29,24 @@ on:
         required: false
         default: ''
         type: string
+      notice_type:
+        description: 'Notice subtype (used only when category=notice)'
+        required: false
+        default: general
+        type: choice
+        options:
+          - general
+          - update
+          - maintenance
+          - incident
+          - feature
+          - service
+          - policy
+      release_version:
+        description: 'Optional semantic release version for notices, e.g. 10.0.0'
+        required: false
+        default: ''
+        type: string
       overwrite_source:
         description: 'Replace an existing Korean source item'
         required: false
@@ -53,6 +71,8 @@ jobs:
       INPUT_BRIEF: ${{ inputs.brief }}
       INPUT_REFERENCES: ${{ inputs.references }}
       INPUT_LABELS: ${{ inputs.labels }}
+      INPUT_NOTICE_TYPE: ${{ inputs.notice_type }}
+      INPUT_RELEASE_VERSION: ${{ inputs.release_version }}
       INPUT_OVERWRITE: ${{ inputs.overwrite_source }}
 
     steps:
@@ -85,6 +105,12 @@ jobs:
             --references "$INPUT_REFERENCES"
             --labels "$INPUT_LABELS"
           )
+          if [[ "$INPUT_CATEGORY" == "notice" ]]; then
+            args+=(--notice-type "$INPUT_NOTICE_TYPE")
+            if [[ -n "$INPUT_RELEASE_VERSION" ]]; then
+              args+=(--release-version "$INPUT_RELEASE_VERSION")
+            fi
+          fi
           if [[ "$INPUT_OVERWRITE" == "true" ]]; then
             args+=(--overwrite-source)
           fi
