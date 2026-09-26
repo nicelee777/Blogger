@@ -128,6 +128,15 @@ def main() -> int:
         errors.append(f"invalid slug: {slug}")
     if not str(meta.get("title_ko", "")).strip():
         errors.append("title_ko is required")
+    seo_description = str(meta.get("seo_description_ko", "")).strip()
+    if not seo_description:
+        errors.append("seo_description_ko is required")
+    elif "\n" in seo_description or "\r" in seo_description:
+        errors.append("seo_description_ko must be one line")
+    elif len(seo_description) < 20:
+        errors.append("seo_description_ko is too short")
+    elif len(seo_description) > 220:
+        errors.append("seo_description_ko is too long")
     if not isinstance(meta.get("publish"), bool):
         errors.append("publish must be boolean")
     if args.require_draft and meta.get("publish") is not False:
@@ -149,10 +158,14 @@ def main() -> int:
     if args.all_locales:
         config = json.loads(args.config.read_text(encoding="utf-8"))
         titles_path = item / "titles.json"
+        descriptions_path = item / "descriptions.json"
         if not titles_path.exists():
             errors.append(f"missing {titles_path}")
-        else:
+        if not descriptions_path.exists():
+            errors.append(f"missing {descriptions_path}")
+        if titles_path.exists() and descriptions_path.exists():
             titles = json.loads(titles_path.read_text(encoding="utf-8"))
+            descriptions = json.loads(descriptions_path.read_text(encoding="utf-8"))
             source = source_path.read_text(encoding="utf-8")
             for locale in config["locales"]:
                 body = item / f"{locale}.html"
@@ -161,6 +174,15 @@ def main() -> int:
                     continue
                 if locale not in titles or not str(titles[locale]).strip():
                     errors.append(f"missing localized title: {locale}")
+                description = str(descriptions.get(locale, "")).strip()
+                if not description:
+                    errors.append(f"missing localized search description: {locale}")
+                elif "\n" in description or "\r" in description:
+                    errors.append(f"localized search description must be one line: {locale}")
+                elif len(description) < 20:
+                    errors.append(f"localized search description is too short: {locale}")
+                elif len(description) > 220:
+                    errors.append(f"localized search description is too long: {locale}")
                 errors.extend(validate_html(body, source=(locale == "ko")))
                 if locale != "ko":
                     try:
