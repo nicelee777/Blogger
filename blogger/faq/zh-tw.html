@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>ShiftMate 使用方法與 FAQ－班表・鬧鐘・分享・備份</h1>
   <p>我們整理了從班次設定到行程、備忘錄、鬧鐘、備份及分享班次的常見問題。點選想了解的問題即可查看答案。</p>
   <p class="sm-faq-meta">選單名稱可能會因應用程式版本及裝置環境而略有不同。</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>即將推出的更新</strong></p>
+    <p>為了讓 ShiftMate 在更多裝置上使用得更方便，並更穩定地管理班次與資料，我們正在準備以下改進。</p>
+    <ul>
+      <li><strong>擴大平板裝置支援</strong> — 針對 iPad 與 Android 平板的大畫面最佳化介面與操作體驗。</li>
+      <li><strong>支援摺疊裝置</strong> — 支援 Galaxy Z Fold 等 Android 摺疊裝置，並最佳化摺疊畫面配置。未來也計畫支援摺疊式 iPhone。</li>
+      <li><strong>多裝置即時同步</strong> — 改善同步功能，讓使用同一帳號的多台裝置可即時同步班次與主要資料。</li>
+      <li><strong>管理誰可以查看我的班次</strong> — 新增查看與管理目前可查看您分享班次之使用者的功能。</li>
+      <li><strong>改善 iPhone 小工具</strong> — 改善 iPhone 小工具，並計畫在 iOS 27 以上新增大型日曆小工具。</li>
+      <li><strong>改善備忘錄介面</strong> — 讓備忘錄的新增、查看與管理更方便。</li>
+      <li><strong>提升 App 執行速度</strong> — 持續改善 App 啟動、載入與畫面切換速度。</li>
+    </ul>
+    <p class="sm-faq-update-note">實際提供時間與功能細節可能依開發與檢視結果調整。</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">目錄</h2>
@@ -274,7 +315,7 @@
       <summary><strong>Q. iPhone 與 Android 智慧型手機之間可以分享班次嗎？</strong></summary>
       <div class="sm-faq-answer">
         <p>可以。不論使用哪一種智慧型手機， <strong>分享班次功能</strong>都可以使用。</p>
-        <p>取得分享的班次可以在 <strong>同事班表畫面</strong>中查看，變更內容請 <strong>重新整理</strong>後確認。</p>
+        <p>取得分享的班次可在 <strong>同事班表畫面</strong>中查看。進入該畫面或切換顯示月份時，ShiftMate 會 <strong>從伺服器取得最新班次資料。</strong></p>
       </div>
     </details>
 

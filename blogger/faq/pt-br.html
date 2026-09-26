@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>Como usar o ShiftMate e perguntas frequentes - escala de turnos, alarmes, compartilhamento e backup</h1>
   <p>Reunimos perguntas frequentes sobre Configurações de turno, eventos e notas, alarmes, backup e Compartilhar turno. Toque na pergunta que deseja consultar para ver a resposta.</p>
   <p class="sm-faq-meta">Os nomes dos menus podem variar um pouco conforme a versão do app e o dispositivo.</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>Próximas atualizações</strong></p>
+    <p>Estamos preparando as seguintes melhorias para que o ShiftMate funcione melhor em mais dispositivos e permita gerenciar turnos e dados com mais estabilidade.</p>
+    <ul>
+      <li><strong>Maior compatibilidade com tablets</strong> — Vamos otimizar a interface e a usabilidade para as telas maiores do iPad e de tablets Android.</li>
+      <li><strong>Compatibilidade com dispositivos dobráveis</strong> — Vamos oferecer suporte ao Galaxy Z Fold e a outros dispositivos Android dobráveis, com layouts otimizados para esse formato. Também planejamos oferecer suporte a futuros iPhones dobráveis.</li>
+      <li><strong>Sincronização em tempo real entre vários dispositivos</strong> — Vamos melhorar a sincronização para que turnos e dados principais possam ser atualizados em tempo real entre vários dispositivos conectados à mesma conta.</li>
+      <li><strong>Gerenciar quem pode ver meus turnos</strong> — Será possível ver e gerenciar quais usuários têm acesso aos turnos que você compartilha.</li>
+      <li><strong>Melhorias nos widgets do iPhone</strong> — Vamos aprimorar os widgets do iPhone e planejamos adicionar um widget de calendário grande para iOS 27 ou posterior.</li>
+      <li><strong>Melhorias na interface de notas</strong> — Vamos facilitar a criação, consulta e organização de notas.</li>
+      <li><strong>Melhoria de desempenho do app</strong> — Continuaremos aprimorando a velocidade de inicialização, carregamento e transição entre telas.</li>
+    </ul>
+    <p class="sm-faq-update-note">A disponibilidade e os detalhes podem mudar durante o desenvolvimento e a revisão.</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">Índice</h2>
@@ -274,7 +315,7 @@
       <summary><strong>P. Posso compartilhar turnos entre um iPhone e um smartphone Android?</strong></summary>
       <div class="sm-faq-answer">
         <p>Sim. Independentemente do tipo de smartphone utilizado, <strong>a função Compartilhar turno</strong> pode ser usada.</p>
-        <p>Os turnos compartilhados podem ser <strong>consultados na tela Turnos dos colegas,</strong> e, para verificar as alterações, <strong>atualize a tela</strong>.</p>
+        <p>Os turnos compartilhados podem ser consultados na tela <strong>Turnos dos colegas</strong>. Ao abrir essa tela ou alterar o mês exibido, o ShiftMate <strong>busca no servidor os dados de turnos mais recentes.</strong></p>
       </div>
     </details>
 

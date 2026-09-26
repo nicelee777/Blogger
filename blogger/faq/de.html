@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>ShiftMate: Bedienung und FAQ – Dienstplan, Alarme, Teilen und Backup</h1>
   <p>Wir haben häufig gestellte Fragen zu den Schichteinstellungen, Terminen und Notizen, Alarmen, Backups und dem Teilen von Schichten zusammengestellt. Tippen Sie auf eine Frage, um die Antwort anzuzeigen.</p>
   <p class="sm-faq-meta">Je nach App-Version und Geräteumgebung können die Menünamen geringfügig abweichen.</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>Geplante Updates</strong></p>
+    <p>Wir bereiten die folgenden Verbesserungen vor, damit ShiftMate auf mehr Geräten komfortabel funktioniert und Schichten sowie Daten zuverlässiger verwaltet werden können.</p>
+    <ul>
+      <li><strong>Erweiterte Tablet-Unterstützung</strong> — Die Benutzeroberfläche und Bedienung werden für die großen Displays von iPad und Android-Tablets optimiert.</li>
+      <li><strong>Unterstützung für faltbare Geräte</strong> — Galaxy Z Fold und weitere faltbare Android-Geräte werden mit optimierten Layouts unterstützt. Auch die Unterstützung künftiger faltbarer iPhones ist geplant.</li>
+      <li><strong>Echtzeit-Synchronisierung auf mehreren Geräten</strong> — Schichten und wichtige Daten sollen auf mehreren Geräten mit demselben Konto in Echtzeit synchronisiert werden können.</li>
+      <li><strong>Verwalten, wer meine Schichten sehen kann</strong> — Sie können künftig sehen und verwalten, welche Nutzer Zugriff auf Ihre freigegebenen Schichten haben.</li>
+      <li><strong>Verbesserungen der iPhone-Widgets</strong> — Die iPhone-Widgets werden verbessert; zusätzlich ist ein großes Kalender-Widget für iOS 27 oder neuer geplant.</li>
+      <li><strong>Verbesserte Notiz-Oberfläche</strong> — Das Erstellen, Anzeigen und Verwalten von Notizen wird einfacher gestaltet.</li>
+      <li><strong>Schnellere App</strong> — Start-, Lade- und Bildschirmwechselzeiten werden kontinuierlich verbessert.</li>
+    </ul>
+    <p class="sm-faq-update-note">Verfügbarkeit und Details können sich im Verlauf von Entwicklung und Prüfung ändern.</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">Inhaltsverzeichnis</h2>
@@ -274,7 +315,7 @@
       <summary><strong>F: Kann ich Schichten zwischen einem iPhone und einem Android-Smartphone teilen?</strong></summary>
       <div class="sm-faq-answer">
         <p>Ja. Unabhängig vom verwendeten Smartphone <strong>können Sie die Funktion zum Teilen von Schichten</strong> nutzen.</p>
-        <p>Geteilte Schichten können <strong>unter Schichten von Kollegen</strong> angezeigt werden. Um Änderungen zu sehen, <strong>aktualisieren Sie die Ansicht</strong>.</p>
+        <p>Geteilte Schichten können unter <strong>Schichten von Kollegen</strong> angezeigt werden. Beim Öffnen dieser Ansicht oder beim Wechsel des angezeigten Monats lädt ShiftMate <strong>die neuesten Schichtdaten vom Server.</strong></p>
       </div>
     </details>
 

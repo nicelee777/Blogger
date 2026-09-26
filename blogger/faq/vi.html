@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>Hướng dẫn sử dụng ShiftMate và FAQ - Lịch ca · báo thức · chia sẻ · sao lưu</h1>
   <p>Tổng hợp các câu hỏi thường gặp, từ Cài đặt ca làm đến lịch·ghi chú, báo thức, sao lưu và Chia sẻ ca. Nhấn vào câu hỏi bạn muốn biết để xem câu trả lời.</p>
   <p class="sm-faq-meta">Tên menu có thể hơi khác tùy phiên bản ứng dụng và môi trường thiết bị.</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>Các tính năng dự kiến cập nhật</strong></p>
+    <p>ShiftMate đang chuẩn bị các cải tiến sau để hoạt động thuận tiện hơn trên nhiều thiết bị và giúp bạn quản lý ca làm cùng dữ liệu ổn định hơn.</p>
+    <ul>
+      <li><strong>Mở rộng hỗ trợ máy tính bảng</strong> — Tối ưu giao diện và trải nghiệm sử dụng cho màn hình lớn của iPad và máy tính bảng Android.</li>
+      <li><strong>Hỗ trợ thiết bị gập</strong> — Hỗ trợ Galaxy Z Fold và các thiết bị Android gập khác, đồng thời tối ưu bố cục cho màn hình gập. Chúng tôi cũng dự kiến hỗ trợ iPhone gập trong tương lai.</li>
+      <li><strong>Đồng bộ nhiều thiết bị theo thời gian thực</strong> — Cải thiện đồng bộ để ca làm và dữ liệu chính có thể được cập nhật theo thời gian thực giữa nhiều thiết bị dùng cùng một tài khoản.</li>
+      <li><strong>Quản lý người có thể xem ca của tôi</strong> — Bổ sung khả năng xem và quản lý những người dùng hiện có quyền xem ca làm mà bạn đã chia sẻ.</li>
+      <li><strong>Cải tiến tiện ích iPhone</strong> — Cải tiến tiện ích iPhone và dự kiến bổ sung tiện ích lịch cỡ lớn cho iOS 27 trở lên.</li>
+      <li><strong>Cải tiến giao diện ghi chú</strong> — Giúp việc tạo, xem và quản lý ghi chú dễ dàng hơn.</li>
+      <li><strong>Cải thiện tốc độ ứng dụng</strong> — Tiếp tục cải thiện tốc độ khởi động, tải và chuyển màn hình.</li>
+    </ul>
+    <p class="sm-faq-update-note">Thời điểm cung cấp và chi tiết tính năng có thể thay đổi trong quá trình phát triển và rà soát.</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">Mục lục</h2>
@@ -274,7 +315,7 @@
       <summary><strong>Q. Có thể chia sẻ ca làm giữa iPhone và điện thoại Android không?</strong></summary>
       <div class="sm-faq-answer">
         <p>Có. Bất kể loại điện thoại bạn sử dụng, <strong>bạn đều có thể sử dụng tính năng Chia sẻ ca</strong>.</p>
-        <p>Ca làm đã nhận chia sẻ có thể được xem <strong>trên màn hình Ca của đồng nghiệp</strong>; để kiểm tra nội dung đã thay đổi, hãy <strong>làm mới</strong> màn hình.</p>
+        <p>Ca làm được chia sẻ có thể xem trên màn hình <strong>Ca của đồng nghiệp</strong>. Khi mở màn hình này hoặc đổi tháng đang hiển thị, ShiftMate sẽ <strong>tải dữ liệu ca làm mới nhất từ máy chủ.</strong></p>
       </div>
     </details>
 
