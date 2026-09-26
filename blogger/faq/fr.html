@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>Mode d’emploi et FAQ de ShiftMate - planning des postes, alarmes, partage et sauvegarde</h1>
   <p>Nous avons rassemblé les questions fréquentes sur les paramètres des postes, les événements et notes, les alarmes, la sauvegarde et le partage des postes. Appuyez sur une question pour afficher la réponse.</p>
   <p class="sm-faq-meta">Selon la version de l’application et l’appareil utilisé, le nom des menus peut légèrement varier.</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>Prochaines améliorations</strong></p>
+    <p>Nous préparons les améliorations suivantes afin que ShiftMate soit plus pratique sur davantage d’appareils et permette de gérer les postes et les données de manière plus fiable.</p>
+    <ul>
+      <li><strong>Prise en charge étendue des tablettes</strong> — Nous optimiserons l’interface et l’utilisation pour les grands écrans des iPad et tablettes Android.</li>
+      <li><strong>Prise en charge des appareils pliables</strong> — Nous prendrons en charge le Galaxy Z Fold et d’autres appareils Android pliables, avec une interface optimisée pour ce format. La prise en charge de futurs iPhone pliables est également prévue.</li>
+      <li><strong>Synchronisation en temps réel sur plusieurs appareils</strong> — Nous améliorerons la synchronisation afin que les postes et les principales données puissent être mis à jour en temps réel sur plusieurs appareils utilisant le même compte.</li>
+      <li><strong>Gérer qui peut voir mes postes</strong> — Vous pourrez voir et gérer les utilisateurs qui ont accès aux postes que vous partagez.</li>
+      <li><strong>Amélioration des widgets iPhone</strong> — Nous améliorerons les widgets iPhone et prévoyons d’ajouter un grand widget de calendrier pour iOS 27 ou version ultérieure.</li>
+      <li><strong>Amélioration de l’interface des notes</strong> — La création, la consultation et la gestion des notes seront simplifiées.</li>
+      <li><strong>Amélioration des performances</strong> — Nous continuerons d’améliorer la vitesse de démarrage, de chargement et de transition entre les écrans.</li>
+    </ul>
+    <p class="sm-faq-update-note">La disponibilité et les détails peuvent évoluer au cours du développement et de la validation.</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">Sommaire</h2>
@@ -274,7 +315,7 @@
       <summary><strong>Q. Puis-je partager des postes entre un iPhone et un smartphone Android ?</strong></summary>
       <div class="sm-faq-answer">
         <p>Oui. Quel que soit le type de smartphone utilisé, <strong>la fonction de partage des postes</strong> est disponible.</p>
-        <p>Les postes partagés avec vous <strong>sont consultables sur l’écran des postes des collègues,</strong> et pour voir les modifications, <strong>actualisez</strong> l’écran.</p>
+        <p>Les postes partagés sont consultables sur l’écran <strong>Services des collègues</strong>. Lorsque vous ouvrez cet écran ou changez le mois affiché, ShiftMate <strong>récupère les données de postes les plus récentes depuis le serveur.</strong></p>
       </div>
     </details>
 
