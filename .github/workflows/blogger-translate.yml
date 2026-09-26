@@ -101,8 +101,7 @@ jobs:
           posts_all=false
           posts_changed=false
 
-          if printf '%s\n' "$changed" | grep -Eq '^(blogger/glossary\.json|blogger/glossary-overrides\.json|scripts/blogger_apply_glossary_overrides\.py|scripts/blogger_translate\.py|scripts/blogger_normalize_spacing\.py); then
-            faq=true
+          if printf '%s\n' "$changed" | grep -Eq '^(blogger/glossary\.json|blogger/glossary-overrides\.json|scripts/blogger_apply_glossary_overrides\.py|scripts/blogger_translate\.py|scripts/blogger_normalize_spacing\.py)            faq=true
             guide=true
           else
             if printf '%s\n' "$changed" | grep -Eq '^blogger/faq/ko\.html$'; then
