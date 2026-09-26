@@ -40,7 +40,7 @@ Export/download the current Blogger theme XML, then build the complete paste-rea
 python scripts/blogger_build_theme.py \
   --input /path/to/blogger-export.xml \
   --output /tmp/shiftmate-blogger-theme.xml \
-  --theme-version 1.2.0 \
+  --theme-version 1.2.1 \
   --theme-date 2026-09-27
 ```
 
@@ -124,3 +124,9 @@ python scripts/blogger_validate_theme_xml.py
 ```
 
 Do not merge a runtime change while the committed XML contains an older embedded runtime.
+
+## Notice feed DOM requirement
+
+The Rockpool feed renders managed Blog posts as `.post-outer-container > .post-outer`. Notice-card enhancement must target that structure, not a generic `.post` element.
+
+The complete theme also exposes each Blog post's Blogger labels through hidden `.sm-post-language-data [data-sm-post-label]` elements on both feed and single-item views. The runtime uses those values to render notice-type and semantic-version badges.

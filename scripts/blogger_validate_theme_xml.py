@@ -16,6 +16,12 @@ SCRIPT_RE = re.compile(
     flags=re.I | re.S,
 )
 
+LABEL_DATA_SINGLE_RE = re.compile(
+    r"<b:if cond=['\"]data:view\.isSingleItem and data:widget\.type == &quot;Blog&quot;['\"]>"
+    r"\s*<span aria-hidden=['\"]true['\"] class=['\"]sm-post-language-data['\"]",
+    flags=re.I,
+)
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -63,7 +69,7 @@ def main() -> int:
             )
 
     for required in (
-        "ShiftMate Blogger theme v1.2.0",
+        "ShiftMate Blogger theme v1.2.1",
         "syncPostSeo",
         "article:published_time",
         "twitter:card",
@@ -72,9 +78,14 @@ def main() -> int:
         "sm-notice-badge-type-feature",
         "sm-notice-badge-type-service",
         "sm-notice-badge-type-policy",
+        "data:widget.type == &quot;Blog&quot;",
+        "sm-post-language-data",
     ):
         if required not in theme:
             errors.append(f"committed theme is missing required marker: {required}")
+
+    if LABEL_DATA_SINGLE_RE.search(theme):
+        errors.append("post label data must be available on feed pages, not only single items")
 
     if errors:
         print(f"[FAIL] {args.theme}")

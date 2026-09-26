@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='rockpool.xml' b:templateVersion='1.3.3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-  <!-- ShiftMate Blogger theme v1.2.0 | 2026-09-27 | 10-locale navigation; FAQ/Guide use clean localized Page URLs with canonical/hreflang SEO. --><head>
+  <!-- ShiftMate Blogger theme v1.2.1 | 2026-09-27 | 10-locale navigation; FAQ/Guide use clean localized Page URLs with canonical/hreflang SEO. --><head>
     <meta content='3ddd3ea636a9e1971f695b27b816d763a3635b44' name='naver-site-verification'/>
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:view.title.escaped/></title>
@@ -3832,7 +3832,7 @@ body:not(#layout) .sm-guide-footer {
           </div>
         </b:includable>
         <b:includable id='normalPost'>
-          <b:if cond='data:view.isSingleItem and data:widget.type == &quot;Blog&quot;'>
+          <b:if cond='data:widget.type == &quot;Blog&quot;'>
   <span aria-hidden='true' class='sm-post-language-data' hidden='hidden'>
     <b:loop values='data:post.labels' var='label'><span expr:data-sm-post-label='data:label.name'/></b:loop>
   </span>
@@ -6273,9 +6273,10 @@ body:not(#layout) .sm-guide-footer {
     var style=document.createElement(&#39;style&#39;);
     style.id=&#39;shiftmate-runtime-styles&#39;;
     style.textContent=
-      &#39;.sm-notice-page .blog-posts .post-outer,.sm-notice-page .blog-posts .post-outer-container{margin:0 0 18px!important;}&#39; +
-      &#39;.sm-notice-page .blog-posts .post{border:1px solid #e1e3e9;border-radius:16px;background:#fff;padding:22px!important;box-shadow:0 6px 20px rgba(20,21,45,.05);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}&#39; +
-      &#39;.sm-notice-page .blog-posts .post:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(20,21,45,.08);border-color:#cfd2dc;}&#39; +
+      &#39;.sm-notice-page .blog-posts .post-outer-container{box-sizing:border-box;margin:0 0 18px!important;padding:22px!important;border:1px solid #e1e3e9!important;border-radius:16px;background:#fff;box-shadow:0 6px 20px rgba(20,21,45,.05);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}&#39; +
+      &#39;.sm-notice-page .blog-posts .post-outer-container+.post-outer-container{padding-top:22px!important;border-top:1px solid #e1e3e9!important;}&#39; +
+      &#39;.sm-notice-page .blog-posts .post-outer-container:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(20,21,45,.08);border-color:#cfd2dc!important;}&#39; +
+      &#39;.sm-notice-page .blog-posts .post-outer{margin:0!important;}&#39; +
       &#39;.sm-notice-page .blog-posts .date-header{display:none!important;}&#39; +
       &#39;.sm-notice-page .blog-posts .post-title,.sm-notice-page .blog-posts .entry-title{margin:4px 0 10px!important;font-size:1.28rem!important;line-height:1.45!important;color:#14152d!important;}&#39; +
       &#39;.sm-notice-page .blog-posts .post-title a,.sm-notice-page .blog-posts .entry-title a{color:inherit!important;text-decoration:none!important;}&#39; +
@@ -6293,7 +6294,7 @@ body:not(#layout) .sm-guide-footer {
       &#39;.sm-notice-badge-type-service{background:#f5f0fa;color:#5e3d7b;border-color:#e3d6ef;}&#39; +
       &#39;.sm-notice-badge-type-policy{background:#f3f4f6;color:#414651;border-color:#dfe2e7;}&#39; +
       &#39;.sm-notice-badge-version{background:#14152d;color:#fff;}&#39; +
-      &#39;@media(max-width:600px){.sm-notice-page .blog-posts .post{padding:17px!important;border-radius:14px;}.sm-notice-page .blog-posts .post-title,.sm-notice-page .blog-posts .entry-title{font-size:1.12rem!important;}}&#39;;
+      &#39;@media(max-width:600px){.sm-notice-page .blog-posts .post-outer-container{padding:17px!important;border-radius:14px;}.sm-notice-page .blog-posts .post-outer-container+.post-outer-container{padding-top:17px!important;}.sm-notice-page .blog-posts .post-title,.sm-notice-page .blog-posts .entry-title{font-size:1.12rem!important;}}&#39;;
     document.head.appendChild(style);
   }
 
@@ -6383,44 +6384,52 @@ body:not(#layout) .sm-guide-footer {
     else root.className=(root.className || &#39;&#39;).replace(/\bsm-notice-page\b/g,&#39;&#39;).replace(/\s+/g,&#39; &#39;).trim();
     if (!isNotice || !document.querySelectorAll) return;
 
-    var posts=document.querySelectorAll(&#39;.blog-posts .post&#39;);
+    var posts=document.querySelectorAll(&#39;.blog-posts .post-outer-container&#39;);
     for (var i=0;i&lt;posts.length;i++) {
       var post=posts[i];
       if (post.getAttribute(&#39;data-sm-notice-enhanced&#39;)===&#39;1&#39;) continue;
-      var labels=post.querySelectorAll(&#39;a[href*=&quot;/search/label/&quot;]&#39;);
-      var version=&#39;&#39;, type=&#39;&#39;;
-      var found={};
-      for (var j=0;j&lt;labels.length;j++) {
-        var name=labelFromHref(labels[j].getAttribute(&#39;href&#39;));
+
+      var labelNodes=post.querySelectorAll(&#39;.sm-post-language-data [data-sm-post-label]&#39;);
+      var version=&#39;&#39;, type=&#39;&#39;, found={};
+      for (var j=0;j&lt;labelNodes.length;j++) {
+        var name=(labelNodes[j].getAttribute(&#39;data-sm-post-label&#39;) || &#39;&#39;).trim();
         var lower=name.toLowerCase();
         if (/^\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?$/.test(name)) version=name;
-        found[lower]=true;
+        if (lower) found[lower]=true;
       }
+
       for (var ti=0;ti&lt;NOTICE_TYPE_ORDER.length;ti++) {
         if (found[NOTICE_TYPE_ORDER[ti]]) {
           type=NOTICE_TYPE_ORDER[ti];
           break;
         }
       }
+
       if (version || type) {
         var badges=document.createElement(&#39;div&#39;);
         badges.className=&#39;sm-notice-badges&#39;;
+
         if (type) {
           var typeBadge=document.createElement(&#39;span&#39;);
           typeBadge.className=&#39;sm-notice-badge sm-notice-badge-type-&#39; + type;
           typeBadge.textContent=noticeBadgeText(id,type);
           badges.appendChild(typeBadge);
         }
+
         if (version) {
           var v=document.createElement(&#39;span&#39;);
           v.className=&#39;sm-notice-badge sm-notice-badge-version&#39;;
           v.textContent=&#39;v&#39; + version;
           badges.appendChild(v);
         }
+
+        var titleContainer=post.querySelector(&#39;.post-title-container&#39;);
         var title=post.querySelector(&#39;.post-title,.entry-title&#39;);
-        if (title &amp;&amp; title.parentNode) title.parentNode.insertBefore(badges,title);
+        if (titleContainer) titleContainer.insertBefore(badges,titleContainer.firstChild);
+        else if (title &amp;&amp; title.parentNode) title.parentNode.insertBefore(badges,title);
         else post.insertBefore(badges,post.firstChild);
       }
+
       post.setAttribute(&#39;data-sm-notice-enhanced&#39;,&#39;1&#39;);
     }
   }
@@ -6501,6 +6510,7 @@ body:not(#layout) .sm-guide-footer {
   if (window.addEventListener) window.addEventListener(&#39;load&#39;,boot,false);
   window.ShiftMateBlog={refresh:boot,getLanguage:function(){return current;}};
 }());
+
 
 </script>
 <script id='shiftmate-guide-runtime' type='text/javascript'>

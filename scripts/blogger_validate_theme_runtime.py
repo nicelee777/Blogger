@@ -26,6 +26,8 @@ def main() -> int:
         "syncPageSeo",
         "syncPostSeo",
         "enhanceNoticeListing",
+        "sm-post-language-data [data-sm-post-label]",
+        "post-outer-container",
         "shiftmate-runtime-styles",
         "og:title",
         "og:description",
