@@ -2,7 +2,7 @@
   "category": "notice",
   "slug": "shiftmate-10-0-0-update",
   "title_ko": "ShiftMate 10.0.0 업데이트 예정 안내",
-  "publish": false,
+  "publish": true,
   "notice_type": "update",
   "release_version": "10.0.0",
   "labels": [
