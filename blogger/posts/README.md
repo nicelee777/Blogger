@@ -57,6 +57,7 @@ Rules:
 - Translation generates `descriptions.json` for all managed locales; missing descriptions fail validation.
 - Blogger API cannot populate the editor's Search Description field directly, so sync embeds the managed description and the ShiftMate theme runtime applies it to rendered SEO meta tags.
 - Notice items also use `notice_type` for operational classification. Allowed values: `general`, `update`, `maintenance`, `incident`, `feature`, `service`, `policy`.
+- For managed Notice posts, `notice_type` is automatically added to Blogger labels so the theme can render the matching localized badge. Do not duplicate it in `labels` unless there is a separate editorial reason.
 - `release_version` is optional for Notice items and uses semantic version format such as `10.0.0`.
 
 ## AI source generation
