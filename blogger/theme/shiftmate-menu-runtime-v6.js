@@ -18,16 +18,16 @@
   var ORDER = ['en','es','de','fr','pt-BR','zh-CN','zh-TW','ko','ja','vi'];
 
   var TEXT = {
-    en: {desc:'News, guides and stories for your shift-working life.', help:'Explore ShiftMate', tag:'Your shifts. Your rhythm.', notice:'Notices', noticeDesc:'Check important updates and announcements.', guide:'User guide', guideDesc:'Learn how to use ShiftMate.', faq:'FAQ', faqDesc:'Find answers and troubleshooting tips.', story:'Stories', storyDesc:'Read posts in this language.', soon:'Coming soon', all:'Show all', filter:'Posts in English', search:'Search', searchHint:'Search this blog', read:'Read more'},
-    es: {desc:'Noticias, guías e historias para tu vida por turnos.', help:'Explora ShiftMate', tag:'Tus turnos. Tu ritmo.', notice:'Avisos', noticeDesc:'Consulta novedades y anuncios importantes.', guide:'Guía de uso', guideDesc:'Aprende a usar ShiftMate.', faq:'Preguntas frecuentes', faqDesc:'Encuentra respuestas y soluciones.', story:'Historias', storyDesc:'Lee artículos en este idioma.', soon:'Próximamente', all:'Ver todo', filter:'Artículos en español', search:'Buscar', searchHint:'Buscar en el blog', read:'Leer más'},
-    de: {desc:'Neuigkeiten, Anleitungen und Geschichten rund um Schichtarbeit mit ShiftMate.', help:'ShiftMate entdecken', tag:'Deine Schichten. Dein Rhythmus.', notice:'Mitteilungen', noticeDesc:'Wichtige Updates und Mitteilungen ansehen.', guide:'Benutzerhandbuch', guideDesc:'Erfahren Sie, wie Sie ShiftMate verwenden.', faq:'FAQ', faqDesc:'Antworten und Tipps zur Problemlösung finden.', story:'Geschichten', storyDesc:'Beiträge auf Deutsch lesen.', soon:'Demnächst', all:'Alle anzeigen', filter:'Beiträge auf Deutsch', search:'Suchen', searchHint:'Blog durchsuchen', read:'Weiterlesen'},
-    fr: {desc:'Actualités, guides et récits sur le travail posté avec ShiftMate.', help:'Découvrir ShiftMate', tag:'Vos services. Votre rythme.', notice:'Annonces', noticeDesc:'Consultez les mises à jour et annonces importantes.', guide:'Guide d’utilisation', guideDesc:'Découvrez comment utiliser ShiftMate.', faq:'Questions fréquentes', faqDesc:'Trouvez des réponses et des conseils de dépannage.', story:'Récits', storyDesc:'Lisez les articles en français.', soon:'Bientôt disponible', all:'Tout afficher', filter:'Articles en français', search:'Rechercher', searchHint:'Rechercher dans le blog', read:'Lire la suite'},
+    en: {desc:'News, guides and stories for your shift-working life.', help:'Explore ShiftMate', tag:'Your shifts. Your rhythm.', notice:'Notices', noticeDesc:'Check important updates and announcements.', guide:'User guide', guideDesc:'Learn how to use ShiftMate.', faq:'FAQ', faqDesc:'Find answers and troubleshooting tips.', story:'Stories', storyDesc:'Read posts in this language.', soon:'Coming soon', all:'Show all', filter:'Posts in English', search:'Search', searchHint:'Search this blog', read:'Read more', updateBadge:'Update'},
+    es: {desc:'Noticias, guías e historias para tu vida por turnos.', help:'Explora ShiftMate', tag:'Tus turnos. Tu ritmo.', notice:'Avisos', noticeDesc:'Consulta novedades y anuncios importantes.', guide:'Guía de uso', guideDesc:'Aprende a usar ShiftMate.', faq:'Preguntas frecuentes', faqDesc:'Encuentra respuestas y soluciones.', story:'Historias', storyDesc:'Lee artículos en este idioma.', soon:'Próximamente', all:'Ver todo', filter:'Artículos en español', search:'Buscar', searchHint:'Buscar en el blog', read:'Leer más', updateBadge:'Actualización'},
+    de: {desc:'Neuigkeiten, Anleitungen und Geschichten rund um Schichtarbeit mit ShiftMate.', help:'ShiftMate entdecken', tag:'Deine Schichten. Dein Rhythmus.', notice:'Mitteilungen', noticeDesc:'Wichtige Updates und Mitteilungen ansehen.', guide:'Benutzerhandbuch', guideDesc:'Erfahren Sie, wie Sie ShiftMate verwenden.', faq:'FAQ', faqDesc:'Antworten und Tipps zur Problemlösung finden.', story:'Geschichten', storyDesc:'Beiträge auf Deutsch lesen.', soon:'Demnächst', all:'Alle anzeigen', filter:'Beiträge auf Deutsch', search:'Suchen', searchHint:'Blog durchsuchen', read:'Weiterlesen', updateBadge:'Update'},
+    fr: {desc:'Actualités, guides et récits sur le travail posté avec ShiftMate.', help:'Découvrir ShiftMate', tag:'Vos services. Votre rythme.', notice:'Annonces', noticeDesc:'Consultez les mises à jour et annonces importantes.', guide:'Guide d’utilisation', guideDesc:'Découvrez comment utiliser ShiftMate.', faq:'Questions fréquentes', faqDesc:'Trouvez des réponses et des conseils de dépannage.', story:'Récits', storyDesc:'Lisez les articles en français.', soon:'Bientôt disponible', all:'Tout afficher', filter:'Articles en français', search:'Rechercher', searchHint:'Rechercher dans le blog', read:'Lire la suite', updateBadge:'Mise à jour'},
     'pt-BR': {desc:'Notícias, guias e histórias sobre a vida em turnos com o ShiftMate.', help:'Conheça o ShiftMate', tag:'Seus turnos. Seu ritmo.', notice:'Avisos', noticeDesc:'Confira atualizações e comunicados importantes.', guide:'Guia de uso', guideDesc:'Aprenda a usar o ShiftMate.', faq:'Perguntas frequentes', faqDesc:'Encontre respostas e dicas para resolver problemas.', story:'Histórias', storyDesc:'Leia publicações em português.', soon:'Em breve', all:'Ver tudo', filter:'Publicações em português (Brasil)', search:'Pesquisar', searchHint:'Pesquisar no blog', read:'Leia mais'},
     'zh-CN': {desc:'ShiftMate 最新消息、使用指南与轮班生活故事。', help:'探索 ShiftMate', tag:'你的班次，你的节奏。', notice:'公告', noticeDesc:'查看重要更新与公告。', guide:'使用指南', guideDesc:'了解各项功能的使用方法。', faq:'常见问题', faqDesc:'查找问题解答与解决方法。', story:'故事', storyDesc:'阅读此语言的博客文章。', soon:'即将推出', all:'显示全部', filter:'简体中文文章', search:'搜索', searchHint:'搜索博客', read:'继续阅读'},
     'zh-TW': {desc:'ShiftMate 最新消息、使用指南與輪班生活故事。', help:'探索 ShiftMate', tag:'你的班表，你的節奏。', notice:'公告', noticeDesc:'查看重要更新與公告。', guide:'使用指南', guideDesc:'了解各項功能的使用方法。', faq:'常見問題', faqDesc:'查找問題解答與解決方法。', story:'故事', storyDesc:'閱讀此語言的部落格文章。', soon:'即將推出', all:'顯示全部', filter:'繁體中文文章', search:'搜尋', searchHint:'搜尋部落格', read:'繼續閱讀'},
-    ko: {desc:'ShiftMate 소식과 사용 가이드, 교대근무 이야기를 전합니다.', help:'ShiftMate 둘러보기', tag:'내 근무, 내 리듬대로', notice:'공지사항', noticeDesc:'중요한 업데이트와 안내를 확인하세요.', guide:'사용 가이드', guideDesc:'기능별 사용 방법을 확인하세요.', faq:'자주 묻는 질문', faqDesc:'궁금한 점과 해결 방법을 찾아보세요.', story:'스토리', storyDesc:'한국어 블로그 글을 모아보세요.', soon:'준비 중', all:'전체 글', filter:'한국어로 작성된 글', search:'검색', searchHint:'블로그에서 검색', read:'더 읽기'},
-    ja: {desc:'ShiftMateのお知らせ、使い方、シフト勤務にまつわる読みもの。', help:'ShiftMateをもっと知る', tag:'シフトも、毎日も、自分のリズムで。', notice:'お知らせ', noticeDesc:'重要な更新情報とお知らせを確認できます。', guide:'使い方ガイド', guideDesc:'機能ごとの使い方を確認できます。', faq:'よくある質問', faqDesc:'疑問や困ったときの解決方法。', story:'ストーリー', storyDesc:'日本語の記事を読む。', soon:'準備中', all:'すべての記事', filter:'日本語の記事', search:'検索', searchHint:'ブログ内を検索', read:'続きを読む'},
-    vi: {desc:'Tin tức, hướng dẫn và câu chuyện về cuộc sống làm ca với ShiftMate.', help:'Khám phá ShiftMate', tag:'Ca trực của bạn. Nhịp sống của bạn.', notice:'Thông báo', noticeDesc:'Xem cập nhật và thông báo quan trọng.', guide:'Hướng dẫn sử dụng', guideDesc:'Tìm hiểu cách dùng ShiftMate.', faq:'Câu hỏi thường gặp', faqDesc:'Tìm câu trả lời và cách khắc phục.', story:'Câu chuyện', storyDesc:'Đọc bài viết bằng ngôn ngữ này.', soon:'Sắp ra mắt', all:'Tất cả bài viết', filter:'Bài viết bằng tiếng Việt', search:'Tìm kiếm', searchHint:'Tìm kiếm trong blog', read:'Đọc thêm'}
+    ko: {desc:'ShiftMate 소식과 사용 가이드, 교대근무 이야기를 전합니다.', help:'ShiftMate 둘러보기', tag:'내 근무, 내 리듬대로', notice:'공지사항', noticeDesc:'중요한 업데이트와 안내를 확인하세요.', guide:'사용 가이드', guideDesc:'기능별 사용 방법을 확인하세요.', faq:'자주 묻는 질문', faqDesc:'궁금한 점과 해결 방법을 찾아보세요.', story:'스토리', storyDesc:'한국어 블로그 글을 모아보세요.', soon:'준비 중', all:'전체 글', filter:'한국어로 작성된 글', search:'검색', searchHint:'블로그에서 검색', read:'더 읽기', updateBadge:'업데이트'},
+    ja: {desc:'ShiftMateのお知らせ、使い方、シフト勤務にまつわる読みもの。', help:'ShiftMateをもっと知る', tag:'シフトも、毎日も、自分のリズムで。', notice:'お知らせ', noticeDesc:'重要な更新情報とお知らせを確認できます。', guide:'使い方ガイド', guideDesc:'機能ごとの使い方を確認できます。', faq:'よくある質問', faqDesc:'疑問や困ったときの解決方法。', story:'ストーリー', storyDesc:'日本語の記事を読む。', soon:'準備中', all:'すべての記事', filter:'日本語の記事', search:'検索', searchHint:'ブログ内を検索', read:'続きを読む', updateBadge:'アップデート'},
+    vi: {desc:'Tin tức, hướng dẫn và câu chuyện về cuộc sống làm ca với ShiftMate.', help:'Khám phá ShiftMate', tag:'Ca trực của bạn. Nhịp sống của bạn.', notice:'Thông báo', noticeDesc:'Xem cập nhật và thông báo quan trọng.', guide:'Hướng dẫn sử dụng', guideDesc:'Tìm hiểu cách dùng ShiftMate.', faq:'Câu hỏi thường gặp', faqDesc:'Tìm câu trả lời và cách khắc phục.', story:'Câu chuyện', storyDesc:'Đọc bài viết bằng ngôn ngữ này.', soon:'Sắp ra mắt', all:'Tất cả bài viết', filter:'Bài viết bằng tiếng Việt', search:'Tìm kiếm', searchHint:'Tìm kiếm trong blog', read:'Đọc thêm', updateBadge:'Cập nhật'}
   };
 
   var current = 'ko';
@@ -158,6 +158,104 @@
     }
   }
 
+  function ensureRuntimeStyles() {
+    if (!document.head || document.getElementById('shiftmate-runtime-styles')) return;
+    var style=document.createElement('style');
+    style.id='shiftmate-runtime-styles';
+    style.textContent=
+      '.sm-notice-page .blog-posts .post-outer,.sm-notice-page .blog-posts .post-outer-container{margin:0 0 18px!important;}' +
+      '.sm-notice-page .blog-posts .post{border:1px solid #e1e3e9;border-radius:16px;background:#fff;padding:22px!important;box-shadow:0 6px 20px rgba(20,21,45,.05);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;}' +
+      '.sm-notice-page .blog-posts .post:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(20,21,45,.08);border-color:#cfd2dc;}' +
+      '.sm-notice-page .blog-posts .date-header{display:none!important;}' +
+      '.sm-notice-page .blog-posts .post-title,.sm-notice-page .blog-posts .entry-title{margin:4px 0 10px!important;font-size:1.28rem!important;line-height:1.45!important;color:#14152d!important;}' +
+      '.sm-notice-page .blog-posts .post-title a,.sm-notice-page .blog-posts .entry-title a{color:inherit!important;text-decoration:none!important;}' +
+      '.sm-notice-page .blog-posts .post-header{margin:0 0 12px!important;color:#717684!important;font-size:.84rem!important;}' +
+      '.sm-notice-page .blog-posts .post-body{color:#4a4f5d!important;line-height:1.75!important;}' +
+      '.sm-notice-page .blog-posts .jump-link{margin-top:14px!important;}' +
+      '.sm-notice-page .blog-posts .jump-link>a{display:inline-flex!important;align-items:center;min-height:38px;padding:7px 13px;border:1px solid #d8dbe4;border-radius:999px;background:#f7f8fa;color:#14152d!important;text-decoration:none!important;font-weight:600;font-size:.9rem;}' +
+      '.sm-notice-badges{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 10px;}' +
+      '.sm-notice-badge{display:inline-flex;align-items:center;min-height:26px;padding:3px 9px;border-radius:999px;background:#f1f2f6;color:#3e4351;font-size:.76rem;font-weight:700;line-height:1.2;}' +
+      '.sm-notice-badge-version{background:#14152d;color:#fff;}' +
+      '@media(max-width:600px){.sm-notice-page .blog-posts .post{padding:17px!important;border-radius:14px;}.sm-notice-page .blog-posts .post-title,.sm-notice-page .blog-posts .entry-title{font-size:1.12rem!important;}}';
+    document.head.appendChild(style);
+  }
+
+  function setMeta(selector, attr, value, content) {
+    if (!document.head || !document.querySelector) return;
+    var meta=document.querySelector(selector);
+    if (!meta) {
+      meta=document.createElement('meta');
+      meta.setAttribute(attr,value);
+      meta.setAttribute('data-shiftmate-seo','post-description');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content',content);
+  }
+
+  function syncPostSeo() {
+    if (!document.querySelectorAll) return;
+    var posts=document.querySelectorAll('article.sm-post');
+    var marker=document.querySelector('.sm-post-seo[data-sm-description]');
+    if (posts.length !== 1 || !marker) return;
+    var description=marker.getAttribute('data-sm-description') || '';
+    description=description.replace(/\s+/g,' ').trim();
+    if (!description) return;
+    setMeta('meta[name="description"]','name','description',description);
+    setMeta('meta[property="og:description"]','property','og:description',description);
+    setMeta('meta[name="twitter:description"]','name','twitter:description',description);
+  }
+
+  function labelFromHref(href) {
+    try {
+      var decoded=decodeURIComponent(href || '');
+      var marker='/search/label/';
+      var at=decoded.indexOf(marker);
+      if (at < 0) return '';
+      return decoded.slice(at + marker.length).split(/[?#]/)[0];
+    } catch(e) { return ''; }
+  }
+
+  function enhanceNoticeListing(id) {
+    var root=document.documentElement, isNotice=sectionKind()==='notice';
+    if (isNotice) root.className=(root.className || '').replace(/\bsm-notice-page\b/g,'').trim() + ' sm-notice-page';
+    else root.className=(root.className || '').replace(/\bsm-notice-page\b/g,'').replace(/\s+/g,' ').trim();
+    if (!isNotice || !document.querySelectorAll) return;
+
+    var posts=document.querySelectorAll('.blog-posts .post');
+    var t=TEXT[id] || TEXT.en;
+    for (var i=0;i<posts.length;i++) {
+      var post=posts[i];
+      if (post.getAttribute('data-sm-notice-enhanced')==='1') continue;
+      var labels=post.querySelectorAll('a[href*="/search/label/"]');
+      var version='', hasUpdate=false;
+      for (var j=0;j<labels.length;j++) {
+        var name=labelFromHref(labels[j].getAttribute('href'));
+        if (/^\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?$/.test(name)) version=name;
+        if (name.toLowerCase()==='update') hasUpdate=true;
+      }
+      if (version || hasUpdate) {
+        var badges=document.createElement('div');
+        badges.className='sm-notice-badges';
+        if (hasUpdate) {
+          var update=document.createElement('span');
+          update.className='sm-notice-badge';
+          update.textContent=t.updateBadge || 'Update';
+          badges.appendChild(update);
+        }
+        if (version) {
+          var v=document.createElement('span');
+          v.className='sm-notice-badge sm-notice-badge-version';
+          v.textContent='v' + version;
+          badges.appendChild(v);
+        }
+        var title=post.querySelector('.post-title,.entry-title');
+        if (title && title.parentNode) title.parentNode.insertBefore(badges,title);
+        else post.insertBefore(badges,post.firstChild);
+      }
+      post.setAttribute('data-sm-notice-enhanced','1');
+    }
+  }
+
   function menuHtml(id, compact) {
     var t = TEXT[id] || TEXT.en;
     var rows = [['notice',t.notice,t.noticeDesc],['guide',t.guide,t.guideDesc],['faq',t.faq,t.faqDesc],['story',t.story,t.storyDesc]];
@@ -203,7 +301,10 @@
     current=id; safeSet('shiftmate.blog.locale.v2',id);
     document.documentElement.setAttribute('data-sm-locale',id);
     document.documentElement.setAttribute('lang',LOCALES[id].tag);
+    ensureRuntimeStyles();
     syncPageSeo(id);
+    syncPostSeo();
+    enhanceNoticeListing(id);
     var t=TEXT[id]||TEXT.en;
     setTextByClass('sm-header-description',t.desc);
     setTextByClass('sm-sidebar-tagline',t.tag);
