@@ -13,6 +13,8 @@ from urllib.parse import urlparse
 from blogger_translate import assert_structure
 
 FORBIDDEN_TAGS = {"script", "form", "object", "embed"}
+NOTICE_TYPES = {"general", "update", "maintenance", "incident", "feature", "service", "policy"}
+VERSION_RE = re.compile(r"^\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?$")
 
 
 class PostParser(HTMLParser):
@@ -132,6 +134,15 @@ def main() -> int:
         errors.append("develop/Draft workflow requires publish=false")
     if not isinstance(meta.get("labels", []), list):
         errors.append("labels must be a list")
+    if category == "notice":
+        notice_type = str(meta.get("notice_type", "")).strip()
+        if notice_type not in NOTICE_TYPES:
+            errors.append(
+                "notice_type must be one of: " + ", ".join(sorted(NOTICE_TYPES))
+            )
+        release_version = str(meta.get("release_version", "")).strip()
+        if release_version and not VERSION_RE.fullmatch(release_version):
+            errors.append("release_version must use semantic version format, e.g. 10.0.0")
 
     errors.extend(validate_html(source_path, source=True))
 
