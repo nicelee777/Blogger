@@ -21,6 +21,7 @@ Explain what changed, who is affected, and what the user should do next without 
 - New Notice items must start as Blogger drafts (`publish: false`).
 - When a notice has a confirmed release version, use that exact version consistently and do not invent a release date.
 - Treat planned features as planned; do not write as though they are already available.
+- Always write a concise `seo_description_ko` for the notice. It is required for publication automation and localization.
 
 ## Recommended structure
 

@@ -18,11 +18,25 @@ def strip_single_paragraph(html: str) -> str:
     return re.sub(r"<[^>]+>", "", text).strip()
 
 
+def load_json_object(path: Path) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise RuntimeError(f"expected JSON object: {path}")
+    return {str(k): str(v) for k, v in data.items()}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", type=Path, default=Path("blogger/config.json"))
     ap.add_argument("--root", type=Path, default=Path("blogger/posts"))
     ap.add_argument("--item", type=Path)
+    ap.add_argument(
+        "--metadata-only",
+        action="store_true",
+        help="Preserve localized Post bodies and update only changed title/description metadata.",
+    )
     args = ap.parse_args()
 
     api_key = os.environ.get("OPENAI_API_KEY", "").strip()
@@ -61,36 +75,81 @@ def main() -> int:
             )
 
         source = source_path.read_text(encoding="utf-8")
-        titles = {source_locale: meta["title_ko"]}
+        source_title = str(meta.get("title_ko", "")).strip()
+        source_description = str(meta.get("seo_description_ko", "")).strip()
+        if not source_title:
+            raise RuntimeError(f"title_ko is required: {meta_path}")
+        if not source_description:
+            raise RuntimeError(f"seo_description_ko is required: {meta_path}")
+
+        titles_path = item / "titles.json"
+        descriptions_path = item / "descriptions.json"
+        titles = load_json_object(titles_path)
+        descriptions = load_json_object(descriptions_path)
+
+        title_changed = (
+            titles.get(source_locale) != source_title
+            or any(not titles.get(locale) for locale in locales)
+        )
+        description_changed = (
+            descriptions.get(source_locale) != source_description
+            or any(not descriptions.get(locale) for locale in locales)
+        )
+        titles[source_locale] = source_title
+        descriptions[source_locale] = source_description
+
         for locale, info in locales.items():
             if locale == source_locale:
                 continue
-            print(f"{category}/{item.name}: {source_locale} -> {locale}")
-            translated = translate_preserving_structure(
-                api_key,
-                model,
-                source,
-                locale,
-                info["name"],
-                info["html_lang"],
-                content_type="post",
-            )
-            (item / f"{locale}.html").write_text(translated, encoding="utf-8")
 
-            # Translate titles through the same structure-preserving segment engine.
-            title_html = translate_preserving_structure(
-                api_key,
-                model,
-                f"<p>{meta['title_ko']}</p>",
-                locale,
-                info["name"],
-                info["html_lang"],
-                content_type="post-title",
-            )
-            titles[locale] = strip_single_paragraph(title_html)
+            if not args.metadata_only:
+                print(f"{category}/{item.name}: body {source_locale} -> {locale}")
+                translated = translate_preserving_structure(
+                    api_key,
+                    model,
+                    source,
+                    locale,
+                    info["name"],
+                    info["html_lang"],
+                    content_type="post",
+                )
+                (item / f"{locale}.html").write_text(translated, encoding="utf-8")
 
-        (item / "titles.json").write_text(
+            if title_changed:
+                print(f"{category}/{item.name}: title {source_locale} -> {locale}")
+                title_html = translate_preserving_structure(
+                    api_key,
+                    model,
+                    f"<p>{source_title}</p>",
+                    locale,
+                    info["name"],
+                    info["html_lang"],
+                    content_type="post-title",
+                )
+                titles[locale] = strip_single_paragraph(title_html)
+
+            if description_changed:
+                print(
+                    f"{category}/{item.name}: search description "
+                    f"{source_locale} -> {locale}"
+                )
+                description_html = translate_preserving_structure(
+                    api_key,
+                    model,
+                    f"<p>{source_description}</p>",
+                    locale,
+                    info["name"],
+                    info["html_lang"],
+                    content_type="post-search-description",
+                )
+                descriptions[locale] = strip_single_paragraph(description_html)
+
+        titles_path.write_text(
             json.dumps(titles, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        descriptions_path.write_text(
+            json.dumps(descriptions, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
     return 0

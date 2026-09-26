@@ -68,3 +68,23 @@ Blogger API v3 can publish the managed FAQ/Guide Pages and Posts, but it does no
 - the final generated XML still has to be applied in Blogger Theme UI.
 
 For future changes, edit the GitHub source first. Do not patch the live Blogger runtime independently, because that causes the live theme and repository to drift.
+
+## Notice list cards
+
+The runtime applies a dedicated card presentation only on localized Notice label pages such as:
+
+- `/search/label/lang-ko+notice`
+- `/search/label/lang+notice`
+
+Notice cards use the existing Blogger Post markup and labels. The `update` label is shown as a localized update badge, and a semantic-version label such as `10.0.0` is shown as a version badge.
+
+## Managed Post search descriptions
+
+Blogger API does not currently provide a supported way to populate the editor's **Search Description** field for Posts. Managed Notice/Story items therefore use repository-owned SEO metadata:
+
+1. Korean `seo_description_ko` is required in `meta.json`.
+2. Localization generates `descriptions.json` for every managed locale.
+3. Blogger sync embeds the localized value in the Post as a hidden `.sm-post-seo[data-sm-description]` marker.
+4. On a single managed Post page, the runtime applies that value to `meta[name="description"]`, `og:description`, and `twitter:description`.
+
+This provides automatic rendered-page metadata while keeping the repository as the source of truth. Do not describe this as populating Blogger's editor-side Search Description input.

@@ -62,7 +62,13 @@ def validate(result: str) -> None:
 
     if re.search(r"return\s+v\s*\+\s*['\"]\?sm-lang=", runtime):
         raise ValueError("runtime still generates ?sm-lang Page URLs")
-    for required in ("cleanLegacyPageUrl", "syncPageSeo", "x-default"):
+    for required in (
+        "cleanLegacyPageUrl",
+        "syncPageSeo",
+        "syncPostSeo",
+        "enhanceNoticeListing",
+        "x-default",
+    ):
         if required not in runtime:
             raise ValueError(f"runtime is missing required SEO behavior: {required}")
 

@@ -104,7 +104,6 @@ jobs:
           if printf '%s\n' "$changed" | grep -Eq '^(blogger/config\.json|blogger/glossary\.json|blogger/glossary-overrides\.json|scripts/blogger_apply_glossary_overrides\.py|scripts/blogger_translate\.py|scripts/blogger_normalize_spacing\.py)$'; then
             faq=true
             guide=true
-            posts_all=true
           else
             if printf '%s\n' "$changed" | grep -Eq '^blogger/faq/ko\.html$'; then
               faq=true
@@ -112,9 +111,7 @@ jobs:
             if printf '%s\n' "$changed" | grep -Eq '^(blogger/guide/ko\.html|scripts/blogger_validate_guide\.py|\.github/workflows/blogger-translate\.yml)$'; then
               guide=true
             fi
-            if printf '%s\n' "$changed" | grep -Eq '^(blogger/editorial-policy\.md|blogger/seo-policy\.md|blogger/product-facts\.md|blogger/content-prompts/|scripts/blogger_translate_posts\.py)'; then
-              posts_all=true
-            elif printf '%s\n' "$changed" | grep -Eq '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$'; then
+            if printf '%s\n' "$changed" | grep -Eq '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$'; then
               posts_changed=true
             fi
           fi
@@ -170,8 +167,13 @@ jobs:
               | xargs -r -n1 dirname \
               | sort -u \
               | while IFS= read -r item; do
-                  echo "Translating changed Post item: $item"
-                  python scripts/blogger_translate_posts.py --item "$item"
+                  if git diff --name-only "$BEFORE_SHA" "$current" | grep -Fxq "$item/ko.html"; then
+                    echo "Translating changed Post body: $item"
+                    python scripts/blogger_translate_posts.py --item "$item"
+                  else
+                    echo "Post metadata changed; preserving reviewed localized body: $item"
+                    python scripts/blogger_translate_posts.py --item "$item" --metadata-only
+                  fi
                   python scripts/blogger_validate_post.py "$item" --all-locales
                 done
           else

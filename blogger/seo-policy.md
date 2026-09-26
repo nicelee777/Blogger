@@ -67,15 +67,26 @@ Do not create excessive cross-links solely for SEO.
 
 Do not add dates or “latest” claims unless the date/release state is verified. Update evergreen content in place rather than creating near-duplicate posts for minor wording changes.
 
+## Search descriptions for managed Posts
+
+Every managed Notice and Story must have a search description.
+
+- `meta.json` must contain a non-empty Korean `seo_description_ko`.
+- Search descriptions should be one concise line, normally 20–220 characters, written for humans rather than keyword stuffing.
+- Localization must create `descriptions.json` with one search description for every managed locale.
+- Missing Korean or localized search descriptions are validation failures.
+- Blogger API does not currently expose a supported field for the Blogger editor's Search Description input. Production sync therefore embeds the managed description with the Post, and the ShiftMate theme runtime applies it to the rendered post page's `meta[name="description"]`, Open Graph description, and Twitter description.
+- Do not claim that the Blogger editor's Search Description field itself was populated by the API.
+
 ## Metadata stored with managed Posts
 
-AI-generated Notice/Story `meta.json` may include editorial metadata such as:
+Managed Notice/Story `meta.json` includes editorial metadata such as:
 
-- `seo_description_ko`
+- `seo_description_ko` (required)
 - `primary_keyword`
 - `secondary_keywords`
 
-These fields support review and future SEO tooling; Blogger sync may ignore them unless explicitly implemented.
+Localized search descriptions are stored separately in `descriptions.json`.
 
 ## Quality gate
 
