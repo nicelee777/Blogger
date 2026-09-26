@@ -112,8 +112,9 @@ Each managed Post contains:
 meta.json
 ko.html
 
-titles.json   # generated
-en.html        # generated
+titles.json        # generated
+descriptions.json  # generated localized search descriptions
+en.html             # generated
 ja.html        # generated
 zh-cn.html     # generated
 zh-tw.html     # generated
@@ -190,6 +191,7 @@ This makes new-Post preview safe while protecting already published Posts.
 - FAQ -> translated as FAQ Page content
 - Guide -> translated as long-form Guide Page content
 - Notice/Story -> translated as Posts
+- Notice/Story -> localized titles and search descriptions are generated for all managed locales
 - IDs, CSS, URLs, media source URLs, element order, and protected attributes remain unchanged
 - visible text, image alt text, iframe/video titles, and accessibility labels are localized
 - only changed content is translated when possible
@@ -215,7 +217,7 @@ python scripts/blogger_validate_post.py blogger/posts/story/<slug>
 python scripts/blogger_validate_post.py blogger/posts/story/<slug> --all-locales
 ```
 
-The Post validator checks category/slug consistency, draft metadata, root HTML shape, forbidden executable tags, duplicate IDs, media URL safety, localized titles, and protected HTML structure.
+The Post validator checks category/slug consistency, draft metadata, required Korean/localized search descriptions, root HTML shape, forbidden executable tags, duplicate IDs, media URL safety, localized titles, and protected HTML structure.
 
 ## Read-only Blogger verification
 
@@ -233,6 +235,8 @@ It never writes to Blogger.
 ## Production publishing
 
 `Blogger - Publish` on `main` updates managed Pages and creates/updates managed Posts according to `publish` in `meta.json`.
+
+For managed Posts, sync also embeds the localized search description. Because Blogger API does not provide a supported Search Description editor field, the ShiftMate theme runtime reads that embedded value and applies it to the rendered post page's standard description, Open Graph, and Twitter description meta tags.
 
 Before a manual production publish, use `dry_run=true`.
 
