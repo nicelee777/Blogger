@@ -62,6 +62,10 @@ def main() -> int:
 
         source = source_path.read_text(encoding="utf-8")
         titles = {source_locale: meta["title_ko"]}
+        source_description = str(meta.get("seo_description_ko", "")).strip()
+        if not source_description:
+            raise RuntimeError(f"seo_description_ko is required: {meta_path}")
+        descriptions = {source_locale: source_description}
         for locale, info in locales.items():
             if locale == source_locale:
                 continue
@@ -89,8 +93,23 @@ def main() -> int:
             )
             titles[locale] = strip_single_paragraph(title_html)
 
+            description_html = translate_preserving_structure(
+                api_key,
+                model,
+                f"<p>{source_description}</p>",
+                locale,
+                info["name"],
+                info["html_lang"],
+                content_type="post-search-description",
+            )
+            descriptions[locale] = strip_single_paragraph(description_html)
+
         (item / "titles.json").write_text(
             json.dumps(titles, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        (item / "descriptions.json").write_text(
+            json.dumps(descriptions, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
     return 0
