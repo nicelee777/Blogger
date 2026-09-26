@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>ShiftMateの使い方とFAQ - 勤務表・アラーム・共有・バックアップ</h1>
   <p>勤務設定から予定・メモ、アラーム、バックアップ、勤務共有まで、よくある質問をまとめました。気になる質問をタップすると回答を確認できます。</p>
   <p class="sm-faq-meta">アプリのバージョンや端末環境によって、メニュー名が多少異なる場合があります。</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>今後のアップデート予定</strong></p>
+    <p>ShiftMateをより多くの端末で快適に利用し、勤務やデータをより安定して管理できるよう、以下の機能改善を準備しています。</p>
+    <ul>
+      <li><strong>タブレット対応の拡充</strong> — iPadおよびAndroidタブレットの大画面に合わせて、画面構成と操作性を改善します。</li>
+      <li><strong>折りたたみ端末への対応</strong> — Galaxy Z Foldなどの折りたたみAndroid端末に対応し、画面構成を最適化します。将来の折りたたみiPhoneにも対応する予定です。</li>
+      <li><strong>複数端末のリアルタイム同期</strong> — 同じアカウントで利用する複数の端末間で、勤務や主要データをリアルタイムに同期できるよう改善します。</li>
+      <li><strong>自分の勤務共有の管理</strong> — 自分の勤務を共有している相手を確認し、管理できる機能を追加します。</li>
+      <li><strong>iPhoneウィジェットの改善</strong> — iPhoneウィジェットを改善し、iOS 27以降で利用できる大型カレンダーウィジェットを追加する予定です。</li>
+      <li><strong>メモ機能のUI改善</strong> — メモの作成・確認・管理をより簡単に行えるよう改善します。</li>
+      <li><strong>アプリ動作速度の改善</strong> — アプリの起動、読み込み、画面切り替えの速度を継続的に改善します。</li>
+    </ul>
+    <p class="sm-faq-update-note">提供時期や詳細は、開発・検証の状況により変更される場合があります。</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">目次</h2>
@@ -274,7 +315,7 @@
       <summary><strong>Q. iPhoneとAndroidのスマートフォン間で勤務を共有できますか？</strong></summary>
       <div class="sm-faq-answer">
         <p>はい。使用するスマートフォンの種類に関係なく、 <strong>勤務共有機能</strong>を利用できます。</p>
-        <p>共有された勤務は <strong>同僚の勤務画面</strong>で確認でき、変更内容は <strong>更新</strong>して確認してください。</p>
+        <p>共有された勤務は <strong>同僚の勤務画面</strong>で確認できます。同僚の勤務画面を開いたとき、または表示する月を変更したときに、ShiftMateが <strong>サーバーから最新の勤務情報を取得します。</strong></p>
       </div>
     </details>
 
