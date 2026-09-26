@@ -141,7 +141,7 @@ The expected automation path is:
 ```text
 ChatGPT reads repository policies
 -> creates meta.json + ko.html on develop
--> Blogger - Translate generates six localized versions
+-> Blogger - Translate generates nine localized versions
 -> validators run
 -> Blogger draft sync creates/updates drafts for a new managed Post
 -> human review
@@ -165,7 +165,7 @@ The workflow performs:
 repository policy read
 -> GPT Korean source generation
 -> Korean source validation
--> six-language localization
+-> 10-locale localization
 -> full Post validation
 -> commit to develop
 -> Blogger draft creation/update
