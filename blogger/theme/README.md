@@ -40,8 +40,8 @@ Export/download the current Blogger theme XML, then build the complete paste-rea
 python scripts/blogger_build_theme.py \
   --input /path/to/blogger-export.xml \
   --output /tmp/shiftmate-blogger-theme.xml \
-  --theme-version 1.1.2 \
-  --theme-date 2026-09-22
+  --theme-version 1.2.0 \
+  --theme-date 2026-09-27
 ```
 
 The builder:
