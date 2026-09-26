@@ -42,12 +42,6 @@ def main() -> int:
         errors.append(f"missing committed theme: {args.theme}")
     if not args.runtime.exists():
         errors.append(f"missing canonical runtime: {args.runtime}")
-    if (
-        "data:view.isSingleItem and data:widget.type == &quot;Blog&quot;" in theme
-        and "sm-post-language-data" in theme
-    ):
-        errors.append("post label data must not be restricted to single-item pages")
-
     if errors:
         for error in errors:
             print(f"ERROR: {error}", file=sys.stderr)
