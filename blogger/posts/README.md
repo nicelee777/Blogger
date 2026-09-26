@@ -50,6 +50,8 @@ Rules:
 - `publish: true` is a production decision and should only be set after explicit review/approval.
 - `labels` are additional Blogger labels; category/language labels are added automatically.
 - SEO metadata is stored for review/future tooling even if Blogger sync does not currently expose it as a dedicated field.
+- Notice items also use `notice_type` for operational classification. Allowed values: `general`, `update`, `maintenance`, `incident`, `feature`, `service`, `policy`.
+- `release_version` is optional for Notice items and uses semantic version format such as `10.0.0`.
 
 ## AI source generation
 
@@ -71,6 +73,8 @@ Use exact reference notes/URLs when factual external claims or media are require
 python scripts/blogger_generate.py \
   --category notice \
   --slug widget-update \
+  --notice-type update \
+  --release-version 10.0.0 \
   --brief '홈 위젯 개선 공지 작성' \
   --references '확정된 변경사항: ...'
 ```
@@ -131,3 +135,15 @@ Images and YouTube embeds may be included directly in `ko.html` when exact URLs 
 - YouTube iframe embeds should use HTTPS and preferably `youtube-nocookie.com`;
 - do not invent asset/media URLs;
 - use meaningful `alt` text and iframe `title` text.
+
+## Notice automation
+
+For recurring official notices, prefer this flow:
+
+1. Create the Korean source under `blogger/posts/notice/<slug>/`.
+2. Keep `publish: false` during review.
+3. A push to `develop` that changes the Notice `ko.html` or `meta.json` triggers managed-locale translation.
+4. The translation workflow validates all localized files and creates or updates Blogger drafts when credentials are configured.
+5. Merge to `main` only after reviewing the draft. Production publication follows the `publish` value in `meta.json`.
+
+The Blogger category label (`notice`) and locale label (for example `lang-ko`) are added automatically. Additional labels in `meta.json` are appended, so a Korean Notice remains visible at `/search/label/lang-ko+notice`.
