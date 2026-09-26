@@ -19,6 +19,8 @@ POLICY_FILES = [
     Path("blogger/seo-policy.md"),
 ]
 SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{1,79}$")
+NOTICE_TYPES = {"general", "update", "maintenance", "incident", "feature", "service", "policy"}
+VERSION_RE = re.compile(r"^\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?$")
 
 CONTENT_SCHEMA: dict[str, Any] = {
     "type": "object",
@@ -150,6 +152,8 @@ def main() -> int:
     ap.add_argument("--brief", required=True)
     ap.add_argument("--labels", default="")
     ap.add_argument("--references", default="")
+    ap.add_argument("--notice-type", default="")
+    ap.add_argument("--release-version", default="")
     ap.add_argument("--config", type=Path, default=Path("blogger/config.json"))
     ap.add_argument("--root", type=Path, default=Path("blogger/posts"))
     ap.add_argument("--overwrite-source", action="store_true")
@@ -213,10 +217,26 @@ HTML RULES:
 - Do not output placeholders such as TODO, EXAMPLE_URL, or VIDEO_ID unless the user explicitly asked for a placeholder.
 """
 
-    brief = (
-        f"CATEGORY: {args.category}\nSLUG: {args.slug}\n\n"
-        f"USER BRIEF:\n{args.brief.strip()}"
-    )
+    brief = f"CATEGORY: {args.category}\nSLUG: {args.slug}\n"
+    if args.category == "notice":
+        notice_type = args.notice_type.strip() or "general"
+        if notice_type not in NOTICE_TYPES:
+            print(
+                "notice type must be one of: " + ", ".join(sorted(NOTICE_TYPES)),
+                file=sys.stderr,
+            )
+            return 2
+        release_version = args.release_version.strip()
+        if release_version and not VERSION_RE.fullmatch(release_version):
+            print("release version must use semantic version format, e.g. 10.0.0", file=sys.stderr)
+            return 2
+        brief += f"NOTICE TYPE: {notice_type}\n"
+        if release_version:
+            brief += f"RELEASE VERSION: {release_version}\n"
+    elif args.notice_type.strip() or args.release_version.strip():
+        print("--notice-type/--release-version are only valid for notice", file=sys.stderr)
+        return 2
+    brief += f"\nUSER BRIEF:\n{args.brief.strip()}"
     if args.references.strip():
         brief += (
             "\n\nREFERENCE NOTES / URLS PROVIDED BY USER:\n"
@@ -242,6 +262,10 @@ HTML RULES:
             "policy_version": policy_version,
         },
     }
+    if args.category == "notice":
+        meta["notice_type"] = notice_type
+        if release_version:
+            meta["release_version"] = release_version
 
     item.mkdir(parents=True, exist_ok=True)
     meta_path.write_text(

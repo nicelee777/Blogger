@@ -19,6 +19,8 @@ Explain what changed, who is affected, and what the user should do next without 
 - Keep promotional language minimal.
 - Do not imply data loss, migration, or compatibility impact unless verified.
 - New Notice items must start as Blogger drafts (`publish: false`).
+- When a notice has a confirmed release version, use that exact version consistently and do not invent a release date.
+- Treat planned features as planned; do not write as though they are already available.
 
 ## Recommended structure
 
@@ -38,3 +40,12 @@ Explain what changed, who is affected, and what the user should do next without 
 ```
 
 Omit sections that are unnecessary rather than filling them with generic text.
+
+## Notice metadata
+
+Notice items may store operational metadata in `meta.json`:
+
+- `notice_type`: one of `general`, `update`, `maintenance`, `incident`, `feature`, `service`, `policy`
+- `release_version`: optional semantic version such as `10.0.0`
+
+These fields describe the item for automation and future presentation. They do not change publication state.

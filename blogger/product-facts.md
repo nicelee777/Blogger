@@ -43,6 +43,9 @@ Current managed Blogger locales:
 - Traditional Chinese
 - Spanish
 - Vietnamese
+- German
+- Portuguese (Brazil)
+- French
 
 English uses Blogger language label `lang`. Korean uses `lang-ko`. Other locale labels are defined in `blogger/config.json`.
 
