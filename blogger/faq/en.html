@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-17-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>How to Use ShiftMate and FAQ - Shift Schedules, Alarms, Sharing &amp; Backup</h1>
   <p>We’ve collected frequently asked questions about everything from Shift Settings and schedules and notes to alarms, backup, and Share Shift. Tap a question to view the answer.</p>
   <p class="sm-faq-meta">Menu names may vary slightly depending on the app version and device environment.</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>Upcoming features</strong></p>
+    <p>We’re preparing the following improvements so ShiftMate works better across more devices and helps you manage shifts and data more reliably.</p>
+    <ul>
+      <li><strong>Expanded tablet support</strong> — We’re optimizing the interface and usability for larger screens on iPad and Android tablets.</li>
+      <li><strong>Foldable device support</strong> — We’re adding support for Galaxy Z Fold and other foldable Android devices with layouts optimized for foldable screens. We also plan to support future foldable iPhone devices.</li>
+      <li><strong>Real-time multi-device sync</strong> — We’re improving sync so shifts and key data can stay up to date in real time across multiple devices signed in to the same account.</li>
+      <li><strong>Manage who can view my shifts</strong> — You’ll be able to see and manage the users who currently have access to your shared shifts.</li>
+      <li><strong>iPhone widget improvements</strong> — We’re improving iPhone widgets and plan to add a large calendar widget for iOS 27 or later.</li>
+      <li><strong>Notes UI improvements</strong> — We’re making it easier to create, review, and manage notes.</li>
+      <li><strong>Faster app performance</strong> — We’re continuing to improve app startup, loading, and screen transition speed.</li>
+    </ul>
+    <p class="sm-faq-update-note">Availability and details may change during development and review.</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">Table of Contents</h2>
@@ -274,7 +315,7 @@
       <summary><strong>Q. Can I share Shifts between iPhone and Android smartphones?</strong></summary>
       <div class="sm-faq-answer">
         <p>Yes. Regardless of the type of smartphone you use, <strong>Share Shift</strong> is available.</p>
-        <p>Shared Shifts can be viewed <strong>on the Coworker Shifts screen,</strong> and to check for changes, <strong>refresh</strong> the screen.</p>
+        <p>Shared shifts can be viewed on the <strong>Coworker Shifts</strong> screen. When you open that screen or change the displayed month, ShiftMate <strong>fetches the latest shift data from the server.</strong></p>
       </div>
     </details>
 
