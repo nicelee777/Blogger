@@ -10,7 +10,8 @@ Use this directory only for **Notice** and **Story** content.
 blogger/posts/story/<slug>/
   meta.json
   ko.html
-  titles.json        # generated
+  titles.json        # generated localized titles
+  descriptions.json  # generated localized search descriptions
   en.html            # generated
   ja.html            # generated
   zh-cn.html         # generated
@@ -52,7 +53,9 @@ Rules:
 - New items begin with `publish: false`.
 - `publish: true` is a production decision and should only be set after explicit review/approval.
 - `labels` are additional Blogger labels; category/language labels are added automatically.
-- SEO metadata is stored for review/future tooling even if Blogger sync does not currently expose it as a dedicated field.
+- `seo_description_ko` is required for every Notice/Story.
+- Translation generates `descriptions.json` for all managed locales; missing descriptions fail validation.
+- Blogger API cannot populate the editor's Search Description field directly, so sync embeds the managed description and the ShiftMate theme runtime applies it to rendered SEO meta tags.
 - Notice items also use `notice_type` for operational classification. Allowed values: `general`, `update`, `maintenance`, `incident`, `feature`, `service`, `policy`.
 - `release_version` is optional for Notice items and uses semantic version format such as `10.0.0`.
 
@@ -90,6 +93,8 @@ Never put secrets in the brief/reference text.
 python scripts/blogger_translate_posts.py \
   --item blogger/posts/story/shift-schedule-tips
 ```
+
+Translation writes both `titles.json` and `descriptions.json` for every managed locale.
 
 ## Validation
 
