@@ -108,7 +108,7 @@ jobs:
             if printf '%s\n' "$changed" | grep -Eq '^blogger/faq/ko\.html$'; then
               faq=true
             fi
-            if printf '%s\n' "$changed" | grep -Eq '^(blogger/guide/ko\.html|scripts/blogger_validate_guide\.py|\.github/workflows/blogger-translate\.yml)$'; then
+            if printf '%s\n' "$changed" | grep -Eq '^(blogger/guide/ko\.html|scripts/blogger_validate_guide\.py)$'; then
               guide=true
             fi
             if printf '%s\n' "$changed" | grep -Eq '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$'; then
