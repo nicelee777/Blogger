@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import html as html_lib
 import json
 import os
 import sys
@@ -218,6 +219,15 @@ def content_marker(category: str, slug: str, locale: str) -> str:
     return f"<!--shiftmate-content-id:{category}/{slug}/{locale}-->"
 
 
+def seo_description_marker(description: str) -> str:
+    value = html_lib.escape(description.strip(), quote=True)
+    return (
+        '<span class="sm-post-seo" data-sm-description="'
+        + value
+        + '" hidden></span>'
+    )
+
+
 def reconcile_post_state(
     token: str,
     blog_id: str,
@@ -285,9 +295,13 @@ def sync_posts(
             )
 
         titles_path = item / "titles.json"
+        descriptions_path = item / "descriptions.json"
         if not titles_path.exists():
             raise RuntimeError(f"missing titles.json: {titles_path}")
+        if not descriptions_path.exists():
+            raise RuntimeError(f"missing descriptions.json: {descriptions_path}")
         titles = json.loads(titles_path.read_text(encoding="utf-8"))
+        descriptions = json.loads(descriptions_path.read_text(encoding="utf-8"))
         base_labels = list(meta.get("labels", []))
         category_label = config["post_categories"][category]
         should_publish = bool(meta.get("publish", False))
@@ -300,9 +314,20 @@ def sync_posts(
                 raise RuntimeError(
                     f"missing localized title {locale}: {titles_path}"
                 )
+            description = str(descriptions.get(locale, "")).strip()
+            if not description:
+                raise RuntimeError(
+                    f"missing localized search description {locale}: {descriptions_path}"
+                )
 
             marker = content_marker(category, slug, locale)
-            content = marker + "\n" + body_path.read_text(encoding="utf-8")
+            content = (
+                marker
+                + "\n"
+                + seo_description_marker(description)
+                + "\n"
+                + body_path.read_text(encoding="utf-8")
+            )
             matches = [
                 post
                 for post in remote_posts
