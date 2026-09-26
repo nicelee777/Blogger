@@ -20,6 +20,12 @@ VERSION_RE = re.compile(
     r"ShiftMate Blogger theme v[^|]+\|\s*\d{4}-\d{2}-\d{2}\s*\|"
 )
 
+LABEL_DATA_SINGLE_RE = re.compile(
+    r"<b:if cond=['\"]data:view\.isSingleItem and data:widget\.type == &quot;Blog&quot;['\"]>"
+    r"(\s*<span aria-hidden=['\"]true['\"] class=['\"]sm-post-language-data['\"] hidden=['\"]hidden['\"]>)",
+    flags=re.I,
+)
+
 
 def escape_runtime(runtime: str) -> str:
     return html.escape(runtime.rstrip() + "\n", quote=True).replace("&#x27;", "&#39;")
@@ -39,6 +45,14 @@ def build(theme: str, runtime: str, version: str | None, date: str | None) -> st
         + match.group("close")
     )
     result = theme[: match.start()] + replacement + theme[match.end() :]
+
+    result, label_count = LABEL_DATA_SINGLE_RE.subn(
+        r"<b:if cond='data:widget.type == &quot;Blog&quot;'>\1",
+        result,
+        count=1,
+    )
+    if label_count == 0 and "class='sm-post-language-data'" not in result:
+        raise ValueError("ShiftMate post label data block was not found")
 
     if version or date:
         if not (version and date):
@@ -71,6 +85,11 @@ def validate(result: str) -> None:
     ):
         if required not in runtime:
             raise ValueError(f"runtime is missing required SEO behavior: {required}")
+
+    if "data:view.isSingleItem and data:widget.type == &quot;Blog&quot;" in result and "sm-post-language-data" in result:
+        raise ValueError("Post label data is still restricted to single-item pages")
+    if "data:widget.type == &quot;Blog&quot;" not in result or "sm-post-language-data" not in result:
+        raise ValueError("Post label data is not available to Blog feed items")
 
     ET.fromstring(result.encode("utf-8"))
 
