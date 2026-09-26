@@ -27,7 +27,7 @@ CONTENT_SCHEMA: dict[str, Any] = {
     "additionalProperties": False,
     "properties": {
         "title_ko": {"type": "string", "minLength": 1},
-        "seo_description_ko": {"type": "string"},
+        "seo_description_ko": {"type": "string", "minLength": 20, "maxLength": 220},
         "primary_keyword": {"type": "string"},
         "secondary_keywords": {
             "type": "array",
@@ -126,6 +126,12 @@ def validate_generated(
 
     if not title:
         raise RuntimeError("generated content has no title_ko")
+    if not description:
+        raise RuntimeError("generated content has no seo_description_ko")
+    if "\n" in description or "\r" in description:
+        raise RuntimeError("seo_description_ko must be one line")
+    if len(description) < 20 or len(description) > 220:
+        raise RuntimeError("seo_description_ko must be 20-220 characters")
     if not html:
         raise RuntimeError("generated content has no html")
     if "<h1" in html.lower():
