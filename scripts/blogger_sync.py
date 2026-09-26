@@ -303,6 +303,10 @@ def sync_posts(
         titles = json.loads(titles_path.read_text(encoding="utf-8"))
         descriptions = json.loads(descriptions_path.read_text(encoding="utf-8"))
         base_labels = list(meta.get("labels", []))
+        if category == "notice":
+            notice_type = str(meta.get("notice_type", "")).strip()
+            if notice_type and notice_type not in base_labels:
+                base_labels.insert(0, notice_type)
         category_label = config["post_categories"][category]
         should_publish = bool(meta.get("publish", False))
 
