@@ -12,6 +12,7 @@ from blogger_sync import (
     BLOGGER_API,
     access_token,
     content_marker,
+    seo_description_marker,
     get_blog,
     http_json,
     list_all_posts,
@@ -28,13 +29,15 @@ def main() -> int:
     item = args.item
     meta_path = item / "meta.json"
     titles_path = item / "titles.json"
-    if not meta_path.exists() or not titles_path.exists():
-        print(f"ERROR: missing meta/titles for {item}", file=sys.stderr)
+    descriptions_path = item / "descriptions.json"
+    if not meta_path.exists() or not titles_path.exists() or not descriptions_path.exists():
+        print(f"ERROR: missing meta/titles/descriptions for {item}", file=sys.stderr)
         return 1
 
     config = json.loads(args.config.read_text(encoding="utf-8"))
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     titles = json.loads(titles_path.read_text(encoding="utf-8"))
+    descriptions = json.loads(descriptions_path.read_text(encoding="utf-8"))
     category = str(meta.get("category") or item.parent.name)
     slug = str(meta.get("slug") or item.name)
     if category not in config.get("post_categories", {}):
@@ -58,9 +61,20 @@ def main() -> int:
             raise RuntimeError(f"missing localized body: {body_path}")
         if locale not in titles:
             raise RuntimeError(f"missing localized title {locale}: {titles_path}")
+        description = str(descriptions.get(locale, "")).strip()
+        if not description:
+            raise RuntimeError(
+                f"missing localized search description {locale}: {descriptions_path}"
+            )
 
         marker = content_marker(category, slug, locale)
-        content = marker + "\n" + body_path.read_text(encoding="utf-8")
+        content = (
+            marker
+            + "\n"
+            + seo_description_marker(description)
+            + "\n"
+            + body_path.read_text(encoding="utf-8")
+        )
         matches = [p for p in remote_posts if marker in (p.get("content") or "")]
         if len(matches) > 1:
             raise RuntimeError(f"duplicate remote Blogger posts for {marker}")
