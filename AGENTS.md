@@ -28,6 +28,7 @@ For existing content, also read the current Korean source before editing it.
 ## Publication safety
 
 - New Notice/Story items must start with `"publish": false`.
+- Every managed Notice/Story must include `seo_description_ko`; localization must provide search descriptions for every managed locale before publication.
 - `develop` is for editing, generation, localization, validation, and draft preview.
 - `main` is the publication branch.
 - Never change `publish` to `true` unless the user explicitly approves publication.
