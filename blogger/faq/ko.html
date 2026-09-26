@@ -1,4 +1,4 @@
-<!--ShiftMate FAQ | ko | 2026-09-21-->
+<!--ShiftMate FAQ | ko | 2026-09-27-->
 <!--Paste this entire fragment into the Blogger page HTML view.-->
 <style>
   /* Hide Blogger's administrator-facing page title on the public page. */
@@ -113,6 +113,31 @@
 .shiftmate-faq .sm-faq-back { margin: 12px 0 0; font-size: 0.9em; }
 .shiftmate-faq .sm-faq-back a { display: inline-block; padding: 7px 0; }
 .shiftmate-faq .sm-faq-meta { color: var(--sm-muted); font-size: 0.875em; }
+.shiftmate-faq .sm-faq-update {
+  margin: 20px 0 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--sm-line);
+  border-left: 4px solid var(--sm-ink);
+  border-radius: 12px;
+  background: var(--sm-surface);
+}
+.shiftmate-faq .sm-faq-update-title {
+  margin: 0 0 10px;
+  color: var(--sm-ink);
+  font-size: 1.05em;
+  line-height: 1.6;
+}
+.shiftmate-faq .sm-faq-update > p { margin-bottom: 10px; }
+.shiftmate-faq .sm-faq-update ul {
+  margin: 8px 0 12px;
+  padding-left: 1.35em;
+}
+.shiftmate-faq .sm-faq-update li { margin: 7px 0; }
+.shiftmate-faq .sm-faq-update-note {
+  margin: 12px 0 0 !important;
+  color: var(--sm-muted);
+  font-size: 0.875em;
+}
 .shiftmate-faq .sm-faq-footer {
   margin-top: 30px;
   padding-top: 18px;
@@ -121,6 +146,7 @@
 @media (max-width: 480px) {
   .shiftmate-faq h1 { font-size: 1.5em; }
   .shiftmate-faq .sm-faq-toc { padding: 14px 16px; }
+  .shiftmate-faq .sm-faq-update { padding: 15px 16px; }
   .shiftmate-faq summary { padding: 13px 14px; }
   .shiftmate-faq .sm-faq-answer { padding: 14px; }
 }
@@ -131,6 +157,21 @@
   <h1>ShiftMate 사용법 및 자주 묻는 질문 - 근무표·알람·공유·백업</h1>
   <p>근무 설정부터 일정·메모, 알람, 백업, 근무 공유까지 자주 묻는 질문을 모았습니다. 궁금한 질문을 누르면 답변을 확인할 수 있습니다.</p>
   <p class="sm-faq-meta">앱 버전 및 기기 환경에 따라 메뉴 이름이 조금 다를 수 있습니다.</p>
+
+  <aside aria-labelledby="sm-faq-update-title" class="sm-faq-update">
+    <p class="sm-faq-update-title" id="sm-faq-update-title"><strong>업데이트 예정 기능 안내</strong></p>
+    <p>ShiftMate를 더 다양한 기기에서 편리하게 이용하고, 근무와 데이터를 보다 안정적으로 관리할 수 있도록 다음 기능을 준비하고 있습니다.</p>
+    <ul>
+      <li><strong>태블릿 지원 확대</strong> — iPad와 Android 태블릿의 큰 화면에 맞게 화면과 사용성을 개선합니다.</li>
+      <li><strong>폴더블 기기 지원</strong> — Galaxy Z Fold 등 폴더블 Android 기기를 지원하고 화면 구성을 최적화합니다. 향후 폴더블 iPhone 환경에도 대응할 예정입니다.</li>
+      <li><strong>다중기기 실시간 동기화</strong> — 같은 계정으로 사용하는 여러 기기에서 근무와 주요 데이터를 실시간으로 동기화할 수 있도록 개선합니다.</li>
+      <li><strong>내 근무 공유 관리 기능</strong> — 내 근무를 공유받아 보고 있는 사용자를 확인하고 관리할 수 있는 기능을 추가합니다.</li>
+      <li><strong>iPhone 위젯 개선</strong> — iPhone 위젯을 개선하고, iOS 27 이상에서 사용할 수 있는 큰 캘린더 위젯을 추가할 예정입니다.</li>
+      <li><strong>메모 기능 UI 개선</strong> — 메모를 작성하고 확인하며 관리하는 과정을 더 쉽고 편리하게 개선합니다.</li>
+      <li><strong>앱 실행 속도 개선</strong> — 앱 시작과 주요 화면의 로딩 및 전환 속도를 지속적으로 개선합니다.</li>
+    </ul>
+    <p class="sm-faq-update-note">각 기능의 제공 시점과 세부 내용은 개발 및 검토 과정에 따라 변경될 수 있습니다.</p>
+  </aside>
 
   <nav aria-labelledby="toc" class="sm-faq-toc">
     <h2 id="toc">목차</h2>
@@ -274,7 +315,7 @@
       <summary><strong>Q. iPhone과 Android 스마트폰끼리 근무를 공유할 수 있나요?</strong></summary>
       <div class="sm-faq-answer">
         <p>네. 사용하는 스마트폰의 종류와 관계없이 <strong>근무 공유 기능</strong>을 이용할 수 있습니다.</p>
-        <p>공유받은 근무는 <strong>동료 근무 화면</strong>에서 확인할 수 있으며, 변경된 내용은 <strong>새로고침</strong>하여 확인하세요.</p>
+        <p>공유받은 근무는 <strong>동료 근무 화면</strong>에서 확인할 수 있으며, 동료 근무 화면에 들어가거나 표시하는 월을 변경하면 <strong>서버의 최신 근무 정보를 불러옵니다.</strong></p>
       </div>
     </details>
 
@@ -310,6 +351,6 @@
   </section>
 
   <footer class="sm-faq-footer">
-    <p class="sm-faq-meta">최종 수정일: <time datetime="2026-09-21">2026년 9월 21일</time></p>
+    <p class="sm-faq-meta">최종 수정일: <time datetime="2026-09-27">2026년 9월 27일</time></p>
   </footer>
 </div>
