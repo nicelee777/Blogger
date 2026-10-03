@@ -6424,8 +6424,14 @@ body:not(#layout) .sm-guide-footer {
     }
 
     var blogPosts=document.querySelector(&#39;.blog-posts&#39;);
-    if (!blogPosts) return true;
-    blogPosts.style.display=&#39;none&#39;;
+    var host=blogPosts
+      ? blogPosts.parentNode
+      : (document.querySelector(&#39;.main-inner,.content-inner,main,#main&#39;) || document.body);
+    if (!host) return true;
+    if (blogPosts) blogPosts.style.display=&#39;none&#39;;
+
+    var emptyMessage=document.querySelector(&#39;.post-filter-message,.status-msg-wrap&#39;);
+    if (emptyMessage) emptyMessage.style.display=&#39;none&#39;;
 
     var panel=document.getElementById(&#39;sm-release-detail-state&#39;);
     if (!panel) {
@@ -6450,7 +6456,7 @@ body:not(#layout) .sm-guide-footer {
       body.textContent=matches.length &gt; 1 ? copy.error : copy.body;
       panel.appendChild(body);
 
-      blogPosts.parentNode.insertBefore(panel,blogPosts);
+      host.insertBefore(panel,blogPosts || host.firstChild);
     }
     return true;
   }
@@ -6588,6 +6594,7 @@ body:not(#layout) .sm-guide-footer {
   if (window.addEventListener) window.addEventListener(&#39;load&#39;,boot,false);
   window.ShiftMateBlog={refresh:boot,getLanguage:function(){return current;}};
 }());
+
 
 
 
