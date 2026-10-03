@@ -335,8 +335,14 @@
     }
 
     var blogPosts=document.querySelector('.blog-posts');
-    if (!blogPosts) return true;
-    blogPosts.style.display='none';
+    var host=blogPosts
+      ? blogPosts.parentNode
+      : (document.querySelector('.main-inner,.content-inner,main,#main') || document.body);
+    if (!host) return true;
+    if (blogPosts) blogPosts.style.display='none';
+
+    var emptyMessage=document.querySelector('.post-filter-message,.status-msg-wrap');
+    if (emptyMessage) emptyMessage.style.display='none';
 
     var panel=document.getElementById('sm-release-detail-state');
     if (!panel) {
@@ -361,7 +367,7 @@
       body.textContent=matches.length > 1 ? copy.error : copy.body;
       panel.appendChild(body);
 
-      blogPosts.parentNode.insertBefore(panel,blogPosts);
+      host.insertBefore(panel,blogPosts || host.firstChild);
     }
     return true;
   }
