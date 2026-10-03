@@ -71,6 +71,33 @@ Blogger API v3 can publish the managed FAQ/Guide Pages and Posts, but it does no
 
 For future changes, edit the GitHub source first. Do not patch the live Blogger runtime independently, because that causes the live theme and repository to drift.
 
+## Release detail gateway
+
+The app can be submitted to the stores before a version-specific Notice is
+published. It opens a stable localized Notice-label URL with:
+
+- `sm-detail=1`
+- `sm-version=<semantic version>`
+
+Example:
+
+```text
+/search/label/lang-ko+notice+10.0.0?sm-detail=1&sm-version=10.0.0
+```
+
+The runtime never exposes the Notice list for this gateway flow:
+
+1. if exactly one rendered Notice carries the requested version label, the
+   browser redirects directly to that Post;
+2. if the Post is not published yet, a localized "details are being prepared"
+   state is shown;
+3. if duplicate matching Posts are detected, the list stays hidden and a
+   localized retry message is shown.
+
+This lets the app ship first and the detailed Blogger Post be published later
+without another app update. The normal Notice listing remains unchanged when
+`sm-detail` is absent.
+
 ## Notice list cards
 
 The runtime applies a dedicated card presentation only on localized Notice label pages such as:
