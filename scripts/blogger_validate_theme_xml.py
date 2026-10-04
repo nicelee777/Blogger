@@ -69,7 +69,7 @@ def main() -> int:
             )
 
     for required in (
-        "ShiftMate Blogger theme v1.2.1",
+        "ShiftMate Blogger theme v1.2.2",
         "syncPostSeo",
         "article:published_time",
         "twitter:card",
