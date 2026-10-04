@@ -381,13 +381,14 @@ def sync_posts(
                     matches[0].update(post)
 
                 if should_publish:
-                    reconcile_post_state(
+                    post = reconcile_post_state(
                         token,
                         blog_id,
                         post,
                         should_publish=True,
                         dry_run=dry_run,
                     )
+                print(f"  url={post.get('url', '')}")
             else:
                 target_state = "live" if should_publish else "draft"
                 print(
@@ -405,6 +406,7 @@ def sync_posts(
                         endpoint, method="POST", token=token, body=payload
                     )
                     remote_posts.append(created)
+                    print(f"  url={created.get('url', '')}")
 
 
 def discover(config: dict[str, Any], token: str) -> None:
