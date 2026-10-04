@@ -26,6 +26,12 @@ def main() -> int:
         "syncPageSeo",
         "syncPostSeo",
         "enhanceNoticeListing",
+        "routeReleaseDetail",
+        "sm-detail",
+        "sm-version",
+        "RELEASE_DETAIL_TEXT",
+        "window.location.replace",
+        "sm-release-detail-state",
         "sm-post-language-data [data-sm-post-label]",
         "post-outer-container",
         "shiftmate-runtime-styles",
@@ -65,7 +71,7 @@ def main() -> int:
             print(f"  - {error}")
         return 1
 
-    print(f"[OK] {args.runtime}: Page SEO + Post descriptions + Notice cards")
+    print(f"[OK] {args.runtime}: Page SEO + Post descriptions + Notice cards + Release gateway")
     return 0
 
 

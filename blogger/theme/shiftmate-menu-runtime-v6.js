@@ -205,6 +205,10 @@
       '.sm-notice-badge-type-service{background:#f5f0fa;color:#5e3d7b;border-color:#e3d6ef;}' +
       '.sm-notice-badge-type-policy{background:#f3f4f6;color:#414651;border-color:#dfe2e7;}' +
       '.sm-notice-badge-version{background:#14152d;color:#fff;}' +
+      '.sm-release-detail-state{box-sizing:border-box;max-width:760px;margin:28px auto;padding:28px 24px;border:1px solid #e1e3e9;border-radius:18px;background:#fff;box-shadow:0 8px 26px rgba(20,21,45,.06);text-align:left;}' +
+      '.sm-release-detail-state h2{margin:0 0 10px;color:#14152d;font-size:1.35rem;line-height:1.4;}' +
+      '.sm-release-detail-state p{margin:0;color:#565b68;line-height:1.7;}' +
+      '.sm-release-detail-version{display:inline-flex;margin-bottom:12px;padding:4px 9px;border-radius:999px;background:#14152d;color:#fff;font-size:.78rem;font-weight:700;}' +
       '@media(max-width:600px){.sm-notice-page .blog-posts .post-outer-container{padding:17px!important;border-radius:14px;}.sm-notice-page .blog-posts .post-outer-container+.post-outer-container{padding-top:17px!important;}.sm-notice-page .blog-posts .post-title,.sm-notice-page .blog-posts .entry-title{font-size:1.12rem!important;}}';
     document.head.appendChild(style);
   }
@@ -287,6 +291,85 @@
       if (at < 0) return '';
       return decoded.slice(at + marker.length).split(/[?#]/)[0];
     } catch(e) { return ''; }
+  }
+
+  var RELEASE_DETAIL_TEXT = {
+    en: {title:'Update details are being prepared', body:'Detailed information for this ShiftMate update will be available here when it is published.', error:'We couldn’t open the update details. Please try again later.'},
+    ko: {title:'업데이트 상세 안내를 준비하고 있습니다', body:'ShiftMate 업데이트의 자세한 내용은 게시되는 즉시 이 페이지에서 확인할 수 있습니다.', error:'업데이트 상세 안내를 열지 못했습니다. 잠시 후 다시 시도해 주세요.'},
+    ja: {title:'アップデートの詳細を準備しています', body:'ShiftMate アップデートの詳細は、公開後すぐにこのページから確認できます。', error:'アップデートの詳細を開けませんでした。しばらくしてからもう一度お試しください。'},
+    'zh-CN': {title:'更新详情正在准备中', body:'ShiftMate 更新的详细内容发布后即可在此页面查看。', error:'无法打开更新详情，请稍后重试。'},
+    'zh-TW': {title:'更新詳細資訊準備中', body:'ShiftMate 更新的詳細內容發布後即可在此頁面查看。', error:'無法開啟更新詳細資訊，請稍後再試。'},
+    es: {title:'Estamos preparando los detalles de la actualización', body:'Los detalles de esta actualización de ShiftMate estarán disponibles aquí en cuanto se publiquen.', error:'No se pudieron abrir los detalles de la actualización. Inténtalo de nuevo más tarde.'},
+    vi: {title:'Đang chuẩn bị thông tin chi tiết về bản cập nhật', body:'Thông tin chi tiết về bản cập nhật ShiftMate sẽ có tại đây ngay khi được đăng.', error:'Không thể mở thông tin chi tiết về bản cập nhật. Vui lòng thử lại sau.'},
+    de: {title:'Update-Details werden vorbereitet', body:'Die Details zu diesem ShiftMate-Update sind hier verfügbar, sobald sie veröffentlicht wurden.', error:'Die Update-Details konnten nicht geöffnet werden. Bitte versuche es später erneut.'},
+    'pt-BR': {title:'Estamos preparando os detalhes da atualização', body:'Os detalhes desta atualização do ShiftMate estarão disponíveis aqui assim que forem publicados.', error:'Não foi possível abrir os detalhes da atualização. Tente novamente mais tarde.'},
+    fr: {title:'Les détails de la mise à jour sont en préparation', body:'Les détails de cette mise à jour de ShiftMate seront disponibles ici dès leur publication.', error:'Impossible d’ouvrir les détails de la mise à jour. Réessayez plus tard.'}
+  };
+
+  function routeReleaseDetail(id) {
+    if (sectionKind() !== 'notice' || qs('sm-detail') !== '1' || !document.querySelectorAll) return false;
+
+    var version=(qs('sm-version') || '').trim();
+    var posts=document.querySelectorAll('.blog-posts .post-outer-container');
+    var matches=[];
+
+    if (version) {
+      for (var i=0;i<posts.length;i++) {
+        var labels=posts[i].querySelectorAll('.sm-post-language-data [data-sm-post-label]');
+        for (var j=0;j<labels.length;j++) {
+          if ((labels[j].getAttribute('data-sm-post-label') || '').trim() === version) {
+            matches.push(posts[i]);
+            break;
+          }
+        }
+      }
+    }
+
+    if (matches.length === 1) {
+      var link=matches[0].querySelector('.post-title a,.entry-title a');
+      var href=link && link.getAttribute('href');
+      if (href) {
+        window.location.replace(href);
+        return true;
+      }
+    }
+
+    var blogPosts=document.querySelector('.blog-posts');
+    var host=blogPosts
+      ? blogPosts.parentNode
+      : (document.querySelector('.main-inner,.content-inner,main,#main') || document.body);
+    if (!host) return true;
+    if (blogPosts) blogPosts.style.display='none';
+
+    var emptyMessage=document.querySelector('.post-filter-message,.status-msg-wrap');
+    if (emptyMessage) emptyMessage.style.display='none';
+
+    var panel=document.getElementById('sm-release-detail-state');
+    if (!panel) {
+      var copy=RELEASE_DETAIL_TEXT[id] || RELEASE_DETAIL_TEXT.en;
+      panel=document.createElement('section');
+      panel.id='sm-release-detail-state';
+      panel.className='sm-release-detail-state';
+      panel.setAttribute('role','status');
+
+      if (version) {
+        var versionBadge=document.createElement('div');
+        versionBadge.className='sm-release-detail-version';
+        versionBadge.textContent='ShiftMate ' + version;
+        panel.appendChild(versionBadge);
+      }
+
+      var heading=document.createElement('h2');
+      heading.textContent=matches.length > 1 ? copy.error : copy.title;
+      panel.appendChild(heading);
+
+      var body=document.createElement('p');
+      body.textContent=matches.length > 1 ? copy.error : copy.body;
+      panel.appendChild(body);
+
+      host.insertBefore(panel,blogPosts || host.firstChild);
+    }
+    return true;
   }
 
   function enhanceNoticeListing(id) {
@@ -390,6 +473,7 @@
     document.documentElement.setAttribute('data-sm-locale',id);
     document.documentElement.setAttribute('lang',LOCALES[id].tag);
     ensureRuntimeStyles();
+    if (routeReleaseDetail(id)) return;
     syncPageSeo(id);
     syncPostSeo();
     enhanceNoticeListing(id);
