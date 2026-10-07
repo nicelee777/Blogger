@@ -101,18 +101,24 @@ jobs:
           posts_all=false
           posts_changed=false
 
+          if printf '%s\n' "$changed" | grep -Eq '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$'; then
+            posts_changed=true
+          fi
+
           if printf '%s\n' "$changed" | grep -Eq '^(blogger/glossary\.json|blogger/glossary-overrides\.json|scripts/blogger_apply_glossary_overrides\.py|scripts/blogger_translate\.py|scripts/blogger_normalize_spacing\.py)$'; then
-            faq=true
-            guide=true
+            # When a concrete Post source changed in the same push, prioritize that
+            # Post. This avoids unrelated FAQ/Guide regeneration before the Post
+            # preview can be produced.
+            if [[ "$posts_changed" != "true" ]]; then
+              faq=true
+              guide=true
+            fi
           else
             if printf '%s\n' "$changed" | grep -Eq '^blogger/faq/ko\.html$'; then
               faq=true
             fi
             if printf '%s\n' "$changed" | grep -Eq '^(blogger/guide/ko\.html|scripts/blogger_validate_guide\.py)$'; then
               guide=true
-            fi
-            if printf '%s\n' "$changed" | grep -Eq '^blogger/posts/[^/]+/[^/]+/(ko\.html|meta\.json)$'; then
-              posts_changed=true
             fi
           fi
 
@@ -167,8 +173,10 @@ jobs:
               | xargs -r -n1 dirname \
               | sort -u \
               | while IFS= read -r item; do
-                  if git diff --name-only "$BEFORE_SHA" "$current" | grep -Fxq "$item/ko.html"; then
-                    echo "Translating changed Post body: $item"
+                  if git diff --name-only "$BEFORE_SHA" "$current" | grep -Fxq "$item/ko.html" \
+                    || [[ ! -f "$item/ko.html" ]] \
+                    || [[ ! -f "$item/en.html" ]]; then
+                    echo "Translating new/changed Post body: $item"
                     python scripts/blogger_translate_posts.py --item "$item"
                   else
                     echo "Post metadata changed; preserving reviewed localized body: $item"

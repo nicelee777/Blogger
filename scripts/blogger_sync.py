@@ -7,6 +7,7 @@ import html as html_lib
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -31,16 +32,34 @@ def http_json(
     if body is not None:
         headers["Content-Type"] = "application/json; charset=utf-8"
         data = json.dumps(body, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers=headers, method=method)
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            payload = resp.read()
-            return json.loads(payload) if payload else {}
-    except urllib.error.HTTPError as exc:
-        detail = exc.read().decode(errors="replace")
-        raise RuntimeError(
-            f"Blogger API error {exc.code} {method} {url}: {detail}"
-        ) from exc
+
+    retryable_codes = {429, 500, 502, 503, 504}
+    delays = (2, 4, 8, 16)
+    for attempt in range(len(delays) + 1):
+        req = urllib.request.Request(url, data=data, headers=headers, method=method)
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                payload = resp.read()
+                return json.loads(payload) if payload else {}
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode(errors="replace")
+            if exc.code in retryable_codes and attempt < len(delays):
+                retry_after = exc.headers.get("Retry-After") if exc.headers else None
+                try:
+                    delay = max(delays[attempt], float(retry_after or 0))
+                except ValueError:
+                    delay = delays[attempt]
+                print(
+                    f"Blogger API {exc.code} for {method}; retrying after "
+                    f"{delay:g}s (attempt {attempt + 2}/{len(delays) + 1})",
+                    file=sys.stderr,
+                )
+                time.sleep(delay)
+                continue
+            raise RuntimeError(
+                f"Blogger API error {exc.code} {method} {url}: {detail}"
+            ) from exc
+    raise RuntimeError(f"Blogger API retry loop exhausted: {method} {url}")
 
 
 def access_token() -> str:
@@ -131,6 +150,18 @@ def list_all_posts(
 def url_path(url: str) -> str:
     path = urllib.parse.urlparse(url).path or "/"
     return path.rstrip("/") or "/"
+
+
+def normalized_post_path(url: str) -> str:
+    path = url_path(url)
+    for suffix in (".html", ".htm"):
+        if path.lower().endswith(suffix):
+            return path[: -len(suffix)]
+    return path
+
+
+def post_url_matches(left: str, right: str) -> bool:
+    return normalized_post_path(left) == normalized_post_path(right)
 
 
 def find_page_by_path(
@@ -277,6 +308,7 @@ def sync_posts(
     blog = get_blog(token, config["blog_url"])
     blog_id = str(blog["id"])
     remote_posts = list_all_posts(token, blog_id, fetch_bodies=True)
+    source_locale = str(config.get("source_locale", "ko"))
     meta_files = sorted(root.glob("*/*/meta.json"))
     print(
         f"Blog: {blog.get('name')} ({blog_id}), "
@@ -309,6 +341,7 @@ def sync_posts(
                 base_labels.insert(0, notice_type)
         category_label = config["post_categories"][category]
         should_publish = bool(meta.get("publish", False))
+        source_url = str(meta.get("source_url", "")).strip()
 
         for locale, info in config["locales"].items():
             body_path = item / f"{locale}.html"
@@ -337,6 +370,20 @@ def sync_posts(
                 for post in remote_posts
                 if marker in (post.get("content") or "")
             ]
+            if not matches and locale == source_locale and source_url:
+                matches = [
+                    post
+                    for post in remote_posts
+                    if post_url_matches(str(post.get("url", "")), source_url)
+                ]
+                if not matches:
+                    raise RuntimeError(
+                        f"source_url did not match an existing Blogger post: {source_url}"
+                    )
+                print(
+                    f"[{category}/{slug}/{locale}] bound existing source URL "
+                    f"to post {matches[0].get('id', '?')}"
+                )
             if len(matches) > 1:
                 raise RuntimeError(
                     f"duplicate remote Blogger posts for {marker}"

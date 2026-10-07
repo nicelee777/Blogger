@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 import urllib.parse
 from pathlib import Path
 
@@ -16,6 +17,7 @@ from blogger_sync import (
     get_blog,
     http_json,
     list_all_posts,
+    post_url_matches,
 )
 
 
@@ -49,6 +51,8 @@ def main() -> int:
     blog_id = str(blog["id"])
     remote_posts = list_all_posts(token, blog_id, fetch_bodies=True)
     category_label = config["post_categories"][category]
+    source_locale = str(config.get("source_locale", "ko"))
+    source_url = str(meta.get("source_url", "")).strip()
     base_labels = list(meta.get("labels", []))
     if category == "notice":
         notice_type = str(meta.get("notice_type", "")).strip()
@@ -80,6 +84,20 @@ def main() -> int:
             + body_path.read_text(encoding="utf-8")
         )
         matches = [p for p in remote_posts if marker in (p.get("content") or "")]
+        if not matches and locale == source_locale and source_url:
+            matches = [
+                p
+                for p in remote_posts
+                if post_url_matches(str(p.get("url", "")), source_url)
+            ]
+            if not matches:
+                raise RuntimeError(
+                    f"source_url did not match an existing Blogger post: {source_url}"
+                )
+            print(
+                f"[{locale}] bound existing source URL -> "
+                f"post {matches[0].get('id', '?')}"
+            )
         if len(matches) > 1:
             raise RuntimeError(f"duplicate remote Blogger posts for {marker}")
 
@@ -107,6 +125,7 @@ def main() -> int:
                     body=payload,
                 )
                 post.update(updated)
+                time.sleep(1.2)
         else:
             print(f"[{locale}] create draft -> {titles[locale]}")
             if not args.dry_run:
@@ -116,6 +135,7 @@ def main() -> int:
                 )
                 created = http_json(endpoint, method="POST", token=token, body=payload)
                 remote_posts.append(created)
+                time.sleep(1.2)
 
     return 0
 

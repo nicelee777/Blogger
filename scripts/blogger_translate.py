@@ -16,7 +16,8 @@ from typing import Any
 
 API_URL = "https://api.openai.com/v1/responses"
 GLOSSARY_PATH = Path("blogger/glossary.json")
-BATCH_SIZE = 180
+BATCH_SIZE = 60
+MIN_RETRY_BATCH_SIZE = 10
 TOKEN_PREFIX = "__SM_I18N_"
 HANGUL_RE = re.compile(r"[가-힣]")
 TAG_SPLIT_RE = re.compile(r"(<!--.*?-->|<![^>]*>|<[^>]+>)", flags=re.S)
@@ -239,6 +240,7 @@ STRICT RULES:
 5. When a source phrase is an app UI label or navigation term covered by the glossary, use the glossary wording exactly. In ordinary prose, keep the same terminology while allowing natural grammar and capitalization.
 6. For `kind=data-search`, produce concise search-friendly target-language keywords/synonyms, preserving technical tokens such as D E N OFF.
 7. For accessibility/title/placeholder kinds, translate naturally and concisely.
+8. When content_type is post-search-description, keep each translated description concise, natural, search-friendly, and at most 200 Unicode characters. Preserve the core search intent and verified product facts rather than translating word-for-word.
 
 GLOSSARY (Korean -> {language_name}):
 {glossary_text}
@@ -307,6 +309,44 @@ GLOSSARY (Korean -> {language_name}):
     return translated
 
 
+def translate_batch_resilient(
+    api_key: str,
+    model: str,
+    batch: list[dict[str, Any]],
+    locale: str,
+    language_name: str,
+    content_type: str,
+) -> dict[int, str]:
+    try:
+        return call_openai_batch(
+            api_key,
+            model,
+            batch,
+            locale,
+            language_name,
+            content_type,
+        )
+    except RuntimeError as exc:
+        if "translation batch id mismatch" not in str(exc) or len(batch) <= MIN_RETRY_BATCH_SIZE:
+            raise
+        midpoint = len(batch) // 2
+        left = batch[:midpoint]
+        right = batch[midpoint:]
+        print(
+            f"  translation batch returned incomplete ids; "
+            f"retrying as {len(left)} + {len(right)} items"
+        )
+        translated = translate_batch_resilient(
+            api_key, model, left, locale, language_name, content_type
+        )
+        translated.update(
+            translate_batch_resilient(
+                api_key, model, right, locale, language_name, content_type
+            )
+        )
+        return translated
+
+
 def translate_units(
     api_key: str,
     model: str,
@@ -323,7 +363,7 @@ def translate_units(
             f"{(len(units) + BATCH_SIZE - 1) // BATCH_SIZE} ({len(batch)} items)"
         )
         translated.update(
-            call_openai_batch(
+            translate_batch_resilient(
                 api_key,
                 model,
                 batch,
