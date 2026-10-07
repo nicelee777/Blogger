@@ -52,6 +52,9 @@ jobs:
       - name: Compile Blogger Python scripts
         run: python -m py_compile scripts/blogger_*.py
 
+      - name: Test localized Post overrides
+        run: python -m unittest discover -s scripts -p 'test_blogger_localized*.py'
+
       - name: Validate Blogger theme runtime
         run: |
           python scripts/blogger_validate_theme_runtime.py

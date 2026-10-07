@@ -11,6 +11,7 @@ from pathlib import Path
 
 from blogger_translate import translate_preserving_structure
 from blogger_localized_media import apply_localized_media
+from blogger_localized_links import apply_localized_post_links
 from blogger_sync import access_token, get_blog, list_all_posts, post_url_matches
 
 
@@ -187,6 +188,7 @@ def main() -> int:
                     content_type="post",
                 )
                 translated = apply_localized_media(item, translated, locale)
+                translated = apply_localized_post_links(translated, locale)
                 (item / f"{locale}.html").write_text(translated, encoding="utf-8")
 
             if title_changed:

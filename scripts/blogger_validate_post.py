@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 
 from blogger_translate import assert_structure
 from blogger_localized_media import apply_localized_media
+from blogger_localized_links import apply_localized_post_links
 
 FORBIDDEN_TAGS = {"script", "form", "object", "embed"}
 NOTICE_TYPES = {"general", "update", "maintenance", "incident", "feature", "service", "policy"}
@@ -227,6 +228,7 @@ def main() -> int:
                 if locale != "ko":
                     try:
                         expected_source = apply_localized_media(item, source, locale)
+                        expected_source = apply_localized_post_links(expected_source, locale)
                         assert_structure(expected_source, body.read_text(encoding="utf-8"))
                     except ValueError as exc:
                         errors.append(f"{body}: {exc}")

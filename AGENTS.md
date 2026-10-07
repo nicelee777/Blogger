@@ -46,6 +46,7 @@ For existing content, also read the current Korean source before editing it.
 
 - Do not invent image or YouTube URLs.
 - Preserve exact `href`, `src`, `id`, `class`, `data-*`, and media URLs during localization.
+- Explicit locale overrides in `media.json` and `blogger/post-links.json` are exceptions: apply them after translation and validate against the same overrides. Register only verified live Post URLs; preserve all unrelated links and attributes.
 - Prefer `https://www.youtube-nocookie.com/embed/<VIDEO_ID>` for YouTube embeds when creating new embeds.
 - Never add executable scripts, forms, trackers, or third-party embeds unrelated to the requested content.
 
