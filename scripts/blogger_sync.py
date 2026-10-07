@@ -6,6 +6,7 @@ import argparse
 import html as html_lib
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -34,13 +35,24 @@ def http_json(
         data = json.dumps(body, ensure_ascii=False).encode("utf-8")
 
     retryable_codes = {429, 500, 502, 503, 504}
-    delays = (2, 4, 8, 16)
+    delays = (5, 10, 20, 40, 80)
     for attempt in range(len(delays) + 1):
         req = urllib.request.Request(url, data=data, headers=headers, method=method)
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 payload = resp.read()
-                return json.loads(payload) if payload else {}
+                result = json.loads(payload) if payload else {}
+                if method.upper() != "GET":
+                    try:
+                        write_delay = max(
+                            0.0,
+                            float(os.environ.get("BLOGGER_WRITE_DELAY_SECONDS", "4.0")),
+                        )
+                    except ValueError:
+                        write_delay = 4.0
+                    if write_delay:
+                        time.sleep(write_delay)
+                return result
         except urllib.error.HTTPError as exc:
             detail = exc.read().decode(errors="replace")
             if exc.code in retryable_codes and attempt < len(delays):
@@ -162,6 +174,82 @@ def normalized_post_path(url: str) -> str:
 
 def post_url_matches(left: str, right: str) -> bool:
     return normalized_post_path(left) == normalized_post_path(right)
+
+
+def permalink_slug_for(meta: dict[str, Any], locale: str) -> str:
+    values = meta.get("permalink_slugs", {})
+    if values in (None, ""):
+        return ""
+    if not isinstance(values, dict):
+        raise RuntimeError("permalink_slugs must be an object keyed by locale")
+    slug = str(values.get(locale, "")).strip()
+    if not slug:
+        return ""
+    if not re.fullmatch(r"[a-z0-9][a-z0-9-]{1,79}", slug):
+        raise RuntimeError(
+            f"invalid permalink slug for {locale}: {slug!r}; "
+            "use lowercase ASCII letters, digits, and hyphens"
+        )
+    return slug
+
+
+def permalink_url_matches(url: str, slug: str) -> bool:
+    if not slug:
+        return True
+    path = url_path(url)
+    filename = path.rsplit("/", 1)[-1]
+    for suffix in (".html", ".htm"):
+        if filename.lower().endswith(suffix):
+            filename = filename[: -len(suffix)]
+            break
+    return filename == slug
+
+
+def seeded_payload(payload: dict[str, Any], slug: str) -> dict[str, Any]:
+    if not slug:
+        return payload
+    return {**payload, "title": slug}
+
+
+def post_payload_matches(post: dict[str, Any], payload: dict[str, Any]) -> bool:
+    remote_labels = {str(value) for value in post.get("labels", [])}
+    wanted_labels = {str(value) for value in payload.get("labels", [])}
+    return (
+        str(post.get("title", "")) == str(payload.get("title", ""))
+        and str(post.get("content", "")) == str(payload.get("content", ""))
+        and remote_labels == wanted_labels
+    )
+
+
+def create_seeded_live_post(
+    token: str,
+    blog_id: str,
+    payload: dict[str, Any],
+    slug: str,
+) -> dict[str, Any]:
+    endpoint = (
+        f"{BLOGGER_API}/blogs/{blog_id}/posts?"
+        + urllib.parse.urlencode({"isDraft": "false"})
+    )
+    created = http_json(
+        endpoint,
+        method="POST",
+        token=token,
+        body=seeded_payload(payload, slug),
+    )
+    created_url = str(created.get("url", ""))
+    if not permalink_url_matches(created_url, slug):
+        raise RuntimeError(
+            f"Blogger did not create expected permalink slug {slug!r}: "
+            f"{created_url}"
+        )
+    updated = http_json(
+        f"{BLOGGER_API}/blogs/{blog_id}/posts/{created['id']}",
+        method="PATCH",
+        token=token,
+        body=payload,
+    )
+    return updated
 
 
 def find_page_by_path(
@@ -342,6 +430,7 @@ def sync_posts(
         category_label = config["post_categories"][category]
         should_publish = bool(meta.get("publish", False))
         source_url = str(meta.get("source_url", "")).strip()
+        recreate_permalink_locales = set(meta.get("recreate_permalink_locales", []))
 
         for locale, info in config["locales"].items():
             body_path = item / f"{locale}.html"
@@ -398,17 +487,61 @@ def sync_posts(
                 "content": content,
                 "labels": labels,
             }
+            permalink_slug = permalink_slug_for(meta, locale)
 
             if matches:
                 post = matches[0]
+                status = str(post.get("status", "")).lower()
                 print(
                     f"[{category}/{slug}/{locale}] update post {post['id']} "
                     f"status={post.get('status', '?')} -> {titles[locale]}"
                 )
 
                 if (
+                    should_publish
+                    and permalink_slug
+                    and status == "live"
+                    and not permalink_url_matches(str(post.get("url", "")), permalink_slug)
+                ):
+                    if locale not in recreate_permalink_locales:
+                        raise RuntimeError(
+                            f"live post permalink does not match configured slug "
+                            f"{permalink_slug!r} for {category}/{slug}/{locale}: "
+                            f"{post.get('url', '')}. Add the locale to "
+                            "recreate_permalink_locales for an intentional one-time migration."
+                        )
+                    print(
+                        f"  permalink migration: {post.get('url', '')} -> "
+                        f".../{permalink_slug}.html"
+                    )
+                    if dry_run:
+                        post = {
+                            **post,
+                            "title": titles[locale],
+                            "url": f".../{permalink_slug}.html",
+                            "status": "live",
+                        }
+                    else:
+                        replacement = create_seeded_live_post(
+                            token, blog_id, payload, permalink_slug
+                        )
+                        old_id = str(post["id"])
+                        http_json(
+                            f"{BLOGGER_API}/blogs/{blog_id}/posts/{old_id}",
+                            method="DELETE",
+                            token=token,
+                        )
+                        remote_posts[:] = [
+                            p for p in remote_posts if str(p.get("id", "")) != old_id
+                        ]
+                        remote_posts.append(replacement)
+                        post = replacement
+                    print(f"  url={post.get('url', '')}")
+                    continue
+
+                if (
                     not should_publish
-                    and str(post.get("status", "")) in {"live", "scheduled"}
+                    and status in {"live", "scheduled"}
                 ):
                     post = reconcile_post_state(
                         token,
@@ -417,8 +550,45 @@ def sync_posts(
                         should_publish=False,
                         dry_run=dry_run,
                     )
+                    status = str(post.get("status", "")).lower()
 
-                if not dry_run:
+                if should_publish and permalink_slug and status != "live":
+                    # Blogger API has no custom-permalink field. Publish the draft
+                    # while its title is the ASCII slug seed, then restore the
+                    # localized title without changing the generated permalink.
+                    seed_payload = seeded_payload(payload, permalink_slug)
+                    if not dry_run and not post_payload_matches(post, seed_payload):
+                        post = http_json(
+                            f"{BLOGGER_API}/blogs/{blog_id}/posts/{post['id']}",
+                            method="PATCH",
+                            token=token,
+                            body=seed_payload,
+                        )
+                    post = reconcile_post_state(
+                        token,
+                        blog_id,
+                        post,
+                        should_publish=True,
+                        dry_run=dry_run,
+                    )
+                    if not dry_run:
+                        if not permalink_url_matches(
+                            str(post.get("url", "")), permalink_slug
+                        ):
+                            raise RuntimeError(
+                                f"Blogger did not publish expected permalink slug "
+                                f"{permalink_slug!r}: {post.get('url', '')}"
+                            )
+                        post = http_json(
+                            f"{BLOGGER_API}/blogs/{blog_id}/posts/{post['id']}",
+                            method="PATCH",
+                            token=token,
+                            body=payload,
+                        )
+                    print(f"  url={post.get('url', '')}")
+                    continue
+
+                if not dry_run and not post_payload_matches(post, payload):
                     post = http_json(
                         f"{BLOGGER_API}/blogs/{blog_id}/posts/{post['id']}",
                         method="PATCH",
@@ -426,6 +596,8 @@ def sync_posts(
                         body=payload,
                     )
                     matches[0].update(post)
+                elif not dry_run:
+                    print("  content unchanged; Blogger write skipped")
 
                 if should_publish:
                     post = reconcile_post_state(
@@ -443,15 +615,25 @@ def sync_posts(
                     f"-> {titles[locale]}"
                 )
                 if not dry_run:
-                    endpoint = (
-                        f"{BLOGGER_API}/blogs/{blog_id}/posts?"
-                        + urllib.parse.urlencode(
-                            {"isDraft": "false" if should_publish else "true"}
+                    if should_publish and permalink_slug:
+                        created = create_seeded_live_post(
+                            token, blog_id, payload, permalink_slug
                         )
-                    )
-                    created = http_json(
-                        endpoint, method="POST", token=token, body=payload
-                    )
+                    else:
+                        endpoint = (
+                            f"{BLOGGER_API}/blogs/{blog_id}/posts?"
+                            + urllib.parse.urlencode(
+                                {"isDraft": "false" if should_publish else "true"}
+                            )
+                        )
+                        create_payload = (
+                            seeded_payload(payload, permalink_slug)
+                            if permalink_slug
+                            else payload
+                        )
+                        created = http_json(
+                            endpoint, method="POST", token=token, body=create_payload
+                        )
                     remote_posts.append(created)
                     print(f"  url={created.get('url', '')}")
 

@@ -116,6 +116,7 @@ def main() -> int:
         return 1
 
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    config = json.loads(args.config.read_text(encoding="utf-8"))
     category = str(meta.get("category", ""))
     slug = str(meta.get("slug", ""))
     if category not in {"notice", "story"}:
@@ -150,6 +151,38 @@ def main() -> int:
         errors.append("develop/Draft workflow requires publish=false")
     if not isinstance(meta.get("labels", []), list):
         errors.append("labels must be a list")
+
+    locale_names = set(config.get("locales", {}))
+    permalink_slugs = meta.get("permalink_slugs", {})
+    if permalink_slugs in (None, ""):
+        permalink_slugs = {}
+    if not isinstance(permalink_slugs, dict):
+        errors.append("permalink_slugs must be an object keyed by locale")
+        permalink_slugs = {}
+    else:
+        for locale, value in permalink_slugs.items():
+            slug_value = str(value).strip()
+            if locale not in locale_names:
+                errors.append(f"permalink_slugs contains unknown locale: {locale}")
+            if not re.fullmatch(r"[a-z0-9][a-z0-9-]{1,79}", slug_value):
+                errors.append(
+                    f"invalid permalink slug for {locale}: {slug_value!r}"
+                )
+
+    recreate_permalink_locales = meta.get("recreate_permalink_locales", [])
+    if not isinstance(recreate_permalink_locales, list):
+        errors.append("recreate_permalink_locales must be a list")
+    else:
+        for locale in recreate_permalink_locales:
+            if locale not in locale_names:
+                errors.append(
+                    f"recreate_permalink_locales contains unknown locale: {locale}"
+                )
+            if locale not in permalink_slugs:
+                errors.append(
+                    f"recreate_permalink_locales requires permalink_slugs entry: {locale}"
+                )
+
     if category == "notice":
         notice_type = str(meta.get("notice_type", "")).strip()
         if notice_type not in NOTICE_TYPES:
@@ -163,7 +196,6 @@ def main() -> int:
     errors.extend(validate_html(source_path, source=True))
 
     if args.all_locales:
-        config = json.loads(args.config.read_text(encoding="utf-8"))
         titles_path = item / "titles.json"
         descriptions_path = item / "descriptions.json"
         if not titles_path.exists():

@@ -15,5 +15,15 @@
     "교대근무 캘린더",
     "ShiftMate"
   ],
-  "draft_sync_revision": 1
+  "draft_sync_revision": 2,
+  "permalink_slugs": {
+    "ja": "tablet-shift-calendar-app-ja",
+    "zh-cn": "tablet-shift-calendar-app-zh-cn",
+    "zh-tw": "tablet-shift-calendar-app-zh-tw"
+  },
+  "recreate_permalink_locales": [
+    "ja",
+    "zh-cn",
+    "zh-tw"
+  ]
 }
