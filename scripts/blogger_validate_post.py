@@ -139,6 +139,13 @@ def main() -> int:
         errors.append("seo_description_ko is too long")
     if not isinstance(meta.get("publish"), bool):
         errors.append("publish must be boolean")
+    source_url = str(meta.get("source_url", "")).strip()
+    if source_url:
+        parsed_source_url = urlparse(source_url)
+        if parsed_source_url.scheme != "https" or not parsed_source_url.netloc:
+            errors.append("source_url must be an absolute https URL")
+        if meta.get("publish") is not True:
+            errors.append("source_url binding requires publish=true for an existing live post")
     if args.require_draft and meta.get("publish") is not False:
         errors.append("develop/Draft workflow requires publish=false")
     if not isinstance(meta.get("labels", []), list):

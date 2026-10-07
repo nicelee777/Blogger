@@ -167,8 +167,10 @@ jobs:
               | xargs -r -n1 dirname \
               | sort -u \
               | while IFS= read -r item; do
-                  if git diff --name-only "$BEFORE_SHA" "$current" | grep -Fxq "$item/ko.html"; then
-                    echo "Translating changed Post body: $item"
+                  if git diff --name-only "$BEFORE_SHA" "$current" | grep -Fxq "$item/ko.html" \
+                    || [[ ! -f "$item/ko.html" ]] \
+                    || [[ ! -f "$item/en.html" ]]; then
+                    echo "Translating new/changed Post body: $item"
                     python scripts/blogger_translate_posts.py --item "$item"
                   else
                     echo "Post metadata changed; preserving reviewed localized body: $item"

@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 from blogger_translate import translate_preserving_structure
+from blogger_sync import access_token, get_blog, list_all_posts, post_url_matches
 
 
 def strip_single_paragraph(html: str) -> str:
@@ -25,6 +26,69 @@ def load_json_object(path: Path) -> dict[str, str]:
     if not isinstance(data, dict):
         raise RuntimeError(f"expected JSON object: {path}")
     return {str(k): str(v) for k, v in data.items()}
+
+
+def normalize_imported_source_html(content: str) -> str:
+    content = re.sub(
+        r"^\s*<!--shiftmate-content-id:[^>]+-->\s*",
+        "",
+        content.strip(),
+        count=1,
+        flags=re.I,
+    )
+    content = re.sub(
+        r'^\s*<span\b[^>]*class=["\'][^"\']*\bsm-post-seo\b[^"\']*["\'][^>]*>.*?</span>\s*',
+        "",
+        content,
+        count=1,
+        flags=re.I | re.S,
+    )
+    if re.search(
+        r'<article\b[^>]*class=["\'][^"\']*\bsm-post\b',
+        content,
+        flags=re.I,
+    ):
+        return content.strip() + "\n"
+    return '<article class="sm-post" lang="ko">\n' + content.strip() + "\n</article>\n"
+
+
+def import_source_if_needed(
+    item: Path,
+    meta: dict,
+    source_path: Path,
+    config: dict,
+) -> None:
+    if source_path.exists():
+        return
+    source_url = str(meta.get("source_url", "")).strip()
+    if not source_url:
+        return
+
+    token = access_token()
+    blog = get_blog(token, str(config["blog_url"]))
+    posts = list_all_posts(token, str(blog["id"]), fetch_bodies=True)
+    matches = [
+        post
+        for post in posts
+        if post_url_matches(str(post.get("url", "")), source_url)
+    ]
+    if len(matches) != 1:
+        raise RuntimeError(
+            f"expected exactly one Blogger post for source_url {source_url}, "
+            f"found {len(matches)}"
+        )
+
+    post = matches[0]
+    content = str(post.get("content", "")).strip()
+    if not content:
+        raise RuntimeError(f"Blogger source post has no content: {source_url}")
+
+    item.mkdir(parents=True, exist_ok=True)
+    source_path.write_text(normalize_imported_source_html(content), encoding="utf-8")
+    print(
+        f"Imported Korean source from Blogger: {source_url} "
+        f"(post {post.get('id', '?')})"
+    )
 
 
 def main() -> int:
@@ -63,10 +127,14 @@ def main() -> int:
             continue
         meta_path = item / "meta.json"
         source_path = item / f"{source_locale}.html"
-        if not meta_path.exists() or not source_path.exists():
+        if not meta_path.exists():
             continue
 
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        import_source_if_needed(item, meta, source_path, config)
+        if not source_path.exists():
+            continue
+
         category = str(meta.get("category") or item.parent.name)
         if category not in allowed_categories:
             raise RuntimeError(
