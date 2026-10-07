@@ -1,0 +1,23 @@
+{
+  "category": "story",
+  "slug": "ipad-shift-calendar-app",
+  "title_ko": "아이패드에서도 편하게 사용하는 교대근무 앱, ShiftMate",
+  "publish": true,
+  "labels": [
+    "ipad",
+    "shift-calendar"
+  ],
+  "seo_description_ko": "아이폰에서는 빠르게, 아이패드에서는 넓게. ShiftMate로 두 기기의 교대근무표, 일정, 메모와 출근 알람을 함께 활용하세요.",
+  "primary_keyword": "아이패드 교대근무 앱",
+  "secondary_keywords": [
+    "아이폰 근무표",
+    "교대근무 캘린더",
+    "ShiftMate"
+  ],
+  "permalink_slugs": {
+    "ja": "ipad-shift-calendar-app-ja",
+    "zh-cn": "ipad-shift-calendar-app-zh-cn",
+    "zh-tw": "ipad-shift-calendar-app-zh-tw"
+  },
+  "source_url": "https://shiftmate.interrobangsoft.com/2026/10/ipad-shift-calendar-app.html"
+}

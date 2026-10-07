@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "en": [
+      "iPad shift calendar",
+      "Quick checks on iPhone\nA wider view on iPad",
+      "Shifts, plans and notes in one place"
+    ],
+    "ja": [
+      "iPadで使える交代勤務アプリ",
+      "iPhoneでさっと確認\niPadで広く管理",
+      "勤務・予定・メモをひとつに"
+    ],
+    "zh-cn": [
+      "iPad 轮班日历",
+      "iPhone 快速查看\niPad 大屏管理",
+      "班次、日程、备忘，一处管理"
+    ],
+    "zh-tw": [
+      "iPad 輪班日曆",
+      "iPhone 快速查看\niPad 大螢幕管理",
+      "班次、行程、備忘，一處管理"
+    ],
+    "es": [
+      "Calendario de turnos para iPad",
+      "Consulta rápida en iPhone\nMás espacio en iPad",
+      "Turnos, planes y notas en un solo lugar"
+    ],
+    "vi": [
+      "Lịch làm ca trên iPad",
+      "Xem nhanh trên iPhone\nXem tổng quan trên iPad",
+      "Ca làm, lịch trình và ghi chú ở một nơi"
+    ],
+    "de": [
+      "Schichtkalender für iPad",
+      "Schnell prüfen auf dem iPhone\nMehr Überblick auf dem iPad",
+      "Schichten, Termine und Notizen an einem Ort"
+    ],
+    "pt-br": [
+      "Calendário de turnos para iPad",
+      "Veja rápido no iPhone\nMais espaço no iPad",
+      "Turnos, compromissos e notas em um só lugar"
+    ],
+    "fr": [
+      "Calendrier de travail sur iPad",
+      "Un coup d’œil sur iPhone\nUne vue plus large sur iPad",
+      "Services, rendez-vous et notes au même endroit"
+    ]
+  },
+  "body": {
+    "ja": [
+      [
+        "同僚の勤務表",
+        "チームの勤務予定をひと目で確認。"
+      ],
+      [
+        "メモとToDo",
+        "大切なメモとやることリストをひとつに。"
+      ]
+    ],
+    "zh-cn": [
+      [
+        "同事班表",
+        "一眼查看团队的工作安排。"
+      ],
+      [
+        "备忘与待办",
+        "重要备忘和待办清单，一处管理。"
+      ]
+    ],
+    "zh-tw": [
+      [
+        "同事班表",
+        "一眼查看團隊的工作安排。"
+      ],
+      [
+        "備忘與待辦",
+        "重要備忘和待辦清單，一處管理。"
+      ]
+    ],
+    "es": [
+      [
+        "Turnos del equipo",
+        "Consulta los turnos de tu equipo de un vistazo."
+      ],
+      [
+        "Notas y tareas",
+        "Tus notas importantes y listas de tareas en un solo lugar."
+      ]
+    ],
+    "vi": [
+      [
+        "Lịch làm ca của đồng nghiệp",
+        "Xem lịch làm việc của cả nhóm trong nháy mắt."
+      ],
+      [
+        "Ghi chú và việc cần làm",
+        "Ghi chú quan trọng và danh sách việc cần làm ở một nơi."
+      ]
+    ],
+    "de": [
+      [
+        "Schichtplan des Teams",
+        "Den Dienstplan deines Teams auf einen Blick sehen."
+      ],
+      [
+        "Notizen und Aufgaben",
+        "Wichtige Notizen und Aufgabenlisten an einem Ort."
+      ]
+    ],
+    "pt-br": [
+      [
+        "Turnos da equipe",
+        "Confira a escala da sua equipe de uma só vez."
+      ],
+      [
+        "Notas e tarefas",
+        "Suas notas importantes e listas de tarefas em um só lugar."
+      ]
+    ],
+    "fr": [
+      [
+        "Planning de l’équipe",
+        "Consultez les services de votre équipe en un coup d’œil."
+      ],
+      [
+        "Notes et tâches",
+        "Vos notes importantes et listes de tâches au même endroit."
+      ]
+    ]
+  },
+  "body_english": {
+    "team": [
+      "Team shift schedule",
+      "Check your team’s work schedule at a glance."
+    ],
+    "notes": [
+      "Notes & to-dos",
+      "Keep your important notes and to-do lists in one place."
+    ]
+  },
+  "editing_method": "Built-in image generation; localize marketing headline and subtitle, preserve English device UI, branding and layout."
+}
