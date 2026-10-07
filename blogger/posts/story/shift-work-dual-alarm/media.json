@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-NYYa1N8rG6EV_iJacJ7J-8MUAU9j0O9jumCMYtfRzwtei71B5bUTFW2L-W2jwzOMKFOGXrmyA-Mfq8PYV0QSxx3aCCH10cK2D2wNjVukU_xgHOiOaG_w8vKQgD0i3MRF8tFGeFfRsctLzx5j64Btl9xb23HYVxaj5BiLHvYi6Vq0w4r24GpaNlmuRYE/s1600/%E1%84%89%E1%85%B3%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%91%E1%85%A9%E1%86%AB%E1%84%80%E1%85%AA%20%E1%84%90%E1%85%A2%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%86%BA%20%E1%84%83%E1%85%B2%E1%84%8B%E1%85%A5%E1%86%AF%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%85%E1%85%A1%E1%86%B7.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-NYYa1N8rG6EV_iJacJ7J-8MUAU9j0O9jumCMYtfRzwtei71B5bUTFW2L-W2jwzOMKFOGXrmyA-Mfq8PYV0QSxx3aCCH10cK2D2wNjVukU_xgHOiOaG_w8vKQgD0i3MRF8tFGeFfRsctLzx5j64Btl9xb23HYVxaj5BiLHvYi6Vq0w4r24GpaNlmuRYE/s1600/%E1%84%89%E1%85%B3%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%91%E1%85%A9%E1%86%AB%E1%84%80%E1%85%AA%20%E1%84%90%E1%85%A2%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%86%BA%20%E1%84%83%E1%85%B2%E1%84%8B%E1%85%A5%E1%86%AF%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%85%E1%85%A1%E1%86%B7.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/en-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/en-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate shift alarms on a smartphone and tablet for the same shift."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/ja-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/ja-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "スマートフォンとタブレットの両方で同じ勤務の出勤アラームを受け取るShiftMate。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/zh-cn-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/zh-cn-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate 在手机和平板上同时提醒同一个班次的上班闹钟。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/zh-tw-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/zh-tw-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate 在手機與平板上提醒同一班次的上班鬧鐘。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/es-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/es-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarmas de turno de ShiftMate en un móvil y una tableta para el mismo turno."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/vi-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/vi-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Báo thức ShiftMate cho cùng một ca làm trên điện thoại và máy tính bảng."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/de-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/de-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Schichtalarme für dieselbe Schicht auf Smartphone und Tablet."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/pt-br-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/pt-br-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarmes do ShiftMate para o mesmo turno no celular e no tablet."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/fr-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/7d18c93b16207332095f52d510cd940d07fc98f5/blogger/assets/shift-work-dual-alarm/fr-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarmes ShiftMate pour le même service sur téléphone et tablette."
+        }
+      }
+    }
+  ]
+}
