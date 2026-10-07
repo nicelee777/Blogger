@@ -17,6 +17,8 @@ from blogger_sync import (
     get_blog,
     http_json,
     list_all_posts,
+    permalink_slug_for,
+    seeded_payload,
     post_url_matches,
 )
 
@@ -106,6 +108,8 @@ def main() -> int:
             if label and label not in labels:
                 labels.append(label)
         payload = {"title": titles[locale], "content": content, "labels": labels}
+        permalink_slug = permalink_slug_for(meta, locale)
+        draft_payload = seeded_payload(payload, permalink_slug)
 
         if matches:
             post = matches[0]
@@ -122,7 +126,7 @@ def main() -> int:
                     f"{BLOGGER_API}/blogs/{blog_id}/posts/{post['id']}",
                     method="PATCH",
                     token=token,
-                    body=payload,
+                    body=draft_payload,
                 )
                 post.update(updated)
                 time.sleep(1.2)
@@ -133,7 +137,7 @@ def main() -> int:
                     f"{BLOGGER_API}/blogs/{blog_id}/posts?"
                     + urllib.parse.urlencode({"isDraft": "true"})
                 )
-                created = http_json(endpoint, method="POST", token=token, body=payload)
+                created = http_json(endpoint, method="POST", token=token, body=draft_payload)
                 remote_posts.append(created)
                 time.sleep(1.2)
 
