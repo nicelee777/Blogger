@@ -1,0 +1,267 @@
+{
+  "copy": {
+    "en": {
+      "hero": [
+        "For iPad & Android tablets",
+        "Your shift calendar.",
+        "A bigger view.",
+        "Shifts, plans and notes at a glance."
+      ],
+      "analysis": [
+        "Understand your shifts",
+        "See your shift patterns and work history at a glance."
+      ],
+      "side": [
+        "Understand my shift patterns easily.",
+        "Take control of my time.",
+        "Make today a brighter day!"
+      ],
+      "alarm": [
+        "Shift alarms",
+        "Get ready for work with alarms timed to your shifts.",
+        "Time for work",
+        "Snooze 10 min",
+        "Dismiss"
+      ]
+    },
+    "ja": {
+      "hero": [
+        "iPad・Androidタブレット対応",
+        "シフト管理を、",
+        "もっと大きな画面で。",
+        "勤務・予定・メモをひと目で確認。"
+      ],
+      "analysis": [
+        "勤務パターンをひと目で",
+        "シフトの傾向と勤務履歴をまとめて確認。"
+      ],
+      "side": [
+        "勤務パターンがよくわかる。",
+        "自分の時間を大切に。",
+        "今日をもっと明るく！"
+      ],
+      "alarm": [
+        "出勤アラーム",
+        "シフトに合わせたアラームで、出勤準備を。",
+        "出勤の時間です",
+        "10分後に再通知",
+        "停止"
+      ]
+    },
+    "zh-cn": {
+      "hero": [
+        "支持 iPad 和 Android 平板",
+        "你的轮班日历，",
+        "大屏一目了然。",
+        "班次、日程和备忘，一屏掌握。"
+      ],
+      "analysis": [
+        "轻松掌握轮班规律",
+        "轮班规律与工作记录，一目了然。"
+      ],
+      "side": [
+        "轻松了解轮班规律。",
+        "掌握自己的时间。",
+        "让今天更精彩！"
+      ],
+      "alarm": [
+        "上班闹钟",
+        "按班次准时提醒，轻松准备上班。",
+        "该上班了",
+        "10分钟后提醒",
+        "关闭"
+      ]
+    },
+    "zh-tw": {
+      "hero": [
+        "支援 iPad 與 Android 平板",
+        "你的輪班行事曆，",
+        "大螢幕一目了然。",
+        "班次、行程與備忘，一次掌握。"
+      ],
+      "analysis": [
+        "輕鬆掌握輪班模式",
+        "輪班模式與工作紀錄，一目了然。"
+      ],
+      "side": [
+        "輕鬆了解輪班模式。",
+        "掌握自己的時間。",
+        "讓今天更精彩！"
+      ],
+      "alarm": [
+        "上班鬧鐘",
+        "依班次準時提醒，輕鬆準備上班。",
+        "該上班了",
+        "10分鐘後提醒",
+        "關閉"
+      ]
+    },
+    "es": {
+      "hero": [
+        "Para iPad y tabletas Android",
+        "Tu calendario de turnos.",
+        "Una vista más amplia.",
+        "Turnos, planes y notas de un vistazo."
+      ],
+      "analysis": [
+        "Conoce tus turnos",
+        "Consulta tus patrones de turnos y tu historial de trabajo."
+      ],
+      "side": [
+        "Entiende tus patrones de turnos.",
+        "Organiza mejor tu tiempo.",
+        "¡Dale más luz a tu día!"
+      ],
+      "alarm": [
+        "Alarmas de turno",
+        "Prepárate para trabajar con alarmas según tus turnos.",
+        "Hora de trabajar",
+        "Posponer 10 min",
+        "Detener"
+      ]
+    },
+    "vi": {
+      "hero": [
+        "Cho iPad và máy tính bảng Android",
+        "Lịch ca của bạn.",
+        "Rộng hơn, rõ hơn.",
+        "Ca làm, lịch hẹn và ghi chú trong một màn hình."
+      ],
+      "analysis": [
+        "Hiểu rõ lịch ca của bạn",
+        "Xem tổng quan mô hình ca làm và lịch sử làm việc."
+      ],
+      "side": [
+        "Dễ dàng hiểu mô hình ca làm.",
+        "Chủ động quản lý thời gian.",
+        "Cho hôm nay tươi sáng hơn!"
+      ],
+      "alarm": [
+        "Báo thức đi làm",
+        "Sẵn sàng đi làm với báo thức theo lịch ca.",
+        "Đến giờ đi làm",
+        "Nhắc lại sau 10 phút",
+        "Tắt"
+      ]
+    },
+    "de": {
+      "hero": [
+        "Für iPad und Android-Tablets",
+        "Dein Schichtkalender.",
+        "Mehr Überblick.",
+        "Schichten, Termine und Notizen auf einen Blick."
+      ],
+      "analysis": [
+        "Deine Schichten im Überblick",
+        "Schichtmuster und Arbeitsverlauf auf einen Blick."
+      ],
+      "side": [
+        "Schichtmuster leicht erkennen.",
+        "Die eigene Zeit im Griff.",
+        "Mach deinen Tag heller!"
+      ],
+      "alarm": [
+        "Schichtalarme",
+        "Bereite dich mit passenden Alarmen auf deine Schicht vor.",
+        "Zeit für die Arbeit",
+        "In 10 Min. erinnern",
+        "Beenden"
+      ]
+    },
+    "pt-br": {
+      "hero": [
+        "Para iPad e tablets Android",
+        "Sua escala de turnos.",
+        "Uma visão mais ampla.",
+        "Turnos, compromissos e notas de uma só vez."
+      ],
+      "analysis": [
+        "Entenda seus turnos",
+        "Veja seus padrões de turnos e seu histórico de trabalho."
+      ],
+      "side": [
+        "Entenda seus padrões de turnos.",
+        "Tenha controle do seu tempo.",
+        "Deixe seu dia mais leve!"
+      ],
+      "alarm": [
+        "Alarmes de turno",
+        "Prepare-se para trabalhar com alarmes conforme sua escala.",
+        "Hora de trabalhar",
+        "Adiar por 10 min",
+        "Parar"
+      ]
+    },
+    "fr": {
+      "hero": [
+        "Pour iPad et tablettes Android",
+        "Votre planning de travail.",
+        "Une vue plus large.",
+        "Services, rendez-vous et notes en un coup d’œil."
+      ],
+      "analysis": [
+        "Vos services en un coup d’œil",
+        "Consultez vos rythmes de travail et votre historique."
+      ],
+      "side": [
+        "Comprenez vos rythmes de travail.",
+        "Maîtrisez votre temps.",
+        "Illuminez votre journée !"
+      ],
+      "alarm": [
+        "Alarmes de service",
+        "Préparez-vous avec des alarmes adaptées à vos horaires.",
+        "C’est l’heure de travailler",
+        "Rappel dans 10 min",
+        "Arrêter"
+      ]
+    }
+  },
+  "alts": {
+    "en": [
+      "ShiftMate shift calendar, plans and notes on an iPad, Android tablet and smartphone.",
+      "ShiftMate tablet view showing shift patterns and work history.",
+      "ShiftMate shift alarm displayed on a tablet."
+    ],
+    "ja": [
+      "iPad・Androidタブレットとスマートフォンで勤務・予定・メモを確認できるShiftMate。",
+      "タブレットで勤務パターンと勤務履歴を確認するShiftMateの画面。",
+      "タブレットに表示されたShiftMateの出勤アラーム。"
+    ],
+    "zh-cn": [
+      "在 iPad、Android 平板和手机上查看班次、日程与备忘的 ShiftMate 轮班日历。",
+      "ShiftMate 平板界面，显示轮班规律和工作记录。",
+      "平板上显示的 ShiftMate 上班闹钟。"
+    ],
+    "zh-tw": [
+      "在 iPad、Android 平板與手機上查看班次、行程與備忘的 ShiftMate 輪班行事曆。",
+      "ShiftMate 平板畫面，顯示輪班模式與工作紀錄。",
+      "平板上顯示的 ShiftMate 上班鬧鐘。"
+    ],
+    "es": [
+      "Calendario de turnos ShiftMate con planes y notas en iPad, tableta Android y smartphone.",
+      "Vista de ShiftMate en tableta con patrones de turnos e historial de trabajo.",
+      "Alarma de turno de ShiftMate en una tableta."
+    ],
+    "vi": [
+      "Lịch ca, lịch hẹn và ghi chú ShiftMate trên iPad, máy tính bảng Android và điện thoại.",
+      "Màn hình ShiftMate trên máy tính bảng hiển thị mô hình ca làm và lịch sử làm việc.",
+      "Báo thức đi làm ShiftMate hiển thị trên máy tính bảng."
+    ],
+    "de": [
+      "ShiftMate-Schichtkalender mit Terminen und Notizen auf iPad, Android-Tablet und Smartphone.",
+      "ShiftMate auf dem Tablet mit Schichtmustern und Arbeitsverlauf.",
+      "ShiftMate-Schichtalarm auf einem Tablet."
+    ],
+    "pt-br": [
+      "Calendário de turnos ShiftMate com compromissos e notas no iPad, tablet Android e smartphone.",
+      "Tela do ShiftMate no tablet com padrões de turnos e histórico de trabalho.",
+      "Alarme de turno do ShiftMate em um tablet."
+    ],
+    "fr": [
+      "Planning de travail ShiftMate, rendez-vous et notes sur iPad, tablette Android et smartphone.",
+      "Écran ShiftMate sur tablette présentant les rythmes de travail et l’historique.",
+      "Alarme de service ShiftMate affichée sur une tablette."
+    ]
+  }
+}
