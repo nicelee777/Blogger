@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 import urllib.parse
 from pathlib import Path
 
@@ -124,6 +125,7 @@ def main() -> int:
                     body=payload,
                 )
                 post.update(updated)
+                time.sleep(1.2)
         else:
             print(f"[{locale}] create draft -> {titles[locale]}")
             if not args.dry_run:
@@ -133,6 +135,7 @@ def main() -> int:
                 )
                 created = http_json(endpoint, method="POST", token=token, body=payload)
                 remote_posts.append(created)
+                time.sleep(1.2)
 
     return 0
 

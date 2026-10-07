@@ -7,6 +7,7 @@ import html as html_lib
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -31,16 +32,34 @@ def http_json(
     if body is not None:
         headers["Content-Type"] = "application/json; charset=utf-8"
         data = json.dumps(body, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers=headers, method=method)
-    try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
-            payload = resp.read()
-            return json.loads(payload) if payload else {}
-    except urllib.error.HTTPError as exc:
-        detail = exc.read().decode(errors="replace")
-        raise RuntimeError(
-            f"Blogger API error {exc.code} {method} {url}: {detail}"
-        ) from exc
+
+    retryable_codes = {429, 500, 502, 503, 504}
+    delays = (2, 4, 8, 16)
+    for attempt in range(len(delays) + 1):
+        req = urllib.request.Request(url, data=data, headers=headers, method=method)
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                payload = resp.read()
+                return json.loads(payload) if payload else {}
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode(errors="replace")
+            if exc.code in retryable_codes and attempt < len(delays):
+                retry_after = exc.headers.get("Retry-After") if exc.headers else None
+                try:
+                    delay = max(delays[attempt], float(retry_after or 0))
+                except ValueError:
+                    delay = delays[attempt]
+                print(
+                    f"Blogger API {exc.code} for {method}; retrying after "
+                    f"{delay:g}s (attempt {attempt + 2}/{len(delays) + 1})",
+                    file=sys.stderr,
+                )
+                time.sleep(delay)
+                continue
+            raise RuntimeError(
+                f"Blogger API error {exc.code} {method} {url}: {detail}"
+            ) from exc
+    raise RuntimeError(f"Blogger API retry loop exhausted: {method} {url}")
 
 
 def access_token() -> str:
