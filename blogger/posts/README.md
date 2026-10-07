@@ -145,6 +145,17 @@ Images and YouTube embeds may be included directly in `ko.html` when exact URLs 
 - do not invent asset/media URLs;
 - use meaningful `alt` text and iframe `title` text.
 
+### Localized image overrides
+
+When localized banners are explicitly requested, add an item-level `media.json`
+with `version: 1` and an `images` list. Each image declares exact Korean
+`source.src` and `source.href` URLs, plus `locales` entries containing HTTPS
+`src`/`href`, original `width`/`height`, and localized `alt` text.
+Only those image URLs and their enclosing image links are replaced. Translation
+applies the manifest after preserving source markup; validation compares against
+the same declared overrides. Other links and protected attributes remain checked.
+Keep published asset URLs immutable and retain the original Korean images.
+
 ## Notice automation
 
 For recurring official notices, prefer this flow:

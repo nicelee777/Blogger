@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from blogger_translate import assert_structure
+from blogger_localized_media import apply_localized_media
 
 FORBIDDEN_TAGS = {"script", "form", "object", "embed"}
 NOTICE_TYPES = {"general", "update", "maintenance", "incident", "feature", "service", "policy"}
@@ -225,7 +226,8 @@ def main() -> int:
                 errors.extend(validate_html(body, source=(locale == "ko")))
                 if locale != "ko":
                     try:
-                        assert_structure(source, body.read_text(encoding="utf-8"))
+                        expected_source = apply_localized_media(item, source, locale)
+                        assert_structure(expected_source, body.read_text(encoding="utf-8"))
                     except ValueError as exc:
                         errors.append(f"{body}: {exc}")
 
