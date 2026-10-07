@@ -43,6 +43,10 @@ def normalize_imported_source_html(content: str) -> str:
         count=1,
         flags=re.I | re.S,
     )
+    # Blogger authors sometimes put a visual title in the body. Managed Posts
+    # reserve h1 for the Blogger post title, so preserve the heading as h2.
+    content = re.sub(r"<h1(\b[^>]*)>", r"<h2\1>", content, flags=re.I)
+    content = re.sub(r"</h1\s*>", "</h2>", content, flags=re.I)
     if re.search(
         r'<article\b[^>]*class=["\'][^"\']*\bsm-post\b',
         content,

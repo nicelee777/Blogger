@@ -239,6 +239,7 @@ STRICT RULES:
 5. When a source phrase is an app UI label or navigation term covered by the glossary, use the glossary wording exactly. In ordinary prose, keep the same terminology while allowing natural grammar and capitalization.
 6. For `kind=data-search`, produce concise search-friendly target-language keywords/synonyms, preserving technical tokens such as D E N OFF.
 7. For accessibility/title/placeholder kinds, translate naturally and concisely.
+8. When content_type is post-search-description, keep each translated description concise, natural, search-friendly, and at most 200 Unicode characters. Preserve the core search intent and verified product facts rather than translating word-for-word.
 
 GLOSSARY (Korean -> {language_name}):
 {glossary_text}
