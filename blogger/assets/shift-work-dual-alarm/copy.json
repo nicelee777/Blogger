@@ -1,0 +1,78 @@
+{
+  "copy": {
+    "en": [
+      "SHIFT ALARMS",
+      "Your phone. Your tablet.",
+      "Two devices.",
+      "One shift alarm.",
+      "Alarms that match your shifts,\non both devices."
+    ],
+    "ja": [
+      "出勤アラーム",
+      "スマホとタブレット。",
+      "2つの端末で、",
+      "同じ出勤アラーム。",
+      "シフトに合わせたアラームを、\n両方の端末で。"
+    ],
+    "zh-cn": [
+      "上班闹钟",
+      "手机与平板。",
+      "两个设备，",
+      "同一个上班闹钟。",
+      "按班次设置的闹钟，\n两个设备都能响。"
+    ],
+    "zh-tw": [
+      "上班鬧鐘",
+      "手機與平板。",
+      "兩個裝置，",
+      "同一個上班鬧鐘。",
+      "依班次設定的鬧鐘，\n兩個裝置都會響。"
+    ],
+    "es": [
+      "ALARMAS DE TURNO",
+      "Tu móvil. Tu tableta.",
+      "Dos dispositivos.",
+      "Una alarma de turno.",
+      "Alarmas según tus turnos,\nen ambos dispositivos."
+    ],
+    "vi": [
+      "BÁO THỨC ĐI LÀM",
+      "Điện thoại và máy tính bảng.",
+      "Hai thiết bị.",
+      "Một báo thức theo ca.",
+      "Báo thức theo lịch ca,\ntrên cả hai thiết bị."
+    ],
+    "de": [
+      "SCHICHTALARME",
+      "Dein Handy. Dein Tablet.",
+      "Zwei Geräte.",
+      "Ein Schichtalarm.",
+      "Alarme passend zu deinen Schichten,\nauf beiden Geräten."
+    ],
+    "pt-br": [
+      "ALARMES DE TURNO",
+      "Seu celular. Seu tablet.",
+      "Dois dispositivos.",
+      "Um alarme de turno.",
+      "Alarmes conforme sua escala,\nnos dois dispositivos."
+    ],
+    "fr": [
+      "ALARMES DE SERVICE",
+      "Votre téléphone. Votre tablette.",
+      "Deux appareils.",
+      "Une alarme de service.",
+      "Des alarmes adaptées à vos horaires,\nsur les deux appareils."
+    ]
+  },
+  "alts": {
+    "en": "ShiftMate shift alarms on a smartphone and tablet for the same shift.",
+    "ja": "スマートフォンとタブレットの両方で同じ勤務の出勤アラームを受け取るShiftMate。",
+    "zh-cn": "ShiftMate 在手机和平板上同时提醒同一个班次的上班闹钟。",
+    "zh-tw": "ShiftMate 在手機與平板上提醒同一班次的上班鬧鐘。",
+    "es": "Alarmas de turno de ShiftMate en un móvil y una tableta para el mismo turno.",
+    "vi": "Báo thức ShiftMate cho cùng một ca làm trên điện thoại và máy tính bảng.",
+    "de": "ShiftMate-Schichtalarme für dieselbe Schicht auf Smartphone und Tablet.",
+    "pt-br": "Alarmes do ShiftMate para o mesmo turno no celular e no tablet.",
+    "fr": "Alarmes ShiftMate pour le même service sur téléphone et tablette."
+  }
+}
