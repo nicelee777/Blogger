@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUtN7tAgWmH2E1BIQ_218jbFEle1uxH41Vd2Zp2imezEWAyGKm2zbXVUUftvCc1PXWxQv-l_TdcLMHc8g40u_DiYkW8VB5nIRVU_Dl86eTvSr1qISSdr0zfWCPME7zLFcpIuF6vhGsb9UIRtBaXNoLF2UBjKtsRejAhlEak0XG6RHFqtno4XMaJ39Srls/w640-h360/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%91%E1%85%A2%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA%20%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%91%E1%85%A9%E1%86%AB%E1%84%8B%E1%85%B4%20%E1%84%80%E1%85%AD%E1%84%83%E1%85%A2%E1%84%80%E1%85%B3%E1%86%AB%E1%84%86%E1%85%AE%20%E1%84%8F%E1%85%A2%E1%86%AF%E1%84%85%E1%85%B5%E1%86%AB%E1%84%83%E1%85%A5.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUtN7tAgWmH2E1BIQ_218jbFEle1uxH41Vd2Zp2imezEWAyGKm2zbXVUUftvCc1PXWxQv-l_TdcLMHc8g40u_DiYkW8VB5nIRVU_Dl86eTvSr1qISSdr0zfWCPME7zLFcpIuF6vhGsb9UIRtBaXNoLF2UBjKtsRejAhlEak0XG6RHFqtno4XMaJ39Srls/s1600/%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%91%E1%85%A2%E1%84%83%E1%85%B3%E1%84%8B%E1%85%AA%20%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%91%E1%85%A9%E1%86%AB%E1%84%8B%E1%85%B4%20%E1%84%80%E1%85%AD%E1%84%83%E1%85%A2%E1%84%80%E1%85%B3%E1%86%AB%E1%84%86%E1%85%AE%20%E1%84%8F%E1%85%A2%E1%86%AF%E1%84%85%E1%85%B5%E1%86%AB%E1%84%83%E1%85%A5.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/en-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/en-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate shift calendar on iPhone and iPad, with shifts, plans and notes in one place."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/ja-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/ja-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "iPhoneとiPadで勤務・予定・メモを管理するShiftMate。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-cn-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-cn-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "在iPhone和iPad上用ShiftMate管理班次、日程和备忘。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-tw-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-tw-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "在iPhone和iPad上用ShiftMate管理班次、行程與備忘。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/es-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/es-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Calendario de ShiftMate en iPhone y iPad con turnos, planes y notas en un solo lugar."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/vi-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/vi-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Lịch ShiftMate trên iPhone và iPad, quản lý ca làm, lịch trình và ghi chú ở một nơi."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/de-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/de-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Schichtkalender auf iPhone und iPad mit Schichten, Terminen und Notizen an einem Ort."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/pt-br-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/pt-br-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Calendário do ShiftMate no iPhone e iPad com turnos, compromissos e notas em um só lugar."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/fr-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/fr-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Calendrier ShiftMate sur iPhone et iPad avec services, rendez-vous et notes au même endroit."
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi68zr_uk6gon85aHC2CBmMPfZrOTTeGWweabjbSYXOdF6_jVD-SZZh1k80rjG4HMXMzMM5HLI75uX-F_fEGoXGvEuXy4gsTnnCEYC62QuS67Yr2qonj_iOktCHlwjdNaRIM9eAS-D7WQXS16ql6S-qkjN01UboGxuIjnVwFkLvGLjCU0upD6LGkUf0RDM/s1600/ipad_en_03.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi68zr_uk6gon85aHC2CBmMPfZrOTTeGWweabjbSYXOdF6_jVD-SZZh1k80rjG4HMXMzMM5HLI75uX-F_fEGoXGvEuXy4gsTnnCEYC62QuS67Yr2qonj_iOktCHlwjdNaRIM9eAS-D7WQXS16ql6S-qkjN01UboGxuIjnVwFkLvGLjCU0upD6LGkUf0RDM/s1600/ipad_en_03.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/en-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/en-team.png",
+          "width": 1600,
+          "height": 1200,
+          "alt": "Coworker shift schedules shown together on an iPad."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/ja-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/ja-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "iPadで同僚の勤務表をまとめて確認。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-cn-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-cn-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "在iPad上同时查看同事班表。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-tw-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-tw-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "在iPad上同時查看同事班表。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/es-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/es-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Horarios de turnos de compañeros mostrados juntos en un iPad."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/vi-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/vi-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Xem lịch ca của đồng nghiệp cùng nhau trên iPad."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/de-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/de-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Schichtpläne von Kollegen gemeinsam auf einem iPad ansehen."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/pt-br-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/pt-br-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Escalas de turnos dos colegas exibidas juntas no iPad."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/fr-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/fr-team.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Plannings des services des collègues affichés ensemble sur iPad."
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_okUM93x5X6xIQ2Gcqzj-QrZoGoExQ30HYxj9K_DRMHY7DMEmIGm-lh-iLli5y59iEhw3HDhbzPUHyX8bw1MCZck4tayvhJk-ZzpVkQo6J0tSaeugfsQxJbcGpNScOHTrbGslPypfiWykHYSOEKLs7d1ZQpJtJ2uRVdJa6mqr-PJm1pA7f12bvJNV7go/s1600/ipad_en_04.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_okUM93x5X6xIQ2Gcqzj-QrZoGoExQ30HYxj9K_DRMHY7DMEmIGm-lh-iLli5y59iEhw3HDhbzPUHyX8bw1MCZck4tayvhJk-ZzpVkQo6J0tSaeugfsQxJbcGpNScOHTrbGslPypfiWykHYSOEKLs7d1ZQpJtJ2uRVdJa6mqr-PJm1pA7f12bvJNV7go/s1600/ipad_en_04.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/en-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/en-notes.png",
+          "width": 1600,
+          "height": 1200,
+          "alt": "Notes and to-do lists managed on an iPad in ShiftMate."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/ja-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/ja-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "iPadのShiftMateでメモとToDoリストを管理。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-cn-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-cn-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "在iPad的ShiftMate中管理备忘和待办清单。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-tw-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/zh-tw-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "在iPad的ShiftMate中管理備忘與待辦清單。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/es-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/es-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Notas y listas de tareas en ShiftMate para iPad."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/vi-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/vi-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Quản lý ghi chú và danh sách việc cần làm trong ShiftMate trên iPad."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/de-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/de-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Notizen und Aufgabenlisten in ShiftMate auf dem iPad verwalten."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/pt-br-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/pt-br-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Notas e listas de tarefas no ShiftMate para iPad."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/fr-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/cee04a42268d804142772701b6ed190c673369f3/blogger/assets/ipad-shift-calendar-app/fr-notes.png",
+          "width": 1448,
+          "height": 1086,
+          "alt": "Gestion des notes et listes de tâches dans ShiftMate sur iPad."
+        }
+      }
+    }
+  ]
+}
