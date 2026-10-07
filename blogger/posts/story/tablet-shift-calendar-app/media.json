@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4bvlUJPtyThYGCr7o5H7niAEBgJEcEAw6nlCyCm1gn3OxU4A3NXRXcvgX1q11ZoqgHgnoAxaZOpyLB6hrCRRH576jyBIEJR9io0djjkQj7fqT7bLM3awxS47hM2706BqgHv9I3nvLgl1YD85CkfqP-fZ3Ye4xV_fZSaWHD5a-ZvBYV3shbtghJTnTJfM/w640-h360/%E1%84%90%E1%85%A2%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%86%BA%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%92%E1%85%A1%E1%86%AB%E1%84%82%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%A6%20%E1%84%87%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%80%E1%85%AD%E1%84%83%E1%85%A2%E1%84%80%E1%85%B3%E1%86%AB%E1%84%86%E1%85%AE%E1%84%91%E1%85%AD.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4bvlUJPtyThYGCr7o5H7niAEBgJEcEAw6nlCyCm1gn3OxU4A3NXRXcvgX1q11ZoqgHgnoAxaZOpyLB6hrCRRH576jyBIEJR9io0djjkQj7fqT7bLM3awxS47hM2706BqgHv9I3nvLgl1YD85CkfqP-fZ3Ye4xV_fZSaWHD5a-ZvBYV3shbtghJTnTJfM/s1600/%E1%84%90%E1%85%A2%E1%84%87%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%86%BA%E1%84%8B%E1%85%B3%E1%84%85%E1%85%A9%20%E1%84%92%E1%85%A1%E1%86%AB%E1%84%82%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%A6%20%E1%84%87%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%80%E1%85%AD%E1%84%83%E1%85%A2%E1%84%80%E1%85%B3%E1%86%AB%E1%84%86%E1%85%AE%E1%84%91%E1%85%AD.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate shift calendar, plans and notes on an iPad, Android tablet and smartphone."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "iPad・Androidタブレットとスマートフォンで勤務・予定・メモを確認できるShiftMate。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "在 iPad、Android 平板和手机上查看班次、日程与备忘的 ShiftMate 轮班日历。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "在 iPad、Android 平板與手機上查看班次、行程與備忘的 ShiftMate 輪班行事曆。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Calendario de turnos ShiftMate con planes y notas en iPad, tableta Android y smartphone."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Lịch ca, lịch hẹn và ghi chú ShiftMate trên iPad, máy tính bảng Android và điện thoại."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Schichtkalender mit Terminen und Notizen auf iPad, Android-Tablet und Smartphone."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Calendário de turnos ShiftMate com compromissos e notas no iPad, tablet Android e smartphone."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-hero.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-hero.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Planning de travail ShiftMate, rendez-vous et notes sur iPad, tablette Android et smartphone."
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXsHXshFLELOMMKiIkUrGLE0DIQ-yemDrqSKBLj3gOl-VhZ3oWQ5Blro2KLE6BiNn3K7n2-2_DFJV4pJqLay3iIMd2YKFgtGPz9flJaA82ZHC76kg6QiMJ5PR00JMPlO9kjOnA-mTBmB2_m6tPwEHe1azxBUIdGNGXjqOyJ4bHKZQxP2wkMULmUYCMuQA/s1600/ShiftMate_ko_05_1920x1080.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXsHXshFLELOMMKiIkUrGLE0DIQ-yemDrqSKBLj3gOl-VhZ3oWQ5Blro2KLE6BiNn3K7n2-2_DFJV4pJqLay3iIMd2YKFgtGPz9flJaA82ZHC76kg6QiMJ5PR00JMPlO9kjOnA-mTBmB2_m6tPwEHe1azxBUIdGNGXjqOyJ4bHKZQxP2wkMULmUYCMuQA/s1600/ShiftMate_ko_05_1920x1080.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-analysis.png",
+          "width": 1920,
+          "height": 1080,
+          "alt": "ShiftMate tablet view showing shift patterns and work history."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "タブレットで勤務パターンと勤務履歴を確認するShiftMateの画面。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate 平板界面，显示轮班规律和工作记录。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate 平板畫面，顯示輪班模式與工作紀錄。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Vista de ShiftMate en tableta con patrones de turnos e historial de trabajo."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Màn hình ShiftMate trên máy tính bảng hiển thị mô hình ca làm và lịch sử làm việc."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate auf dem Tablet mit Schichtmustern und Arbeitsverlauf."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Tela do ShiftMate no tablet com padrões de turnos e histórico de trabalho."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Écran ShiftMate sur tablette présentant les rythmes de travail et l’historique."
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW6lH_wyGXydUbVGin2u347_X0GaV2PDiVPeBZtw53ArfuDgvGbioMeHZlihyphenhyphenxaE2yc_IFPDA6hh7aHsLY9JyD8DSgPFY6hntaklfBQEH-LicWOUwaVuebnksc0sSAmlgrJrU4GOBUMcMrgStjJ6LAlHzCTI88WvD7jsyKtGtOdkQFMlDQ2d_K4bEDfuE/s1600/ShiftMate_ko_06_1920x1080.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW6lH_wyGXydUbVGin2u347_X0GaV2PDiVPeBZtw53ArfuDgvGbioMeHZlihyphenhyphenxaE2yc_IFPDA6hh7aHsLY9JyD8DSgPFY6hntaklfBQEH-LicWOUwaVuebnksc0sSAmlgrJrU4GOBUMcMrgStjJ6LAlHzCTI88WvD7jsyKtGtOdkQFMlDQ2d_K4bEDfuE/s1600/ShiftMate_ko_06_1920x1080.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate shift alarm displayed on a tablet."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "タブレットに表示されたShiftMateの出勤アラーム。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "平板上显示的 ShiftMate 上班闹钟。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "平板上顯示的 ShiftMate 上班鬧鐘。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarma de turno de ShiftMate en una tableta."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Báo thức đi làm ShiftMate hiển thị trên máy tính bảng."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Schichtalarm auf einem Tablet."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarme de turno do ShiftMate em um tablet."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-alarm.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-alarm.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarme de service ShiftMate affichée sur une tablette."
+        }
+      }
+    }
+  ]
+}
