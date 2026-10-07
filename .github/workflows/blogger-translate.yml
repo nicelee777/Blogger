@@ -21,6 +21,7 @@ on:
       - 'blogger/posts/**/ko.html'
       - 'blogger/posts/**/meta.json'
       - 'blogger/config.json'
+      - 'blogger/post-links.json'
       - 'blogger/glossary.json'
       - 'blogger/glossary-overrides.json'
       - 'blogger/editorial-policy.md'
@@ -31,6 +32,7 @@ on:
       - 'scripts/blogger_translate.py'
       - 'scripts/blogger_normalize_spacing.py'
       - 'scripts/blogger_translate_posts.py'
+      - 'scripts/blogger_localized_links.py'
       - 'scripts/blogger_validate.py'
       - 'scripts/blogger_validate_guide.py'
       - 'scripts/blogger_validate_post.py'
@@ -191,6 +193,7 @@ jobs:
           cp /tmp/shiftmate-glossary.json blogger/glossary.json
           trap - EXIT
 
+          python scripts/blogger_localized_links.py
           python scripts/blogger_normalize_spacing.py blogger/faq blogger/guide blogger/posts
           python scripts/blogger_validate.py blogger/faq/*.html
           if [[ -f blogger/guide/ko.html ]]; then

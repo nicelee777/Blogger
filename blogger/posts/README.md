@@ -145,6 +145,22 @@ Images and YouTube embeds may be included directly in `ko.html` when exact URLs 
 - do not invent asset/media URLs;
 - use meaningful `alt` text and iframe `title` text.
 
+### Localized internal Post links
+
+`blogger/post-links.json` groups verified live URLs by content ID and locale.
+The Korean source retains Korean links. After translation,
+`scripts/blogger_localized_links.py` changes only registered anchor destinations
+to the same-language Post, preserving query parameters, fragments, link text,
+and all other attributes. Unknown URLs, image links and store links stay intact.
+The Post validator applies the same mapping to its expected source; arbitrary
+URL changes still fail validation. Missing language targets fail rather than
+silently falling back to Korean.
+
+Run `python scripts/blogger_localized_links.py` after adding or updating verified
+Post addresses. The translation workflow also runs this step before validation
+and committing output, including when only the registry changes. New articles
+can link to registered Posts without manually editing every translation.
+
 ### Localized image overrides
 
 When localized banners are explicitly requested, add an item-level `media.json`
