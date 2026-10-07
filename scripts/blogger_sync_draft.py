@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-import time
 import urllib.parse
 from pathlib import Path
 
@@ -18,6 +17,7 @@ from blogger_sync import (
     http_json,
     list_all_posts,
     permalink_slug_for,
+    post_payload_matches,
     seeded_payload,
     post_url_matches,
 )
@@ -121,7 +121,7 @@ def main() -> int:
                 )
                 continue
             print(f"[{locale}] update existing draft {post['id']} -> {titles[locale]}")
-            if not args.dry_run:
+            if not args.dry_run and not post_payload_matches(post, draft_payload):
                 updated = http_json(
                     f"{BLOGGER_API}/blogs/{blog_id}/posts/{post['id']}",
                     method="PATCH",
@@ -129,7 +129,8 @@ def main() -> int:
                     body=draft_payload,
                 )
                 post.update(updated)
-                time.sleep(1.2)
+            elif not args.dry_run:
+                print("  unchanged; Blogger write skipped")
         else:
             print(f"[{locale}] create draft -> {titles[locale]}")
             if not args.dry_run:
@@ -139,7 +140,6 @@ def main() -> int:
                 )
                 created = http_json(endpoint, method="POST", token=token, body=draft_payload)
                 remote_posts.append(created)
-                time.sleep(1.2)
 
     return 0
 

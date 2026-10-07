@@ -35,13 +35,24 @@ def http_json(
         data = json.dumps(body, ensure_ascii=False).encode("utf-8")
 
     retryable_codes = {429, 500, 502, 503, 504}
-    delays = (2, 4, 8, 16)
+    delays = (5, 10, 20, 40, 80)
     for attempt in range(len(delays) + 1):
         req = urllib.request.Request(url, data=data, headers=headers, method=method)
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 payload = resp.read()
-                return json.loads(payload) if payload else {}
+                result = json.loads(payload) if payload else {}
+                if method.upper() != "GET":
+                    try:
+                        write_delay = max(
+                            0.0,
+                            float(os.environ.get("BLOGGER_WRITE_DELAY_SECONDS", "4.0")),
+                        )
+                    except ValueError:
+                        write_delay = 4.0
+                    if write_delay:
+                        time.sleep(write_delay)
+                return result
         except urllib.error.HTTPError as exc:
             detail = exc.read().decode(errors="replace")
             if exc.code in retryable_codes and attempt < len(delays):
@@ -198,6 +209,16 @@ def seeded_payload(payload: dict[str, Any], slug: str) -> dict[str, Any]:
     if not slug:
         return payload
     return {**payload, "title": slug}
+
+
+def post_payload_matches(post: dict[str, Any], payload: dict[str, Any]) -> bool:
+    remote_labels = {str(value) for value in post.get("labels", [])}
+    wanted_labels = {str(value) for value in payload.get("labels", [])}
+    return (
+        str(post.get("title", "")) == str(payload.get("title", ""))
+        and str(post.get("content", "")) == str(payload.get("content", ""))
+        and remote_labels == wanted_labels
+    )
 
 
 def create_seeded_live_post(
@@ -535,12 +556,13 @@ def sync_posts(
                     # Blogger API has no custom-permalink field. Publish the draft
                     # while its title is the ASCII slug seed, then restore the
                     # localized title without changing the generated permalink.
-                    if not dry_run:
+                    seed_payload = seeded_payload(payload, permalink_slug)
+                    if not dry_run and not post_payload_matches(post, seed_payload):
                         post = http_json(
                             f"{BLOGGER_API}/blogs/{blog_id}/posts/{post['id']}",
                             method="PATCH",
                             token=token,
-                            body=seeded_payload(payload, permalink_slug),
+                            body=seed_payload,
                         )
                     post = reconcile_post_state(
                         token,
@@ -566,7 +588,7 @@ def sync_posts(
                     print(f"  url={post.get('url', '')}")
                     continue
 
-                if not dry_run:
+                if not dry_run and not post_payload_matches(post, payload):
                     post = http_json(
                         f"{BLOGGER_API}/blogs/{blog_id}/posts/{post['id']}",
                         method="PATCH",
@@ -574,6 +596,8 @@ def sync_posts(
                         body=payload,
                     )
                     matches[0].update(post)
+                elif not dry_run:
+                    print("  content unchanged; Blogger write skipped")
 
                 if should_publish:
                     post = reconcile_post_state(
