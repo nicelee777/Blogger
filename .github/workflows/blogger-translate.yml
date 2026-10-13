@@ -17,6 +17,7 @@ on:
     branches: [develop]
     paths:
       - 'blogger/faq/ko.html'
+      - 'blogger/content-freshness-rules.json'
       - 'blogger/guide/ko.html'
       - 'blogger/posts/**/ko.html'
       - 'blogger/posts/**/meta.json'
@@ -33,6 +34,7 @@ on:
       - 'scripts/blogger_normalize_spacing.py'
       - 'scripts/blogger_translate_posts.py'
       - 'scripts/blogger_localized_links.py'
+      - 'scripts/blogger_content_freshness.py'
       - 'scripts/blogger_validate.py'
       - 'scripts/blogger_validate_guide.py'
       - 'scripts/blogger_validate_post.py'
@@ -204,6 +206,9 @@ jobs:
             item="$(dirname "$meta")"
             python scripts/blogger_validate_post.py "$item" --all-locales
           done < <(find blogger/posts -mindepth 3 -maxdepth 3 -name meta.json -print0 2>/dev/null || true)
+
+          python scripts/blogger_content_freshness.py
+          python -m unittest discover -s scripts -p 'test_blogger_content_freshness.py'
 
           if [[ -z "$(git status --porcelain -- blogger/faq blogger/guide blogger/posts)" ]]; then
             echo "No translation changes."

@@ -33,3 +33,11 @@ Help the user solve the issue with the fewest necessary steps while preserving s
 ```
 
 Keep the answer as short as the task allows.
+
+## Release freshness review
+
+- After each app release, compare current FAQ/Guide feature wording with verified release notes and product facts.
+- Retire generic upcoming-feature panels. Publish completed changes in versioned Notices instead.
+- Add known outdated promises to `blogger/content-freshness-rules.json` to block reintroduction in CI.
+- Run `python scripts/blogger_content_freshness.py` before translation or production publication.
+- This pattern-based check is not full automatic fact-checking. A person must review changed product behavior.

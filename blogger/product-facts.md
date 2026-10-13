@@ -25,6 +25,12 @@ ShiftMate supports core workflows such as:
 
 Do not imply that every feature is identical on every platform or locale unless the brief explicitly confirms it.
 
+## Multi-device shift sync (10.0 release copy)
+
+- ShiftMate 10.0 release notes describe shift synchronization across multiple devices with the same account.
+- Phrase this as synchronization of **supported shift data**, not automatic synchronization of all phone calendars, alarms, permissions, or device-local settings.
+- Device and data-type behavior may differ. Do not promise identical features on iOS/Android or claim every datum syncs instantly.
+
 ## Coworker shift freshness
 
 Current safe wording:

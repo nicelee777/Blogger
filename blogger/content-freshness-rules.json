@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "release_reference": "ShiftMate 10.0 release notes (YJDiary3/lib/lang/release_note_translations.dart)",
+  "last_reviewed": "2026-10-13",
+  "scope": "Known retired FAQ/Guide feature statements; not a substitute for manual release review",
+  "rules": [
+    {
+      "id": "obsolete-feature-banner",
+      "type": "faq",
+      "locale": "ko",
+      "pattern": "업데이트\\s*예정\\s*기능\\s*안내",
+      "message": "The generic upcoming-feature section is retired."
+    },
+    {
+      "id": "multidevice-still-planned",
+      "type": "both",
+      "locale": "ko",
+      "pattern": "(?:다중\\s*기기|여러\\s*기기).{0,100}(?:지원(?:을)?\\s*준비|지원\\s*예정|동기화(?:를)?\\s*준비)",
+      "message": "Multi-device shift sync is described as available in 10.0 release notes."
+    },
+    {
+      "id": "tablet-still-planned",
+      "type": "both",
+      "locale": "ko",
+      "pattern": "(?:태블릿|대화면).{0,80}(?:지원(?:을)?\\s*준비|지원\\s*예정|지원할\\s*예정)",
+      "message": "Tablet/large-screen improvements are no longer an upcoming-only claim."
+    },
+    {
+      "id": "viewer-management-still-planned",
+      "type": "both",
+      "locale": "ko",
+      "pattern": "(?:공유\\s*관리|내\\s*근무\\s*공유).{0,80}(?:추가할\\s*예정|준비\\s*중)",
+      "message": "Share-viewer management appears in 10.0 release notes."
+    },
+    {
+      "id": "localized-multidevice-old-copy-en",
+      "type": "faq",
+      "locale": "en",
+      "section": "faq-multiple-devices",
+      "pattern": "We are preparing",
+      "message": "The old English answer still promises future multi-device support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-ja",
+      "type": "faq",
+      "locale": "ja",
+      "section": "faq-multiple-devices",
+      "pattern": "複数端末対応を準備しています",
+      "message": "The old Japanese answer still promises future support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-zh-cn",
+      "type": "faq",
+      "locale": "zh-cn",
+      "section": "faq-multiple-devices",
+      "pattern": "正在准备多设备支持",
+      "message": "The old Chinese answer still promises future support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-zh-tw",
+      "type": "faq",
+      "locale": "zh-tw",
+      "section": "faq-multiple-devices",
+      "pattern": "正在準備多裝置支援",
+      "message": "The old Chinese answer still promises future support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-es",
+      "type": "faq",
+      "locale": "es",
+      "section": "faq-multiple-devices",
+      "pattern": "Estamos preparando",
+      "message": "The old Spanish answer still promises future support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-vi",
+      "type": "faq",
+      "locale": "vi",
+      "section": "faq-multiple-devices",
+      "pattern": "đang chuẩn bị",
+      "message": "The old Vietnamese answer still promises future support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-de",
+      "type": "faq",
+      "locale": "de",
+      "section": "faq-multiple-devices",
+      "pattern": "bereiten wir die Unterstützung",
+      "message": "The old German answer still promises future support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-pt-br",
+      "type": "faq",
+      "locale": "pt-br",
+      "section": "faq-multiple-devices",
+      "pattern": "Estamos preparando",
+      "message": "The old Portuguese answer still promises future support."
+    },
+    {
+      "id": "localized-multidevice-old-copy-fr",
+      "type": "faq",
+      "locale": "fr",
+      "section": "faq-multiple-devices",
+      "pattern": "Nous préparons",
+      "message": "The old French answer still promises future support."
+    }
+  ]
+}

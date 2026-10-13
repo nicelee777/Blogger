@@ -258,3 +258,9 @@ The complete upload-ready Blogger theme is committed at:
 `blogger/theme/shiftmate-theme.xml`
 
 The standalone runtime remains at `blogger/theme/shiftmate-menu-runtime-v6.js`. CI validates both the XML and exact runtime embedding before production changes are merged.
+
+## FAQ/Guide release-freshness regression gate
+
+- `blogger/content-freshness-rules.json` records known outdated Korean feature promises and localized copy that was retired after ShiftMate 10.0.
+- `scripts/blogger_content_freshness.py` validates all FAQ/Guide locales. Both the translation and publish pipelines run the gate, along with regression tests.
+- On each app release, update product facts, review FAQ/Guide feature wording, and add retired claims to the rules. This gate is not a complete automatic product truth check.
