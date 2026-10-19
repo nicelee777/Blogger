@@ -21,19 +21,121 @@
     }
   },
   "locales": {
-    "ko": {"html_lang":"ko","name":"한국어","language_label":"lang-ko","faq_path":"/p/faq-ko.html","guide_path":"/p/guide-ko.html"},
-    "en": {"html_lang":"en","name":"English","language_label":"lang","faq_path":"/p/faq.html","guide_path":"/p/guide.html"},
-    "ja": {"html_lang":"ja","name":"日本語","language_label":"lang-ja","faq_path":"/p/faq-ja.html","guide_path":"/p/guide-ja.html"},
-    "zh-cn": {"html_lang":"zh-CN","name":"简体中文","language_label":"lang-zh-cn","faq_path":"/p/faq-cn.html","guide_path":"/p/guide-cn.html"},
-    "zh-tw": {"html_lang":"zh-TW","name":"繁體中文","language_label":"lang-zh-tw","faq_path":"/p/faq-tw.html","guide_path":"/p/guide-tw.html"},
-    "es": {"html_lang":"es","name":"Español","language_label":"lang-es","faq_path":"/p/faq-es.html","guide_path":"/p/guide-es.html"},
-    "vi": {"html_lang":"vi","name":"Tiếng Việt","language_label":"lang-vi","faq_path":"/p/faq-vi.html","guide_path":"/p/guide-vi.html"},
-    "de": {"html_lang":"de","name":"Deutsch","language_label":"lang-de","faq_path":"/p/faq-de.html","guide_path":"/p/guide-de.html"},
-    "pt-br": {"html_lang":"pt-BR","name":"Português (Brasil)","language_label":"lang-pt-br","faq_path":"/p/faq-pt-br.html","guide_path":"/p/guide-pt-br.html"},
-    "fr": {"html_lang":"fr","name":"Français","language_label":"lang-fr","faq_path":"/p/faq-fr.html","guide_path":"/p/guide-fr.html"}
+    "ko": {
+      "html_lang": "ko",
+      "name": "한국어",
+      "language_label": "lang-ko",
+      "faq_path": "/p/faq-ko.html",
+      "guide_path": "/p/guide-ko.html"
+    },
+    "en": {
+      "html_lang": "en",
+      "name": "English",
+      "language_label": "lang",
+      "faq_path": "/p/faq.html",
+      "guide_path": "/p/guide.html"
+    },
+    "ja": {
+      "html_lang": "ja",
+      "name": "日本語",
+      "language_label": "lang-ja",
+      "faq_path": "/p/faq-ja.html",
+      "guide_path": "/p/guide-ja.html"
+    },
+    "zh-cn": {
+      "html_lang": "zh-CN",
+      "name": "简体中文",
+      "language_label": "lang-zh-cn",
+      "faq_path": "/p/faq-cn.html",
+      "guide_path": "/p/guide-cn.html"
+    },
+    "zh-tw": {
+      "html_lang": "zh-TW",
+      "name": "繁體中文",
+      "language_label": "lang-zh-tw",
+      "faq_path": "/p/faq-tw.html",
+      "guide_path": "/p/guide-tw.html"
+    },
+    "es": {
+      "html_lang": "es",
+      "name": "Español",
+      "language_label": "lang-es",
+      "faq_path": "/p/faq-es.html",
+      "guide_path": "/p/guide-es.html"
+    },
+    "vi": {
+      "html_lang": "vi",
+      "name": "Tiếng Việt",
+      "language_label": "lang-vi",
+      "faq_path": "/p/faq-vi.html",
+      "guide_path": "/p/guide-vi.html"
+    },
+    "de": {
+      "html_lang": "de",
+      "name": "Deutsch",
+      "language_label": "lang-de",
+      "faq_path": "/p/faq-de.html",
+      "guide_path": "/p/guide-de.html"
+    },
+    "pt-br": {
+      "html_lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "language_label": "lang-pt-br",
+      "faq_path": "/p/faq-pt-br.html",
+      "guide_path": "/p/guide-pt-br.html"
+    },
+    "fr": {
+      "html_lang": "fr",
+      "name": "Français",
+      "language_label": "lang-fr",
+      "faq_path": "/p/faq-fr.html",
+      "guide_path": "/p/guide-fr.html"
+    }
   },
   "post_categories": {
     "notice": "notice",
     "story": "story"
+  },
+  "store_links": {
+    "ko": {
+      "app_store_url": "https://apps.apple.com/kr/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=ko"
+    },
+    "en": {
+      "app_store_url": "https://apps.apple.com/us/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=en"
+    },
+    "ja": {
+      "app_store_url": "https://apps.apple.com/jp/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=ja"
+    },
+    "zh-cn": {
+      "app_store_url": "https://apps.apple.com/cn/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=zh_CN"
+    },
+    "zh-tw": {
+      "app_store_url": "https://apps.apple.com/tw/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=zh_TW"
+    },
+    "es": {
+      "app_store_url": "https://apps.apple.com/es/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=es"
+    },
+    "vi": {
+      "app_store_url": "https://apps.apple.com/vn/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=vi"
+    },
+    "de": {
+      "app_store_url": "https://apps.apple.com/de/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=de"
+    },
+    "pt-br": {
+      "app_store_url": "https://apps.apple.com/br/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=pt_BR"
+    },
+    "fr": {
+      "app_store_url": "https://apps.apple.com/fr/app/id6474254415",
+      "google_play_url": "https://play.google.com/store/apps/details?id=juho.interrobang.yjdiary2&hl=fr"
+    }
   }
 }
