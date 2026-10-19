@@ -19,6 +19,8 @@ GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
 BLOGGER_API = "https://www.googleapis.com/blogger/v3"
 POST_STATUSES = ("live", "draft", "scheduled")
 
+from blogger_store_links import localize_store_links
+
 
 def http_json(
     url: str,
@@ -452,7 +454,7 @@ def sync_posts(
                 + "\n"
                 + seo_description_marker(description)
                 + "\n"
-                + body_path.read_text(encoding="utf-8")
+                + localize_store_links(body_path.read_text(encoding="utf-8"), locale, config)
             )
             matches = [
                 post
