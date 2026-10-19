@@ -1,0 +1,360 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-hero.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-hero.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "A nurse shift calendar app showing monthly shifts and personal plans"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "月間の交代勤務と個人の予定を管理する看護師向けカレンダー"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "护士排班日历应用中的月度班次与个人日程"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "護理師排班日曆 App 中的每月班次與個人行程"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Una app de turnos de enfermería con calendario mensual y planes personales"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Ứng dụng lịch trực điều dưỡng hiển thị ca trong tháng và lịch cá nhân"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Eine Pflege-Dienstplan-App mit Monatsübersicht und privaten Terminen"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "App de plantões de enfermagem com escala mensal e compromissos pessoais"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Application de planning infirmier avec horaires mensuels et rendez-vous personnels"
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-monthly.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-monthly.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "A monthly shift calendar showing Day, Evening, Night, Off, and personal plans"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Day・Evening・Night・Offと個人の予定が並ぶ月間勤務表"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "同时显示Day、Evening、Night、Off和个人日程的月历班表"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "同時顯示 Day、Evening、Night、Off 與個人行程的月曆班表"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Calendario mensual con Day, Evening, Night, Off y planes personales"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Lịch tháng hiển thị Day, Evening, Night, Off và lịch cá nhân"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Monatskalender mit Day, Evening, Night, Off und privaten Terminen"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Escala mensal com Day, Evening, Night, Off e compromissos pessoais"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-monthly.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-monthly.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Planning mensuel avec Day, Evening, Night, Off et rendez-vous personnels"
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-alarms.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-alarms.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Work alarms matched to Day, Evening, and Night shifts"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "日勤・準夜勤・夜勤に合わせた出勤アラーム"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "配合白班、晚班和夜班的上班闹钟"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "配合日班、小夜與大夜的上班鬧鐘"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarmas de trabajo adaptadas a turnos de día, tarde y noche"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Báo thức đi làm phù hợp với ca ngày, chiều và đêm"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Arbeitsalarme passend zu Tag-, Spät- und Nachtdiensten"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarmes de trabalho ajustados aos turnos diurno, vespertino e noturno"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Alarmes de travail adaptées aux postes de jour, de soir et de nuit"
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-sharing.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-sharing.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "A screen comparing coworker schedules and showing who is on shift together"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "同僚の勤務表を比較して一緒に働く人を確認する画面"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "比较同事班表并查看同班人员的界面"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "比較同事班表並查看同班人員的畫面"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Pantalla para comparar horarios de compañeros y ver quién coincide de turno"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Màn hình so sánh lịch đồng nghiệp và xem người cùng ca"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Ansicht zum Vergleichen von Dienstplänen und Erkennen gemeinsamer Dienste"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Tela que compara escalas de colegas e mostra quem trabalha junto"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Écran comparant les plannings des collègues et montrant les postes communs"
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-features.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-features.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate notes, customization, and shift statistics"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMateのメモ、カスタマイズ、勤務統計の紹介"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate的备忘、个性化和班次统计"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate 的備忘、個人化與班次統計"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Notas, personalización y estadísticas de turnos de ShiftMate"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Ghi chú, cá nhân hóa và thống kê ca trực của ShiftMate"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Notizen, Anpassungen und Dienststatistiken in ShiftMate"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Notas, personalização e estatísticas de plantões do ShiftMate"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-features.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-features.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Notes, personnalisation et statistiques de postes de ShiftMate"
+        }
+      }
+    }
+  ]
+}

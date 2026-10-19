@@ -2,11 +2,20 @@
   "category": "story",
   "slug": "how-to-choose-nurse-shift-calendar-app",
   "title_ko": "간호사 근무표 앱 선택 가이드: 확인할 8가지 기능",
-  "publish": false,
-  "labels": ["nurse-shift-calendar", "shift-planning", "app-guide"],
+  "publish": true,
+  "labels": [
+    "nurse-shift-calendar",
+    "shift-planning",
+    "app-guide"
+  ],
   "seo_description_ko": "간호사 근무표 앱을 고를 때 확인할 8가지 기능을 알아보세요. 월간 달력, 근무 알람, 동료 공유, 위젯, 태블릿 지원과 통계를 실제 근무 방식에 맞춰 살펴봅니다.",
   "primary_keyword": "간호사 근무표 앱",
-  "secondary_keywords": ["교대근무 달력", "간호사 스케줄 앱", "근무 알람", "근무표 위젯"],
+  "secondary_keywords": [
+    "교대근무 달력",
+    "간호사 스케줄 앱",
+    "근무 알람",
+    "근무표 위젯"
+  ],
   "permalink_slugs": {
     "ko": "how-to-choose-nurse-shift-calendar-app-ko",
     "en": "how-to-choose-nurse-shift-calendar-app",
