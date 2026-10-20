@@ -2,7 +2,7 @@
   "category": "story",
   "slug": "nurse-shift-schedule-guide",
   "title_ko": "간호사 듀티표 관리 방법: 근무 입력부터 알람·일정까지",
-  "publish": false,
+  "publish": true,
   "labels": [
     "nurse-shift-schedule",
     "shift-planning",
@@ -29,3 +29,4 @@
     "fr": "nurse-shift-schedule-guide-fr"
   }
 }
+
