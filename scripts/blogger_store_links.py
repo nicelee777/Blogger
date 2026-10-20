@@ -6,8 +6,8 @@ import re
 from pathlib import Path
 from urllib.parse import urlsplit
 
-ANCHOR = re.compile(r'<a\\b[^>]*>', re.I | re.S)
-HREF = re.compile(r'(\\bhref\\s*=\\s*)(["\\'])(.*?)\\2', re.I | re.S)
+ANCHOR = re.compile(r'<a\b[^>]*>', re.I | re.S)
+HREF = re.compile(r"(\bhref\s*=\s*)([\"'])(.*?)\2", re.I | re.S)
 
 def localize_store_links(content: str, locale: str, config: dict) -> str:
     urls = config["store_links"][locale]

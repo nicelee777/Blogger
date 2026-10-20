@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-hero.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-hero.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate promotional image showing monthly shifts and personal plans"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "勤務と個人の予定を月表示で紹介するShiftMateの画像"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "展示月度班次与个人日程的ShiftMate宣传图"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "展示月度班表與個人行程的ShiftMate宣傳圖"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagen de ShiftMate con un calendario mensual de turnos y planes personales"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Hình giới thiệu ShiftMate với lịch tháng gồm ca trực và lịch cá nhân"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Werbegrafik mit Monatskalender für Dienste und private Termine"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagem promocional do ShiftMate com calendário mensal de plantões e compromissos"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-hero.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-hero.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Visuel ShiftMate avec calendrier mensuel des postes et rendez-vous personnels"
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-alarms.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-alarms.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate promotional illustration of a shift alarm and daily shift information"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "勤務アラームと今日の勤務を紹介するShiftMateの画像"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "介绍班次闹钟与今日班次的ShiftMate宣传图"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "介紹班次鬧鐘與今日班別的ShiftMate宣傳圖"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagen promocional de ShiftMate con alarma y turno del día"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Hình giới thiệu báo thức và ca hôm nay trong ShiftMate"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Werbegrafik mit Dienstalarm und aktuellem Dienst"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagem promocional do ShiftMate com alarme e plantão do dia"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-alarms.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-alarms.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Visuel promotionnel ShiftMate avec alarme et poste du jour"
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-sharing.webp",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ko-sharing.webp"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/en-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate promotional image comparing coworker shift schedules"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/ja-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "同僚の勤務表を比較するShiftMateの画像"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-cn-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "展示同事排班对比的ShiftMate宣传图"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/zh-tw-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "展示同事班表比較的ShiftMate宣傳圖"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/es-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagen de ShiftMate para comparar turnos de compañeros"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/vi-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Hình ShiftMate so sánh lịch trực của đồng nghiệp"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/de-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Grafik zum Vergleich von Kollegenschichten"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/pt-br-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagem do ShiftMate comparando escalas de colegas"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-sharing.webp",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/11e38d8bf5ff4ee21c52fa10e11b4d0ca7c20169/blogger/assets/how-to-choose-nurse-shift-calendar-app/fr-sharing.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Visuel ShiftMate comparant les plannings des collègues"
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXsHXshFLELOMMKiIkUrGLE0DIQ-yemDrqSKBLj3gOl-VhZ3oWQ5Blro2KLE6BiNn3K7n2-2_DFJV4pJqLay3iIMd2YKFgtGPz9flJaA82ZHC76kg6QiMJ5PR00JMPlO9kjOnA-mTBmB2_m6tPwEHe1azxBUIdGNGXjqOyJ4bHKZQxP2wkMULmUYCMuQA/s1600/ShiftMate_ko_05_1920x1080.png",
+        "href": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXsHXshFLELOMMKiIkUrGLE0DIQ-yemDrqSKBLj3gOl-VhZ3oWQ5Blro2KLE6BiNn3K7n2-2_DFJV4pJqLay3iIMd2YKFgtGPz9flJaA82ZHC76kg6QiMJ5PR00JMPlO9kjOnA-mTBmB2_m6tPwEHe1azxBUIdGNGXjqOyJ4bHKZQxP2wkMULmUYCMuQA/s1600/ShiftMate_ko_05_1920x1080.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/en-analysis.png",
+          "width": 1920,
+          "height": 1080,
+          "alt": "ShiftMate image showing work and time-off statistics"
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/ja-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "勤務日数と夜勤や休日の統計を紹介するShiftMateの画像"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-cn-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "展示工作日夜班与休息统计的ShiftMate图片"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/zh-tw-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "展示工作日夜班與休假統計的ShiftMate圖片"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/es-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagen de estadísticas de trabajo, noches y días libres en ShiftMate"
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/vi-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Hình ShiftMate giới thiệu thống kê ngày làm ca đêm và ngày nghỉ"
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/de-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "ShiftMate-Grafik mit Statistiken zu Arbeitstagen Nachtdiensten und freien Tagen"
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/pt-br-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Imagem do ShiftMate com estatísticas de trabalho noites e folgas"
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-analysis.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/6f58dc9d5ea4f135928d200f870da7e730c49adf/blogger/assets/tablet-shift-calendar-app/fr-analysis.png",
+          "width": 1672,
+          "height": 941,
+          "alt": "Visuel ShiftMate présentant les statistiques de travail de nuit et de repos"
+        }
+      }
+    }
+  ]
+}

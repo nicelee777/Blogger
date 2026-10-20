@@ -1,0 +1,32 @@
+{
+  "category": "story",
+  "slug": "nurse-shift-schedule-guide",
+  "title_ko": "간호사 듀티표 관리 방법: 근무 입력부터 알람·일정까지",
+  "publish": true,
+  "labels": [
+    "nurse-shift-schedule",
+    "shift-planning",
+    "duty-calendar"
+  ],
+  "seo_description_ko": "간호사 듀티표를 한눈에 정리해 보세요. D·E·N·Off 근무 입력부터 개인 일정, 야간근무 전후 일정, 근무 알람과 동료 근무 확인까지 실용적인 관리 방법을 소개합니다.",
+  "primary_keyword": "간호사 듀티표",
+  "secondary_keywords": [
+    "간호사 근무표",
+    "간호사 교대근무",
+    "듀티표 관리",
+    "근무 알람"
+  ],
+  "permalink_slugs": {
+    "ko": "nurse-shift-schedule-guide",
+    "en": "nurse-shift-schedule-guide-en",
+    "ja": "nurse-shift-schedule-guide-ja",
+    "zh-cn": "nurse-shift-schedule-guide-zh-cn",
+    "zh-tw": "nurse-shift-schedule-guide-zh-tw",
+    "es": "nurse-shift-schedule-guide-es",
+    "vi": "nurse-shift-schedule-guide-vi",
+    "de": "nurse-shift-schedule-guide-de",
+    "pt-br": "nurse-shift-schedule-guide-pt-br",
+    "fr": "nurse-shift-schedule-guide-fr"
+  }
+}
+
