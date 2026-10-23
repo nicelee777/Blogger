@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "images": [
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-shifts.png",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-shifts.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "ShiftMate monthly shift calendar and daily plans, presented for the iPhone Duo display."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "iPhone Duoの画面に合わせたShiftMateの月間勤務表と日別予定の紹介画像。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "为iPhone Duo屏幕制作的ShiftMate月度班表与每日安排介绍图。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "為iPhone Duo螢幕製作的ShiftMate月度班表與每日行程介紹圖。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Calendario mensual de turnos y planes diarios de ShiftMate, presentado para la pantalla del iPhone Duo."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Lịch ca theo tháng và lịch trình hằng ngày của ShiftMate, được trình bày cho màn hình iPhone Duo."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Monatlicher Schichtkalender und Tagesplanung in ShiftMate, für das iPhone-Duo-Display dargestellt."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Calendário mensal de turnos e planos diários do ShiftMate, apresentado para a tela do iPhone Duo."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-shifts.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-shifts.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Calendrier mensuel des services et rendez-vous quotidiens de ShiftMate, présenté pour l’écran de l’iPhone Duo."
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-home.png",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-home.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "ShiftMate home screen showing today’s shift, plans and notes."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "今日の勤務・予定・メモを確認するShiftMateのホーム画面。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "显示今日班次、日程和备忘的ShiftMate主屏幕。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "顯示今日班次、行程與備忘的ShiftMate主畫面。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Pantalla de inicio de ShiftMate con el turno, los planes y las notas de hoy."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Màn hình chính ShiftMate hiển thị ca làm, lịch trình và ghi chú hôm nay."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "ShiftMate-Startseite mit der heutigen Schicht, Terminen und Notizen."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Tela inicial do ShiftMate com o turno, os compromissos e as notas de hoje."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-home.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-home.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Accueil de ShiftMate avec le service, les rendez-vous et les notes du jour."
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-team.png",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-team.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Shared coworker shift schedules in ShiftMate."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "共有された同僚の勤務を確認するShiftMateの紹介画像。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "在ShiftMate中查看同事共享班表的介绍图。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "在ShiftMate中查看同事分享班表的介紹圖。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Horarios de turnos compartidos por compañeros en ShiftMate."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Lịch ca được đồng nghiệp chia sẻ trong ShiftMate."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Geteilte Schichtpläne von Kollegen in ShiftMate."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Escalas de turnos compartilhadas por colegas no ShiftMate."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-team.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-team.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Plannings des services partagés par les collègues dans ShiftMate."
+        }
+      }
+    },
+    {
+      "source": {
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-notes.png",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ko-notes.png"
+      },
+      "locales": {
+        "en": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/en-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Personal notes and checklists in ShiftMate."
+        },
+        "ja": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/ja-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "個人のメモとチェックリストを整理するShiftMateの画面。"
+        },
+        "zh-cn": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-cn-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "在ShiftMate中整理个人备忘和待办清单的界面。"
+        },
+        "zh-tw": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/zh-tw-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "在ShiftMate中整理個人備忘與待辦清單的畫面。"
+        },
+        "es": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/es-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Notas personales y listas de tareas en ShiftMate."
+        },
+        "vi": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/vi-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Ghi chú cá nhân và danh sách việc cần làm trong ShiftMate."
+        },
+        "de": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/de-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Persönliche Notizen und Checklisten in ShiftMate."
+        },
+        "pt-br": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/pt-br-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Notas pessoais e listas de tarefas no ShiftMate."
+        },
+        "fr": {
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-notes.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/eaeaa9cfd20bb13f152fe889ea0b9663ca810e6d/blogger/assets/iphone-duo-nurse-shift-calendar/fr-notes.png",
+          "width": 2853,
+          "height": 2007,
+          "alt": "Notes personnelles et listes de tâches dans ShiftMate."
+        }
+      }
+    }
+  ]
+}

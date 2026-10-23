@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 
 from blogger_translate import assert_structure
 from blogger_localized_media import apply_localized_media
+from blogger_localized_copy import apply_localized_copy
 from blogger_localized_links import apply_localized_post_links
 
 FORBIDDEN_TAGS = {"script", "form", "object", "embed"}
@@ -227,6 +228,9 @@ def main() -> int:
                 errors.extend(validate_html(body, source=(locale == "ko")))
                 if locale != "ko":
                     try:
+                        actual = body.read_text(encoding="utf-8")
+                        if apply_localized_copy(item, actual, locale) != actual:
+                            raise ValueError("reviewed locale-specific copy has not been applied")
                         expected_source = apply_localized_media(item, source, locale)
                         expected_source = apply_localized_post_links(expected_source, locale)
                         assert_structure(expected_source, body.read_text(encoding="utf-8"))

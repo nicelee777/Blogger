@@ -1,0 +1,32 @@
+{
+  "category": "story",
+  "slug": "iphone-duo-nurse-shift-calendar",
+  "title_ko": "아이폰 듀오에서 간호사 근무표 관리하기｜ShiftMate 활용법",
+  "publish": true,
+  "labels": [
+    "iphone-duo",
+    "nurse-shift-calendar",
+    "ios"
+  ],
+  "seo_description_ko": "아이폰 듀오에서 간호사 근무표를 관리하는 방법을 알아보세요. ShiftMate로 교대근무 일정, 동료 근무, 메모와 출근 알람을 확인하세요.",
+  "primary_keyword": "아이폰 듀오 간호사 근무표",
+  "secondary_keywords": [
+    "아이폰 듀오 앱",
+    "간호사 근무표 앱",
+    "교대근무 캘린더",
+    "ShiftMate"
+  ],
+  "permalink_slugs": {
+    "ko": "iphone-duo-nurse-shift-calendar",
+    "en": "iphone-duo-shift-calendar-en",
+    "ja": "iphone-duo-shift-calendar-ja",
+    "zh-cn": "iphone-duo-shift-calendar-zh-cn",
+    "zh-tw": "iphone-duo-shift-calendar-zh-tw",
+    "es": "iphone-duo-shift-calendar-es",
+    "vi": "iphone-duo-shift-calendar-vi",
+    "de": "iphone-duo-shift-calendar-de",
+    "pt-br": "iphone-duo-shift-calendar-pt-br",
+    "fr": "iphone-duo-shift-calendar-fr"
+  },
+  "draft_sync_revision": 1
+}

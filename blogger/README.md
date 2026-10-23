@@ -264,3 +264,14 @@ The standalone runtime remains at `blogger/theme/shiftmate-menu-runtime-v6.js`. 
 - `blogger/content-freshness-rules.json` records known outdated Korean feature promises and localized copy that was retired after ShiftMate 10.0.
 - `scripts/blogger_content_freshness.py` validates all FAQ/Guide locales. Both the translation and publish pipelines run the gate, along with regression tests.
 - On each app release, update product facts, review FAQ/Guide feature wording, and add retired claims to the rules. This gate is not a complete automatic product truth check.
+
+## Scoped production publication
+
+On a main push containing concrete Post changes, production sync selects only
+those `story/<slug>` or `notice/<slug>` items. FAQ/Guide sync is skipped unless
+their source directories also changed. Required helper/config changes in the same
+release do not widen a concrete Post selection. Asset-only pushes do not publish.
+Manual runs can select one `item`; leaving it empty retains explicit full sync.
+Every production write is preceded by a dry run of the same selected targets.
+Locale-specific reviewed copy in `copy.json` is applied during body translation
+and metadata-only draft refresh; Korean source text guards prevent stale overrides.
