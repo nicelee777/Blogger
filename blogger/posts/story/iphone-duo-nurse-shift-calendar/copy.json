@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "blocks": [
+    {
+      "tag": "p",
+      "index": 2,
+      "source_text": "ShiftMate는 이번 업데이트에서 아이폰 듀오에서도 사용할 수 있도록 대응했습니다. 기존 ‘나는간호사다’의 새 이름인 ShiftMate로, 펼친 화면에서 근무와 일정을 어떻게 활용할 수 있는지 소개합니다.",
+      "locales": {
+        "en": "With this update, ShiftMate now supports iPhone Duo. Here is how to view and manage your shifts and plans on the unfolded screen.",
+        "ja": "今回のアップデートで、ShiftMateはiPhone Duoに対応しました。開いた画面で勤務表や予定を確認・管理する方法をご紹介します。",
+        "zh-cn": "本次更新后，ShiftMate 已支持 iPhone Duo。下面介绍如何在展开的屏幕上查看和管理班次与日程。",
+        "zh-tw": "這次更新後，ShiftMate 已支援 iPhone Duo。以下介紹如何在展開的螢幕上查看與管理班次及行程。",
+        "es": "Con esta actualización, ShiftMate es compatible con iPhone Duo. Descubre cómo consultar y organizar tus turnos y planes en la pantalla desplegada.",
+        "vi": "Trong bản cập nhật này, ShiftMate đã hỗ trợ iPhone Duo. Sau đây là cách xem và quản lý ca làm cùng lịch trình trên màn hình mở rộng.",
+        "de": "Mit diesem Update unterstützt ShiftMate das iPhone Duo. Hier erfährst du, wie du Schichten und Termine auf dem aufgeklappten Bildschirm ansehen und verwalten kannst.",
+        "pt-br": "Com esta atualização, o ShiftMate passou a oferecer suporte ao iPhone Duo. Veja como consultar e organizar seus turnos e compromissos na tela expandida.",
+        "fr": "Avec cette mise à jour, ShiftMate prend en charge l’iPhone Duo. Découvrez comment consulter et gérer vos services et vos rendez-vous sur l’écran déplié."
+      }
+    },
+    {
+      "tag": "h2",
+      "index": 4,
+      "source_text": "5. 기존 나는간호사다 사용자도 같은 앱에서",
+      "locales": {
+        "en": "5. Get started with ShiftMate on iPhone Duo",
+        "ja": "5. iPhone DuoでShiftMateを使い始める",
+        "zh-cn": "5. 在 iPhone Duo 上开始使用 ShiftMate",
+        "zh-tw": "5. 在 iPhone Duo 上開始使用 ShiftMate",
+        "es": "5. Empieza a usar ShiftMate en iPhone Duo",
+        "vi": "5. Bắt đầu sử dụng ShiftMate trên iPhone Duo",
+        "de": "5. Mit ShiftMate auf dem iPhone Duo starten",
+        "pt-br": "5. Comece a usar o ShiftMate no iPhone Duo",
+        "fr": "5. Commencer avec ShiftMate sur iPhone Duo"
+      }
+    },
+    {
+      "tag": "p",
+      "index": 18,
+      "source_text": "ShiftMate는 기존 ‘나는간호사다’의 새 이름입니다. 아이폰 듀오에서도 근무표를 관리하고 싶은 기존 사용자라면 앱스토어에서 업데이트 내용과 지원 환경을 확인해 주세요.",
+      "locales": {
+        "en": "To manage your nurse shift schedule on iPhone Duo, check the latest update details and device requirements in the App Store. Then set up your shift names and times to match your workplace.",
+        "ja": "iPhone Duoで看護師の勤務表を管理するなら、App Storeで最新のアップデート内容と対応環境をご確認ください。勤務名や時間は、自分の職場に合わせて設定しましょう。",
+        "zh-cn": "想在 iPhone Duo 上管理护士班表，可以先在 App Store 查看最新更新内容和设备要求，再根据自己的工作环境设置班次名称与时间。",
+        "zh-tw": "想在 iPhone Duo 上管理護理師班表，可以先到 App Store 查看最新更新內容與裝置需求，再依照自己的工作環境設定班次名稱及時間。",
+        "es": "Para gestionar tus turnos de enfermería en iPhone Duo, consulta las últimas novedades y los requisitos del dispositivo en App Store. Después, configura los nombres y horarios de los turnos según tu centro de trabajo.",
+        "vi": "Để quản lý lịch ca điều dưỡng trên iPhone Duo, hãy xem thông tin cập nhật mới nhất và yêu cầu thiết bị trên App Store. Sau đó, đặt tên và thời gian ca làm phù hợp với nơi làm việc của bạn.",
+        "de": "Wenn du deinen Pflege-Dienstplan auf dem iPhone Duo verwalten möchtest, prüfe im App Store die aktuellen Update-Informationen und Geräteanforderungen. Passe anschließend die Schichtnamen und -zeiten an deinen Arbeitsplatz an.",
+        "pt-br": "Para gerenciar sua escala de enfermagem no iPhone Duo, confira na App Store as novidades da atualização e os requisitos do dispositivo. Depois, configure os nomes e horários dos turnos conforme seu local de trabalho.",
+        "fr": "Pour gérer votre planning infirmier sur iPhone Duo, consultez les dernières nouveautés et la configuration requise dans l’App Store. Réglez ensuite les noms et les horaires des services selon votre établissement."
+      }
+    }
+  ]
+}

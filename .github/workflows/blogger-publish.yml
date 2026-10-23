@@ -3,6 +3,11 @@ name: Blogger - Publish
 on:
   workflow_dispatch:
     inputs:
+      item:
+        description: "Optional single Post: story/<slug> or notice/<slug>"
+        required: false
+        default: ""
+        type: string
       dry_run:
         description: 'Resolve targets without changing Blogger'
         required: false
@@ -44,6 +49,8 @@ jobs:
       BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -54,6 +61,11 @@ jobs:
 
       - name: Test localized Post overrides
         run: python -m unittest discover -s scripts -p 'test_blogger_localized*.py'
+
+      - name: Test production scope and store links
+        run: |
+          python -m unittest discover -s scripts -p 'test_blogger_publish_scope.py'
+          python -m unittest discover -s scripts -p 'test_blogger_store_links.py'
 
       - name: Validate Blogger theme runtime
         run: |
@@ -115,31 +127,49 @@ jobs:
             echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Blogger dry run
-        if: >-
-          github.event_name == 'workflow_dispatch' &&
-          steps.creds.outputs.ready == 'true' &&
-          inputs.dry_run
+      - name: Resolve publication scope
+        if: steps.creds.outputs.ready == 'true'
+        id: scope
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          REQUESTED_ITEM: ${{ inputs.item }}
+        run: python scripts/blogger_publish_scope.py
+
+      - name: Blogger dry run for selected targets
+        if: steps.creds.outputs.ready == 'true'
+        env:
+          SYNC_PAGES: ${{ steps.scope.outputs.pages }}
+          SYNC_POSTS: ${{ steps.scope.outputs.posts }}
+          POSTS_ROOT: ${{ steps.scope.outputs.posts_root }}
         shell: bash
         run: |
           set -euo pipefail
-          python scripts/blogger_ensure_pages.py --dry-run
-          python scripts/blogger_sync.py posts --dry-run
+          if [[ "$SYNC_PAGES" == "true" ]]; then
+            python scripts/blogger_ensure_pages.py --dry-run
+            python scripts/blogger_sync.py pages --dry-run
+          fi
+          if [[ "$SYNC_POSTS" == "true" ]]; then
+            python scripts/blogger_sync.py posts --posts-root "$POSTS_ROOT" --dry-run
+          fi
 
-      - name: Ensure localized Blogger Pages exist
+      - name: Publish selected Blogger targets
         if: >-
           steps.creds.outputs.ready == 'true' &&
           (
             github.event_name == 'push' ||
             (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
           )
-        run: python scripts/blogger_ensure_pages.py
-
-      - name: Publish to Blogger
-        if: >-
-          steps.creds.outputs.ready == 'true' &&
-          (
-            github.event_name == 'push' ||
-            (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
-          )
-        run: python scripts/blogger_sync.py all
+        env:
+          SYNC_PAGES: ${{ steps.scope.outputs.pages }}
+          SYNC_POSTS: ${{ steps.scope.outputs.posts }}
+          POSTS_ROOT: ${{ steps.scope.outputs.posts_root }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$SYNC_PAGES" == "true" ]]; then
+            python scripts/blogger_ensure_pages.py
+            python scripts/blogger_sync.py pages
+          fi
+          if [[ "$SYNC_POSTS" == "true" ]]; then
+            python scripts/blogger_sync.py posts --posts-root "$POSTS_ROOT"
+          fi

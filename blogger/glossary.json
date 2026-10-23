@@ -31,7 +31,9 @@
     "근무 크기": "Shift Size",
     "긴 근무명 표시": "Long shift names",
     "더 보기": "Show more",
-    "최대한 보기": "Maximum"
+    "최대한 보기": "Maximum",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "ja": {
     "ShiftMate": "ShiftMate",
@@ -65,7 +67,9 @@
     "근무 크기": "勤務サイズ",
     "긴 근무명 표시": "長い勤務名の表示",
     "더 보기": "もっと表示",
-    "최대한 보기": "できるだけ表示"
+    "최대한 보기": "できるだけ表示",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "zh-cn": {
     "ShiftMate": "ShiftMate",
@@ -99,7 +103,9 @@
     "근무 크기": "班次大小",
     "긴 근무명 표시": "长班次名称显示",
     "더 보기": "显示更多",
-    "최대한 보기": "尽量显示"
+    "최대한 보기": "尽量显示",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "zh-tw": {
     "ShiftMate": "ShiftMate",
@@ -133,7 +139,9 @@
     "근무 크기": "班次大小",
     "긴 근무명 표시": "長班次名稱顯示",
     "더 보기": "顯示更多",
-    "최대한 보기": "盡量顯示"
+    "최대한 보기": "盡量顯示",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "es": {
     "ShiftMate": "ShiftMate",
@@ -167,7 +175,9 @@
     "근무 크기": "Tamaño del turno",
     "긴 근무명 표시": "Nombres de turno largos",
     "더 보기": "Mostrar más",
-    "최대한 보기": "Máximo"
+    "최대한 보기": "Máximo",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "vi": {
     "ShiftMate": "ShiftMate",
@@ -201,7 +211,9 @@
     "근무 크기": "Kích thước ca",
     "긴 근무명 표시": "Tên ca dài",
     "더 보기": "Hiển thị thêm",
-    "최대한 보기": "Tối đa"
+    "최대한 보기": "Tối đa",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "de": {
     "ShiftMate": "ShiftMate",
@@ -235,7 +247,9 @@
     "근무 크기": "Schichtgröße",
     "긴 근무명 표시": "Lange Schichtnamen",
     "더 보기": "Mehr anzeigen",
-    "최대한 보기": "Maximal"
+    "최대한 보기": "Maximal",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "pt-br": {
     "ShiftMate": "ShiftMate",
@@ -269,7 +283,9 @@
     "근무 크기": "Tamanho do turno",
     "긴 근무명 표시": "Nomes longos de turno",
     "더 보기": "Mostrar mais",
-    "최대한 보기": "Máximo"
+    "최대한 보기": "Máximo",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   },
   "fr": {
     "ShiftMate": "ShiftMate",
@@ -303,6 +319,8 @@
     "근무 크기": "Taille du service",
     "긴 근무명 표시": "Noms de service longs",
     "더 보기": "Afficher plus",
-    "최대한 보기": "Maximum"
+    "최대한 보기": "Maximum",
+    "아이폰 듀오": "iPhone Duo",
+    "나는간호사다": "나는간호사다"
   }
 }
