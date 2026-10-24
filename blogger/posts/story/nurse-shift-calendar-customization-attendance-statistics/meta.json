@@ -1,0 +1,34 @@
+{
+  "category": "story",
+  "slug": "nurse-shift-calendar-customization-attendance-statistics",
+  "title_ko": "간호사 근무표 앱 활용법｜이모지·복무·근무통계·폰트·화면 꾸미기",
+  "publish": true,
+  "labels": [
+    "nurse-shift-calendar",
+    "shiftmate-features",
+    "shift-statistics",
+    "attendance"
+  ],
+  "seo_description_ko": "ShiftMate에서 이모지, 복무현황, 근무통계, 언어별 폰트와 근무표 화면 설정을 활용하는 방법을 소개합니다.",
+  "primary_keyword": "간호사 근무표 앱",
+  "secondary_keywords": [
+    "듀티표",
+    "근무통계",
+    "복무현황",
+    "이모지",
+    "화면 꾸미기"
+  ],
+  "permalink_slugs": {
+    "ko": "shiftmate-calendar-features",
+    "en": "shiftmate-calendar-features-en",
+    "ja": "shiftmate-calendar-features-ja",
+    "zh-cn": "shiftmate-calendar-features-zh-cn",
+    "zh-tw": "shiftmate-calendar-features-zh-tw",
+    "es": "shiftmate-calendar-features-es",
+    "vi": "shiftmate-calendar-features-vi",
+    "de": "shiftmate-calendar-features-de",
+    "pt-br": "shiftmate-calendar-features-pt-br",
+    "fr": "shiftmate-calendar-features-fr"
+  },
+  "draft_sync_revision": 1
+}
