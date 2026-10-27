@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "blocks": [
+    {
+      "tag": "p",
+      "index": 8,
+      "source_text": "한국에서 기존에 사용하던 ‘나는간호사다’는 ShiftMate의 이전 이름입니다.",
+      "locales": {
+        "en": "Adjust these options to keep your rotating work schedule readable and organized.",
+        "ja": "自分の勤務に合わせて表示を調整すると、予定を確認しやすくなります。",
+        "zh-cn": "根据自己的轮班安排调整显示设置，方便查看日程。",
+        "zh-tw": "依照自己的輪班安排調整顯示設定，方便查看行程。",
+        "es": "Ajusta estas opciones para consultar mejor tu calendario de turnos.",
+        "vi": "Hãy điều chỉnh các tùy chọn để dễ xem lịch làm ca của bạn hơn.",
+        "de": "Passen Sie diese Optionen an, um Ihren Schichtplan übersichtlich zu gestalten.",
+        "pt-br": "Ajuste essas opções para visualizar sua escala de turnos com mais clareza.",
+        "fr": "Adaptez ces options pour afficher votre planning de manière plus lisible."
+      }
+    }
+  ]
+}
