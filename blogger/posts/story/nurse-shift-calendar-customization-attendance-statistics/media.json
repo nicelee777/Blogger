@@ -8,67 +8,67 @@
       },
       "locales": {
         "en": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Emoji markers: Mark up to two emojis per day (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-emoji.png",
+          "width": 941,
+          "height": 1672,
+          "alt": "ShiftMate – Emoji markers — Text-localized app screen example"
         },
         "ja": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 絵文字で予定を表示: 1日に最大2つの絵文字 (イメージ図)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 絵文字で予定を表示 — 原画面のテキストを翻訳した例"
         },
         "zh-cn": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 用表情符号标记日期: 每天最多添加两个表情符号 (示意图)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 用表情符号标记日期 — 原应用界面的文字翻译示例"
         },
         "zh-tw": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 用表情符號標記日期: 每天最多加入兩個表情符號 (示意圖)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 用表情符號標記日期 — 原應用程式畫面的文字翻譯範例"
         },
         "es": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Emojis en el calendario: Hasta dos emojis por día (Ilustración)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Emojis en el calendario — Pantalla original con texto traducido"
         },
         "vi": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Biểu tượng cảm xúc: Tối đa hai biểu tượng mỗi ngày (Hình minh họa)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Biểu tượng cảm xúc — Màn hình gốc với văn bản được dịch"
         },
         "de": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Emojis im Kalender: Bis zu zwei Emojis pro Tag (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Emojis im Kalender — Originalansicht mit übersetzten Texten"
         },
         "pt-br": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Emojis no calendário: Até dois emojis por dia (Ilustração)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Emojis no calendário — Tela original com textos traduzidos"
         },
         "fr": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-emoji.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-emoji.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Émojis du calendrier: Jusqu’à deux émojis par jour (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-emoji.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-emoji.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Émojis du calendrier — Écran original avec textes traduits"
         }
       }
     },
@@ -79,138 +79,138 @@
       },
       "locales": {
         "en": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Attendance & leave: Review leave and attendance records (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-attendance.png",
+          "width": 941,
+          "height": 1672,
+          "alt": "ShiftMate – Attendance & leave — Text-localized app screen example"
         },
         "ja": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 勤怠・休暇の記録: 休暇・勤怠の記録を確認 (イメージ図)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 勤怠・休暇の記録 — 原画面のテキストを翻訳した例"
         },
         "zh-cn": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 考勤与请假记录: 查看考勤和请假记录 (示意图)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 考勤与请假记录 — 原应用界面的文字翻译示例"
         },
         "zh-tw": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 考勤與請假紀錄: 查看考勤與請假紀錄 (示意圖)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 考勤與請假紀錄 — 原應用程式畫面的文字翻譯範例"
         },
         "es": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Asistencia y permisos: Consulta permisos y registros (Ilustración)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Asistencia y permisos — Pantalla original con texto traducido"
         },
         "vi": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Chấm công và nghỉ phép: Xem lịch nghỉ phép và chấm công (Hình minh họa)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Chấm công và nghỉ phép — Màn hình gốc với văn bản được dịch"
         },
         "de": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Anwesenheit und Urlaub: Abwesenheiten und Zeiten ansehen (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Anwesenheit und Urlaub — Originalansicht mit übersetzten Texten"
         },
         "pt-br": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Frequência e licenças: Confira afastamentos e registros (Ilustração)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Frequência e licenças — Tela original com textos traduzidos"
         },
         "fr": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-attendance.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-attendance.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Présence et absences: Consulter les absences et horaires (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-attendance.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-attendance.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Présence et absences — Écran original avec textes traduits"
         }
       }
     },
     {
       "source": {
-        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.svg",
-        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.svg"
+        "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+        "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg"
       },
       "locales": {
         "en": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Shift statistics: Compare monthly shift counts (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-statistics.png",
+          "width": 941,
+          "height": 1672,
+          "alt": "ShiftMate – Shift statistics — Text-localized app screen example"
         },
         "ja": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 勤務統計を確認: 月ごとの勤務回数を比較 (イメージ図)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 勤務統計を確認 — 原画面のテキストを翻訳した例"
         },
         "zh-cn": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 查看班次统计: 比较每月班次数量 (示意图)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 查看班次统计 — 原应用界面的文字翻译示例"
         },
         "zh-tw": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 查看班次統計: 比較每月班次次數 (示意圖)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 查看班次統計 — 原應用程式畫面的文字翻譯範例"
         },
         "es": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Estadísticas de turnos: Compara turnos por mes (Ilustración)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Estadísticas de turnos — Pantalla original con texto traducido"
         },
         "vi": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Thống kê ca làm: So sánh số ca theo tháng (Hình minh họa)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Thống kê ca làm — Màn hình gốc với văn bản được dịch"
         },
         "de": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Schichtstatistik: Monatliche Schichten vergleichen (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Schichtstatistik — Originalansicht mit übersetzten Texten"
         },
         "pt-br": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Estatísticas de turnos: Compare turnos por mês (Ilustração)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Estatísticas de turnos — Tela original com textos traduzidos"
         },
         "fr": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-statistics.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-statistics.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Statistiques de service: Comparer les services mensuels (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-statistics.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-statistics.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Statistiques de service — Écran original avec textes traduits"
         }
       }
     },
@@ -221,67 +221,67 @@
       },
       "locales": {
         "en": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – App fonts: Fonts vary by app language (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-font.png",
+          "width": 941,
+          "height": 1672,
+          "alt": "ShiftMate – App fonts — Korean font list example; available fonts vary by language"
         },
         "ja": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – アプリのフォント: 言語によってフォントが異なります (イメージ図)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/ja-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/ja-font.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – アプリのフォント — 韓国語のフォント一覧の例。フォントは言語によって異なります"
         },
         "zh-cn": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 应用字体设置: 可选字体因语言而异 (示意图)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/zh-cn-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/zh-cn-font.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 应用字体设置 — 韩语字体列表示例；可用字体因语言而异"
         },
         "zh-tw": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 應用程式字型: 可選字型依語言而異 (示意圖)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/zh-tw-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/zh-tw-font.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 應用程式字型 — 韓文字型清單範例；可用字型依語言而異"
         },
         "es": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Fuentes de la app: Las fuentes varían según el idioma (Ilustración)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/es-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/es-font.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Fuentes de la app — Ejemplo de fuentes en coreano; las fuentes varían según el idioma"
         },
         "vi": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Phông chữ ứng dụng: Phông chữ khác nhau theo ngôn ngữ (Hình minh họa)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/vi-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/vi-font.png",
+          "width": 841,
+          "height": 1871,
+          "alt": "ShiftMate – Phông chữ ứng dụng — Ví dụ danh sách phông chữ tiếng Hàn; phông chữ thay đổi theo ngôn ngữ"
         },
         "de": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – App-Schriftarten: Schriftarten variieren je Sprache (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/de-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/de-font.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – App-Schriftarten — Beispiel der koreanischen Schriftliste; Schriftarten variieren je Sprache"
         },
         "pt-br": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Fontes do aplicativo: As fontes variam por idioma (Ilustração)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/pt-br-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/pt-br-font.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Fontes do aplicativo — Exemplo de fontes em coreano; as fontes variam conforme o idioma"
         },
         "fr": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-font.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-font.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Polices de l’application: Les polices varient selon la langue (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/fr-font.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/208da76afba455894c5d242ecde4c355cce3dfc2/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v3/fr-font.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Polices de l’application — Exemple de polices en coréen ; les polices varient selon la langue"
         }
       }
     },
@@ -292,67 +292,67 @@
       },
       "locales": {
         "en": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/en-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Calendar appearance: Adjust shift size and display (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-display.png",
+          "width": 941,
+          "height": 1672,
+          "alt": "ShiftMate – Calendar appearance — Text-localized app screen example"
         },
         "ja": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ja-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – カレンダーの表示設定: 勤務表示とサイズを調整 (イメージ図)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-display.png",
+          "width": 842,
+          "height": 1869,
+          "alt": "ShiftMate – カレンダーの表示設定 — 原画面のテキストを翻訳した例"
         },
         "zh-cn": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-cn-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 日历显示设置: 调整班次显示和大小 (示意图)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-display.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 日历显示设置 — 原应用界面的文字翻译示例"
         },
         "zh-tw": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/zh-tw-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – 日曆顯示設定: 調整班次顯示與大小 (示意圖)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-display.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – 日曆顯示設定 — 原應用程式畫面的文字翻譯範例"
         },
         "es": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/es-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Personaliza el calendario: Ajusta el tamaño y la vista (Ilustración)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-display.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Personaliza el calendario — Pantalla original con texto traducido"
         },
         "vi": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/vi-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Tùy chỉnh lịch: Điều chỉnh kích thước ca làm (Hình minh họa)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-display.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Tùy chỉnh lịch — Màn hình gốc với văn bản được dịch"
         },
         "de": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/de-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Kalender anpassen: Anzeige und Größe anpassen (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-display.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Kalender anpassen — Originalansicht mit übersetzten Texten"
         },
         "pt-br": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/pt-br-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Personalizar calendário: Ajuste a exibição dos turnos (Ilustração)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-display.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Personalizar calendário — Tela original com textos traduzidos"
         },
         "fr": {
-          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-display.svg",
-          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/main/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/fr-display.svg",
-          "width": 720,
-          "height": 950,
-          "alt": "ShiftMate – Personnaliser le calendrier: Ajuster l’affichage des services (Illustration)"
+          "src": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-display.png",
+          "href": "https://raw.githubusercontent.com/nicelee777/Blogger/4a6747ead91aa529ebbf895dfc34123a291594dd/blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-display.png",
+          "width": 841,
+          "height": 1870,
+          "alt": "ShiftMate – Personnaliser le calendrier — Écran original avec textes traduits"
         }
       }
     }

@@ -1,0 +1,366 @@
+{
+  "version": 1,
+  "assets_commit": "4a6747ead91aa529ebbf895dfc34123a291594dd",
+  "images": [
+    {
+      "locale": "en",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "ja",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-cn",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-tw",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "es",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "vi",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "de",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "pt-br",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "fr",
+      "feature": "emoji",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-emoji.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-emoji.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "en",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "ja",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-cn",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-tw",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "es",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "vi",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "de",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "pt-br",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "fr",
+      "feature": "attendance",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-attendance.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-attendance.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "en",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "ja",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-cn",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-tw",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "es",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "vi",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "de",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "pt-br",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "fr",
+      "feature": "statistics",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-statistics.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-statistics.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "en",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "Korean font list example; available fonts vary by language"
+    },
+    {
+      "locale": "ja",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "韓国語のフォント一覧の例。フォントは言語によって異なります"
+    },
+    {
+      "locale": "zh-cn",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "韩语字体列表示例；可用字体因语言而异"
+    },
+    {
+      "locale": "zh-tw",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "韓文字型清單範例；可用字型依語言而異"
+    },
+    {
+      "locale": "es",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "Ejemplo de fuentes en coreano; las fuentes varían según el idioma"
+    },
+    {
+      "locale": "vi",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "Ví dụ danh sách phông chữ tiếng Hàn; phông chữ thay đổi theo ngôn ngữ"
+    },
+    {
+      "locale": "de",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "Beispiel der koreanischen Schriftliste; Schriftarten variieren je Sprache"
+    },
+    {
+      "locale": "pt-br",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "Exemplo de fontes em coreano; as fontes variam conforme o idioma"
+    },
+    {
+      "locale": "fr",
+      "feature": "font",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-font.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-font.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": "Exemple de polices en coréen ; les polices varient selon la langue"
+    },
+    {
+      "locale": "en",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/en-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "ja",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/ja-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-cn",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-cn-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "zh-tw",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/zh-tw-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "es",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/es-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "vi",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/vi-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "de",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/de-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "pt-br",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/pt-br-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    },
+    {
+      "locale": "fr",
+      "feature": "display",
+      "file": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/localized-v2/fr-display.png",
+      "source": "blogger/assets/nurse-shift-calendar-customization-attendance-statistics/ko-display.jpg",
+      "method": "Original screenshot text localization; reconstructed derivative, not a native localized capture",
+      "font_note": null
+    }
+  ]
+}
